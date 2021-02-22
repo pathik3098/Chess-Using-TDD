@@ -1,0 +1,24 @@
+stages: 
+  - build
+  - test
+  
+build: 
+  stage: build
+  tags: 
+    - ugrad
+  script: 
+    - cd ./Chess  
+    - mvn compile
+
+test: 
+  stage: test
+  tags: 
+    - ugrad
+  script: 
+    - cd ./Chess
+    - mvn clean test
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - ./A1/target/surefire-reports/TEST-*.xml
