@@ -58,6 +58,6 @@ public abstract class Piece {
     }
 
     // method to check the valid moves of a piece
-    public abstract boolean ValidMove();
+    public abstract boolean ValidMove(int target_x, int target_y);
 
 }
