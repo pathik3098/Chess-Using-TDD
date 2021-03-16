@@ -3,61 +3,82 @@ package Pieces;
 import ChessBoard.Board;
 
 public abstract class Piece {
-    private int x,y;
-    private boolean is_white;
-    String path;
-    Board board;
+
+    private int positionX;
+    private int positionY;
+    private boolean isWhite;
+    private String filePath;
+    public Board board;
 
 
-    public Piece(int x, int y, boolean is_white, String path, Board board){
-        this.x=x;
-        this.y=y;
-        this.is_white=is_white;
-        this.path = path;
+    public Piece(int x, int y, boolean isWhite, String path, Board board)
+    {
+        this.positionX=x;
+        this.positionY=y;
+        this.isWhite=isWhite;
+        this.filePath = path;
         this.board = board;
     }
 
-    public void setX(int x)
+    public void setPositionX(int x)
     {
-        this.x = x;
+        this.positionX = x;
+    }
+    public int getPositionX()
+    {
+        return positionX;
     }
 
-    public void setY(int y)
+    public void setPositionY(int y)
     {
-        this.y = y;
+        this.positionY = y;
+    }
+    public int getPositionY()
+    {
+        return positionY;
     }
 
-    public int getX()
+    public void setFilePath(String path)
     {
-        return x;
+        this.filePath = path;
     }
 
-    public int getY()
+    public String getFilePath()
     {
-        return y;
-    }
-
-    public String getPath()
-    {
-        return path;
-    }
-
-    public void setPath(String path)
-    {
-        this.path = path;
+        return filePath;
     }
 
     public boolean isWhite()
     {
-        return is_white;
+        return isWhite;
     }
 
     public boolean isBlack()
     {
-        return !is_white;
+        return !isWhite;
     }
 
-    // method to check the valid moves of a piece
-    public abstract boolean ValidMove(int target_x, int target_y);
+    public abstract boolean ValidMove(int destinationX, int destinationY);
+
+    protected boolean differentColourPiece (Piece currentPiece, Piece targetPiece) {
+
+        if (targetPiece == null)
+        {
+            return true;
+        }
+
+        else {
+
+            if(targetPiece.isWhite() && currentPiece.isWhite()){
+                return false;
+            }
+            if(targetPiece.isBlack() && currentPiece.isBlack()){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    }
 
 }
