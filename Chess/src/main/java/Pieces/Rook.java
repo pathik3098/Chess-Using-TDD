@@ -6,8 +6,20 @@ import java.util.ArrayList;
 public class Rook extends Piece{
 
     public Rook(int x, int y, boolean isWhite, String path, Board board){
-
         super(x,y,isWhite,path,board);
+    }
+
+    @Override
+    public boolean ValidMove(int destination_x, int destination_y) {
+
+        Piece piece = board.getPiece(destination_x,destination_y);
+        ArrayList Conditions = new ArrayList();
+
+        Conditions.add(differentColourPiece(this,piece));
+        Conditions.add(straightMovement(this,piece));
+        Conditions.add(isPieceInBetween(this,piece));
+
+        return false;
     }
 
     public boolean straightMovement(Piece currentPiece, Piece targetPiece) {
@@ -30,6 +42,9 @@ public class Rook extends Piece{
         int signX = Integer.signum(targetX - currentX);
         int signY = Integer.signum(targetY - currentY);
 
+        int possibleX = currentX + (signX);
+        int possibleY = currentY + (signY);
+
         while((targetX != currentX) && (targetY != currentY))
         {
             // here the first current position will be of the active piece itself,
@@ -39,25 +54,13 @@ public class Rook extends Piece{
 
             if(p != null)
             {
-              return  false;
+                return  false;
             }
 
-            currentX = currentX + (signX * 1);
-            currentY = currentY + (signY * 1);
+            currentX = currentX + (signX);
+            currentY = currentY + (signY);
         }
         return true;
     }
 
-    @Override
-    public boolean ValidMove(int destination_x, int destination_y) {
-
-        Piece piece = board.getPiece(destination_x,destination_y);
-        ArrayList Conditions = new ArrayList();
-
-        Conditions.add(differentColourPiece(this,piece));
-        Conditions.add(straightMovement(this,piece));
-        Conditions.add(isPieceInBetween(this,piece));
-
-        return false;
-    }
 }

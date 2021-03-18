@@ -10,7 +10,6 @@ public abstract class Piece {
     private String filePath;
     public Board board;
 
-
     public Piece(int x, int y, boolean isWhite, String path, Board board)
     {
         this.positionX=x;
@@ -28,7 +27,6 @@ public abstract class Piece {
     {
         return positionX;
     }
-
     public void setPositionY(int y)
     {
         this.positionY = y;
@@ -37,22 +35,18 @@ public abstract class Piece {
     {
         return positionY;
     }
-
     public void setFilePath(String path)
     {
         this.filePath = path;
     }
-
     public String getFilePath()
     {
         return filePath;
     }
-
     public boolean isWhite()
     {
         return isWhite;
     }
-
     public boolean isBlack()
     {
         return !isWhite;
@@ -61,14 +55,11 @@ public abstract class Piece {
     public abstract boolean ValidMove(int destinationX, int destinationY);
 
     protected boolean differentColourPiece (Piece currentPiece, Piece targetPiece) {
-
         if (targetPiece == null)
         {
             return true;
         }
-
         else {
-
             if(targetPiece.isWhite() && currentPiece.isWhite()){
                 return false;
             }
