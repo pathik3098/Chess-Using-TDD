@@ -4,6 +4,8 @@ stages:
   
 build: 
   stage: build
+  only:
+    - master
   tags: 
     - ugrad
   script: 
