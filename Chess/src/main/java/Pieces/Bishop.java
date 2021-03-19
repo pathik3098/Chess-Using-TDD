@@ -2,11 +2,12 @@ package Pieces;
 
 import ChessBoard.Board;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 public class Bishop extends Piece {
+
+    String NORTHEAST = "NORTHEAST";
+    String NORTHWEST = "NORTHWEST";
+    String SOUTHEAST = "SOUTHEAST";
+    String SOUTHWEST = "SOUTHWEST";
 
     public Bishop(int initialX, int initialY, boolean isWhite, Board board) {
         super(initialX, initialY, isWhite, board);
@@ -50,16 +51,16 @@ public class Bishop extends Piece {
         int directionSignY = Integer.signum(finalCordY - this.getPositionY());
 
         if (directionSignX > 0 && directionSignY > 0) {
-            return "NORTHEAST";
+            return NORTHEAST;
         }
         if (directionSignX < 0 && directionSignY > 0) {
-            return "NORTHWEST";
+            return NORTHWEST;
         }
         if (directionSignX < 0 && directionSignY < 0) {
-            return "SOUTHWEST";
+            return SOUTHWEST;
         }
         if (directionSignX > 0 && directionSignY < 0) {
-            return "SOUTHEAST";
+            return SOUTHEAST;
         }
         return "";
     }
@@ -80,7 +81,7 @@ public class Bishop extends Piece {
     }
 
     private boolean checkPieceInBetweenSE(int finalCordY, String Direction) {
-        if (Direction == "SOUTHEAST") {
+        if (Direction.equals(SOUTHEAST)) {
             int spaces_in_between = Math.abs(this.getPositionY() - finalCordY) - 1;
             for (int i = 1; i <= spaces_in_between; i++) {
                 Piece p = board.getPiece(this.getPositionX() + i, this.getPositionY() - i);
@@ -93,7 +94,7 @@ public class Bishop extends Piece {
     }
 
     private boolean checkPieceInBetweenSW(int finalCordX, String Direction) {
-        if (Direction == "SOUTHWEST") {
+        if (Direction.equals(SOUTHWEST)) {
             int spaces_in_between = Math.abs(this.getPositionX() - finalCordX) - 1;
             for (int i = 1; i <= spaces_in_between; i++) {
                 Piece p = board.getPiece(this.getPositionX() - i, this.getPositionY() - i);
@@ -106,7 +107,7 @@ public class Bishop extends Piece {
     }
 
     private boolean checkPieceInBetweenNW(int finalCordY, String Direction) {
-        if (Direction == "NORTHWEST") {
+        if (Direction.equals(NORTHWEST)) {
             int spaces_in_between = Math.abs(finalCordY - this.getPositionY()) - 1;
             for (int i = 1; i <= spaces_in_between; i++) {
 
@@ -120,7 +121,7 @@ public class Bishop extends Piece {
     }
 
     private boolean checkPieceInBetweenNE(int finalCordX, String Direction) {
-        if (Direction == "NORTHEAST") {
+        if (Direction.equals(NORTHEAST)) {
             int spaces_in_between = Math.abs(finalCordX - this.getPositionX()) - 1;
             for (int i = 1; i <= spaces_in_between; i++) {
                 Piece p = board.getPiece(this.getPositionX() + i, this.getPositionY() + i);
