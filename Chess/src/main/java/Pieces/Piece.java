@@ -10,14 +10,17 @@ public abstract class Piece {
     private String filePath;
     public Board board;
 
+    private boolean pieceMoved;
 
-    public Piece(int x, int y, boolean isWhite, String path, Board board)
+
+    public Piece(int x, int y, boolean isWhite, String path, Board board, boolean isFirstMove)
     {
         this.positionX=x;
         this.positionY=y;
         this.isWhite=isWhite;
         this.filePath = path;
         this.board = board;
+        this.pieceMoved = isFirstMove;
     }
 
     public void setPositionX(int x)
@@ -58,7 +61,12 @@ public abstract class Piece {
         return !isWhite;
     }
 
-    public abstract boolean ValidMove(int destinationX, int destinationY);
+    public boolean isFirstMove()
+    {
+        return pieceMoved;
+    }
+
+    public abstract boolean validMove(int destinationX, int destinationY);
 
     protected boolean differentColourPiece (Piece currentPiece, Piece targetPiece) {
 
