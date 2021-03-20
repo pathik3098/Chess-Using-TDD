@@ -2,12 +2,12 @@ package Pieces;
 
 import ChessBoard.Board;
 
-public class knightPiece extends Piece {
+public class Knight extends Piece {
 
     boolean valid = false;
     int[][] possibleMovePositions = {{1, 2}, {2, 1}, {1, -2}, {-2, 1}, {2, -1}, {-1, 2}, {-1, -2}, {-2, -1}};
 
-    public knightPiece(int x, int y, boolean isWhite, String path, Board board) {
+    public Knight(int x, int y, boolean isWhite, String path, Board board) {
         super(x, y, isWhite, path, board);
     }
 
