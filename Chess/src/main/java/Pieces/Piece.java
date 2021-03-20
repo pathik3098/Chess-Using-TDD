@@ -10,12 +10,10 @@ public abstract class Piece {
     private String filePath;
     public Board board;
 
-//    public Piece(int x, int y, boolean isWhite, String path, Board board) {
-    public Piece(int x, int y, boolean isWhite, Board board) {
+    public Piece(int x, int y, boolean isWhite, String path, Board board) {
         this.positionX = x;
-        this.positionY = y;
         this.isWhite = isWhite;
-//        this.filePath = path;
+        this.filePath = path;
         this.board = board;
     }
 
@@ -35,13 +33,13 @@ public abstract class Piece {
         return positionY;
     }
 
-//    public void setFilePath(String path) {
-//        this.filePath = path;
-//    }
-//
-//    public String getFilePath() {
-//        return filePath;
-//    }
+    public void setFilePath(String path) {
+        this.filePath = path;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
 
     public boolean isWhite() {
         return isWhite;

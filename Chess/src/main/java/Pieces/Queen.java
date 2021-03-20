@@ -2,10 +2,10 @@ package Pieces;
 
 import ChessBoard.Board;
 
-public class Bishop extends Piece implements IBishop {
+public class Queen extends Piece implements IBishop, IRook {
 
-    public Bishop(int initialX, int initialY, boolean isWhite, String path, Board board) {
-        super(initialX, initialY, isWhite, path, board);
+    public Queen(int initialX, int initialY, boolean isWhite, String filepath, Board board) {
+        super(initialX, initialY, isWhite, filepath, board);
     }
 
     @Override
@@ -14,34 +14,102 @@ public class Bishop extends Piece implements IBishop {
         Piece piece = board.getPiece(finalCordX, finalCordY);
 
         if (checkValidMoveConditions(differentColourPiece(this, piece))) return false;
+        if (checkValidMoveConditions(straightMovement(this, piece))) return false;
+        if (checkValidMoveConditions(isPieceInBetween(this, piece))) return false;
 
         if (checkValidMoveConditions(diagonalMovement(finalCordX, finalCordY))) return false;
-
         if (checkValidMoveConditions(checkIfPieceInBetween(finalCordX, finalCordY))) return false;
 
         return true;
     }
 
-    private boolean checkValidMoveConditions(boolean condition) {
-        if (!condition) {
-            return true;
-        }
-        return false;
+    @Override
+    public boolean straightMovement(Piece currentPiece, Piece targetPiece) {
+        return (currentPiece.getPositionX() == targetPiece.getPositionX()) || (currentPiece.getPositionY() == targetPiece.getPositionY());
     }
 
-    public Boolean diagonalMovement(int finalCordX, int finalCordY) {
-        int diffX = Math.abs(finalCordX - this.getPositionX());
-        int diffY = Math.abs(finalCordY - this.getPositionY());
+    @Override
+    public boolean isPieceInBetween(Piece currentPiece, Piece targetPiece) {
+        int currentX = currentPiece.getPositionX();
+        int currentY = currentPiece.getPositionY();
+        int targetX = targetPiece.getPositionX();
+        int targetY = targetPiece.getPositionY();
 
-        if (diffX != diffY) {
-            return false;
+        int directionSignX = Integer.signum(targetX - currentX);
+        int directionSignY = Integer.signum(targetY - currentY);
+
+        if (directionSignX > 0) {
+            int spaceToMove = Math.abs(targetX - currentX);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX + i, currentY);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
+        if (directionSignX < 0) {
+            int spaceToMove = Math.abs(targetX - currentX);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX - i, currentY);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
+        if (directionSignY > 0) {
+            int spaceToMove = Math.abs(targetY - currentY);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX, currentY + i);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
+        if (directionSignY < 0) {
+            int spaceToMove = Math.abs(targetY - currentY);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX, currentY - i);
+
+                if (p != null) {
+                    return false;
+                }
+            }
         }
         return true;
-
     }
 
-    public String getDirectionMovement(int finalCordX, int finalCordY) {
+    @Override
+    public Boolean diagonalMovement(int finalCordX, int finalCordY) {
+        return (Math.abs(finalCordX - this.getPositionX()) == Math.abs(finalCordY - this.getPositionY()));
+    }
 
+    @Override
+    public Boolean checkIfPieceInBetween(int finalCordX, int finalCordY) {
+        String Direction = getDirectionMovement(finalCordX, finalCordY);
+
+        if (checkPieceInBetweenNE(finalCordX, Direction)) return false;
+
+        if (checkPieceInBetweenNW(finalCordY, Direction)) return false;
+
+        if (checkPieceInBetweenSW(finalCordX, Direction)) return false;
+
+        if (checkPieceInBetweenSE(finalCordY, Direction)) return false;
+
+        return true;
+    }
+
+    @Override
+    public String getDirectionMovement(int finalCordX, int finalCordY) {
         int directionSignX = Integer.signum(finalCordX - this.getPositionX());
         int directionSignY = Integer.signum(finalCordY - this.getPositionY());
 
@@ -61,21 +129,6 @@ public class Bishop extends Piece implements IBishop {
     }
 
     @Override
-    public Boolean checkIfPieceInBetween(int finalCordX, int finalCordY) {
-
-        String Direction = getDirectionMovement(finalCordX, finalCordY);
-
-        if (checkPieceInBetweenNE(finalCordX, Direction)) return false;
-
-        if (checkPieceInBetweenNW(finalCordY, Direction)) return false;
-
-        if (checkPieceInBetweenSW(finalCordX, Direction)) return false;
-
-        if (checkPieceInBetweenSE(finalCordY, Direction)) return false;
-
-        return true;
-    }
-
     public Boolean checkPieceInBetweenNE(int finalCordX, String Direction) {
         if (Direction.equals(NORTHEAST)) {
             int spaces_in_between = Math.abs(finalCordX - this.getPositionX()) - 1;
@@ -89,6 +142,7 @@ public class Bishop extends Piece implements IBishop {
         return false;
     }
 
+    @Override
     public Boolean checkPieceInBetweenNW(int finalCordY, String Direction) {
         if (Direction.equals(NORTHWEST)) {
             int spaces_in_between = Math.abs(finalCordY - this.getPositionY()) - 1;
@@ -103,6 +157,7 @@ public class Bishop extends Piece implements IBishop {
         return false;
     }
 
+    @Override
     public Boolean checkPieceInBetweenSW(int finalCordX, String Direction) {
         if (Direction.equals(SOUTHWEST)) {
             int spaces_in_between = Math.abs(this.getPositionX() - finalCordX) - 1;
@@ -116,6 +171,7 @@ public class Bishop extends Piece implements IBishop {
         return false;
     }
 
+    @Override
     public Boolean checkPieceInBetweenSE(int finalCordY, String Direction) {
         if (Direction.equals(SOUTHEAST)) {
             int spaces_in_between = Math.abs(this.getPositionY() - finalCordY) - 1;
@@ -128,5 +184,6 @@ public class Bishop extends Piece implements IBishop {
         }
         return false;
     }
+
 
 }
