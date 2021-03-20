@@ -5,19 +5,31 @@ import java.util.ArrayList;
 
 public class Pawn extends Piece
 {
-
-    public Pawn(int x, int y, boolean isWhite, String path, Board board,boolean isFirstMove)
+    private boolean hasMoved;
+    public Pawn(int x, int y, boolean isWhite, String path, Board board)
     {
-        super(x,y,isWhite,path,board,isFirstMove);
+        super(x,y,isWhite,path,board);
+        hasMoved = false;
+    }
+
+    public void setIsFirstMove(boolean has_moved)
+    {
+        this.hasMoved = has_moved;
+    }
+
+    public boolean getIsFirstMove()
+    {
+        return hasMoved;
     }
 
     @Override
-    public boolean validMove(int destination_x, int destination_y)
+    public boolean validMove(int destinationX, int destinationY)
     {
-        Piece targetPiece = board.getPiece(destination_x,destination_y);
+        Piece targetPiece = board.getPiece(destinationX,destinationY);
         if(isWhite())
         {
             canMoveWhite(this,targetPiece);
+            displayLegalMovesWhite(this,targetPiece);
         }
         else {
             canMoveBlack(this,targetPiece);
@@ -25,54 +37,56 @@ public class Pawn extends Piece
         return false;
     }
 
-
+// White Pawns
     public boolean canMoveWhite(Piece currentPiece, Piece targetPiece)
     {
-        if(isFirstMove())
+        if(getIsFirstMove())
         {
-            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX()) || currentPiece.getPositionY()+2 ==targetPiece.getPositionY() ||
+            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX())
+                    || currentPiece.getPositionY()+2 ==targetPiece.getPositionY() ||
                     currentPiece.getPositionX()+1 == targetPiece.getPositionY())
             {
                 return true;
             }
         }
-        else if(!isFirstMove())
+        else
         {
-            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX())|| currentPiece.getPositionX()+1 == targetPiece.getPositionY()+1)
+            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX())
+                    || currentPiece.getPositionX()+1 == targetPiece.getPositionY()+1)
             {
                 return true;
             }
         }
-        else
-        {
-            return false;
-        }
-
         return false;
     }
 
+    public void displayLegalMovesWhite(Piece currentPiece, Piece targetPiece)
+    {
+
+    }
+
+// Black Pawns
     public boolean canMoveBlack(Piece currentPiece, Piece targetPiece)
     {
-        if(isFirstMove())
+        if(getIsFirstMove())
         {
-            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX()) || currentPiece.getPositionY()-2 ==targetPiece.getPositionY()||
+            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX())
+                    || currentPiece.getPositionY()-2 ==targetPiece.getPositionY()||
                     currentPiece.getPositionX()-1 == targetPiece.getPositionY())
             {
                 return true;
             }
         }
-        else if(!isFirstMove())
+        else
         {
-            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX()) || currentPiece.getPositionX()-1 == targetPiece.getPositionY())
+            if((targetPiece!= null && currentPiece.getPositionX() == targetPiece.getPositionX())
+                    || currentPiece.getPositionX()-1 == targetPiece.getPositionY())
             {
                 return true;
             }
         }
-        else
-        {
-            return false;
-        }
-
         return false;
     }
+
+
 }

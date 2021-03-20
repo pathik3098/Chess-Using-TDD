@@ -11,7 +11,7 @@ public class PawnTest {
     // Valid move test when null
     @Test
     void ValidMoveTest() {
-        Pawn pawnObject = new Pawn(1, 1, true, "xxx", boardObject, true);
+        Pawn pawnObject = new Pawn(1, 1, true, "xxx", boardObject);
         Assertions.assertThrows(NullPointerException.class, () -> {
             pawnObject.validMove(1, 2);
         });
