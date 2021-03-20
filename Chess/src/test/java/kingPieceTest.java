@@ -23,10 +23,10 @@ public class kingPieceTest {
         kingPiece king = new kingPiece(3,0,true,"path",board);
         Assertions.assertEquals(king.ValidMove(3,1),true);
     }
-  /*  @Test
+    @Test
     void ValidMoveExclusionsNegativeTest(){
         Board board = new Board();
         kingPiece king = new kingPiece(3,0,true,"path",board);
-        Assertions.assertEquals(king.ValidMove(3,-1),true);
-    }*/
+        Assertions.assertNotEquals(king.ValidMove(3,-1),true);
+    }
 }

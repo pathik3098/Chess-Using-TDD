@@ -15,25 +15,21 @@ public class kingPiece extends Piece {
         Piece targetPiece = board.getPiece(destination_x, destination_y);
         boolean targetPieceColour = differentColourPiece(this, targetPiece);
         if (targetPieceColour) {
-            int[][] possibleLegalMoves = new int[8][2];
-            int[][] targetPosition = {{destination_x, destination_y}};
-            int[][] currentPosition = {{this.getPositionX(), this.getPositionY()}};
 
+            int[][] possibleLegalMoves = new int[8][2];
+            int targetPosition[][] = {{destination_x, destination_y}};
+            int currentPosition[][] = {{this.getPositionX(), this.getPositionY()}};
+            int possibleValue =0;
+            int prevPossibleValue =0;
             for (int row = 0; row < possibleMovePositions.length; row++) {
                 for (int col = 0; col < possibleMovePositions[row].length; col++) {
-                    possibleLegalMoves[row][col] = currentPosition[0][col] + possibleMovePositions[row][col];
+                    prevPossibleValue = possibleValue;
+                    possibleValue = currentPosition[0][col] + possibleMovePositions[row][col];
                 }
-            }
-            System.out.println("the length of possibleLegal moves is:" +possibleLegalMoves.length);
-            System.out.println("the length of possibleLegal moves is:" +possibleLegalMoves[0].length);
-
-
-            for (int row = 0; row < possibleLegalMoves.length; row++) {
-                System.out.print("\n");
-                if (possibleLegalMoves[row][0]>0 && possibleLegalMoves[row][0]<8){
-                    if(possibleLegalMoves[row][1]>0 && possibleLegalMoves[row][1]<8){
-                        System.out.print(possibleLegalMoves[row][0] + " " + possibleLegalMoves[row][1]);
-                    }
+                if (prevPossibleValue > 0 && prevPossibleValue < 8 && possibleValue > 0 && possibleValue < 8) {
+                    possibleLegalMoves[row][0] = prevPossibleValue;
+                    possibleLegalMoves[row][1] = possibleValue;
+                    System.out.print("\n" + possibleLegalMoves[row][0] + " " + possibleLegalMoves[row][1]);
                 }
             }
             for (int row = 0; row < possibleMovePositions.length; row++) {
