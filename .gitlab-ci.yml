@@ -28,6 +28,7 @@ test:
     when: always
     reports:
       junit:
+<<<<<<< HEAD
         - ./A1/target/surefire-reports/TEST-*.xml
         
 deploy:
@@ -43,3 +44,6 @@ deploy:
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
   only:
     - develop
+=======
+        - ./Chess/target/surefire-reports/TEST-*.xml
+>>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3

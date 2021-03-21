@@ -2,7 +2,15 @@
 /shelf/
 /workspace.xml
 # Datasource local storage ignored files
+<<<<<<< HEAD
 /../../../../../../../:\Users\HOME\Desktop\5308_Project\group-12\.idea/dataSources/
+=======
+<<<<<<< HEAD
+/../../../../../../../:\Users\HOME\Sravani\Group_Project\group-12\.idea/dataSources/
+=======
+/../../../../../../../:\Dalhousie Projects\5308 Adv SDC\Project\Project 12 repo\group-12\.idea/dataSources/
+>>>>>>> d3a5b3734114cd91e8de97e5bb9cee2eea3806c3
+>>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
