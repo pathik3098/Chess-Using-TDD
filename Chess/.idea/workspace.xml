@@ -4,9 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="1db7ead2-d223-480a-8a28-687ea47854a5" name="Default Changelist" comment="" />
-=======
     <list default="true" id="881e6d6e-d5ad-4edd-9f80-378cbdf854de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ChessBoard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessBoard/Board.java" afterDir="false" />
@@ -20,7 +17,6 @@
       <change beforePath="$PROJECT_DIR$/target/test-classes/BoardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BoardTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/RookTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RookTest.class" afterDir="false" />
     </list>
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="1owcDPoM652weMOthY3mfvuWp8N" />
-=======
   <component name="ProjectId" id="1pxhM5ev9DHJ5XFooMQYzHCghmU" />
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,16 +44,6 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-=======
     <property name="extract.method.default.visibility" value="private" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -76,14 +58,11 @@
   </component>
   <component name="RunManager" selected="JUnit.RookTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-<<<<<<< HEAD
-=======
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -95,14 +74,11 @@
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RookTest" />
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-=======
     <configuration name="RookTest.StraightMovementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
@@ -152,19 +128,10 @@
         <item itemvalue="JUnit.RookTest.StraightMovementTest" />
       </list>
     </recent_temporary>
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="1db7ead2-d223-480a-8a28-687ea47854a5" name="Default Changelist" comment="" />
-      <created>1614200976778</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1614200976778</updated>
-      <workItem from="1615920837528" duration="9902000" />
-=======
       <changelist id="881e6d6e-d5ad-4edd-9f80-378cbdf854de" name="Default Changelist" comment="" />
       <created>1616130601460</created>
       <option name="number" value="Default" />
@@ -176,7 +143,6 @@
       <workItem from="1616336466265" duration="316000" />
       <workItem from="1616337027860" duration="349000" />
       <workItem from="1616337445375" duration="6083000" />
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
     </task>
     <servers />
   </component>
@@ -195,8 +161,6 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -208,5 +172,4 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
 </project>

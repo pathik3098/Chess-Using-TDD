@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-=======
       <module fileurl="file://$PROJECT_DIR$/Chess/Chess.iml" filepath="$PROJECT_DIR$/Chess/Chess.iml" />
->>>>>>> fe2cc3aff01823881712afc1a8fac6eb7cdbe0c3
       <module fileurl="file://$PROJECT_DIR$/.idea/group-12.iml" filepath="$PROJECT_DIR$/.idea/group-12.iml" />
     </modules>
   </component>
