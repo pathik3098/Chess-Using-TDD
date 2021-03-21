@@ -15,15 +15,17 @@ public class Queen extends Piece implements IBishop, IRook {
 
         if (checkValidMoveConditions(differentColourPiece(this, piece))) return false;
         System.out.println("1");
-        if (checkValidMoveConditions(straightMovements(finalCordX, finalCordY))) return false;
+        if (checkValidMoveConditions(straightMovements(finalCordX, finalCordY) || diagonalMovement(finalCordX, finalCordY))) return false;
         System.out.println("2");
-
-        if (checkValidMoveConditions(isPieceInBetween(this, piece))) return false;
+        if (checkValidMoveConditions(IsPieceInBetween(finalCordX, finalCordY)||checkIfPieceInBetween(finalCordX, finalCordY))) return false;
         System.out.println("3");
 
 
-        if (checkValidMoveConditions(diagonalMovement(finalCordX, finalCordY))) return false;
-        if (checkValidMoveConditions(checkIfPieceInBetween(finalCordX, finalCordY))) return false;
+//        if (checkValidMoveConditions(diagonalMovement(finalCordX, finalCordY))) return false;
+//        System.out.println("4");
+//        if (checkValidMoveConditions(checkIfPieceInBetween(finalCordX, finalCordY))) return false;
+//        System.out.println("5");
+
 
         return true;
     }
@@ -43,6 +45,66 @@ public class Queen extends Piece implements IBishop, IRook {
         int currentY = currentPiece.getPositionY();
         int targetX = targetPiece.getPositionX();
         int targetY = targetPiece.getPositionY();
+
+        int directionSignX = Integer.signum(targetX - currentX);
+        int directionSignY = Integer.signum(targetY - currentY);
+
+        if (directionSignX > 0) {
+            int spaceToMove = Math.abs(targetX - currentX);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX + i, currentY);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
+        if (directionSignX < 0) {
+            int spaceToMove = Math.abs(targetX - currentX);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX - i, currentY);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
+        if (directionSignY > 0) {
+            int spaceToMove = Math.abs(targetY - currentY);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX, currentY + i);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
+        if (directionSignY < 0) {
+            int spaceToMove = Math.abs(targetY - currentY);
+
+            for (int i = 1; i < spaceToMove; i++) {
+                Piece p = board.getPiece(currentX, currentY - i);
+
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    public boolean IsPieceInBetween(int finalCordX, int finalCordY) {
+        int currentX = this.getPositionX();
+        int currentY = this.getPositionY();
+        int targetX = finalCordX;
+        int targetY = finalCordY;
 
         int directionSignX = Integer.signum(targetX - currentX);
         int directionSignY = Integer.signum(targetY - currentY);

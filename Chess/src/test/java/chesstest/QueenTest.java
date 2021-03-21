@@ -38,11 +38,11 @@ public class QueenTest {
     @Test
     public void diagonalMovementTest() {
         Queen queen = new Queen(0, 4, true, "filepath", board);
-        assertEquals(false, queen.ValidMove(1, 4));
+        assertEquals(true, queen.ValidMove(1, 5));
     }
 
     @Test
-    public void simpleTest() {
+    public void IsPieceInBetweenTest() {
         Queen queen = new Queen(0, 4, true, "filepath", board);
         assertEquals(false, queen.ValidMove(2, 2));
     }
