@@ -2,36 +2,42 @@ package Pieces;
 
 import ChessBoard.Board;
 
-public class Rook extends Piece implements IRook {
+public class Rook extends Piece{
 
-    public Rook(int x, int y, boolean isWhite, String path, Board board) {
+    public Rook(int x, int y, boolean isWhite, String path, Board board)
+    {
         super(x, y, isWhite, path, board);
     }
 
     @Override
-    public boolean ValidMove(int destination_x, int destination_y) {
+    public boolean ValidMove(int destinationX, int destinationY)
+    {
+        Piece piece = board.getPiece(destinationX,destinationY);
 
-        Piece piece = board.getPiece(destination_x, destination_y);
+        boolean a = differentColourPiece(this,piece);
+        boolean b = straightMovement(this,destinationX,destinationY);
+        boolean c = isPieceInBetween(this,destinationX,destinationY);
 
-        if (checkValidMoveConditions(differentColourPiece(this, piece))) return false;
-        if (checkValidMoveConditions(straightMovement(this, piece))) return false;
-        if (checkValidMoveConditions(isPieceInBetween(this, piece))) return false;
+        if(a&&b&&c)
+        {
+            return true;
+        }
 
-        return true;
+        return false;
+
     }
 
-    @Override
-    public boolean straightMovement(Piece currentPiece, Piece targetPiece) {
-        return (currentPiece.getPositionX() == targetPiece.getPositionX()) || (currentPiece.getPositionY() == targetPiece.getPositionY());
+    public boolean straightMovement(Piece currentPiece,int destinationX, int destinationY)
+    {
+        return (currentPiece.getPositionX() == destinationX) || (currentPiece.getPositionY() == destinationY);
     }
 
-    @Override
-    public boolean isPieceInBetween(Piece currentPiece, Piece targetPiece) {
-
+    public boolean isPieceInBetween(Piece currentPiece,int destinationX, int destinationY)
+    {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();
-        int targetX = targetPiece.getPositionX();
-        int targetY = targetPiece.getPositionY();
+        int targetX = destinationX;
+        int targetY = destinationY;
 
         int directionSignX = Integer.signum(targetX - currentX);
         int directionSignY = Integer.signum(targetY - currentY);
@@ -85,5 +91,4 @@ public class Rook extends Piece implements IRook {
         }
         return true;
     }
-
 }

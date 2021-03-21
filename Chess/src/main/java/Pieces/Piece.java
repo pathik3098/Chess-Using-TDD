@@ -54,7 +54,7 @@ public abstract class Piece {
 
     public abstract boolean ValidMove(int destinationX, int destinationY);
 
-    protected boolean differentColourPiece (Piece currentPiece, Piece targetPiece) {
+    public boolean differentColourPiece (Piece currentPiece, Piece targetPiece) {
         if (targetPiece == null)
         {
             return true;

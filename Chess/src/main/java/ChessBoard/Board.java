@@ -10,8 +10,8 @@ public class Board {
     public ArrayList<Piece> whitePieces;
     public Piece activePiece;
     private int turn = 0;
-    private int row = 8;
-    private int column = 8;
+    private final int row = 8;
+    private final int column = 8;
     private int[][] boardMatrix;
     boolean whiteTurn = true;
     private Piece p;
@@ -107,59 +107,35 @@ public class Board {
             whiteTurn = false;
         }
 
-        if(activePiece==null)
+        if(activePiece==null && clickedPiece != null)
         {
             setActivePiece(clickedPiece);
         }
 
-        else if((activePiece != null)&&(activePiece.getPositionX() == clickedX) && (activePiece.getPositionY() == clickedY))
-        {
-            activePiece = null;
-        }
-
-        else if((activePiece != null)&&(activePiece.ValidMove(clickedX,clickedY))&&((whiteTurn && activePiece.isWhite()) || (!whiteTurn && activePiece.isBlack())))
-        {
+        else if(activePiece != null) {
             movePiece(clickedX,clickedY,clickedPiece);
         }
-
-
-        // unselectActivePiece(clickedPiece);
-        //movePiece(clickedX,clickedY,clickedPiece);
-
     }
 
     private void setActivePiece(Piece clickedPiece)
     {
-        boolean isClickedPieceSet = (clickedPiece != null);
         boolean isWhiteTurn = (whiteTurn && clickedPiece.isWhite());
         boolean isBlackTurn = (!whiteTurn && clickedPiece.isBlack());
 
-        if(isClickedPieceSet && (isWhiteTurn||isBlackTurn))
+        if(isWhiteTurn||isBlackTurn)
         {
             activePiece = clickedPiece;
         }
     }
-/*
-    private void unselectActivePiece(Piece clickedPiece)
-    {
-        boolean isActivePieceSet = (activePiece != null);
-        boolean ActiveAndClickedPositionSame = ((activePiece.getPositionX() == clickedPiece.getPositionX()) && (activePiece.getPositionY() == clickedPiece.getPositionY()));
 
-        if(isActivePieceSet && ActiveAndClickedPositionSame)
-        {
-            activePiece = null;
-        }
-    }
-*/
     private void movePiece(int clickedX, int clickedY, Piece clickedPiece)
     {
-        //boolean activePieceSet = activePiece != null;
-        //boolean validPieceMovePosition = activePiece.ValidMove(clickedX,clickedY);
-        //boolean isWhiteTurn = (whiteTurn && activePiece.isWhite());
-        //boolean isBlackTurn = (!whiteTurn && activePiece.isBlack());
+        boolean validPieceMovePosition = activePiece.ValidMove(clickedX,clickedY);
+        boolean isWhiteTurn = (whiteTurn && activePiece.isWhite());
+        boolean isBlackTurn = (!whiteTurn && activePiece.isBlack());
 
-        //if(activePieceSet && validPieceMovePosition && (isWhiteTurn || isBlackTurn))
-        //{
+        if(validPieceMovePosition && (isWhiteTurn || isBlackTurn))
+        {
             if(clickedPiece != null)
             {
                 if(clickedPiece.isWhite())
@@ -183,7 +159,6 @@ public class Board {
             activePiece = null;
             turn++;
 
-        //}
+        }
     }
-
 }

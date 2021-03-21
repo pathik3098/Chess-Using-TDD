@@ -24,7 +24,7 @@ public class BoardTest {
         Assertions.assertEquals(whiteQueen,board.activePiece);
     }
 
-    @Test
+ /*   @Test
     public void unSelectActivePiece()
     {
         Board board = new Board();
@@ -33,14 +33,14 @@ public class BoardTest {
         board.chessMovement(0,4);
         Assertions.assertEquals(null,board.activePiece);
     }
-
+*/
     @Test
     public void movePieceTest()
     {
         Board board = new Board();
-        Piece whiteKnight = board.getPiece(0,1);
-        board.chessMovement(0,1);
+        Piece whiteRook = board.getPiece(0,0);
+        board.chessMovement(0,0);
         board.chessMovement(2,0);
-        Assertions.assertEquals(whiteKnight,board.activePiece);
+        Assertions.assertEquals(whiteRook,board.activePiece);
     }
 }
