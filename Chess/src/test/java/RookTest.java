@@ -5,39 +5,49 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RookTest {
-    // check whether the destination is different colour piece or not
+
     @Test
     public void differentColourPieceTest(){
         Board board = new Board();
-        Piece r = new Rook(0,0,true,"xyz", board);
-        int x=2;
+        Piece whiteRook = new Rook(0,0,true," ", board);
+        int x=1;
         int y=0;
-        Rook dest_r=new Rook(x, y, true, "abc", board);
-        Assertions.assertEquals(false,r.ValidMove(x,y));
+        board.chessMovement(0,0);
+        board.chessMovement(x,y);
+        Piece whiteTargetPiece = board.getPiece(x,y);
+        Assertions.assertEquals(false,whiteRook.differentColourPiece(whiteRook,whiteTargetPiece));
     }
-
-    // check whether the direction is straight or not
 
     @Test
     public void StraightMovementTest(){
         Board board = new Board();
-        Rook r = new Rook(0,0,true,"xyz", board);
-        int x=2;
-        int y=0;
-        Assertions.assertEquals(true,r.ValidMove(x,y));
+        Rook whiteRook = new Rook(0,0,true,"", board);
+        int targetX=5;
+        int targetY=0;
+        Assertions.assertEquals(true,whiteRook.straightMovement(whiteRook,targetX,targetY));
     }
-
-    // check whether there is a piece in between or not
 
     @Test
-    public void ValidMoveTest(){
+    public void isPieceInBetweenTest(){
         Board board = new Board();
-        Rook r = new Rook(0,0,true,"xyz", board);
-        int x=2;
-        int y=0;
-        Rook dest_r=new Rook(1, 0, true, "abc", board);
-        Assertions.assertEquals(false,r.ValidMove(x,y));
+        Rook whiteRook = new Rook(0,0,true,"", board);
+        int targetX=3;
+        int targetY=0;
+        Assertions.assertEquals(false,whiteRook.isPieceInBetween(whiteRook,targetX,targetY));
     }
 
-
+    @Test
+    public void validMoveTest(){
+        Board board = new Board();
+        Rook whiteRook = new Rook(0,7,true,"",board);
+        int targetX=3;
+        int targetY=0;
+        Assertions.assertEquals(false,whiteRook.ValidMove(targetX,targetY));
+        targetX = 0;
+        targetY = 1;
+        Assertions.assertEquals(false,whiteRook.ValidMove(targetX,targetY));
+        targetX = 3;
+        targetY = 3;
+        Assertions.assertEquals(false,whiteRook.ValidMove(targetX,targetY));
+    }
 }

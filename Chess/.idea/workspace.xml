@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="881e6d6e-d5ad-4edd-9f80-378cbdf854de" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ChessBoard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessBoard/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ChessBoard/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChessBoard/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Pieces/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Pieces/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Pieces/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Pieces/Rook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BoardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BoardTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RookTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RookTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,51 +56,64 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest.movePieceTest">
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.RookTest">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="MAIN_CLASS_NAME" value="RookTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.getPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RookTest.StraightMovementTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="METHOD_NAME" value="getPieceTest" />
+      <option name="MAIN_CLASS_NAME" value="RookTest" />
+      <option name="METHOD_NAME" value="StraightMovementTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RookTest.differentColourPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="METHOD_NAME" value="movePieceTest" />
+      <option name="MAIN_CLASS_NAME" value="RookTest" />
+      <option name="METHOD_NAME" value="differentColourPieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.setActivePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RookTest.isPieceInBetweenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="METHOD_NAME" value="setActivePieceTest" />
+      <option name="MAIN_CLASS_NAME" value="RookTest" />
+      <option name="METHOD_NAME" value="isPieceInBetweenTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.unSelectActivePiece" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RookTest.validMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="METHOD_NAME" value="unSelectActivePiece" />
+      <option name="MAIN_CLASS_NAME" value="RookTest" />
+      <option name="METHOD_NAME" value="validMoveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BoardTest.movePieceTest" />
-        <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.BoardTest.unSelectActivePiece" />
-        <item itemvalue="JUnit.BoardTest.setActivePieceTest" />
-        <item itemvalue="JUnit.BoardTest.getPieceTest" />
+        <item itemvalue="JUnit.RookTest" />
+        <item itemvalue="JUnit.RookTest.validMoveTest" />
+        <item itemvalue="JUnit.RookTest.isPieceInBetweenTest" />
+        <item itemvalue="JUnit.RookTest.differentColourPieceTest" />
+        <item itemvalue="JUnit.RookTest.StraightMovementTest" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +139,10 @@
       <updated>1616130601460</updated>
       <workItem from="1616130603143" duration="11915000" />
       <workItem from="1616246387179" duration="21899000" />
-      <workItem from="1616319634431" duration="611000" />
+      <workItem from="1616319634431" duration="1036000" />
+      <workItem from="1616336466265" duration="316000" />
+      <workItem from="1616337027860" duration="349000" />
+      <workItem from="1616337445375" duration="6083000" />
     </task>
     <servers />
   </component>
