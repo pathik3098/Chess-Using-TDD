@@ -15,7 +15,7 @@ public class Queen extends Piece implements IBishop, IRook {
 
         if (checkValidMoveConditions(differentColourPiece(this, piece))) return false;
         System.out.println("1");
-        if (checkValidMoveConditions(straightMovements(finalCordX, finalCordY) || diagonalMovement(finalCordX, finalCordY))) return false;
+        if (checkValidMoveConditions(StraightMovement(finalCordX, finalCordY) || diagonalMovement(finalCordX, finalCordY))) return false;
         System.out.println("2");
         if (checkValidMoveConditions(IsPieceInBetween(finalCordX, finalCordY)||checkIfPieceInBetween(finalCordX, finalCordY))) return false;
         System.out.println("3");
@@ -35,7 +35,7 @@ public class Queen extends Piece implements IBishop, IRook {
         return (currentPiece.getPositionX() == targetPiece.getPositionX()) || (currentPiece.getPositionY() == targetPiece.getPositionY());
     }
 
-    public boolean straightMovements(int finalCordX, int finalCordY) {
+    public boolean StraightMovement(int finalCordX, int finalCordY) {
         return (this.getPositionX() == finalCordX) || (this.getPositionY() == finalCordY);
     }
 
