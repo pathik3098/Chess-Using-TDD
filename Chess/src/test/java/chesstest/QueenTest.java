@@ -12,9 +12,7 @@ public class QueenTest {
 
     @Test
     public void sameAllyTest() {
-
         Queen queen = new Queen(1, 1, true, "filepath", bo1);
-
         assertEquals(false, queen.ValidMove(2, 2));
     }
 
