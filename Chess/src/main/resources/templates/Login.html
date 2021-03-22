@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Login</title>
+</head>
+
+<body>
+<div style="text-align:center"><h1>User Login </h1> </div>
+<br>
+<form th:action = "@{/processLoginForm}" method = post th:object = "${user}">
+    <table align="center">
+        <tr>
+            <td>UserId</td>
+            <td><input type="text" name="username" th:field="*{UserId}" required /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password" th:field="*{password}" required /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Login"></input></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
