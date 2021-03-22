@@ -8,19 +8,19 @@
 <body>
 <div style="text-align:center"><h1>User Login </h1> </div>
 <br>
-<form th:action = "@{/processLoginForm}" method = post th:object = "${user}">
+<form th:action = "@{/processLoginForm}" method = post>
     <table align="center">
         <tr>
             <td>UserId</td>
-            <td><input type="text" name="username" th:field="*{UserId}" required /></td>
+            <td><input type="text" name="username"/></td>
         </tr>
         <tr>
             <td>Password</td>
-            <td><input type="password" name="password" th:field="*{password}" required /></td>
+            <td><input type="password" name="password"/></td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Login"></input></td>
+            <td><button type="submit" name="loginFormSubmit">Login</button></td>
         </tr>
     </table>
 </form>
