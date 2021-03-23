@@ -24,16 +24,6 @@ public class BoardTest {
         Assertions.assertEquals(whiteQueen,board.activePiece);
     }
 
- /*   @Test
-    public void unSelectActivePiece()
-    {
-        Board board = new Board();
-        Piece whiteQueen = board.getPiece(0,4);
-        board.chessMovement(0,4);
-        board.chessMovement(0,4);
-        Assertions.assertEquals(null,board.activePiece);
-    }
-*/
     @Test
     public void movePieceTest()
     {

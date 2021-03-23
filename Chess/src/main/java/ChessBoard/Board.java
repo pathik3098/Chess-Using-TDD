@@ -1,5 +1,7 @@
 package ChessBoard;
 import Pieces.*;
+import tournament.Alliance;
+import tournament.Player;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,7 +18,11 @@ public class Board {
     boolean whiteTurn = true;
     private Piece p;
 
-    public Board(){
+    public Board()
+    {
+        //player1.alliance = Alliance.WHITE;
+        //player2.alliance = Alliance.BLACK;
+
         boardMatrix = new int[row][column];
         whitePieces = new ArrayList<>();
         blackPieces = new ArrayList<>();
@@ -112,9 +118,11 @@ public class Board {
             setActivePiece(clickedPiece);
         }
 
-        else if(activePiece != null) {
-            movePiece(clickedX,clickedY,clickedPiece);
+        else if(activePiece != null)
+        {
+            movePiece(clickedX,clickedY);
         }
+
     }
 
     private void setActivePiece(Piece clickedPiece)
@@ -128,22 +136,23 @@ public class Board {
         }
     }
 
-    private void movePiece(int clickedX, int clickedY, Piece clickedPiece)
+    private void movePiece(int clickedX, int clickedY)
     {
+        Piece clickPiece = getPiece(clickedX,clickedY);
         boolean validPieceMovePosition = activePiece.ValidMove(clickedX,clickedY);
         boolean isWhiteTurn = (whiteTurn && activePiece.isWhite());
         boolean isBlackTurn = (!whiteTurn && activePiece.isBlack());
 
         if(validPieceMovePosition && (isWhiteTurn || isBlackTurn))
         {
-            if(clickedPiece != null)
+            if(clickPiece != null)
             {
-                if(clickedPiece.isWhite())
+                if(clickPiece.isWhite())
                 {
-                    whitePieces.remove(clickedPiece);
+                    whitePieces.remove(clickPiece);
                 }
                 else{
-                    blackPieces.remove(clickedPiece);
+                    blackPieces.remove(clickPiece);
                 }
             }
 
@@ -158,7 +167,10 @@ public class Board {
 
             activePiece = null;
             turn++;
-
         }
+    }
+
+    public boolean getResult(){
+        return true;
     }
 }
