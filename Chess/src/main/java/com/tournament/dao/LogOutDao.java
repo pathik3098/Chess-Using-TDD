@@ -1,6 +1,5 @@
 package com.tournament.dao;
 
-import com.tournament.databaseconnection.DBConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +17,6 @@ public class LogOutDao {
 
         try
         {
-            connection = DBConnection.establishDBConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select * from Users");
 
@@ -27,12 +25,13 @@ public class LogOutDao {
             }
             String update_query = "update User set UserSessionFlag =" +UserSessionFlag+ " " + "where UserId =" + "'" +dbUserName+ "'";
             statement.executeUpdate(update_query);
+            return "loggedOut";
         }
         catch(SQLException Err)
         {
             System.out.println("Sql Error !" +Err);
         }
 
-        return "Invalid user credentials";
+        return "loggedOut";
     }
 }

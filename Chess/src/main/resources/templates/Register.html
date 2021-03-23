@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Login</title>
@@ -8,7 +8,7 @@
 <body>
 <div style="text-align:center"><h1>User Registration </h1> </div>
 <br>
-<form name="form" action="RegisterController" method="post" onsubmit="">
+<form th:action = "@{/processRegisterForm}" method = post>
     <table align="center">
         <tr>
             <td>Email</td>
@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Register"></input></td>
+            <td><button type="submit" name="RegisterFormSubmit">Login</button></td>
         </tr>
     </table>
 </form>

@@ -35,6 +35,8 @@ public class RegisterDao {
             statement = connection.createStatement();
             String insert_query = "insert into Users values(" +inputEmail+ "," +inputUserName+ "," + "'" +inputPassword+ "'" +  "," +UserSessionFlag+")";
             statement.executeUpdate(insert_query);
+
+            return "RegisterSuccess";
         }
         catch(Exception E)
         {
