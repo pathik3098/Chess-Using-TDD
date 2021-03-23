@@ -1,37 +1,35 @@
 package com.tournament.dao;
+import com.tournament.databaseconnection.DBConnection;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-public class LogOutDao {
-    public String userLoggingOut() {
-
-        int UserSessionFlag = 0;
-        String dbUserName = null;
-
+public class LogOutDao
+{
+    String message = null;
+    public String logOut(String currentActiveUser)
+    {
         Connection connection = null;
         Statement statement = null;
-        ResultSet resultSet = null;
+        String activeUser = currentActiveUser;
 
-        try
-        {
+        int updateUserSessionFlag = 0;
+
+        try {
+            connection = DBConnection.establishDBConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select * from Users");
 
-            while(resultSet.next()) {
-                dbUserName = resultSet.getString(2);
-            }
-            String update_query = "update User set UserSessionFlag =" +UserSessionFlag+ " " + "where UserId =" + "'" +dbUserName+ "'";
+            String update_query = "update User set UserSessionFlag =" + updateUserSessionFlag + " " + "where UserId =" + "'" + activeUser + "'";
             statement.executeUpdate(update_query);
-            return "loggedOut";
+            message = "LogOutSucessful";
+            return message;
         }
-        catch(SQLException Err)
+        catch (Exception E)
         {
-            System.out.println("Sql Error !" +Err);
+            System.out.println("Some Error !" + E);
         }
-
-        return "loggedOut";
+        return message;
     }
+
 }
+
