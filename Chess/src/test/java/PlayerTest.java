@@ -1,18 +1,20 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import playerDB.PlayerDBMock;
 import tournament.Alliance;
 import tournament.Player;
-import playerDB.PlayerDatabase;
 
 public class PlayerTest {
 
     @Test
     public void setAlliance()
     {
-        PlayerDatabase db = new PlayerDatabase();
+        PlayerDBMock db = new PlayerDBMock();
         Player p = new Player(1,db);
         p.setAlliance(Alliance.WHITE);
         Assertions.assertEquals(Alliance.WHITE,p.getAlliance());
+        Assertions.assertEquals("pathik",p.getPlayerName());
+        Assertions.assertEquals(2,p.getPlayerPoints());
 
     }
 }
