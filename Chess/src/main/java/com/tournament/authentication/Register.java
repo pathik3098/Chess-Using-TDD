@@ -32,10 +32,6 @@ public class Register {
             return "Invalid Password Format";
         }
 
-//        if (inputPassword != inputConPassword)
-//        {
-//            return "Passwords are not matching: Enter the correct one";
-//        }
         else {
             RegisterDao daoObject = new RegisterDao();
             message = daoObject.insertUserDetails(userobj);
