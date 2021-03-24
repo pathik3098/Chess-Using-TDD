@@ -2,12 +2,14 @@ package com.tournament.authentication;
 
 import com.tournament.dao.RegisterDao;
 import com.tournament.model.Users;
+import com.tournament.utils.ValidationPassword;
 
 import java.sql.SQLException;
 
-public class Register
-{
+public class Register {
     String message = null;
+    ValidationPassword validationPassword = null;
+
     public String userRegistration(Users userobj) throws SQLException {
         String inputEmail = userobj.getEmail();
         String inputUserId = userobj.getUserId();
@@ -22,17 +24,19 @@ public class Register
         int activeInTournament = 0;
         userobj.setActiveInTournament(activeInTournament);
 
-        if(inputEmail == null || inputUserId == null || inputUsername == null || inputPlayerLevel == null || inputPassword == null || inputConPassword == null  )
-        {
+        if (inputEmail == null || inputUserId == null || inputUsername == null || inputPlayerLevel == null || inputPassword == null || inputConPassword == null) {
             return "Input strings can't be empty";
+        }
+
+        if (!validationPassword.isPasswordValid(inputPassword)) {
+            return "Invalid Password Format";
         }
 
 //        if (inputPassword != inputConPassword)
 //        {
 //            return "Passwords are not matching: Enter the correct one";
 //        }
-        else
-        {
+        else {
             RegisterDao daoObject = new RegisterDao();
             message = daoObject.insertUserDetails(userobj);
         }

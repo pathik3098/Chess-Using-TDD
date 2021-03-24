@@ -2,7 +2,7 @@ package com.tournament.utils;
 
 public class MaxLength implements ValidatePassword {
 
-    private final int MAX_LENGTH = 10;
+    private final int MAX_LENGTH = 6;
 
     @Override
     public boolean isValid(String password) {

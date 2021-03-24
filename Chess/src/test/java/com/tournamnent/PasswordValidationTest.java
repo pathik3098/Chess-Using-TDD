@@ -1,6 +1,5 @@
 package com.tournamnent;
 
-import com.tournament.pojo.Users;
 import com.tournament.utils.ContainsSymbols;
 import com.tournament.utils.MaxLength;
 import com.tournament.utils.ValidationPassword;
