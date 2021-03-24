@@ -1,4 +1,4 @@
-package com.tournamnent;
+package com.tournament;
 
 import com.tournament.utils.ContainsSymbols;
 import com.tournament.utils.MaxLength;
