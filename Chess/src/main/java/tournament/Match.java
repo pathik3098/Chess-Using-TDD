@@ -18,6 +18,10 @@ public class Match {
         player1.setAlliance(Alliance.BLACK);
         this.createBoard(player1,player2);
     }
+    public Match(String player1, String player2)
+    {
+
+    }
 
     private void createBoard(Player player1,Player player2)
     {

@@ -1,8 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import playerDB.PlayerDBMock;
-import tournament.Alliance;
-import tournament.Player;
+import tournament.*;
 
 public class PlayerTest {
 

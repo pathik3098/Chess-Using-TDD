@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="881e6d6e-d5ad-4edd-9f80-378cbdf854de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/playerDB/PlayerDBMock.java" afterDir="false" />
+    <list default="true" id="f44207b6-2476-43d3-8bb9-72a256783ee5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tournament/PlayerPairs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tournament/Tournament.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/TournamentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/tournament/PlayerPairs.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/tournament/Tournament$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/tournament/Tournament$NumberType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/tournament/Tournament.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/tournament/player1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/TournamentTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/playerDB/PlayerDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/playerDB/PlayerDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tournament/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tournament/Match.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tournament/Scratch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BoardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MatchTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tournament/IPlayerPersistence.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tournament/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tournament/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tournament/PlayerDatabase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tournament/Scratch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MatchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MatchTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +64,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mysql-connector-java-8.0.23.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../mysql-connector-java-8.0.23.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,23 +84,16 @@
       <recent name="tournament" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.setAlliance">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TournamentTest">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,11 +108,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatchTest.RandomColorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BoardTest.movePieceKnightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MatchTest" />
-      <option name="METHOD_NAME" value="RandomColorTest" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="METHOD_NAME" value="movePieceKnightTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="METHOD_NAME" value="movePieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,10 +138,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TournamentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="RookTest" />
+      <option name="MAIN_CLASS_NAME" value="TournamentTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TournamentTest" />
+        <item itemvalue="JUnit.BoardTest.movePieceKnightTest" />
+        <item itemvalue="JUnit.BoardTest.movePieceTest" />
         <item itemvalue="JUnit.PlayerTest.setAlliance" />
         <item itemvalue="JUnit.BoardTest.getPieceTest" />
-        <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.MatchTest.RandomColorTest" />
-        <item itemvalue="JUnit.RookTest" />
       </list>
     </recent_temporary>
   </component>
