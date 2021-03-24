@@ -3,11 +3,12 @@ package com.tournament.authentication;
 import com.tournament.dao.LoginDao;
 import com.tournament.model.Users;
 
+import java.sql.SQLException;
+
 public class Login
 {
     String message = null;
-    public String userAuthentication(String inputUserName, String inputPassword)
-    {
+    public String userAuthentication(String inputUserName, String inputPassword) throws SQLException {
         Users userObject = new Users();
         userObject.setUserId(inputUserName);
         userObject.setPassword(inputPassword);

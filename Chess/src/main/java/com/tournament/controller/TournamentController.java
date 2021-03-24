@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.SQLException;
 
 @Controller
 public class TournamentController
@@ -35,7 +36,7 @@ public class TournamentController
     }
 
     @RequestMapping(value = "/processLoginForm",method = {RequestMethod.POST})
-    public String processLoginPage(HttpServletRequest request, Model model) {
+    public String processLoginPage(HttpServletRequest request, Model model) throws SQLException {
 
         String UserId = request.getParameter("userId");
         String password = request.getParameter("password");
@@ -56,7 +57,7 @@ public class TournamentController
     }
 
     @RequestMapping(value = "/registerPageMapping",method = {RequestMethod.POST})
-    public String processRegisterPage(HttpServletRequest request, Model model) {
+    public String processRegisterPage(HttpServletRequest request, Model model) throws SQLException {
 
         String Email = request.getParameter("email");
         String UserName = request.getParameter("username");
@@ -89,7 +90,7 @@ public class TournamentController
     }
 
     @RequestMapping(value = "/logOutPageMapping",method = {RequestMethod.POST})
-    public String processLogOutPage(HttpServletRequest request, Model model) {
+    public String processLogOutPage(HttpServletRequest request, Model model) throws SQLException {
 
 
         LogOut logoutObj= new LogOut();

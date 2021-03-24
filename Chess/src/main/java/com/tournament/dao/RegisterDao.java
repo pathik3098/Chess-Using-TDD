@@ -4,11 +4,11 @@ import com.tournament.databaseconnection.DBConnection;
 import com.tournament.model.Users;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class RegisterDao {
-    public String insertUserDetails(Users userObj)
-    {
+    public String insertUserDetails(Users userObj) throws SQLException {
         String inputEmail = userObj.getEmail();
         String inputUserId = userObj.getUserId();
         String inputUsername = userObj.getUsername();
@@ -30,12 +30,15 @@ public class RegisterDao {
 
             statement.executeUpdate(insert_query);
 
+            connection.close();
             return "RegisterSuccess";
         }
         catch(Exception E)
         {
             System.out.println("Some Error !" +E);
+            connection.close();
+            return "InsertionFailed";
         }
-        return "InsertionFailed";
+
     }
 }
