@@ -162,7 +162,7 @@ public class Board {
             if(activePiece.getClass().equals(Pawn.class))
             {
                 Pawn pawn = (Pawn) activePiece;
-                pawn.setHasMoved(true);
+                pawn.setIsFirstMove(true);
             }
 
             activePiece = null;

@@ -5,24 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f44207b6-2476-43d3-8bb9-72a256783ee5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tournament/PlayerPairs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tournament/Tournament.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/TournamentTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/tournament/PlayerPairs.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/tournament/Tournament$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/tournament/Tournament$NumberType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/tournament/Tournament.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/tournament/player1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/TournamentTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Pieces/CaptureMovePawn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/PawnAttackTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/PawnTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tournament/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tournament/Match.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tournament/Scratch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MatchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MatchTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tournament/Scratch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MatchTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MatchTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ChessBoard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ChessBoard/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BoardTest/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/KingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/KingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/KnightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/KnightTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/chesstest/BishopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/BishopTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/chesstest/QueenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PiecesTest/QueenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ChessBoard/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ChessBoard/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Pieces/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Pieces/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BoardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/KingTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/KnightTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RookTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/chesstest/BishopTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/chesstest/QueenTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +66,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../mysql-connector-java-8.0.23.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/PiecesTest" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -77,41 +79,53 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\99.Git_Push_Folder_Complete_Tournament\group-12\Chess\src\test\java\PiecesTest" />
+      <recent name="C:\99.Git_Push_Folder_Complete_Tournament\group-12\Chess\src\test\java" />
+      <recent name="C:\99.Git_Push_Folder_Complete_Tournament\group-12\Chess\src\test\java\chesstest" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="tournament" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Pieces" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.TournamentTest">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in Chess (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.getPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Chess (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
-      <option name="METHOD_NAME" value="getPieceTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="BoardTest.movePieceKnightTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="PACKAGE_NAME" value="BoardTest" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest.BoardTest" />
       <option name="METHOD_NAME" value="movePieceKnightTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -120,19 +134,9 @@
     </configuration>
     <configuration name="BoardTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BoardTest" />
+      <option name="PACKAGE_NAME" value="BoardTest" />
+      <option name="MAIN_CLASS_NAME" value="BoardTest.BoardTest" />
       <option name="METHOD_NAME" value="movePieceTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerTest.setAlliance" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="setAlliance" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,18 +153,18 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Chess (1)" />
+        <item itemvalue="JUnit.All in Chess" />
         <item itemvalue="JUnit.TournamentTest" />
         <item itemvalue="JUnit.BoardTest.movePieceKnightTest" />
         <item itemvalue="JUnit.BoardTest.movePieceTest" />
-        <item itemvalue="JUnit.PlayerTest.setAlliance" />
-        <item itemvalue="JUnit.BoardTest.getPieceTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="881e6d6e-d5ad-4edd-9f80-378cbdf854de" name="Default Changelist" comment="" />
+      <changelist id="f44207b6-2476-43d3-8bb9-72a256783ee5" name="Default Changelist" comment="" />
       <created>1616130601460</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -176,6 +180,7 @@
       <workItem from="1616520188834" duration="6775000" />
       <workItem from="1616531452248" duration="64000" />
       <workItem from="1616531943332" duration="6393000" />
+      <workItem from="1616563133721" duration="670000" />
     </task>
     <servers />
   </component>

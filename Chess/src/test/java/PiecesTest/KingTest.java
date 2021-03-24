@@ -1,3 +1,5 @@
+package PiecesTest;
+
 import Pieces.King;
 import ChessBoard.Board;
 import org.junit.jupiter.api.Assertions;

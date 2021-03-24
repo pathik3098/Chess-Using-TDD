@@ -1,3 +1,5 @@
+package PiecesTest;
+
 import ChessBoard.Board;
 import Pieces.Piece;
 import Pieces.Rook;

@@ -1,13 +1,11 @@
-package chesstest;
+package PiecesTest;
 
 import ChessBoard.Board;
 import Pieces.Bishop;
-
-import static org.junit.Assert.*;
-
 import Pieces.Piece;
-import Pieces.Rook;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class BishopTest {
 

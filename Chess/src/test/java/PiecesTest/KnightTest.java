@@ -1,5 +1,7 @@
-import Pieces.Knight;
+package PiecesTest;
+
 import ChessBoard.Board;
+import Pieces.Knight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,3 +1,5 @@
+package BoardTest;
+
 import ChessBoard.Board;
 import Pieces.King;
 import Pieces.Piece;
