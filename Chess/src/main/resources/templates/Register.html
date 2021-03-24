@@ -8,15 +8,29 @@
 <body>
 <div style="text-align:center"><h1>User Registration </h1> </div>
 <br>
-<form th:action = "@{/processRegisterForm}" method = post>
+<form th:action = "@{/registerPageMapping}" method = post>
     <table align="center">
         <tr>
             <td>Email</td>
             <td><input type="text" name="email" /></td>
         </tr>
         <tr>
-            <td>UserId</td>
+            <td>UserName</td>
             <td><input type="text" name="username" /></td>
+        </tr>
+        <tr>
+            <td>UserId</td>
+            <td><input type="text" name="userId" /></td>
+        </tr>
+        <tr>
+            <td><input type="radio" id="Beginner" name="level" value="3"></td>
+            <td><label for="Beginner">Beginner</label></td><br>
+
+            <td><input type="radio" id="Intermediate" name="level" value="2"></td>
+            <td><label for="Intermediate">Intermediate</label><td><br>
+
+            <td><input type="radio" id="Expert" name="level" value="1"></td>
+            <td><label for="Expert">Expert</label><td><br>
         </tr>
         <tr>
             <td>Password</td>
@@ -28,7 +42,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><button type="submit" name="RegisterFormSubmit">Login</button></td>
+            <td><button type="submit" name="RegisterFormSubmit">Register</button></td>
         </tr>
     </table>
 </form>

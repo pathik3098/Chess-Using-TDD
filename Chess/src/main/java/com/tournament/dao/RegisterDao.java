@@ -1,47 +1,44 @@
 package com.tournament.dao;
 
-import com.tournament.pojo.Users;
 import com.tournament.databaseconnection.DBConnection;
+import com.tournament.model.Users;
+
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class RegisterDao {
-    public String userRegistration(Users userObj)
-    {
+    public String insertUserDetails(Users userObj) throws SQLException {
         String inputEmail = userObj.getEmail();
-        String inputUserName = userObj.getUserId();
+        String inputUserId = userObj.getUserId();
+        String inputUsername = userObj.getUsername();
+        String inputPlayerLevel = userObj.getPlayerLevel();
         String inputPassword = userObj.getPassword();
-        String inputConPassword = userObj.getConPassword();
-        int UserSessionFlag = 0;
+        int userSessionFlag = userObj.getUserSessionFlag();
+        int activeInTournament = userObj.getActiveInTournament();
 
-        if(inputUserName == null || inputPassword == null || inputEmail == null || inputConPassword == null )
-        {
-            return "Input strings can't be empty";
-        }
-
-        if (inputPassword != inputConPassword)
-        {
-            return "Passwords are not matching: Enter the correct one";
-        }
 
         Connection connection = null;
         Statement statement = null;
-        ResultSet resultSet = null;
 
         try
         {
             connection = DBConnection.establishDBConnection();
             statement = connection.createStatement();
-            String insert_query = "insert into Users values(" +inputEmail+ "," +inputUserName+ "," + "'" +inputPassword+ "'" +  "," +UserSessionFlag+")";
+            String insert_query = "insert into User values(" + "'" +inputEmail+ "'" + "," + "'" +inputUserId+ "'"+ ","
+                    + "'" +inputUsername+ "'"+ "," +inputPlayerLevel+ "," + "'" +inputPassword+ "'"+ "," +userSessionFlag+ "," +activeInTournament+ ")";
+
             statement.executeUpdate(insert_query);
 
+            connection.close();
             return "RegisterSuccess";
         }
         catch(Exception E)
         {
             System.out.println("Some Error !" +E);
+            connection.close();
+            return "InsertionFailed";
         }
-        return "Invalid user credentials";
+
     }
 }
