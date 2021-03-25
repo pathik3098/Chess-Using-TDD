@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f44207b6-2476-43d3-8bb9-72a256783ee5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Pieces/ICaptureMovePawn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Pieces/IPawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/CaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/CaptureMovePawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/ICaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/ICaptureMovePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Pieces/IPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Pieces/IPawn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,7 @@
       <workItem from="1616531452248" duration="64000" />
       <workItem from="1616531943332" duration="6393000" />
       <workItem from="1616563133721" duration="1632000" />
-      <workItem from="1616675578316" duration="12624000" />
+      <workItem from="1616675578316" duration="12983000" />
     </task>
     <servers />
   </component>

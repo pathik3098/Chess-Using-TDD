@@ -2,10 +2,10 @@ package Pieces;
 
 public interface ICaptureMovePawn
 {
-    public boolean cornerWhitePawnAttack(Piece currentPiece);
-    public boolean whitePawnAttack(Piece currentPiece);
+    boolean cornerWhitePawnAttack(Piece currentPiece);
+    boolean whitePawnAttack(Piece currentPiece);
 
-    public boolean cornerBlackPawnAttack(Piece currentPiece);
-    public boolean blackPawnAttack(Piece currentPiece);
+    boolean cornerBlackPawnAttack(Piece currentPiece);
+    boolean blackPawnAttack(Piece currentPiece);
 
 }
