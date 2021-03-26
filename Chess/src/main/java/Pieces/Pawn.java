@@ -10,6 +10,7 @@ public class Pawn extends Piece implements IPawn
     boolean canCornerPawnAttack = false;
     boolean isDiffColourPawn = false;
     boolean isForwardMove = false;
+    boolean enPassantAttack = false;
 
     boolean enPassantBlackPawn = false;
     int enPassantBlackX = 0;
@@ -56,7 +57,8 @@ public class Pawn extends Piece implements IPawn
                 canPawnMove = canMoveWhite(this, targetPiece);
                 if (enPassantBlackPawn)
                 {
-                    enPassantObj.checkEnPassantCapturingWhite(this,enPassantWhiteX,enPassantWhiteY);
+                    enPassantAttack = enPassantObj.checkEnPassantCapturingWhite(this,enPassantWhiteX,enPassantWhiteY);
+                    return enPassantAttack;
                 }
 
                 canCornerPawnAttack = captureObj.cornerWhitePawnAttack(this);
@@ -69,7 +71,8 @@ public class Pawn extends Piece implements IPawn
                 canPawnMove = canMoveBlack(this, targetPiece);
                 if(enPassantWhitePawn)
                 {
-                    enPassantObj.checkEnPassantCapturingBlack(this,enPassantBlackX,enPassantBlackY);
+                    enPassantAttack = enPassantObj.checkEnPassantCapturingBlack(this,enPassantBlackX,enPassantBlackY);
+                    return enPassantAttack;
                 }
 
                 canCornerPawnAttack = captureObj.cornerBlackPawnAttack(this);
