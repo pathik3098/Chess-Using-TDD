@@ -11,6 +11,14 @@ public class Pawn extends Piece implements IPawn
     boolean isDiffColourPawn = false;
     boolean isForwardMove = false;
 
+    boolean enPassantBlackPawn = false;
+    int enPassantBlackX = 0;
+    int enPassantBlackY = 0;
+
+    boolean enPassantWhitePawn = false;
+    int enPassantWhiteX = 0;
+    int enPassantWhiteY = 0;
+
     public Pawn(int x, int y, boolean isWhite, String path, Board board)
     {
         super(x,y,isWhite,path,board);
@@ -34,22 +42,36 @@ public class Pawn extends Piece implements IPawn
         Piece targetPiece = board.getPiece(destinationX,destinationY);
 
         isDiffColourPawn = differentColourPiece(this,targetPiece);
-        isForwardMove  = (targetPiece == null && this.getPositionX() == targetPiece.getPositionX()) ? true : false;
+        isForwardMove  = (targetPiece == null && this.getPositionY() == targetPiece.getPositionY()) ? true : false;
 
         if (isDiffColourPawn)
         {
             CaptureMovePawn captureObj = new CaptureMovePawn();
             captureObj.initialiseValues(this, targetPiece, board);
 
+            EnPassantPawn enPassantObj = new EnPassantPawn();
+
             if (this.isWhite()) //When CurrentPiece is WhitePawn
             {
                 canPawnMove = canMoveWhite(this, targetPiece);
+                if (enPassantBlackPawn)
+                {
+                    enPassantObj.checkEnPassantCapturingWhite(this,enPassantWhiteX,enPassantWhiteY);
+                }
+
                 canCornerPawnAttack = captureObj.cornerWhitePawnAttack(this);
                 canPawnAttack = captureObj.whitePawnAttack(this);
+
+
             }
             else               //When CurrentPiece is BlackPawn
             {
                 canPawnMove = canMoveBlack(this, targetPiece);
+                if(enPassantWhitePawn)
+                {
+                    enPassantObj.checkEnPassantCapturingBlack(this,enPassantBlackX,enPassantBlackY);
+                }
+
                 canCornerPawnAttack = captureObj.cornerBlackPawnAttack(this);
                 canPawnAttack = captureObj.blackPawnAttack(this);
             }
@@ -64,12 +86,19 @@ public class Pawn extends Piece implements IPawn
 
     public boolean canMoveWhite(Piece currentPiece, Piece targetPiece)
     {
-        boolean canMoveOneStepForward = (currentPiece.getPositionY()+1 == targetPiece.getPositionY()) ? true : false;
-        boolean canMoveTwoStepForward = (currentPiece.getPositionY()+2 ==targetPiece.getPositionY()) ? true : false;
+        boolean canMoveOneStepForward = (currentPiece.getPositionX()+1 == targetPiece.getPositionX()) ? true : false;
+
         if(getIsFirstMove())
         {
+            //canMoveTwoStepForward can be true only when it is first move
+            boolean canMoveTwoStepForward = (currentPiece.getPositionX()+2 ==targetPiece.getPositionX()) ? true : false;
+
             if( isForwardMove && (canMoveOneStepForward || canMoveTwoStepForward))
             {
+                // Set flag 1 to black, to check eligibility for enPassant attack.
+                enPassantWhitePawn = (canMoveTwoStepForward)? true : false ;
+                int enPassantWhiteX = (enPassantWhitePawn)? targetPiece.getPositionX() : 0;
+                int enPassantWhiteY = (enPassantWhitePawn)? targetPiece.getPositionY() : 0;
                 return true;
             }
         }
@@ -85,12 +114,19 @@ public class Pawn extends Piece implements IPawn
 
     public boolean canMoveBlack(Piece currentPiece, Piece targetPiece)
     {
-        boolean canMoveOneStepForward = (currentPiece.getPositionY()-1 == targetPiece.getPositionY()) ? true : false;
-        boolean canMoveTwoStepForward = (currentPiece.getPositionY()-2 ==targetPiece.getPositionY()) ? true : false;
+        boolean canMoveOneStepForward = (currentPiece.getPositionX()-1 == targetPiece.getPositionX()) ? true : false;
+
         if(getIsFirstMove())
         {
+            //canMoveTwoStepForward can be true only when it is first move
+            boolean canMoveTwoStepForward = (currentPiece.getPositionX()-2 ==targetPiece.getPositionX()) ? true : false;
+
             if( isForwardMove && (canMoveOneStepForward || canMoveTwoStepForward))
             {
+                // Set flag 1 to black, to check eligibility for enPassant attack.
+                enPassantBlackPawn = (canMoveTwoStepForward)? true : false ;
+                int enPassantBlackX = (enPassantBlackPawn)? targetPiece.getPositionX() : 0;
+                int enPassantBlackY = (enPassantBlackPawn)? targetPiece.getPositionY() : 0;
                 return true;
             }
         }
