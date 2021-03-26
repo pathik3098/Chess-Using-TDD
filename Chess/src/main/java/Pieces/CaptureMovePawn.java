@@ -43,20 +43,20 @@ public class CaptureMovePawn implements ICaptureMovePawn
 
         boolean pawnCanAttack = false;
 
-        if(currentY <= 7) // Yet, Pawn hasn't moved to the opposite extreme
+        if(currentX < 7) // Yet, Pawn hasn't moved to the opposite extreme
         {
-            if (currentX == 0) {
-                attackdiagonalXRight = currentX + 1; //Valid position to be attacked
-                attackdiagonalYRight = currentY + 1;
-                attackRight = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
-                return attackRight;
+            if (currentY == 0) {
+                attackdiagonalXLeft = currentX + 1; //Valid position to be attacked
+                attackdiagonalYLeft = currentY + 1;
+                attackRight = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
+                return attackLeft;
             }
 
-            if (currentX == 7) {
-                attackdiagonalXLeft = currentX - 1; //Valid position to be attacked
-                attackdiagonalYLeft = currentY + 1;
-                attackLeft = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
-                return attackLeft;
+            if (currentY == 7) {
+                attackdiagonalXRight = currentX + 1; //Valid position to be attacked
+                attackdiagonalYRight = currentY - 1;
+                attackLeft = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
+                return attackRight;
             }
         }
         return pawnCanAttack;
@@ -68,18 +68,18 @@ public class CaptureMovePawn implements ICaptureMovePawn
         int currentY = currentPiece.getPositionY();
         boolean pawnCanAttack = false;
 
-        if(currentY <= 7) // Yet, Pawn hasn't moved to the opposite extreme
+        if(currentX < 7) // Yet, Pawn hasn't moved to the opposite extreme
         {
-            if (currentX > 0 && currentX < 7)
+            if (currentY > 0 && currentY < 7)
             {
-                attackdiagonalXLeft = currentX - 1;
-                attackdiagonalYLeft = currentY + 1;
-                attackLeft = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
-
-
                 attackdiagonalXRight = currentX + 1;
-                attackdiagonalYRight = currentY + 1;
-                attackRight = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
+                attackdiagonalYRight = currentY - 1;
+                attackLeft = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
+
+
+                attackdiagonalXLeft = currentX + 1;
+                attackdiagonalYLeft = currentY + 1;
+                attackRight = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
 
                 if ( attackLeft || attackRight)
                 {
@@ -94,30 +94,29 @@ public class CaptureMovePawn implements ICaptureMovePawn
 
     public boolean cornerBlackPawnAttack(Piece currentPiece)
     {
-        int currentX = currentPiece.getPositionX();
-        int currentY = currentPiece.getPositionY();
+        int currentX = currentPiece.getPositionX(); //6
+        int currentY = currentPiece.getPositionY(); //0
 
         boolean pawnCanAttack = false;
 
-        if(currentY >=0 ) // Yet, Pawn hasn't moved to the opposite extreme
+        if(currentX >0 ) // Yet, Pawn hasn't moved to the opposite extreme
         {
-            if (currentX == 0) {
-                attackdiagonalXLeft = currentX + 1;
-                attackdiagonalYLeft = currentY - 1;
-                attackLeft = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
-                return attackLeft;
+            if (currentY == 0) {
+                attackdiagonalXRight = currentX - 1;
+                attackdiagonalYRight = currentY + 1;
+                attackLeft = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
+                return attackRight;
             }
 
-            if (currentX == 7) {
-                attackdiagonalXRight = currentX - 1;
-                attackdiagonalYRight = currentY - 1;
-                attackRight = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
-                return attackRight;
+            if (currentY == 7) {
+                attackdiagonalXLeft = currentX - 1;
+                attackdiagonalYLeft = currentY - 1;
+                attackRight = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
+                return attackLeft;
             }
         }
         return pawnCanAttack;
     }
-
 
     public boolean blackPawnAttack(Piece currentPiece)
     {
@@ -126,17 +125,17 @@ public class CaptureMovePawn implements ICaptureMovePawn
 
         boolean pawnCanAttack = false;
 
-        if(currentY >= 0) // Yet, Pawn hasn't moved to the opposite extreme
+        if(currentX > 0) // Yet, Pawn hasn't moved to the opposite extreme
         {
-            if (currentX > 0 && currentX < 7)
+            if (currentY > 0 && currentY < 7)
             {
                 attackdiagonalXLeft = currentX - 1;
                 attackdiagonalYLeft = currentY - 1;
                 attackLeft = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
 
 
-                attackdiagonalXRight = currentX + 1;
-                attackdiagonalYRight = currentY - 1;
+                attackdiagonalXRight = currentX - 1;
+                attackdiagonalYRight = currentY + 1;
                 attackRight = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
 
                 if ( attackLeft || attackRight)
@@ -149,4 +148,5 @@ public class CaptureMovePawn implements ICaptureMovePawn
         }
         return pawnCanAttack;
     }
+
 }
