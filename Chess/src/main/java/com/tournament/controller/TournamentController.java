@@ -1,8 +1,6 @@
 package com.tournament.controller;
 
-import com.tournament.authentication.Authentication;
-import com.tournament.authentication.IAuthentication;
-import com.tournament.authentication.Register;
+import com.tournament.authentication.*;
 import com.tournament.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,7 +72,7 @@ public class TournamentController
         userobj.setPassword(password);
         userobj.setConPassword(conpassword);
 
-        Register registerObj= new Register();
+        IRegister registerObj= new Register();
         String message = registerObj.userRegistration(userobj);
 
         if(message.equals("RegisterSuccess"))
@@ -92,7 +90,7 @@ public class TournamentController
     @RequestMapping(value = "/logOutPageMapping",method = {RequestMethod.POST})
     public String processLogOutPage(HttpServletRequest request, Model model) throws SQLException {
 
-        Authentication logoutObj= new Authentication();
+        IAuthentication logoutObj= new Authentication();
         String message = logoutObj.userLogOut();
 
         if(message.equals("RegisterSuccess"))
