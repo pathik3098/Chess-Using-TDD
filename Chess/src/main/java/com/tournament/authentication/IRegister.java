@@ -2,7 +2,9 @@ package com.tournament.authentication;
 
 import com.tournament.model.Users;
 
+import java.sql.SQLException;
+
 public interface IRegister
 {
-    public String userRegistration(Users userobj);
+    String userRegistration(Users userobj) throws SQLException;
 }

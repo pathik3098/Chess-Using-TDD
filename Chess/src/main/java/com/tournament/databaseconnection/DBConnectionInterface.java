@@ -1,9 +1,12 @@
 package com.tournament.databaseconnection;
 
+import java.sql.Connection;
+
 public interface DBConnectionInterface
 {
-    String connectionUrl = "jdbc:mysql://localhost:3306/CSCI5308_12_DEVINT";
-    String username = "CSCI5308_12_DEVINT_USER";
-    String password = "z87wH6WGXqQTS42x";
+    String connectionUrl = "jdbc:mysql://localhost:3306/mydb";
+    String username = "root";
+    String password = "sai18";
 
+    Connection establishDBConnection();
 }

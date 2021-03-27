@@ -6,7 +6,7 @@ import com.tournament.utils.ValidationPassword;
 
 import java.sql.SQLException;
 
-public class Register {
+public class Register implements IRegister {
     String message = null;
     ValidationPassword validationPassword = null;
 

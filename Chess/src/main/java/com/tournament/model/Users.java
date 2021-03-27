@@ -1,6 +1,6 @@
 package com.tournament.model;
 
-public class Users
+public class Users implements IUsers
 {
     private String email;
     private String userId;
