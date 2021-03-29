@@ -1,6 +1,6 @@
-package Pieces;
+package com.pieces;
 
-import ChessBoard.Board;
+import com.chessboard.Board;
 
 public class Queen extends Piece implements IBishop, IRook {
 

@@ -1,4 +1,4 @@
-package Pieces;
+package com.pieces;
 
 public interface IBishop {
 

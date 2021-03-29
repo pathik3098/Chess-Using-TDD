@@ -1,7 +1,8 @@
-package chesstest;
+package com.chesstest;
 
-import ChessBoard.Board;
-import Pieces.Queen;
+
+import com.chessboard.Board;
+import com.pieces.Queen;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
