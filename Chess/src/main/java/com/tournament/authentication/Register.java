@@ -1,12 +1,12 @@
 package com.tournament.authentication;
 
-import com.tournament.dao.RegisterDao;
-import com.tournament.model.Users;
+import com.tournament.dao.*;
+import com.tournament.model.*;
 import com.tournament.utils.ValidationPassword;
 
 import java.sql.SQLException;
 
-public class Register {
+public class Register implements IRegister {
     String message = null;
     ValidationPassword validationPassword = null;
 
@@ -33,7 +33,7 @@ public class Register {
         }
 
         else {
-            RegisterDao daoObject = new RegisterDao();
+            IRegisterDao daoObject = new RegisterDao();
             message = daoObject.insertUserDetails(userobj);
         }
 
