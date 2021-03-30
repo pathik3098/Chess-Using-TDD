@@ -66,8 +66,8 @@ public class TournamentController
 
         Users userobj = new Users();
         userobj.setEmail(Email);
-        userobj.setUserId(UserName);
-        userobj.setUsername(UserId);
+        userobj.setUserId(UserId);
+        userobj.setUsername(UserName);
         userobj.setPlayerLevel(PlayerLevel);
         userobj.setPassword(password);
         userobj.setConPassword(conpassword);

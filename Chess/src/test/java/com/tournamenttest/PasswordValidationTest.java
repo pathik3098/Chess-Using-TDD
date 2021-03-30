@@ -1,5 +1,6 @@
 package com.tournamenttest;
 
+import com.tournament.utils.ContainUppercaseLetter;
 import com.tournament.utils.ContainsSymbols;
 import com.tournament.utils.MaxLength;
 import com.tournament.utils.ValidationPassword;
@@ -11,7 +12,7 @@ public class PasswordValidationTest {
     @Test
     public void SimplePasswordTest() {
         ValidationPassword validationPassword = new ValidationPassword();
-        boolean a = validationPassword.isPasswordValid("aaa@");
+        boolean a = validationPassword.isPasswordValid("Aaa@");
         Assertions.assertEquals(true, a);
 
     }
@@ -37,6 +38,14 @@ public class PasswordValidationTest {
         ContainsSymbols containsSymbols = new ContainsSymbols();
         boolean c = containsSymbols.isValid("aaa");
         Assertions.assertEquals(false, c);
+
+    }
+
+    @Test
+    public void ContainsUppercaseTest() {
+        ContainUppercaseLetter containUppercaseLetter = new ContainUppercaseLetter();
+        boolean c = containUppercaseLetter.isValid("aAaa");
+        Assertions.assertEquals(true, c);
 
     }
 

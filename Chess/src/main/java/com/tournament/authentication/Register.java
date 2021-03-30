@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class Register implements IRegister {
     String message = null;
-    ValidationPassword validationPassword = null;
+    ValidationPassword validationPassword = new ValidationPassword();
 
     public String userRegistration(Users userobj) throws SQLException {
         String inputEmail = userobj.getEmail();
