@@ -25,6 +25,45 @@ public class Board {
         whitePieces = new ArrayList<>();
         blackPieces = new ArrayList<>();
 
+        PieceFactory.setFactory(new NormalPiece());
+        PieceFactory factory = PieceFactory.instance();
+
+        whitePieces.add(factory.createKing(0,3,true,"",this));
+        whitePieces.add(factory.createQueen(0,4,true,"",this));
+        whitePieces.add(factory.createKing(0,1,true,"",this));
+        whitePieces.add(factory.createKnight(0,6,true,"",this));
+        whitePieces.add(factory.createBishop(0,2,true,"",this));
+        whitePieces.add(factory.createBishop(0,5,true,"",this));
+        whitePieces.add(factory.createRook(0,0,true,"",this));
+        whitePieces.add(factory.createRook(0,7,true,"",this));
+        whitePieces.add(factory.createPawn(1,0,true,"",this));
+        whitePieces.add(factory.createPawn(1,1,true,"",this));
+        whitePieces.add(factory.createPawn(1,2,true,"",this));
+        whitePieces.add(factory.createPawn(1,3,true,"",this));
+        whitePieces.add(factory.createPawn(1,4,true,"",this));
+        whitePieces.add(factory.createPawn(1,5,true,"",this));
+        whitePieces.add(factory.createPawn(1,6,true,"",this));
+        whitePieces.add(factory.createPawn(1,7,true,"",this));
+
+        blackPieces.add(factory.createKing(7,3,true,"",this));
+        blackPieces.add(factory.createQueen(7,4,true,"",this));
+        blackPieces.add(factory.createKnight(7,1,true,"",this));
+        blackPieces.add(factory.createKnight(7,6,true,"",this));
+        blackPieces.add(factory.createBishop(7,2,true,"",this));
+        blackPieces.add(factory.createBishop(7,5,true,"",this));
+        blackPieces.add(factory.createRook(7,0,true,"",this));
+        blackPieces.add(factory.createRook(7,7,true,"",this));
+        blackPieces.add(factory.createPawn(6,0,true,"",this));
+        blackPieces.add(factory.createPawn(6,1,true,"",this));
+        blackPieces.add(factory.createPawn(6,2,true,"",this));
+        blackPieces.add(factory.createPawn(6,3,true,"",this));
+        blackPieces.add(factory.createPawn(6,4,true,"",this));
+        blackPieces.add(factory.createPawn(6,5,true,"",this));
+        blackPieces.add(factory.createPawn(6,6,true,"",this));
+        blackPieces.add(factory.createPawn(6,7,true,"",this));
+
+
+        /*
         whitePieces.add(new King(0,3,true,"",this));
         whitePieces.add(new Queen(0,4,true,"",this));
         whitePieces.add(new Knight(0,1,true,"",this));
@@ -58,6 +97,8 @@ public class Board {
         blackPieces.add(new Pawn(6,5,true,"",this));
         blackPieces.add(new Pawn(6,6,true,"",this));
         blackPieces.add(new Pawn(6,7,true,"",this));
+
+         */
 
         this.gridInitialize();
 
