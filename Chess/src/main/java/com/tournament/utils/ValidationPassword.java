@@ -11,6 +11,7 @@ public class ValidationPassword {
     public ValidationPassword() {
         validatePasswordList.add(new MaxLength());
         validatePasswordList.add((new ContainsSymbols()));
+        validatePasswordList.add((new ContainUppercaseLetter()));
     }
 
     public boolean isPasswordValid(String password) {
