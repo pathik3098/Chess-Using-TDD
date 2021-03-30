@@ -2,7 +2,7 @@ package com.pieces;
 
 import com.chessboard.Board;
 
-public class Pawn extends Piece implements IPawn
+public class Pawn extends Piece
 {
     private boolean hasMoved;
     boolean canPawnMove = false;
@@ -47,10 +47,10 @@ public class Pawn extends Piece implements IPawn
 
         if (isDiffColourPawn)
         {
-            CaptureMovePawn captureObj = new CaptureMovePawn();
+            ICaptureMovePawn captureObj = new CaptureMovePawn();
             captureObj.initialiseValues(this, targetPiece, board);
 
-            EnPassantPawn enPassantObj = new EnPassantPawn();
+            IEnPassantPawn enPassantObj = (IEnPassantPawn) new EnPassantPawn();
 
             if (this.isWhite()) //When CurrentPiece is WhitePawn
             {
