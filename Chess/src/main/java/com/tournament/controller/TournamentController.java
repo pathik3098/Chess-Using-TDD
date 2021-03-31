@@ -95,12 +95,12 @@ public class TournamentController
 
         if(message.equals("RegisterSuccess"))
         {
-            model.addAttribute("Registeration Message", "Registeration Message"+message);
+            model.addAttribute("LogOut Message", "LogOut Message"+message);
             return "Login";
         }
         else
         {
-            model.addAttribute("Registeration Message","Registeration Message"+message);
+            model.addAttribute("LogOut Message","LogOut Message"+message);
             return "Register";
         }
     }
