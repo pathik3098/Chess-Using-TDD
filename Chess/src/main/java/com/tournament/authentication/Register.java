@@ -1,14 +1,15 @@
 package com.tournament.authentication;
 
-import com.tournament.dao.RegisterDao;
-import com.tournament.model.Users;
+import com.tournament.dao.*;
+import com.tournament.model.*;
 import com.tournament.utils.ValidationPassword;
 
 import java.sql.SQLException;
+import java.sql.Time;
 
-public class Register {
+public class Register implements IRegister {
     String message = null;
-    ValidationPassword validationPassword = null;
+    ValidationPassword validationPassword = new ValidationPassword();
 
     public String userRegistration(Users userobj) throws SQLException {
         String inputEmail = userobj.getEmail();
@@ -24,6 +25,9 @@ public class Register {
         int activeInTournament = 0;
         userobj.setActiveInTournament(activeInTournament);
 
+        String loginTime = null;
+        userobj.setLoginTime(loginTime);
+
         if (inputEmail == null || inputUserId == null || inputUsername == null || inputPlayerLevel == null || inputPassword == null || inputConPassword == null) {
             return "Input strings can't be empty";
         }
@@ -33,7 +37,7 @@ public class Register {
         }
 
         else {
-            RegisterDao daoObject = new RegisterDao();
+            IRegisterDao daoObject = new RegisterDao();
             message = daoObject.insertUserDetails(userobj);
         }
 

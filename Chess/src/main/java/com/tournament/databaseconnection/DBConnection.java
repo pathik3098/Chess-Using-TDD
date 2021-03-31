@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class DBConnection implements DBConnectionInterface
 {
 
-    public static Connection establishDBConnection()  {
+    public Connection establishDBConnection()  {
         Connection connection = null;
         try
         {

@@ -1,8 +1,6 @@
 package com.tournament.controller;
 
-import com.tournament.authentication.LogOut;
-import com.tournament.authentication.Login;
-import com.tournament.authentication.Register;
+import com.tournament.authentication.*;
 import com.tournament.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,7 +39,7 @@ public class TournamentController
         String UserId = request.getParameter("userId");
         String password = request.getParameter("password");
 
-        Login loginObj= new Login();
+        IAuthentication loginObj= new Authentication();
         String message = loginObj.userAuthentication(UserId,password);
 
         if(message.equals("LoginSuccessful"))
@@ -68,13 +66,13 @@ public class TournamentController
 
         Users userobj = new Users();
         userobj.setEmail(Email);
-        userobj.setUserId(UserName);
-        userobj.setUsername(UserId);
+        userobj.setUserId(UserId);
+        userobj.setUsername(UserName);
         userobj.setPlayerLevel(PlayerLevel);
         userobj.setPassword(password);
         userobj.setConPassword(conpassword);
 
-        Register registerObj= new Register();
+        IRegister registerObj= new Register();
         String message = registerObj.userRegistration(userobj);
 
         if(message.equals("RegisterSuccess"))
@@ -92,18 +90,17 @@ public class TournamentController
     @RequestMapping(value = "/logOutPageMapping",method = {RequestMethod.POST})
     public String processLogOutPage(HttpServletRequest request, Model model) throws SQLException {
 
-
-        LogOut logoutObj= new LogOut();
+        IAuthentication logoutObj= new Authentication();
         String message = logoutObj.userLogOut();
 
         if(message.equals("RegisterSuccess"))
         {
-            model.addAttribute("Registeration Message", "Registeration Message"+message);
+            model.addAttribute("LogOut Message", "LogOut Message"+message);
             return "Login";
         }
         else
         {
-            model.addAttribute("Registeration Message","Registeration Message"+message);
+            model.addAttribute("LogOut Message","LogOut Message"+message);
             return "Register";
         }
     }
