@@ -5,6 +5,7 @@ import com.tournament.model.*;
 import com.tournament.utils.ValidationPassword;
 
 import java.sql.SQLException;
+import java.sql.Time;
 
 public class Register implements IRegister {
     String message = null;
@@ -23,6 +24,9 @@ public class Register implements IRegister {
 
         int activeInTournament = 0;
         userobj.setActiveInTournament(activeInTournament);
+
+        String loginTime = null;
+        userobj.setLoginTime(loginTime);
 
         if (inputEmail == null || inputUserId == null || inputUsername == null || inputPlayerLevel == null || inputPassword == null || inputConPassword == null) {
             return "Input strings can't be empty";

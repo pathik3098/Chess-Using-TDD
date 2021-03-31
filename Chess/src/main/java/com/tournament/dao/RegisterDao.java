@@ -7,6 +7,7 @@ import com.tournament.model.Users;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 
 public class RegisterDao implements IRegisterDao {
     public String insertUserDetails(Users userObj) throws SQLException {
@@ -17,6 +18,7 @@ public class RegisterDao implements IRegisterDao {
         String inputPassword = userObj.getPassword();
         int userSessionFlag = userObj.getUserSessionFlag();
         int activeInTournament = userObj.getActiveInTournament();
+        String loginTime = userObj.getLoginTime();
 
         DBConnectionInterface conObj = new DBConnection();
 
@@ -28,7 +30,7 @@ public class RegisterDao implements IRegisterDao {
             connection = conObj.establishDBConnection();
             statement = connection.createStatement();
             String insert_query = "insert into User values(" + "'" +inputEmail+ "'" + "," + "'" +inputUserId+ "'"+ ","
-                    + "'" +inputUsername+ "'"+ "," +inputPlayerLevel+ "," + "'" +inputPassword+ "'"+ "," +userSessionFlag+ "," +activeInTournament+ ")";
+                    + "'" +inputUsername+ "'"+ "," +inputPlayerLevel+ "," + "'" +inputPassword+ "'"+ "," +userSessionFlag+ "," +activeInTournament+ "'" +loginTime+ "'" + ")";
 
             statement.executeUpdate(insert_query);
 
