@@ -1,6 +1,9 @@
 package com.tournamenttest;
 
+import com.tournament.Match;
+import com.tournament.Player;
 import com.tournament.Tournament;
+import com.tournament.TournamentMock;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,48 +12,57 @@ import java.util.HashMap;
 
 public class TournamentTest {
 
-
     @Test
     void getpossiblePairsOddTest() {
-        Tournament tournament = new Tournament();
-        ArrayList<String> players = new ArrayList();
-        players.add("sravani");
-        players.add("Aparna");
-        players.add("Darshil");
-        players.add("Pathik");
-        players.add("Kethan");
-        players.add("Rob");
-        players.add("Rashmika");
-        Assertions.assertEquals(tournament.getpossiblePairs(players),3);
-    }
-    @Test
-    void getpossiblePairsEvenTest() {
-        Tournament tournament = new Tournament();
-        ArrayList<String> players = new ArrayList();
-        players.add("sravani");
-        players.add("Aparna");
-        players.add("Darshil");
-        players.add("Pathik");
-        players.add("Kethan");
-        players.add("Rob");
-        Assertions.assertEquals(tournament.getpossiblePairs(players),3);
+        TournamentMock tournamentMock = new TournamentMock();
+        Tournament tournament;
+        ArrayList<Player> players = new ArrayList();
+        players=tournamentMock.getPlayers();
+        tournament = new Tournament(players);
+        Assertions.assertEquals(tournament.getPossiblePairs(players),3);
     }
 
     @Test
-    void pairingTest(){
-        Tournament tournament = new Tournament();
-        HashMap<String,String> schedule = new HashMap<String, String>();
-        ArrayList<String> players = new ArrayList();
-        players.add("sravani");
-        players.add("Aparna");
-        players.add("Darshil");
-        players.add("Pathik");
-        players.add("Kethan");
-        players.add("Rob");
-        players.add("Rashmika");
-        schedule.put("sravani","Aparna");
-        schedule.put("Darshil","Pathik");
-        schedule.put("Kethan","Rob");
-        Assertions.assertTrue(tournament.pairing(players).equals(schedule));
+    void getpossiblePairsEvenTest() {
+        TournamentMock tournamentMock = new TournamentMock();
+        Tournament tournament;
+        ArrayList<Player> players = new ArrayList();
+        players=tournamentMock.getPlayers();
+        tournament = new Tournament(players);
+        Assertions.assertEquals(tournament.getPossiblePairs(players),3);
+    }
+
+    @Test
+    void getPlayerSize() {
+        TournamentMock tournamentMock = new TournamentMock();
+        Tournament tournament;
+        ArrayList<Player> players = new ArrayList();
+        players=tournamentMock.getPlayers();
+        tournament = new Tournament(players);
+        Assertions.assertEquals(tournament.getPlayerSize(players),6);
+    }
+
+    @Test
+    void pairingTest() {
+        TournamentMock tournamentMock = new TournamentMock();
+        Tournament tournament;
+        ArrayList<Player> players = new ArrayList();
+        HashMap<Player, Player> mockPairPlayers = new HashMap<Player, Player>();
+        HashMap<Player, Player> pairPlayers = new HashMap<Player, Player>();
+        HashMap<String, String> Pairs = new HashMap<String, String>();
+        HashMap<String, String> mockPairs = new HashMap<String, String>();
+        players = tournamentMock.getPlayers();
+        tournament = new Tournament(players);
+        mockPairPlayers = tournamentMock.getPairs();
+        pairPlayers=tournament.pairing(players);
+       for(Player mockPlayerkeys:mockPairPlayers.keySet())
+        {
+            mockPairs.put(mockPlayerkeys.getPlayerName(),mockPairPlayers.get(mockPlayerkeys).getPlayerName());
+        }
+        for(Player playerkeys:pairPlayers.keySet())
+        {
+            Pairs.put(playerkeys.getPlayerName(),pairPlayers.get(playerkeys).getPlayerName());
+        }
+        Assertions.assertEquals(Pairs,mockPairs);
     }
 }
