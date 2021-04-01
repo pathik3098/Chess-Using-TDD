@@ -6,7 +6,7 @@ import com.tournament.PlayerDB.PlayerDB;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MatchTest {
+public class MatchesTest {
 
     @Test
     void matchPlayedTest() {
