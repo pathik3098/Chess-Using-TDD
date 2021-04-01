@@ -1,6 +1,13 @@
+variables:
+  GIT_STRATEGY: clone
+  MAVEN_CLI_OPTS: "clean"
+  HEROKU_APP_NAME: "chess5308"
+  HEROKU_API_KEY: "d9f4c36f-e3bb-48d5-9d71-839b0e850837"
+  
 stages: 
   - build
   - test
+  - deploy
   
 build: 
   stage: build
@@ -8,7 +15,7 @@ build:
     - ugrad
   script: 
     - cd ./Chess  
-    - mvn compile
+    - mvn $MAVEN_CLI_OPTS compile
 
 test: 
   stage: test
@@ -21,4 +28,18 @@ test:
     when: always
     reports:
       junit:
-        - ./Chess/target/surefire-reports/TEST-*.xml
+        - ./A1/target/surefire-reports/TEST-*.xml
+        
+deploy:
+  stage: deploy
+  tags:
+    - dalfcs_gitlab_docker_ci
+  image: ruby:2.6
+  script:
+    - cd ./Chess
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dp
+    - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
+  only:
+    - develop
