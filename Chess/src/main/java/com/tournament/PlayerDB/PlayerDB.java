@@ -1,14 +1,14 @@
 package com.tournament.PlayerDB;
-
 import com.tournament.Player;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PlayerDB implements IPlayerPersistence {
 
     Connection conn = null;
     Statement statement = null;
-    Time TIME = null;
 
     // establishing connection
     Connection con;
@@ -31,23 +31,84 @@ public class PlayerDB implements IPlayerPersistence {
     //Class.forName("com.mysql.cj.jdbc.Driver");
 
     @Override
-    public void savePlayer() {
+    public void savePlayer()
+    {
 
     }
 
     @Override
     public void loadPlayer(int playerId, Player player)
     {
-        try {
+        try
+        {
             statement = conn.createStatement();
-            ResultSet result_rows = statement.executeQuery("select userId,username,playerLevel,LoginTime from user where sessionFlag = 1 AND userId = order by LoginTime");
-        } catch (SQLException throwables) {
+            ResultSet result_rows = statement.executeQuery(" select * from Player where playerId =" + playerId);
+        }
+        catch (SQLException throwables)
+        {
             throwables.printStackTrace();
         }
-        //String UserId = result_rows.getString("userId");
-        //int PlayerLevel = result_rows.getInt("playerlevel");
-        //TIME = result_rows.getTime("LoginTime");
-        //Users user = new Users(result_rows.getString("userId"), result_rows.getString("playerLevel"), result_rows.getString("LoginTime"));
-        //UserList.add(user);
+    }
+
+    @Override
+    public ArrayList<Player> loadAllPlayers()
+    {
+        String query = "select userId,username,playerLevel,LoginTime from user where sessionFlag = 1 order by LoginTime";
+        ArrayList<Player> playerList = new ArrayList<>();
+
+        try
+        {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            while (rs.next())
+            {
+                int UserId = rs.getInt("userId");
+                String playerName = rs.getString("username");
+                int PlayerLevel = rs.getInt("playerLevel");
+                Time time = rs.getTime("LoginTime");
+                Player p = new Player();
+                p.setPlayerId(UserId);
+                p.setPlayerName(playerName);
+                p.setLogtime(time);
+
+                playerList.add(p);
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.err.println(ex.getMessage());
+        }
+        return playerList;
+    }
+
+    @Override
+    public void saveAllPlayers(ArrayList<Player> playerList)
+    {
+        String createQuery = "";
+
+        try
+        {
+            Statement st = conn.createStatement();
+            st.executeUpdate(createQuery);
+
+            Iterator<Player> iter = playerList.iterator();
+
+            while (iter.hasNext())
+            {
+                Player p = iter.next();
+                String playerName = p.getPlayerName();
+                int playerId = p.getPlayerId();
+                int playerLevel = p.getPlayerLevel();
+                Time logtime = p.getLogtime();
+                int playerPoints = 0;
+
+                String insertQuery = "";
+                st.executeUpdate(insertQuery);
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.err.println(ex.getMessage());
+        }
     }
 }
