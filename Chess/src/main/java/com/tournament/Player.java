@@ -14,6 +14,11 @@ public class Player {
         p.loadPlayer(id,this);
     }
 
+    public Player(String playerName) {
+        this.playerName=playerName;
+
+    }
+
     public Alliance getAlliance() {
         return alliance;
     }

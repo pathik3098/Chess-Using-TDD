@@ -1,5 +1,7 @@
 package com.tournament.model;
 
+import java.sql.Time;
+
 public class Users implements IUsers
 {
     private String email;
@@ -10,6 +12,7 @@ public class Users implements IUsers
     private String conPassword;
     private int userSessionFlag;
     private int activeInTournament;
+    private String loginTime;
 
     public String getEmail() {
         return email;
@@ -66,5 +69,8 @@ public class Users implements IUsers
     public void setActiveInTournament(int activeInTournament){
         this.activeInTournament = activeInTournament;
     }
+
+    public String getLoginTime() { return loginTime;}
+    public void setLoginTime(String loginTime){ this.loginTime = loginTime; }
 
 }

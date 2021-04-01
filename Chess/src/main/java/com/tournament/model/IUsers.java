@@ -1,5 +1,7 @@
 package com.tournament.model;
 
+import java.sql.Time;
+
 public interface IUsers
 {
     String getEmail();
@@ -25,4 +27,8 @@ public interface IUsers
 
     int getActiveInTournament();
     void setActiveInTournament(int activeInTournament);
+
+    String getLoginTime();
+    void setLoginTime(String loginTime);
+
 }
