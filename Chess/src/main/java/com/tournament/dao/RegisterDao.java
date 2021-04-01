@@ -14,7 +14,7 @@ public class RegisterDao implements IRegisterDao {
         String inputEmail = userObj.getEmail();
         String inputUserId = userObj.getUserId();
         String inputUsername = userObj.getUsername();
-        String inputPlayerLevel = userObj.getPlayerLevel();
+        int inputPlayerLevel = userObj.getPlayerLevel();
         String inputPassword = userObj.getPassword();
         int userSessionFlag = userObj.getUserSessionFlag();
         int activeInTournament = userObj.getActiveInTournament();

@@ -7,7 +7,7 @@ public class Users implements IUsers
     private String email;
     private String userId;
     private String username;
-    private String playerLevel;
+    private int playerLevel;
     private String password;
     private String conPassword;
     private int userSessionFlag;
@@ -34,9 +34,9 @@ public class Users implements IUsers
 
     public void setUsername(String username) { this.username = username; }
 
-    public String getPlayerLevel() { return playerLevel;}
+    public int getPlayerLevel() { return playerLevel;}
 
-    public void setPlayerLevel(String playerLevel) { this.playerLevel = playerLevel; }
+    public void setPlayerLevel(int playerLevel) { this.playerLevel = playerLevel; }
 
     public String getPassword(){
         return password;

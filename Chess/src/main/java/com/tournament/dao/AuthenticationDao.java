@@ -18,11 +18,11 @@ public class AuthenticationDao implements IAuthenticationDao
         Statement statement = null;
         ResultSet resultSet = null;
 
-        String inputUserName = userObject.getUserId();
+        String inputUserId = userObject.getUserId();
         String inputPassword = userObject.getPassword();
         String loginTime = userObject.getLoginTime();
 
-        String dbUserName = "";
+        String dbUserId = "";
         String dbPassword = "";
         int updateUserSessionFlag = 1;
 
@@ -33,14 +33,14 @@ public class AuthenticationDao implements IAuthenticationDao
             resultSet = statement.executeQuery("select * from User");
 
             while (resultSet.next()) {
-                dbUserName = resultSet.getString(2);
+                dbUserId = resultSet.getString(2);
                 dbPassword = resultSet.getString(3);
             }
 
-            if (inputUserName.equals(dbUserName) && inputPassword.equals(dbPassword)) {
-                String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + dbUserName + "'";
+            if (inputUserId.equals(dbUserId) && inputPassword.equals(dbPassword)) {
+                String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + dbUserId + "'";
                 statement.executeUpdate(update_query);
-                String update_query2 = "update User set LoginTime =" + loginTime + " " + "where userId =" + "'" + dbUserName + "'";
+                String update_query2 = "update User set LoginTime =" + loginTime + " " + "where userId =" + "'" + dbUserId + "'";
                 statement.executeUpdate(update_query2);
                 return "LoginSuccessful";
             }

@@ -13,8 +13,8 @@ public interface IUsers
     String getUsername();
     void setUsername(String username);
 
-    String getPlayerLevel();
-    void setPlayerLevel(String playerLevel);
+    int getPlayerLevel();
+    void setPlayerLevel(int playerLevel);
 
     String getPassword();
     void setPassword(String password);

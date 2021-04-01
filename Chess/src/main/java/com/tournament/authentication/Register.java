@@ -15,7 +15,6 @@ public class Register implements IRegister {
         String inputEmail = userobj.getEmail();
         String inputUserId = userobj.getUserId();
         String inputUsername = userobj.getUsername();
-        String inputPlayerLevel = userobj.getPlayerLevel();
         String inputPassword = userobj.getPassword();
         String inputConPassword = userobj.getConPassword();
 
@@ -28,7 +27,7 @@ public class Register implements IRegister {
         String loginTime = null;
         userobj.setLoginTime(loginTime);
 
-        if (inputEmail == null || inputUserId == null || inputUsername == null || inputPlayerLevel == null || inputPassword == null || inputConPassword == null) {
+        if (inputEmail == null || inputUserId == null || inputUsername == null || inputPassword == null || inputConPassword == null) {
             return "Input strings can't be empty";
         }
 
