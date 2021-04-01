@@ -28,7 +28,7 @@ test:
     when: always
     reports:
       junit:
-        - ./A1/target/surefire-reports/TEST-*.xml
+        - ./Chess/target/surefire-reports/TEST-*.xml
         
 deploy:
   stage: deploy
