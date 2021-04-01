@@ -28,13 +28,10 @@ public class MatchRepository implements IMatchRepository {
 
     @Override
     public List<Matches> getAllMatch() {
-        System.out.println(Q_GETALL);
         return this.db.query(Q_GETALL, new BeanPropertyRowMapper<>(Matches.class));
     }
 
-    //    @Override
     public Integer getAllMatchCount() {
-        System.out.println(Q_GETALL);
         List<Matches> temp = this.db.query(Q_GETALL, new BeanPropertyRowMapper<>(Matches.class));
         return temp.size();
     }

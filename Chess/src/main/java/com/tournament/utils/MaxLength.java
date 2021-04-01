@@ -1,6 +1,6 @@
 package com.tournament.utils;
 
-public class MaxLength implements ValidatePassword {
+public class MaxLength implements IValidatePassword {
 
     private final int MAX_LENGTH = 6;
 

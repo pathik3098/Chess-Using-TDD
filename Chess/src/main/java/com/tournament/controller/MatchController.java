@@ -28,7 +28,6 @@ public class MatchController {
 
     @PutMapping("/updateMatch/{id}")
     public void updateMatch(@ModelAttribute("Matches") Matches match, @PathVariable("id") int id) {
-        System.out.println(id);
         matchService.updateMatch(match, id);
     }
 

@@ -3,26 +3,72 @@ package com.tournament.utils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ValidationPassword {
 
-    private List<ValidatePassword> validatePasswordList = new ArrayList();
+    private final int MAX_LENGTH = 6;
+    Pattern p = Pattern.compile("[^A-Za-z0-9]");
+
+    private List<IValidatePassword> IValidatePasswordList = new ArrayList();
+    private List<Boolean> conditionList = new ArrayList();
 
     public ValidationPassword() {
-        validatePasswordList.add(new MaxLength());
-        validatePasswordList.add((new ContainsSymbols()));
-        validatePasswordList.add((new ContainUppercaseLetter()));
+        IValidatePasswordList.add(new MaxLength());
+        IValidatePasswordList.add((new ContainsSymbols()));
+        IValidatePasswordList.add((new ContainUppercaseLetter()));
     }
 
     public boolean isPasswordValid(String password) {
-        Iterator<ValidatePassword> iter = validatePasswordList.iterator();
+        conditionList.add(isMaxLength(password));
+        conditionList.add(isContainsUppercaseLetter(password));
+        conditionList.add(isContainsSymbols(password));
+        Iterator<Boolean> iter = conditionList.iterator();
         while (iter.hasNext()) {
-            ValidatePassword v = iter.next();
-            if (!v.isValid(password)) {
+            Boolean v = iter.next();
+            if (!v) {
                 return false;
             }
         }
         return true;
+//        Iterator<IValidatePassword> iter = IValidatePasswordList.iterator();
+//        while (iter.hasNext()) {
+//            IValidatePassword v = iter.next();
+//            if (!v.isValid(password)) {
+//                return false;
+//            }
+//        }
+//        return true;
+    }
+
+    public boolean isMaxLength(String password) {
+        if (null == password) {
+            return false;
+        }
+        return password.length() <= MAX_LENGTH;
+    }
+
+    public boolean isContainsUppercaseLetter(String password) {
+
+        char tempCharacter;
+        for (int i = 0; i < password.length(); i++) {
+            tempCharacter = password.charAt(i);
+            if (Character.isUpperCase(tempCharacter)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isContainsSymbols(String password) {
+
+        if (null == password || password.trim().isEmpty()) {
+            return false;
+        }
+        Matcher m = p.matcher(password);
+        boolean result = m.find();
+        return result;
     }
 
 }

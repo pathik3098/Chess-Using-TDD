@@ -18,6 +18,30 @@ public class PasswordValidationTest {
     }
 
     @Test
+    public void SimplePasswordTestMaxLength() {
+        ValidationPassword validationPassword = new ValidationPassword();
+        boolean a = validationPassword.isPasswordValid("Aaa@aaa");
+        Assertions.assertEquals(false, a);
+
+    }
+
+    @Test
+    public void SimplePasswordTestContainSymbol() {
+        ValidationPassword validationPassword = new ValidationPassword();
+        boolean a = validationPassword.isPasswordValid("Aaa@aa");
+        Assertions.assertEquals(true, a);
+
+    }
+
+    @Test
+    public void SimplePasswordTestWithoutContainSymbol() {
+        ValidationPassword validationPassword = new ValidationPassword();
+        boolean a = validationPassword.isPasswordValid("Aaaaa");
+        Assertions.assertEquals(false, a);
+
+    }
+
+    @Test
     public void MaxLengthTest() {
         MaxLength maxLength = new MaxLength();
         boolean b = maxLength.isValid("aaa@");

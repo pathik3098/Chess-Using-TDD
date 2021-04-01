@@ -3,7 +3,7 @@ package com.tournament.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ContainsSymbols implements ValidatePassword {
+public class ContainsSymbols implements IValidatePassword {
 
     Pattern p = Pattern.compile("[^A-Za-z0-9]");
 
