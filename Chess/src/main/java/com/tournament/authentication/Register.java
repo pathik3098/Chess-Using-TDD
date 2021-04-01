@@ -1,0 +1,45 @@
+package com.tournament.authentication;
+
+import com.tournament.dao.*;
+import com.tournament.model.*;
+import com.tournament.utils.ValidationPassword;
+
+import java.sql.SQLException;
+import java.sql.Time;
+
+public class Register implements IRegister {
+    String message = null;
+    ValidationPassword validationPassword = new ValidationPassword();
+
+    public String userRegistration(Users userobj) throws SQLException {
+        String inputEmail = userobj.getEmail();
+        String inputUserId = userobj.getUserId();
+        String inputUsername = userobj.getUsername();
+        String inputPassword = userobj.getPassword();
+        String inputConPassword = userobj.getConPassword();
+
+        int userSessionFlag = 0;
+        userobj.setUserSessionFlag(userSessionFlag);
+
+        int activeInTournament = 0;
+        userobj.setActiveInTournament(activeInTournament);
+
+        String loginTime = null;
+        userobj.setLoginTime(loginTime);
+
+        if (inputEmail == null || inputUserId == null || inputUsername == null || inputPassword == null || inputConPassword == null) {
+            return "Input strings can't be empty";
+        }
+
+        if (!validationPassword.isPasswordValid(inputPassword)) {
+            return "Invalid Password Format";
+        }
+
+        else {
+            IRegisterDao daoObject = new RegisterDao();
+            message = daoObject.insertUserDetails(userobj);
+        }
+
+        return message;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Login</title>
+</head>
+
+<body>
+<div style="text-align:center"><h1>User Registration </h1> </div>
+<br>
+<form th:action = "@{/registerPageMapping}" method = post>
+    <table align="center">
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" /></td>
+        </tr>
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" name="username" /></td>
+        </tr>
+        <tr>
+            <td>UserId</td>
+            <td><input type="text" name="userId" /></td>
+        </tr>
+        <tr>
+            <td><input type="radio" id="Beginner" name="level" value="3"></td>
+            <td><label for="Beginner">Beginner</label></td><br>
+
+            <td><input type="radio" id="Intermediate" name="level" value="2"></td>
+            <td><label for="Intermediate">Intermediate</label><td><br>
+
+            <td><input type="radio" id="Expert" name="level" value="1"></td>
+            <td><label for="Expert">Expert</label><td><br>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" name="conpassword" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" name="RegisterFormSubmit">Register</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
