@@ -1,12 +1,11 @@
 package com.tournament;
 
-
 import com.chessboard.Board;
 
 public class Match {
+
     Player player1;
     Player player2;
-
     int totalTime;
     Board board;
     Boolean result;

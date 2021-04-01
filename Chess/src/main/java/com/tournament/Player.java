@@ -1,17 +1,25 @@
 package com.tournament;
 
-
 import com.tournament.PlayerDB.IPlayerPersistence;
+
+import java.sql.Time;
+import java.util.ArrayList;
 
 public class Player {
     private String playerName;
     private int playerId;
+    private int playerLevel;
+    private Time logtime;
     private int playerPoints;
     private Alliance alliance;
 
     public Player(int id, IPlayerPersistence p){
         this.playerId = id;
         p.loadPlayer(id,this);
+    }
+
+    public Player(){
+
     }
 
     public Player(String playerName) {
@@ -49,5 +57,23 @@ public class Player {
 
     public void setPlayerPoints(int playerPoints) {
         this.playerPoints = playerPoints;
+    }
+
+    public int getPlayerLevel()
+    {
+        return playerLevel;
+    }
+
+    public void setPlayerLevel(int playerLevel)
+    {
+        this.playerLevel = playerLevel;
+    }
+
+    public Time getLogtime() {
+        return logtime;
+    }
+
+    public void setLogtime(Time logtime) {
+        this.logtime = logtime;
     }
 }

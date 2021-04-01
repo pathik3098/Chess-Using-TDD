@@ -2,6 +2,8 @@ package com.tournament.PlayerDB;
 
 import com.tournament.Player;
 
+import java.util.ArrayList;
+
 public class PlayerDBMock implements IPlayerPersistence {
     private String playerName;
     private int playerId;
@@ -16,5 +18,15 @@ public class PlayerDBMock implements IPlayerPersistence {
     {
         player.setPlayerName("pathik");
         player.setPlayerPoints(2);
+    }
+
+    @Override
+    public ArrayList<Player> loadAllPlayers() {
+        return null;
+    }
+
+    @Override
+    public void saveAllPlayers(ArrayList<Player> playerList) {
+
     }
 }
