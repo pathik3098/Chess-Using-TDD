@@ -14,7 +14,11 @@ public class Board {
     private final int column = 8;
     private int[][] boardMatrix;
     boolean whiteTurn = true;
-    private Piece p;
+    Winner winner;
+    public enum Winner{
+        WHITEWINNER,
+        BLACKWINNER
+    }
 
     public Board()
     {
@@ -30,7 +34,7 @@ public class Board {
 
         whitePieces.add(factory.createKing(0,3,true,"",this));
         whitePieces.add(factory.createQueen(0,4,true,"",this));
-        whitePieces.add(factory.createKing(0,1,true,"",this));
+        whitePieces.add(factory.createKnight(0,1,true,"",this));
         whitePieces.add(factory.createKnight(0,6,true,"",this));
         whitePieces.add(factory.createBishop(0,2,true,"",this));
         whitePieces.add(factory.createBishop(0,5,true,"",this));
@@ -45,23 +49,22 @@ public class Board {
         whitePieces.add(factory.createPawn(1,6,true,"",this));
         whitePieces.add(factory.createPawn(1,7,true,"",this));
 
-        blackPieces.add(factory.createKing(7,3,true,"",this));
-        blackPieces.add(factory.createQueen(7,4,true,"",this));
-        blackPieces.add(factory.createKnight(7,1,true,"",this));
-        blackPieces.add(factory.createKnight(7,6,true,"",this));
-        blackPieces.add(factory.createBishop(7,2,true,"",this));
-        blackPieces.add(factory.createBishop(7,5,true,"",this));
-        blackPieces.add(factory.createRook(7,0,true,"",this));
-        blackPieces.add(factory.createRook(7,7,true,"",this));
-        blackPieces.add(factory.createPawn(6,0,true,"",this));
-        blackPieces.add(factory.createPawn(6,1,true,"",this));
-        blackPieces.add(factory.createPawn(6,2,true,"",this));
-        blackPieces.add(factory.createPawn(6,3,true,"",this));
-        blackPieces.add(factory.createPawn(6,4,true,"",this));
-        blackPieces.add(factory.createPawn(6,5,true,"",this));
-        blackPieces.add(factory.createPawn(6,6,true,"",this));
-        blackPieces.add(factory.createPawn(6,7,true,"",this));
-
+        blackPieces.add(factory.createKing(7,3,false,"",this));
+        blackPieces.add(factory.createQueen(7,4,false,"",this));
+        blackPieces.add(factory.createKnight(7,1,false,"",this));
+        blackPieces.add(factory.createKnight(7,6,false,"",this));
+        blackPieces.add(factory.createBishop(7,2,false,"",this));
+        blackPieces.add(factory.createBishop(7,5,false,"",this));
+        blackPieces.add(factory.createRook(7,0,false,"",this));
+        blackPieces.add(factory.createRook(7,7,false,"",this));
+        blackPieces.add(factory.createPawn(6,0,false,"",this));
+        blackPieces.add(factory.createPawn(6,1,false,"",this));
+        blackPieces.add(factory.createPawn(6,2,false,"",this));
+        blackPieces.add(factory.createPawn(6,3,false,"",this));
+        blackPieces.add(factory.createPawn(6,4,false,"",this));
+        blackPieces.add(factory.createPawn(6,5,false,"",this));
+        blackPieces.add(factory.createPawn(6,6,false,"",this));
+        blackPieces.add(factory.createPawn(6,7,false,"",this));
 
         /*
         whitePieces.add(new King(0,3,true,"",this));
@@ -97,8 +100,7 @@ public class Board {
         blackPieces.add(new Pawn(6,5,true,"",this));
         blackPieces.add(new Pawn(6,6,true,"",this));
         blackPieces.add(new Pawn(6,7,true,"",this));
-
-         */
+        */
 
         this.gridInitialize();
 
@@ -154,7 +156,15 @@ public class Board {
 
         if(activePiece==null && clickedPiece != null)
         {
-            setActivePiece(clickedPiece);
+            if(inCheck())
+            {
+
+            }
+            else
+            {
+                setActivePiece(clickedPiece);
+            }
+
         }
 
         else if(activePiece != null)
@@ -188,9 +198,17 @@ public class Board {
             {
                 if(clickPiece.isWhite())
                 {
+                    if(clickPiece.getClass().equals(King.class))
+                    {
+                        setResult(Winner.BLACKWINNER);
+                    }
                     whitePieces.remove(clickPiece);
                 }
                 else{
+                    if(clickPiece.getClass().equals(King.class))
+                    {
+                        setResult(Winner.WHITEWINNER);
+                    }
                     blackPieces.remove(clickPiece);
                 }
             }
@@ -209,7 +227,62 @@ public class Board {
         }
     }
 
-    public boolean getResult(){
-        return true;
+    public boolean inCheck()
+    {
+        Piece kingReference = null;
+        if(whiteTurn)
+        {
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece isKing = getPiece(i,j);
+                    if(isKing!=null && isKing.isWhite() && (isKing.getClass().equals(King.class)))
+                    {
+                        kingReference = isKing;
+                        System.out.println(kingReference);
+                    }
+                }
+            }
+
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece pieceReference = getPiece(i,j);
+                    if(pieceReference!=null && pieceReference.isBlack() && pieceReference.ValidMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        else
+        {
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece isKing = getPiece(i,j);
+                    if(isKing!=null && (isKing.getClass().equals(King.class)) && isKing.isBlack())
+                    {
+                        kingReference = isKing;
+                    }
+                }
+            }
+
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece pieceReference = getPiece(i,j);
+                    if(pieceReference!=null && pieceReference.isWhite() && pieceReference.ValidMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public Winner getResult(){
+        return winner;
+    }
+
+    public void setResult(Winner w){
+        winner =w;
     }
 }

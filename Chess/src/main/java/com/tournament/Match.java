@@ -8,7 +8,7 @@ public class Match {
     Player player2;
     int totalTime;
     Board board;
-    Boolean result;
+    Board.Winner result;
 
     public Match(Player player1, Player player2)
     {
@@ -31,7 +31,14 @@ public class Match {
     public boolean getResult()
     {
         result = board.getResult();
-        return result;
+        if(result == Board.Winner.WHITEWINNER)
+        {
+            return true;
+        }
+
+        else{
+            return false;
+        }
     }
 
     public int getTotalTime()
@@ -46,7 +53,7 @@ public class Match {
 
     public Player getWinner()
     {
-        if(result)
+        if(getResult())
         {
             return player1;
         }

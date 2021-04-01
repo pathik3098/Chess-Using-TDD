@@ -36,16 +36,21 @@ public class BoardTest {
         board.chessMovement(2,0);
         Assertions.assertEquals(whiteRook,board.activePiece);
     }
-/*
+
     @Test
     public void movePieceKnightTest()
     {
         Board board = new Board();
-        Piece knight = board.getPiece(1,0);
-        board.chessMovement(1,0);
+        Piece knight = board.getPiece(0,1);
+        board.chessMovement(0,1);
         board.chessMovement(2,2);
-        Assertions.assertEquals(knight,board.activePiece);
+        Assertions.assertEquals(null,board.activePiece);
     }
 
- */
+    @Test
+    public void inCheckTest()
+    {
+        Board board = new Board();
+        Assertions.assertEquals(false,board.inCheck());
+    }
 }
