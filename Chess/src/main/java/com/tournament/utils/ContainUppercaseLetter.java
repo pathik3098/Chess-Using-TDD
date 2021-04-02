@@ -1,6 +1,8 @@
 package com.tournament.utils;
 
-public class ContainUppercaseLetter implements IValidatePassword {
+import com.tournament.authentication.IValidation;
+
+public class ContainUppercaseLetter implements IValidation {
 
     @Override
     public boolean isValid(String password) {

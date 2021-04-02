@@ -1,12 +1,12 @@
 package com.tournament;
 
-import com.tournament.PlayerDB.PlayerDB;
+import com.tournament.persistence.PlayerPersistence;
 import java.util.ArrayList;
 import java.util.List;
 
 class FormTournamentGroups
 {
-    PlayerDB obj = new PlayerDB();
+    PlayerPersistence obj = new PlayerPersistence();
     List<Player> playerList = obj.loadAllPlayers();
 
     ArrayList<Player> expert = new ArrayList<>();

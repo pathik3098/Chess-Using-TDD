@@ -1,4 +1,4 @@
-package com.tournament.PlayerDB;
+package com.tournament.persistence.interfaces;
 
 import com.tournament.Player;
 

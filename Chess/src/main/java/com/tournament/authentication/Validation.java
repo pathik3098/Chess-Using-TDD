@@ -1,4 +1,8 @@
-package com.tournament.utils;
+package com.tournament.authentication;
+
+import com.tournament.utils.ContainUppercaseLetter;
+import com.tournament.utils.ContainsSymbols;
+import com.tournament.utils.MaxLength;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -6,18 +10,18 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ValidationPassword {
+public class Validation {
 
     private final int MAX_LENGTH = 6;
     Pattern p = Pattern.compile("[^A-Za-z0-9]");
 
-    private List<IValidatePassword> IValidatePasswordList = new ArrayList();
+    private List<IValidation> IValidationPasswordList = new ArrayList();
     private List<Boolean> conditionList = new ArrayList();
 
-    public ValidationPassword() {
-        IValidatePasswordList.add(new MaxLength());
-        IValidatePasswordList.add((new ContainsSymbols()));
-        IValidatePasswordList.add((new ContainUppercaseLetter()));
+    public Validation() {
+        IValidationPasswordList.add(new MaxLength());
+        IValidationPasswordList.add((new ContainsSymbols()));
+        IValidationPasswordList.add((new ContainUppercaseLetter()));
     }
 
     public boolean isPasswordValid(String password) {

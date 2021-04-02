@@ -1,15 +1,15 @@
-package com.tournament.dao;
+package com.tournament.persistence;
 
-import com.tournament.databaseconnection.DBConnection;
-import com.tournament.databaseconnection.DBConnectionInterface;
+import com.tournament.persistenceconnection.PersistenceConnection;
+import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.model.Users;
+import com.tournament.persistence.interfaces.IRegisterPersistence;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
 
-public class RegisterDao implements IRegisterDao {
+public class RegisterPersistence implements IRegisterPersistence {
     public String insertUserDetails(Users userObj) throws SQLException {
         String inputEmail = userObj.getEmail();
         String inputUserId = userObj.getUserId();
@@ -20,7 +20,7 @@ public class RegisterDao implements IRegisterDao {
         int activeInTournament = userObj.getActiveInTournament();
         String loginTime = userObj.getLoginTime();
 
-        DBConnectionInterface conObj = new DBConnection();
+        IPersistenceConnection conObj = new PersistenceConnection();
 
         Connection connection = null;
         Statement statement = null;

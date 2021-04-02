@@ -1,6 +1,7 @@
 package com.tournament.PlayerDB;
 
 import com.tournament.Player;
+import com.tournament.persistence.interfaces.IPlayerPersistence;
 
 import java.util.ArrayList;
 

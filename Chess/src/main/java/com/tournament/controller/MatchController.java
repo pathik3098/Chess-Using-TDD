@@ -1,8 +1,7 @@
 package com.tournament.controller;
 
-import com.tournament.dao.MatchService;
+import com.tournament.persistence.MatchService;
 import com.tournament.model.Matches;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

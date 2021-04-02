@@ -3,7 +3,7 @@ package com.tournamenttest;
 import com.tournament.utils.ContainUppercaseLetter;
 import com.tournament.utils.ContainsSymbols;
 import com.tournament.utils.MaxLength;
-import com.tournament.utils.ValidationPassword;
+import com.tournament.authentication.Validation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ public class PasswordValidationTest {
 
     @Test
     public void SimplePasswordTest() {
-        ValidationPassword validationPassword = new ValidationPassword();
+        Validation validationPassword = new Validation();
         boolean a = validationPassword.isPasswordValid("Aaa@");
         Assertions.assertEquals(true, a);
 
@@ -19,7 +19,7 @@ public class PasswordValidationTest {
 
     @Test
     public void SimplePasswordTestMaxLength() {
-        ValidationPassword validationPassword = new ValidationPassword();
+        Validation validationPassword = new Validation();
         boolean a = validationPassword.isPasswordValid("Aaa@aaa");
         Assertions.assertEquals(false, a);
 
@@ -27,7 +27,7 @@ public class PasswordValidationTest {
 
     @Test
     public void SimplePasswordTestContainSymbol() {
-        ValidationPassword validationPassword = new ValidationPassword();
+        Validation validationPassword = new Validation();
         boolean a = validationPassword.isPasswordValid("Aaa@aa");
         Assertions.assertEquals(true, a);
 
@@ -35,7 +35,7 @@ public class PasswordValidationTest {
 
     @Test
     public void SimplePasswordTestWithoutContainSymbol() {
-        ValidationPassword validationPassword = new ValidationPassword();
+        Validation validationPassword = new Validation();
         boolean a = validationPassword.isPasswordValid("Aaaaa");
         Assertions.assertEquals(false, a);
 

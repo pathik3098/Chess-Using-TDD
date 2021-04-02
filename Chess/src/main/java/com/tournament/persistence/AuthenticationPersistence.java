@@ -1,18 +1,19 @@
-package com.tournament.dao;
+package com.tournament.persistence;
 
-import com.tournament.databaseconnection.DBConnection;
-import com.tournament.databaseconnection.DBConnectionInterface;
+import com.tournament.persistenceconnection.PersistenceConnection;
+import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.model.Users;
+import com.tournament.persistence.interfaces.IAuthenticationPersistence;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class AuthenticationDao implements IAuthenticationDao
+public class AuthenticationPersistence implements IAuthenticationPersistence
 {
     String message = null;
-    DBConnectionInterface conObj = new DBConnection();
+    IPersistenceConnection conObj = new PersistenceConnection();
     public String validate(Users userObject) throws SQLException {
         Connection connection = null;
         Statement statement = null;

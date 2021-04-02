@@ -1,11 +1,12 @@
-package com.tournament.PlayerDB;
+package com.tournament.persistence;
 import com.tournament.Player;
+import com.tournament.persistence.interfaces.IPlayerPersistence;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PlayerDB implements IPlayerPersistence {
+public class PlayerPersistence implements IPlayerPersistence {
 
     Connection conn = null;
     Statement statement = null;

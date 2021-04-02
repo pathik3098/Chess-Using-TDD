@@ -1,9 +1,9 @@
-package com.tournament.databaseconnection;
+package com.tournament.persistenceconnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DBConnection implements DBConnectionInterface
+public class PersistenceConnection implements IPersistenceConnection
 {
 
     public Connection establishDBConnection()  {

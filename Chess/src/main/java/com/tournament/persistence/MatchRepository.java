@@ -1,6 +1,7 @@
-package com.tournament.dao;
+package com.tournament.persistence;
 
 import com.tournament.model.Matches;
+import com.tournament.persistence.interfaces.IMatchRepository;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;

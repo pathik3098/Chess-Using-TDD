@@ -1,8 +1,8 @@
-package com.tournament.databaseconnection;
+package com.tournament.persistenceconnection;
 
 import java.sql.Connection;
 
-public interface DBConnectionInterface
+public interface IPersistenceConnection
 {
     String connectionUrl = "jdbc:mysql://localhost:3306/authentication";
     String username = "root";

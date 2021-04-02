@@ -1,9 +1,11 @@
 package com.tournament.utils;
 
+import com.tournament.authentication.IValidation;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ContainsSymbols implements IValidatePassword {
+public class ContainsSymbols implements IValidation {
 
     Pattern p = Pattern.compile("[^A-Za-z0-9]");
 

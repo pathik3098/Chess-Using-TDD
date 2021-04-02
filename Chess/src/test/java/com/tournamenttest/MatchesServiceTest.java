@@ -1,8 +1,7 @@
 package com.tournamenttest;
 
-import com.tournament.Match;
-import com.tournament.dao.MatchRepository;
-import com.tournament.dao.MatchService;
+import com.tournament.persistence.MatchRepository;
+import com.tournament.persistence.MatchService;
 import com.tournament.model.Matches;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,8 @@
-package com.tournament.dao;
+package com.tournament.persistence;
 
 import com.tournament.model.Matches;
+import com.tournament.persistence.interfaces.IMatchRepository;
+import com.tournament.persistence.interfaces.IMatchService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,7 +10,7 @@ import java.util.List;
 @Service
 public class MatchService implements IMatchService {
 
-    IMatchRepository IMatchRepository;
+    com.tournament.persistence.interfaces.IMatchRepository IMatchRepository;
 
     public MatchService(IMatchRepository IMatchRepository) {
         this.IMatchRepository = IMatchRepository;

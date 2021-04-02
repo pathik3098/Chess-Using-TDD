@@ -1,9 +1,8 @@
 package com.tournament;
 
-import com.tournament.PlayerDB.IPlayerPersistence;
+import com.tournament.persistence.interfaces.IPlayerPersistence;
 
 import java.sql.Time;
-import java.util.ArrayList;
 
 public class Player {
     private String playerName;

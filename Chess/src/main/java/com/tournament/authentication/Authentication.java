@@ -1,9 +1,10 @@
 package com.tournament.authentication;
 
 import com.tournament.model.*;
-import com.tournament.dao.*;
+import com.tournament.persistence.*;
+import com.tournament.persistence.interfaces.IAuthenticationPersistence;
+
 import java.sql.SQLException;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -27,7 +28,7 @@ public class Authentication implements IAuthentication
         }
         else
         {
-            IAuthenticationDao loginObj = new AuthenticationDao();
+            IAuthenticationPersistence loginObj = new AuthenticationPersistence();
             message = loginObj.validate((Users) userObject);
         }
         return message;
@@ -37,7 +38,7 @@ public class Authentication implements IAuthentication
         Users obj = new Users();
         String currentActiveUser = obj.getUserId();
 
-        IAuthenticationDao daoObject = new AuthenticationDao();
+        IAuthenticationPersistence daoObject = new AuthenticationPersistence();
         message = daoObject.logOut(currentActiveUser);
 
         return message;

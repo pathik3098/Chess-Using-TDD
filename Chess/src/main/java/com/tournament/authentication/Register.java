@@ -1,15 +1,14 @@
 package com.tournament.authentication;
 
-import com.tournament.dao.*;
+import com.tournament.persistence.*;
 import com.tournament.model.*;
-import com.tournament.utils.ValidationPassword;
+import com.tournament.persistence.interfaces.IRegisterPersistence;
 
 import java.sql.SQLException;
-import java.sql.Time;
 
 public class Register implements IRegister {
     String message = null;
-    ValidationPassword validationPassword = new ValidationPassword();
+    Validation validationPassword = new Validation();
 
     public String userRegistration(Users userobj) throws SQLException {
         String inputEmail = userobj.getEmail();
@@ -36,7 +35,7 @@ public class Register implements IRegister {
         }
 
         else {
-            IRegisterDao daoObject = new RegisterDao();
+            IRegisterPersistence daoObject = new RegisterPersistence();
             message = daoObject.insertUserDetails(userobj);
         }
 
