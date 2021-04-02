@@ -4,10 +4,11 @@ stages:
   
 build: 
   stage: build
+  only:
+    - master
   tags: 
     - ugrad
   script: 
-    - cd ./Chess  
     - mvn compile
 
 test: 
@@ -15,7 +16,6 @@ test:
   tags: 
     - ugrad
   script: 
-    - cd ./Chess
     - mvn clean test
   artifacts:
     when: always
