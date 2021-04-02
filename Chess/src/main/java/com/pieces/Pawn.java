@@ -5,27 +5,41 @@ import com.chessboard.Board;
 public class Pawn extends Piece
 {
     private boolean hasMoved;
-    boolean canPawnMove = false;
-    boolean canPawnAttack = false;
-    boolean canCornerPawnAttack = false;
-    boolean isDiffColourPawn = false;
-    boolean isForwardMove = false;
-    boolean enPassantAttack = false;
+    private boolean canPawnMove;
+    private boolean canPawnAttack;
+    private boolean canCornerPawnAttack;
+    private boolean isDiffColourPawn;
+    private boolean isForwardMove;
+    private boolean enPassantAttack;
 
-    boolean enPassantBlackPawn = false;
-    int enPassantBlackX = 0;
-    int enPassantBlackY = 0;
+    boolean enPassantBlackPawn;
+    private int enPassantBlackX;
+    private int enPassantBlackY;
 
-    boolean enPassantWhitePawn = false;
-    int enPassantWhiteX = 0;
-    int enPassantWhiteY = 0;
+    boolean enPassantWhitePawn;
+    private int enPassantWhiteX;
+    private int enPassantWhiteY;
 
     public Pawn(int x, int y, boolean isWhite, String path, Board board)
     {
         super(x,y,isWhite,path,board);
         hasMoved = false;
-    }
 
+        canPawnMove = false;
+        canPawnAttack = false;
+        canCornerPawnAttack = false;
+        isDiffColourPawn = false;
+        isForwardMove = false;
+        enPassantAttack = false;
+
+        enPassantBlackPawn = false;
+        enPassantBlackX = 0;
+        enPassantBlackY = 0;
+
+        enPassantWhitePawn = false;
+        enPassantWhiteX = 0;
+        enPassantWhiteY = 0;
+    }
 
     public void setIsFirstMove(boolean has_moved)
     {
@@ -43,18 +57,18 @@ public class Pawn extends Piece
         Piece targetPiece = board.getPiece(destinationX,destinationY);
 
         isDiffColourPawn = differentColourPiece(this,targetPiece);
-        isForwardMove  = (targetPiece == null && this.getPositionY() == targetPiece.getPositionY()) ? true : false;
+        isForwardMove  = (targetPiece == null && this.getPositionY() == destinationY);
 
         if (isDiffColourPawn)
         {
             ICaptureMovePawn captureObj = new CaptureMovePawn();
             captureObj.initialiseValues(this, targetPiece, board);
 
-            IEnPassantPawn enPassantObj = (IEnPassantPawn) new EnPassantPawn();
+            IEnPassantPawn enPassantObj = new EnPassantPawn();
 
             if (this.isWhite()) //When CurrentPiece is WhitePawn
             {
-                canPawnMove = canMoveWhite(this, targetPiece);
+                canPawnMove = canMoveWhite(this, destinationX,destinationY);
                 if (enPassantBlackPawn)
                 {
                     enPassantAttack = enPassantObj.checkEnPassantCapturingWhite(this,enPassantWhiteX,enPassantWhiteY);
@@ -64,11 +78,10 @@ public class Pawn extends Piece
                 canCornerPawnAttack = captureObj.cornerWhitePawnAttack(this);
                 canPawnAttack = captureObj.whitePawnAttack(this);
 
-
             }
-            else               //When CurrentPiece is BlackPawn
+            else              //When CurrentPiece is BlackPawn
             {
-                canPawnMove = canMoveBlack(this, targetPiece);
+                canPawnMove = canMoveBlack(this, destinationX,destinationY);
                 if(enPassantWhitePawn)
                 {
                     enPassantAttack = enPassantObj.checkEnPassantCapturingBlack(this,enPassantBlackX,enPassantBlackY);
@@ -87,60 +100,51 @@ public class Pawn extends Piece
     }
 
 
-    public boolean canMoveWhite(Piece currentPiece, Piece targetPiece)
+    public boolean canMoveWhite(Piece currentPiece, int destinationX, int destinationY)
     {
-        boolean canMoveOneStepForward = (currentPiece.getPositionX()+1 == targetPiece.getPositionX()) ? true : false;
+        boolean canMoveOneStepForward = (currentPiece.getPositionX()+1 == destinationX);
 
         if(getIsFirstMove())
         {
             //canMoveTwoStepForward can be true only when it is first move
-            boolean canMoveTwoStepForward = (currentPiece.getPositionX()+2 ==targetPiece.getPositionX()) ? true : false;
+            boolean canMoveTwoStepForward = (currentPiece.getPositionX()+2 == destinationX);
 
             if( isForwardMove && (canMoveOneStepForward || canMoveTwoStepForward))
             {
                 // Set flag 1 to black, to check eligibility for enPassant attack.
-                enPassantWhitePawn = (canMoveTwoStepForward)? true : false ;
-                int enPassantWhiteX = (enPassantWhitePawn)? targetPiece.getPositionX() : 0;
-                int enPassantWhiteY = (enPassantWhitePawn)? targetPiece.getPositionY() : 0;
-                return true;
-            }
-        }
-        else
-        {
-            if(isForwardMove && canMoveOneStepForward)
-            {
+                if(canMoveTwoStepForward)
+                {
+                    enPassantWhitePawn = true;
+                    int enPassantWhiteX = destinationX;
+                    int enPassantWhiteY = destinationY;
+                }
                 return true;
             }
         }
         return false;
     }
 
-    public boolean canMoveBlack(Piece currentPiece, Piece targetPiece)
+    public boolean canMoveBlack(Piece currentPiece, int destinationX, int destinationY)
     {
-        boolean canMoveOneStepForward = (currentPiece.getPositionX()-1 == targetPiece.getPositionX()) ? true : false;
+        boolean canMoveOneStepForward = (currentPiece.getPositionX()-1 == destinationX);
 
         if(getIsFirstMove())
         {
             //canMoveTwoStepForward can be true only when it is first move
-            boolean canMoveTwoStepForward = (currentPiece.getPositionX()-2 ==targetPiece.getPositionX()) ? true : false;
+            boolean canMoveTwoStepForward = (currentPiece.getPositionX()-2 == destinationX);
 
             if( isForwardMove && (canMoveOneStepForward || canMoveTwoStepForward))
             {
                 // Set flag 1 to black, to check eligibility for enPassant attack.
-                enPassantBlackPawn = (canMoveTwoStepForward)? true : false ;
-                int enPassantBlackX = (enPassantBlackPawn)? targetPiece.getPositionX() : 0;
-                int enPassantBlackY = (enPassantBlackPawn)? targetPiece.getPositionY() : 0;
-                return true;
-            }
-        }
-        else
-        {
-            if(isForwardMove && canMoveOneStepForward)
-            {
+                if(canMoveTwoStepForward)
+                {
+                    enPassantBlackPawn = true;
+                    int enPassantBlackX = destinationX;
+                    int enPassantBlackY = destinationY;
+                }
                 return true;
             }
         }
         return false;
     }
-
 }

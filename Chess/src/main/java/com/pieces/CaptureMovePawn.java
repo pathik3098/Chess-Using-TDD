@@ -4,7 +4,6 @@ import com.chessboard.Board;
 
 public class CaptureMovePawn implements ICaptureMovePawn
 {
-
     private int attackdiagonalXLeft;
     private int attackdiagonalYLeft;
     private int attackdiagonalXRight;
@@ -13,10 +12,23 @@ public class CaptureMovePawn implements ICaptureMovePawn
     private int targetX;
     private int targetY;
 
-    boolean attackLeft = false;
-    boolean attackRight = false;
+    private boolean attackLeft;
+    private boolean attackRight;
+    Board boardobj;
 
-    Board boardobj; //Board Class
+    public CaptureMovePawn()
+    {
+        attackdiagonalXLeft = 0;
+        attackdiagonalYLeft = 0;
+        attackdiagonalXRight = 0;
+        attackdiagonalYRight = 0;
+
+        targetX = 0;
+        targetY = 0;
+
+        attackLeft = false;
+        attackRight = false;
+    }
 
     public void initialiseValues(Piece currentPiece,Piece targetPiece, Board boardobj)
     {
@@ -148,5 +160,4 @@ public class CaptureMovePawn implements ICaptureMovePawn
         }
         return pawnCanAttack;
     }
-
 }

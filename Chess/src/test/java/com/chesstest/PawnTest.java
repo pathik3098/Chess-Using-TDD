@@ -1,6 +1,5 @@
 package com.chesstest;
 
-
 import com.chessboard.Board;
 import com.pieces.Pawn;
 import org.junit.jupiter.api.Assertions;
@@ -10,12 +9,14 @@ public class PawnTest {
 
     Board boardObject = new Board();
 
-    // Valid move test when null
     @Test
-    void ValidMoveTest() {
-        Pawn pawnObject = new Pawn(1, 1, true, "xxx", boardObject);
-        Assertions.assertThrows(NullPointerException.class, () -> {
-            pawnObject.ValidMove(1, 2);
-        });
+    void canMoveBlackTest() //
+    {
+        boolean hasMoved = true;
+
+        Pawn blackPawn = new Pawn(6,1,true,"", boardObject);
+        int targetX=5;
+        int targetY=1;
+        Assertions.assertEquals(false,blackPawn.canMoveBlack(blackPawn,targetX,targetY));
     }
 }
