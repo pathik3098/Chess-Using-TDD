@@ -9,6 +9,8 @@ public interface IMatchRepository {
 
     List<Matches> getAllMatch();
 
+    Matches getMatchById(int matchId);
+
     void updateMatch(Matches matches, int matchId);
 
     void deleteMatch(int matchId);

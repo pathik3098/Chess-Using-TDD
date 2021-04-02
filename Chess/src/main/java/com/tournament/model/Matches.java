@@ -4,9 +4,7 @@ public class Matches implements IMatches {
 
     private int matchId;
     private String player1id;
-    private String player1Name;
     private String player2id;
-    private String player2Name;
     private String startTime;
     private String endTime;
     private int tournamentId;
@@ -33,16 +31,6 @@ public class Matches implements IMatches {
     }
 
     @Override
-    public String getPlayer1Name() {
-        return player1Name;
-    }
-
-    @Override
-    public void setPlayer1Name(String player1Name) {
-        this.player1Name = player1Name;
-    }
-
-    @Override
     public String getPlayer2id() {
         return player2id;
     }
@@ -50,16 +38,6 @@ public class Matches implements IMatches {
     @Override
     public void setPlayer2id(String player2id) {
         this.player2id = player2id;
-    }
-
-    @Override
-    public String getPlayer2Name() {
-        return player2Name;
-    }
-
-    @Override
-    public void setPlayer2Name(String player2Name) {
-        this.player2Name = player2Name;
     }
 
     @Override

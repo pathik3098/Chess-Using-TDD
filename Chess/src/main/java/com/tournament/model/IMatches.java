@@ -10,14 +10,8 @@ public interface IMatches {
     String getPlayer1id();
     void setPlayer1id(String player1id);
 
-    String getPlayer1Name();
-    void setPlayer1Name(String player1Name);
-
     String getPlayer2id();
     void setPlayer2id(String player2id);
-
-    String getPlayer2Name();
-    void setPlayer2Name(String player2Name);
 
     String getStartTime();
     void setStartTime(String startTime);

@@ -2,10 +2,13 @@ package com.tournament.persistence;
 
 import com.tournament.model.Matches;
 import com.tournament.persistence.interfaces.IMatchRepository;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import com.tournament.persistenceconnection.IPersistenceConnection;
+import com.tournament.persistenceconnection.PersistenceConnection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -13,38 +16,129 @@ public class MatchRepository implements IMatchRepository {
 
     JdbcTemplate db;
 
+    IPersistenceConnection dbConnection = new PersistenceConnection();
+
     public MatchRepository(JdbcTemplate db) {
         this.db = db;
     }
 
-    private String Q_SAVE = "INSERT into matches (player1id,player1Name,player2id,player2Name,startTime,endTime,tournamentId) value (?,?,?,?,?,?,?)";
+    private String Q_SAVE = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
     private String Q_GETALL = "SELECT * from matches";
-    private String Q_UPDATE = "UPDATE matches SET matchId=?,player1id=?,player1Name=?,player2id=?,player2Name=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
+    private String Q_GET_BY_ID = "SELECT * from matches where matchId=?";
+    private String Q_UPDATE = "UPDATE matches SET player1id=?,player2id=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
     private String Q_DELETE = "DELETE From matches where matchId=?";
+    private PreparedStatement stmt = null;
 
     @Override
-    public void saveMatch(Matches matches) {
-        this.db.update(Q_SAVE, matches.getPlayer1id(), matches.getPlayer1Name(), matches.getPlayer2id(), matches.getPlayer2Name(), matches.getStartTime(), matches.getEndTime(), matches.getTournamentId());
+    public void saveMatch(Matches match) {
+
+        try {
+            stmt = dbConnection.establishDBConnection().prepareStatement(Q_SAVE);
+            stmt.setString(1, match.getPlayer1id());
+            stmt.setString(2, match.getPlayer2id());
+            stmt.setString(3, match.getStartTime());
+            stmt.setString(4, match.getEndTime());
+            stmt.setInt(5, match.getTournamentId());
+
+            int noOfRowAffected = stmt.executeUpdate();
+
+            dbConnection.establishDBConnection().close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
     public List<Matches> getAllMatch() {
-        return this.db.query(Q_GETALL, new BeanPropertyRowMapper<>(Matches.class));
-    }
+        List<Matches> matchesList = new ArrayList<>();
+        try {
+            stmt = dbConnection.establishDBConnection().prepareStatement(Q_GETALL);
+            ResultSet rs = stmt.executeQuery();
+            System.out.println(rs.getFetchSize());
+            if (rs != null) {
+                while (rs.next()) {
+                    Matches match = new Matches();
+                    setFieldValues(match, rs);
 
-    public Integer getAllMatchCount() {
-        List<Matches> temp = this.db.query(Q_GETALL, new BeanPropertyRowMapper<>(Matches.class));
-        return temp.size();
+                    matchesList.add(match);
+                }
+            }
+            dbConnection.establishDBConnection().close();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return matchesList;
     }
 
     @Override
-    public void updateMatch(Matches matches, int matchId) {
-        this.db.update(Q_UPDATE, matches.getPlayer1id(), matches.getPlayer1Name(), matches.getPlayer2id(), matches.getPlayer2Name(), matches.getStartTime(), matches.getEndTime(), matches.getTournamentId(), matches.getResult(), matchId);
+    public Matches getMatchById(int matchId) {
+
+        Matches match = new Matches();
+        try {
+            stmt = dbConnection.establishDBConnection().prepareStatement(Q_GET_BY_ID);
+            stmt.setInt(1, matchId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                setFieldValues(match, rs);
+            }
+            dbConnection.establishDBConnection().close();
+            return match;
+
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return match;
+    }
+
+    private void setFieldValues(Matches match, ResultSet rs) throws SQLException {
+        match.setMatchId(rs.getInt("matchId"));
+        match.setPlayer1id(rs.getString("player1id"));
+        match.setPlayer2id(rs.getString("player2id"));
+        match.setStartTime(rs.getString("startTime"));
+        match.setEndTime(rs.getString("endTime"));
+        match.setTournamentId(rs.getInt("tournamentId"));
+        match.setResult(rs.getString("result"));
+    }
+
+
+    @Override
+    public void updateMatch(Matches match, int matchId) {
+
+        try {
+            stmt = dbConnection.establishDBConnection().prepareStatement(Q_UPDATE);
+            stmt.setString(1, match.getPlayer1id());
+            stmt.setString(2, match.getPlayer2id());
+            stmt.setString(3, match.getStartTime());
+            stmt.setString(4, match.getEndTime());
+            stmt.setInt(5, match.getTournamentId());
+            stmt.setString(6, match.getResult());
+            stmt.setInt(7, match.getMatchId());
+
+            int noOfRowAffected = stmt.executeUpdate();
+
+            dbConnection.establishDBConnection().close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override
     public void deleteMatch(int matchId) {
-        this.db.update(Q_DELETE, matchId);
+
+        try {
+            stmt = dbConnection.establishDBConnection().prepareStatement(Q_DELETE);
+            stmt.setInt(1, matchId);
+            int noOfRowAffected = stmt.executeUpdate();
+
+            dbConnection.establishDBConnection().close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
 }
