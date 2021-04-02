@@ -10,7 +10,7 @@ public class FormTournamentGroups {
 
     private int numOfUsersActive;
     private int PlayerLevel;
-    private int Players;
+    private String Players;
     private int totalBatches;
     private int defaultBatchSize;
 
@@ -20,7 +20,7 @@ public class FormTournamentGroups {
         this.beginner = new ArrayList<>();
         numOfUsersActive = 0;
         PlayerLevel = 0;
-        Players = 0;
+        Players = null;
         totalBatches = 0;
         defaultBatchSize = 6;
     }

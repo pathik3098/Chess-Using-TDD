@@ -9,7 +9,7 @@ public class Queen extends Piece implements IBishop, IRook {
     }
 
     @Override
-    public boolean ValidMove(int finalCordX, int finalCordY) {
+    public boolean validMove(int finalCordX, int finalCordY) {
 
         Piece piece = board.getPiece(finalCordX, finalCordY);
 

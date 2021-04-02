@@ -52,7 +52,7 @@ public class Pawn extends Piece
     }
 
     @Override
-    public boolean ValidMove(int destinationX, int destinationY)
+    public boolean validMove(int destinationX, int destinationY)
     {
         Piece targetPiece = board.getPiece(destinationX,destinationY);
 

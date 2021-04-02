@@ -10,7 +10,7 @@ public class Rook extends Piece{
     }
 
     @Override
-    public boolean ValidMove(int destinationX, int destinationY)
+    public boolean validMove(int destinationX, int destinationY)
     {
         Piece piece = board.getPiece(destinationX,destinationY);
 

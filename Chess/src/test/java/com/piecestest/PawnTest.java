@@ -1,4 +1,4 @@
-package com.chesstest;
+package com.piecestest;
 
 import com.chessboard.Board;
 import com.pieces.Pawn;

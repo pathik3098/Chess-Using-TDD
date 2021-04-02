@@ -9,7 +9,7 @@ public class Bishop extends Piece implements IBishop {
     }
 
     @Override
-    public boolean ValidMove(int finalCordX, int finalCordY) {
+    public boolean validMove(int finalCordX, int finalCordY) {
 
         Piece piece = board.getPiece(finalCordX, finalCordY);
 

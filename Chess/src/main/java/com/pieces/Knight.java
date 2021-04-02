@@ -12,7 +12,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean ValidMove(int destination_x, int destination_y) {
+    public boolean validMove(int destination_x, int destination_y) {
         // if the destination position piece is of same colour then invalid move;
         Piece targetPiece = board.getPiece(destination_x, destination_y);
         boolean targetPieceColour = differentColourPiece(this, targetPiece);
