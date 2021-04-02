@@ -52,7 +52,7 @@ public abstract class Piece {
         return !isWhite;
     }
 
-    public abstract boolean ValidMove(int destinationX, int destinationY);
+    public abstract boolean validMove(int destinationX, int destinationY);
 
     public boolean differentColourPiece (Piece currentPiece, Piece targetPiece) {
         if (targetPiece == null)

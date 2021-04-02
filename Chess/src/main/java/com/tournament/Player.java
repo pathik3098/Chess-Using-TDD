@@ -6,24 +6,17 @@ import java.sql.Time;
 
 public class Player {
     private String playerName;
-    private int playerId;
+    private String playerId;
     private int playerLevel;
-    private Time logtime;
+    private String logtime;
     private int playerPoints;
     private Alliance alliance;
-
-    public Player(int id, IPlayerPersistence p){
-        this.playerId = id;
-        p.loadPlayer(id,this);
-    }
 
     public Player(){
 
     }
-
     public Player(String playerName) {
         this.playerName=playerName;
-
     }
 
     public Alliance getAlliance() {
@@ -42,11 +35,11 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public int getPlayerId() {
+    public String getPlayerId() {
         return playerId;
     }
 
-    public void setPlayerId(int playerId) {
+    public void setPlayerId(String playerId) {
         this.playerId = playerId;
     }
 
@@ -68,11 +61,12 @@ public class Player {
         this.playerLevel = playerLevel;
     }
 
-    public Time getLogtime() {
+    public String getLogtime() {
         return logtime;
     }
 
-    public void setLogtime(Time logtime) {
+    public void setLogtime(String logtime) {
         this.logtime = logtime;
     }
+
 }

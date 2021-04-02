@@ -1,4 +1,4 @@
-package com.chesstest;
+package com.piecestest;
 
 
 import com.chessboard.Board;
@@ -14,7 +14,7 @@ public class QueenTest {
     @Test
     public void sameAllyTest() {
         Queen queen = new Queen(1, 1, true, "filepath", board);
-        assertEquals(false, queen.ValidMove(1, 2));
+        assertEquals(false, queen.validMove(1, 2));
     }
 
     @Test
@@ -27,25 +27,25 @@ public class QueenTest {
     @Test
     public void straightMovementTest() {
         Queen queen = new Queen(0, 4, true, "filepath", board);
-        assertEquals(false, queen.ValidMove(1, 4));
+        assertEquals(false, queen.validMove(1, 4));
     }
 
     @Test
     public void horizontalMovementTest() {
         Queen queen = new Queen(0, 4, true, "filepath", board);
-        assertEquals(false, queen.ValidMove(0, 5));
+        assertEquals(false, queen.validMove(0, 5));
     }
 
     @Test
     public void diagonalMovementTest() {
         Queen queen = new Queen(0, 4, true, "filepath", board);
-        assertEquals(true, queen.ValidMove(1, 5));
+        assertEquals(true, queen.validMove(1, 5));
     }
 
     @Test
     public void IsPieceInBetweenTest() {
         Queen queen = new Queen(0, 4, true, "filepath", board);
-        assertEquals(false, queen.ValidMove(2, 2));
+        assertEquals(false, queen.validMove(2, 2));
     }
 
 }

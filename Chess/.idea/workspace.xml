@@ -6,32 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/FormTournamentGroups.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/FormTournamentGroups.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/PlayerDB/IPlayerPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IPlayerPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/PlayerDB/PlayerDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/PlayerPersistence.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/PlayerDB/PlayerDBMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/PlayerDB/PlayerDBMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/MatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/AuthenticationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/IAuthenticationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IAuthenticationPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/IMatchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/IMatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/IRegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IRegisterPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/MatchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/dao/RegisterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/databaseconnection/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistenceconnection/PersistenceConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/databaseconnection/DBConnectionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistenceconnection/IPersistenceConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/utils/ContainUppercaseLetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/utils/ContainUppercaseLetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/utils/ContainsSymbols.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/utils/ContainsSymbols.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/utils/IValidatePassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/IValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/utils/MaxLength.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/utils/MaxLength.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/utils/ValidationPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PasswordValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PasswordValidationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/StartTournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/StartTournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/PlayerPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/PlayerPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IPlayerPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IPlayerPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/BishopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/BishopTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chessboardtest/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/KingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/KingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/KnightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/KnightTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/PawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/PawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/QueenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/QueenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/FormTournamentGroupsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/FormTournamentGroupsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,12 +86,12 @@
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.*" />
+          <option name="PATTERN" value="com.chesstest.boardtest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.BoardTest" />
+      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
+      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,12 +101,12 @@
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.*" />
+          <option name="PATTERN" value="com.chesstest.boardtest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.BoardTest" />
+      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
+      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
       <option name="METHOD_NAME" value="getPieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -120,12 +117,12 @@
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.*" />
+          <option name="PATTERN" value="com.chesstest.boardtest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.BoardTest" />
+      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
+      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
       <option name="METHOD_NAME" value="inCheckTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -136,12 +133,12 @@
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.*" />
+          <option name="PATTERN" value="com.chesstest.boardtest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.BoardTest" />
+      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
+      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
       <option name="METHOD_NAME" value="movePieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -152,12 +149,12 @@
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.*" />
+          <option name="PATTERN" value="com.chesstest.boardtest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.BoardTest" />
+      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
+      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
       <option name="METHOD_NAME" value="setActivePieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">

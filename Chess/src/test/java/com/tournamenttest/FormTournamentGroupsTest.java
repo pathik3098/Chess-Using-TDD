@@ -13,7 +13,7 @@ public class FormTournamentGroupsTest
     private FormTournamentGroups formTournamentGroup;
     int numOfUsersActive = 0;
     int PlayerLevel = 0;
-    int Players = 0;
+    String Players = null;
     int totalBatches = 0;
     int defaultBatchSize = 6;
 
@@ -34,7 +34,8 @@ public class FormTournamentGroupsTest
         for (Player p : Playerlist) {
             numOfUsersActive = numOfUsersActive + 1;
             p.setPlayerLevel(i%3 + 1);
-            p.setPlayerId(10 + i);
+            Integer temp = 10 + i;
+            p.setPlayerId(temp.toString());
             i = i + 1;
         }
         FormTournamentGroups formTournamentGroups = new FormTournamentGroups();

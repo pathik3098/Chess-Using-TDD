@@ -1,4 +1,4 @@
-package com.chesstest;
+package com.piecestest;
 
 
 
@@ -17,18 +17,18 @@ public class BishopTest {
     @Test
     public void sameAllyTest() {
         Piece bishop = new Bishop(0, 1, true, "Filepath", board);
-        assertEquals(false, bishop.ValidMove(0, 2));
+        assertEquals(false, bishop.validMove(0, 2));
     }
 
     @Test
     public void diagonalMovementTest() {
         Piece bishop = new Bishop(1, 1, true, "Filepath", board);
-        assertEquals(false, bishop.ValidMove(2, 3));
+        assertEquals(false, bishop.validMove(2, 3));
     }
 
     @Test
     public void simpleTest() {
         Piece bishop = new Bishop(1, 1, true, "Filepath", board);
-        assertEquals(true, bishop.ValidMove(2, 2));
+        assertEquals(true, bishop.validMove(2, 2));
     }
 }

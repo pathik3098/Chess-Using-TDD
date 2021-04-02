@@ -188,7 +188,7 @@ public class Board {
     private void movePiece(int clickedX, int clickedY)
     {
         Piece clickPiece = getPiece(clickedX,clickedY);
-        boolean validPieceMovePosition = activePiece.ValidMove(clickedX,clickedY);
+        boolean validPieceMovePosition = activePiece.validMove(clickedX,clickedY);
         boolean isWhiteTurn = (whiteTurn && activePiece.isWhite());
         boolean isBlackTurn = (!whiteTurn && activePiece.isBlack());
 
@@ -246,7 +246,7 @@ public class Board {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece pieceReference = getPiece(i,j);
-                    if(pieceReference!=null && pieceReference.isBlack() && pieceReference.ValidMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    if(pieceReference!=null && pieceReference.isBlack() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
                     {
                         return true;
                     }
@@ -268,7 +268,7 @@ public class Board {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece pieceReference = getPiece(i,j);
-                    if(pieceReference!=null && pieceReference.isWhite() && pieceReference.ValidMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    if(pieceReference!=null && pieceReference.isWhite() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
                     {
                         return true;
                     }
