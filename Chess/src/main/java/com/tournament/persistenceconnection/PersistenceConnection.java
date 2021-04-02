@@ -10,7 +10,8 @@ public class PersistenceConnection implements IPersistenceConnection
         Connection connection = null;
         try
         {
-            connection = DriverManager.getConnection(connectionUrl, username, password);
+           // connection = DriverManager.getConnection(connectionUrl, username, password);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tournament", "root", "Chinky30891$");
             System.out.println("Establishing the connection "+ connection);
         }
         catch(Exception E)

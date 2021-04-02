@@ -1,6 +1,10 @@
 package com.tournament;
+import com.tournament.persistence.TournamentPersistence;
+import com.tournament.persistence.interfaces.ITournamentPersistence;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Tournament {
 
@@ -9,14 +13,18 @@ public class Tournament {
         ODD,
         EVEN
     }
-    private static final int timelimit =20000;
+    private static final int timelimit =100;
     public static ArrayList<Player> Players;
     public static HashMap<Player, Player> schedule;
     public Match[] match;
+    Random random = new Random();
 
     public Tournament(ArrayList<Player> Players)
     {
         this.Players= Players;
+        //Random random = new Random();
+        Scheduling(Players);
+
     }
 
     public int getPlayerSize(ArrayList<Player> Players)
@@ -47,8 +55,8 @@ public class Tournament {
         NumberType Type;
         int numPlayers=getPlayerSize(Players);
         int numPairs=getPossiblePairs(Players);
-        while(numPlayers >1)
-        {
+        ArrayList<Player> nextRoundPlayers = new ArrayList<>();
+        while(numPlayers >1) {
             Type = isOddEven(numPlayers);
             switch (Type) {
                 case ODD: {
@@ -57,9 +65,9 @@ public class Tournament {
                     match = new Match[numPairs];
                     schedule = new HashMap<Player, Player>();
                     pairing(Players);
-                    ArrayList<Player> nextRoundPlayers = pairMatchCreation(schedule);
+                    nextRoundPlayers = pairMatchCreation(schedule);
                     nextRoundPlayers.add(name);
-                    numPairs=getPossiblePairs(nextRoundPlayers);
+                    numPairs = getPossiblePairs(nextRoundPlayers);
                     Players = nextRoundPlayers;
                     numPlayers = nextRoundPlayers.size();
                     break;
@@ -69,8 +77,8 @@ public class Tournament {
                     match = new Match[numPairs];
                     schedule = new HashMap<Player, Player>();
                     pairing(Players);
-                    ArrayList<Player> nextRoundPlayers = pairMatchCreation(schedule);
-                    numPairs=getPossiblePairs(nextRoundPlayers);
+                    nextRoundPlayers = pairMatchCreation(schedule);
+                    numPairs = getPossiblePairs(nextRoundPlayers);
                     Players = nextRoundPlayers;
                     numPlayers = nextRoundPlayers.size();
                     break;
@@ -81,7 +89,9 @@ public class Tournament {
                 }
             }
         }
-    }
+        ITournamentPersistence tournamentPersistence = new TournamentPersistence();
+        tournamentPersistence.loadPlayer(nextRoundPlayers.get(0), random.nextInt());
+     }
 
     public HashMap<Player,Player> pairing(ArrayList<Player> Players) {
         schedule = new HashMap<Player, Player>();
