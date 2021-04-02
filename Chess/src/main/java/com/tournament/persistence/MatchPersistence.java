@@ -14,13 +14,8 @@ import java.util.List;
 @Component
 public class MatchPersistence implements IMatchPersistence {
 
-    JdbcTemplate db;
-
     IPersistenceConnection dbConnection = new PersistenceConnection();
-
-    public MatchPersistence(JdbcTemplate db) {
-        this.db = db;
-    }
+    Connection connection = null;
 
     private String Q_SAVE = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
     private String Q_GETALL = "SELECT * from matches";
@@ -33,7 +28,8 @@ public class MatchPersistence implements IMatchPersistence {
     public void saveMatch(Matches match) {
 
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_SAVE);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_SAVE);
             stmt.setString(1, match.getPlayer1id());
             stmt.setString(2, match.getPlayer2id());
             stmt.setString(3, match.getStartTime());
@@ -42,7 +38,7 @@ public class MatchPersistence implements IMatchPersistence {
 
             int noOfRowAffected = stmt.executeUpdate();
 
-            dbConnection.establishDBConnection().close();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -52,7 +48,8 @@ public class MatchPersistence implements IMatchPersistence {
     public List<Matches> getAllMatch() {
         List<Matches> matchesList = new ArrayList<>();
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_GETALL);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_GETALL);
             ResultSet rs = stmt.executeQuery();
             System.out.println(rs.getFetchSize());
             if (rs != null) {
@@ -63,7 +60,7 @@ public class MatchPersistence implements IMatchPersistence {
                     matchesList.add(match);
                 }
             }
-            dbConnection.establishDBConnection().close();
+            connection.close();
 
 
         } catch (SQLException throwables) {
@@ -77,15 +74,15 @@ public class MatchPersistence implements IMatchPersistence {
 
         Matches match = new Matches();
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_GET_BY_ID);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_GET_BY_ID);
             stmt.setInt(1, matchId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 setFieldValues(match, rs);
             }
-            dbConnection.establishDBConnection().close();
+            connection.close();
             return match;
-
 
 
         } catch (SQLException throwables) {
@@ -109,7 +106,8 @@ public class MatchPersistence implements IMatchPersistence {
     public void updateMatch(Matches match, int matchId) {
 
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_UPDATE);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_UPDATE);
             stmt.setString(1, match.getPlayer1id());
             stmt.setString(2, match.getPlayer2id());
             stmt.setString(3, match.getStartTime());
@@ -120,7 +118,7 @@ public class MatchPersistence implements IMatchPersistence {
 
             int noOfRowAffected = stmt.executeUpdate();
 
-            dbConnection.establishDBConnection().close();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -130,11 +128,12 @@ public class MatchPersistence implements IMatchPersistence {
     public void deleteMatch(int matchId) {
 
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_DELETE);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_DELETE);
             stmt.setInt(1, matchId);
             int noOfRowAffected = stmt.executeUpdate();
 
-            dbConnection.establishDBConnection().close();
+            connection.close();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
