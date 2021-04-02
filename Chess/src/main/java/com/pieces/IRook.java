@@ -1,7 +1,7 @@
 package com.pieces;
 
 public interface IRook {
-    boolean ValidMove(int destination_x, int destination_y);
+    boolean validMove(int destination_x, int destination_y);
 
     default boolean checkValidMoveConditions(boolean condition) {
         if (!condition) {
