@@ -1,4 +1,5 @@
 package com.tournament;
+import com.tournament.model.Match;
 import com.tournament.persistence.TournamentPersistence;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
 

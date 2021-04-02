@@ -1,7 +1,7 @@
 package com.tournamenttest;
 
+import com.tournament.model.Match;
 import com.tournament.persistence.MatchPersistence;
-import com.tournament.model.Matches;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -17,8 +17,8 @@ public class MatchesServiceTest {
         MatchPersistence matchPersistence = Mockito.mock(MatchPersistence.class);
 //        MatchService matchService = new MatchService(matchRepository);
 
-        Matches matches = new Matches();
-        List<Matches> matchesList = new ArrayList<>();
+        Match matches = new Match();
+        List<Match> matchesList = new ArrayList<>();
 
         matchesList.add(matches);
         Mockito.when(matchPersistence.getAllMatch()).thenReturn(matchesList);

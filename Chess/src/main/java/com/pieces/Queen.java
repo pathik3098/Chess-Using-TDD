@@ -31,6 +31,11 @@ public class Queen extends Piece implements IBishop, IRook {
     }
 
     @Override
+    public boolean ValidMove(int destination_x, int destination_y) {
+        return false;
+    }
+
+    @Override
     public boolean straightMovement(Piece currentPiece, Piece targetPiece) {
         return (currentPiece.getPositionX() == targetPiece.getPositionX()) || (currentPiece.getPositionY() == targetPiece.getPositionY());
     }
