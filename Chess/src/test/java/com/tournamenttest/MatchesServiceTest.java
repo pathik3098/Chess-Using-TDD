@@ -1,6 +1,6 @@
 package com.tournamenttest;
 
-import com.tournament.persistence.MatchRepository;
+import com.tournament.persistence.MatchPersistence;
 import com.tournament.model.Matches;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -14,16 +14,16 @@ public class MatchesServiceTest {
 
     @Test
     void getAllMatchesTest(){
-        MatchRepository matchRepository = Mockito.mock(MatchRepository.class);
+        MatchPersistence matchPersistence = Mockito.mock(MatchPersistence.class);
 //        MatchService matchService = new MatchService(matchRepository);
 
         Matches matches = new Matches();
         List<Matches> matchesList = new ArrayList<>();
 
         matchesList.add(matches);
-        Mockito.when(matchRepository.getAllMatch()).thenReturn(matchesList);
+        Mockito.when(matchPersistence.getAllMatch()).thenReturn(matchesList);
 //        List<Matches> returnedMatches = matchService.getAllMatch();
-        Assertions.assertTrue((BooleanSupplier) matchRepository.getAllMatch());
+        Assertions.assertTrue((BooleanSupplier) matchPersistence.getAllMatch());
     }
 
 

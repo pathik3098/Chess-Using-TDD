@@ -4,7 +4,7 @@ import com.tournament.model.Matches;
 
 import java.util.List;
 
-public interface IMatchRepository {
+public interface IMatchPersistence {
     void saveMatch(Matches matches);
 
     List<Matches> getAllMatch();

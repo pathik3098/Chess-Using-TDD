@@ -1,7 +1,7 @@
 package com.tournament.persistence;
 
 import com.tournament.model.Matches;
-import com.tournament.persistence.interfaces.IMatchRepository;
+import com.tournament.persistence.interfaces.IMatchPersistence;
 import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.persistenceconnection.PersistenceConnection;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class MatchRepository implements IMatchRepository {
+public class MatchPersistence implements IMatchPersistence {
 
     JdbcTemplate db;
 
     IPersistenceConnection dbConnection = new PersistenceConnection();
 
-    public MatchRepository(JdbcTemplate db) {
+    public MatchPersistence(JdbcTemplate db) {
         this.db = db;
     }
 
