@@ -62,7 +62,7 @@ public class Pawn extends Piece
         if (isDiffColourPawn)
         {
             ICaptureMovePawn captureObj = new CaptureMovePawn();
-            captureObj.initialiseValues(this, targetPiece, board);
+            captureObj.initialiseValues(this, destinationX,destinationY, board);
 
             IEnPassantPawn enPassantObj = new EnPassantPawn();
 

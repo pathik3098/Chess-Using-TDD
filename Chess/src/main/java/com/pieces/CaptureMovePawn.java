@@ -30,10 +30,10 @@ public class CaptureMovePawn implements ICaptureMovePawn
         attackRight = false;
     }
 
-    public void initialiseValues(Piece currentPiece,Piece targetPiece, Board boardobj)
+    public void initialiseValues(Piece currentPiece,int destinationX,int destinationY, Board boardobj)
     {
-        targetX = targetPiece.getPositionX();
-        targetY = targetPiece.getPositionY();
+        targetX = destinationX;
+        targetY = destinationY;
     }
 
     public boolean checkAttack(int attackX, int attackY)
