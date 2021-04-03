@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/ICaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/ICaptureMovePawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Match.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/Tournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Matches.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/IRook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +19,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -63,6 +56,17 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RunManager" selected="JUnit.BoardTest.movePieceTest">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
@@ -172,6 +176,7 @@
       <workItem from="1617397081828" duration="718000" />
       <workItem from="1617399845545" duration="124000" />
       <workItem from="1617443099614" duration="310000" />
+      <workItem from="1617447110586" duration="3307000" />
     </task>
     <servers />
   </component>

@@ -2,7 +2,7 @@ package com.pieces;
 
 import com.chessboard.Board;
 
-public class Queen extends Piece implements IBishop, IRook {
+public class Queen extends Piece implements IBishop {
 
     public Queen(int initialX, int initialY, boolean isWhite, String filepath, Board board) {
         super(initialX, initialY, isWhite, filepath, board);
@@ -13,12 +13,12 @@ public class Queen extends Piece implements IBishop, IRook {
 
         Piece piece = board.getPiece(finalCordX, finalCordY);
 
-        if (checkValidMoveConditions(differentColourPiece(this, piece))) return false;
-        System.out.println("1");
-        if (checkValidMoveConditions(StraightMovement(finalCordX, finalCordY) || diagonalMovement(finalCordX, finalCordY))) return false;
-        System.out.println("2");
-        if (checkValidMoveConditions(IsPieceInBetween(finalCordX, finalCordY)||checkIfPieceInBetween(finalCordX, finalCordY))) return false;
-        System.out.println("3");
+//        if (checkValidMoveConditions(differentColourPiece(this, piece))) return false;
+//        System.out.println("1");
+//        if (checkValidMoveConditions(StraightMovement(finalCordX, finalCordY) || diagonalMovement(finalCordX, finalCordY))) return false;
+//        System.out.println("2");
+//        if (checkValidMoveConditions(IsPieceInBetween(finalCordX, finalCordY)||checkIfPieceInBetween(finalCordX, finalCordY))) return false;
+//        System.out.println("3");
 
 
 //        if (checkValidMoveConditions(diagonalMovement(finalCordX, finalCordY))) return false;
@@ -30,7 +30,7 @@ public class Queen extends Piece implements IBishop, IRook {
         return true;
     }
 
-    @Override
+//    @Override
     public boolean straightMovement(Piece currentPiece, Piece targetPiece) {
         return (currentPiece.getPositionX() == targetPiece.getPositionX()) || (currentPiece.getPositionY() == targetPiece.getPositionY());
     }
@@ -39,7 +39,7 @@ public class Queen extends Piece implements IBishop, IRook {
         return (this.getPositionX() == finalCordX) || (this.getPositionY() == finalCordY);
     }
 
-    @Override
+//    @Override
     public boolean isPieceInBetween(Piece currentPiece, Piece targetPiece) {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();
