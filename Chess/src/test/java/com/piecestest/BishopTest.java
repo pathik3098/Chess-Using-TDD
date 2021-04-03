@@ -22,8 +22,8 @@ public class BishopTest {
 
     @Test
     public void diagonalMovementTest() {
-        Piece bishop = new Bishop(1, 1, true, "Filepath", board);
-        assertEquals(false, bishop.validMove(2, 3));
+        Piece bishop = new Bishop(0, 0, true, "Filepath", board);
+        assertEquals(false, bishop.validMove(1, 1));
     }
 
     @Test
