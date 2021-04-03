@@ -1,6 +1,8 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.pieces.interfaces.IBishopMoves;
+import com.pieces.interfaces.IRookMoves;
 
 import java.util.ArrayList;
 import java.util.Iterator;

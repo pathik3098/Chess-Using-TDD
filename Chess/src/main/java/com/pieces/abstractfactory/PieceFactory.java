@@ -1,6 +1,7 @@
-package com.pieces;
+package com.pieces.abstractfactory;
 
 import com.chessboard.Board;
+import com.pieces.Piece;
 
 public abstract class PieceFactory
 {

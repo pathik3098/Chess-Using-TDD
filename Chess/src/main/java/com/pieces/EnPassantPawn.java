@@ -1,6 +1,8 @@
 package com.pieces;
 
-public class EnPassantPawn implements  IEnPassantPawn
+import com.pieces.interfaces.IEnPassantPawn;
+
+public class EnPassantPawn implements IEnPassantPawn
 {
     private boolean enPassantAttack;
 

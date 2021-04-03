@@ -1,4 +1,4 @@
-package com.pieces;
+package com.pieces.interfaces;
 
 public interface IBishopMoves {
 

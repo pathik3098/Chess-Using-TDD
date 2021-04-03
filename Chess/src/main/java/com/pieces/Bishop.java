@@ -1,10 +1,7 @@
 package com.pieces;
 
 import com.chessboard.Board;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.pieces.interfaces.IBishopMoves;
 
 public class Bishop extends Piece {
 

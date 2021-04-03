@@ -1,6 +1,7 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.pieces.interfaces.IRookMoves;
 
 public class Rook extends Piece {
 
