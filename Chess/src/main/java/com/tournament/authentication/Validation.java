@@ -1,8 +1,5 @@
 package com.tournament.authentication;
 
-import com.tournament.utils.ContainUppercaseLetter;
-import com.tournament.utils.ContainsSymbols;
-import com.tournament.utils.MaxLength;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,40 +7,25 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Validation {
+public class Validation implements IValidation {
 
     private final int MAX_LENGTH = 6;
     Pattern p = Pattern.compile("[^A-Za-z0-9]");
 
-    private List<IValidation> IValidationPasswordList = new ArrayList();
-    private List<Boolean> conditionList = new ArrayList();
-
-    public Validation() {
-        IValidationPasswordList.add(new MaxLength());
-        IValidationPasswordList.add((new ContainsSymbols()));
-        IValidationPasswordList.add((new ContainUppercaseLetter()));
-    }
-
     public boolean isPasswordValid(String password) {
+        List<Boolean> conditionList = new ArrayList();
+
         conditionList.add(isMaxLength(password));
         conditionList.add(isContainsUppercaseLetter(password));
         conditionList.add(isContainsSymbols(password));
         Iterator<Boolean> iter = conditionList.iterator();
         while (iter.hasNext()) {
-            Boolean v = iter.next();
-            if (!v) {
+            Boolean isCondition = iter.next();
+            if (!isCondition) {
                 return false;
             }
         }
         return true;
-//        Iterator<IValidatePassword> iter = IValidatePasswordList.iterator();
-//        while (iter.hasNext()) {
-//            IValidatePassword v = iter.next();
-//            if (!v.isValid(password)) {
-//                return false;
-//            }
-//        }
-//        return true;
     }
 
     public boolean isMaxLength(String password) {
