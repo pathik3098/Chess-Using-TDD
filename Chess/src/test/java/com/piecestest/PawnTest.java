@@ -21,6 +21,7 @@ TestCase 7: invalidTwoStepMoveWhitePawnTest - Restricts the White Pawn to take T
 TestCase 8: invalidTwoStepMoveBlackPawnTest - Restricts the White Pawn to take TWO Forward Steps when its first move chance is over.
 TestCase 9: invalidRandomPawnMovement - Restricts the Pawn from moving in random direction.
  */
+
 public class PawnTest {
 
     private boolean HasMoved;
@@ -29,7 +30,6 @@ public class PawnTest {
     void validFirstMoveOneStepBlackPawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(5,1);
         Piece activePiece = new Pawn(6,1,false,"", board);
         Pawn blackActivePawn=(Pawn)activePiece;
 
@@ -46,7 +46,6 @@ public class PawnTest {
     void validFirstMoveTwoStepBlackPawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(4,1);
         Piece activePiece = new Pawn(6,1,false,"", board);
         Pawn blackActivePawn=(Pawn)activePiece;
 
@@ -63,7 +62,6 @@ public class PawnTest {
     void validMoveOneStepBlackPawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(3,1);
         Piece activePiece = new Pawn(4,1,false,"", board);
         Pawn blackActivePawn=(Pawn)activePiece;
 
@@ -81,7 +79,6 @@ public class PawnTest {
     void validFirstMoveOneStepWhitePawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(2,5);
         Piece activePiece = new Pawn(1,5,true,"", board);
         Pawn whiteActivePawn=(Pawn)activePiece;
 
@@ -98,7 +95,6 @@ public class PawnTest {
     void validFirstMoveTwoStepWhitePawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(3,5);
         Piece activePiece = new Pawn(1,5,true,"", board);
         Pawn whiteActivePawn=(Pawn)activePiece;
 
@@ -115,7 +111,6 @@ public class PawnTest {
     void validMoveOneStepWhitePawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(5,1);
         Piece activePiece = new Pawn(4,1,true,"", board);
         Pawn whiteActivePawn=(Pawn)activePiece;
 
@@ -132,7 +127,6 @@ public class PawnTest {
     void invalidTwoStepMoveWhitePawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(5,1);
         Piece activePiece = new Pawn(3,1,true,"", board);
         Pawn whiteActivePawn=(Pawn)activePiece;
 
@@ -149,7 +143,6 @@ public class PawnTest {
     void invalidTwoStepMoveBlackPawnTest()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(3,2);
         Piece activePiece = new Pawn(5,2,false,"", board);
         Pawn blackActivePawn=(Pawn)activePiece;
 
@@ -166,7 +159,6 @@ public class PawnTest {
     void invalidRandomPawnMovement()
     {
         Board board = new Board();
-        Piece piece = board.getPiece(3,7);
         Piece activePiece = new Pawn(5,2,false,"", board);
         Pawn blackActivePawn=(Pawn)activePiece;
 
