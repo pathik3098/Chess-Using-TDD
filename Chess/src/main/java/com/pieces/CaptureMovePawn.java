@@ -14,7 +14,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
 
     private boolean attackLeft;
     private boolean attackRight;
-    Board boardobj;
+    private Board boardobj;
 
     public CaptureMovePawn()
     {
@@ -30,10 +30,11 @@ public class CaptureMovePawn implements ICaptureMovePawn
         attackRight = false;
     }
 
-    public void initialiseValues(Piece currentPiece,Piece targetPiece, Board boardobj)
+    public void initialiseValues(Piece currentPiece,int destinationX,int destinationY, Board boardobj)
     {
-        targetX = targetPiece.getPositionX();
-        targetY = targetPiece.getPositionY();
+        targetX = destinationX;
+        targetY = destinationY;
+        this.boardobj=boardobj;
     }
 
     public boolean checkAttack(int attackX, int attackY)
