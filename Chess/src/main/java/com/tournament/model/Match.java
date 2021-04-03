@@ -3,6 +3,8 @@ package com.tournament.model;
 import com.chessboard.Board;
 import com.tournament.Alliance;
 import com.tournament.Player;
+import com.tournament.persistence.LeaderBoardPersistence;
+import com.tournament.persistence.interfaces.ILeaderBoardPersistence;
 
 public class Match implements IMatch {
 

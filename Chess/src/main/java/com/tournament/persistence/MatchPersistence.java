@@ -47,6 +47,7 @@ public class MatchPersistence implements IMatchPersistence {
     public List<Match> getAllMatch() {
         List<Match> matchesList = new ArrayList<>();
         try {
+
             connection = dbConnection.establishDBConnection();
             stmt = connection.prepareStatement(Q_GETALL);
             ResultSet rs = stmt.executeQuery();
@@ -60,8 +61,6 @@ public class MatchPersistence implements IMatchPersistence {
                 }
             }
             connection.close();
-
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
