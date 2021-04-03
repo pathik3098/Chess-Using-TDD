@@ -21,7 +21,7 @@ public class QueenTest {
     public void checkNullMovementTest() {
         Queen queen = new Queen(1, 1, true, "filepath", board);
         assertNull(board.getPiece(2, 2));
-//        assertEquals(true, queen.ValidMove(2, 2));
+        assertEquals(true, queen.validMove(2, 2));
     }
 
     @Test
@@ -38,8 +38,8 @@ public class QueenTest {
 
     @Test
     public void diagonalMovementTest() {
-        Queen queen = new Queen(0, 4, true, "filepath", board);
-        assertEquals(true, queen.validMove(1, 5));
+        Queen queen = new Queen(5, 5, true, "filepath", board);
+        assertEquals(true, queen.validMove(6, 6));
     }
 
     @Test
