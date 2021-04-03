@@ -6,14 +6,4 @@ public interface IBishopMoves {
 
     Boolean checkIfPieceInBetween(int finalCordX, int finalCordY);
 
-    Directions getDirectionMovement(int finalCordX, int finalCordY);
-
-    Boolean checkPieceInBetweenNE(int finalCordX, Directions Direction);
-
-    Boolean checkPieceInBetweenNW(int finalCordX, Directions Direction);
-
-    Boolean checkPieceInBetweenSW(int finalCordX, Directions Direction);
-
-    Boolean checkPieceInBetweenSE(int finalCordX, Directions Direction);
-
 }

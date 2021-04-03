@@ -17,21 +17,16 @@ public class Bishop extends Piece {
 
     @Override
     public boolean validMove(int finalCordX, int finalCordY) {
-        List<Boolean> validationConditionList = new ArrayList();
         Piece piece = board.getPiece(finalCordX, finalCordY);
 
-        validationConditionList.add(differentColourPiece(this, piece));
-        validationConditionList.add(iBishopMoves.diagonalMovement(finalCordX, finalCordY));
-        validationConditionList.add(iBishopMoves.checkIfPieceInBetween(finalCordX, finalCordY));
+        Boolean isDifferentColorPiece = differentColourPiece(this, piece);
+        Boolean isInDiagonalMovement = iBishopMoves.diagonalMovement(finalCordX, finalCordY);
+        Boolean isPieceNotInBetween = iBishopMoves.checkIfPieceInBetween(finalCordX, finalCordY);
 
-        Iterator<Boolean> iter = validationConditionList.iterator();
-        while (iter.hasNext()) {
-            Boolean isConditionSatisfied = iter.next();
-            if (!isConditionSatisfied) {
-                return false;
-            }
+        if (isDifferentColorPiece && isInDiagonalMovement && isPieceNotInBetween) {
+            return true;
         }
-        return true;
+        return false;
     }
 
 }

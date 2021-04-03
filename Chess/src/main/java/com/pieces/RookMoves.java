@@ -2,39 +2,30 @@ package com.pieces;
 
 import com.chessboard.Board;
 
-public class Rook extends Piece implements IRookMoves{
+public class RookMoves implements IRookMoves {
 
-    public Rook(int x, int y, boolean isWhite, String path, Board board)
-    {
-        super(x, y, isWhite, path, board);
+    private int initialX;
+    private int initialY;
+    private boolean isWhite;
+    private String filePath;
+    public Board board;
+
+    public RookMoves(int initialX, int initialY, boolean isWhite, String filePath, Board board) {
+        this.initialX = initialX;
+        this.initialY = initialY;
+        this.isWhite = isWhite;
+        this.filePath = filePath;
+        this.board = board;
     }
 
     @Override
-    public boolean validMove(int destinationX, int destinationY)
-    {
-        Piece piece = board.getPiece(destinationX,destinationY);
-
-        boolean a = differentColourPiece(this,piece);
-        boolean b = straightMovement(this,destinationX,destinationY);
-        boolean c = isPieceInBetween(this,destinationX,destinationY);
-
-        if(a&&b&&c)
-        {
-            return true;
-        }
-
-        return false;
-
-    }
-
-    @Override
-    public boolean straightMovement(Piece currentPiece,int destinationX, int destinationY)
+    public boolean straightMovement(Piece currentPiece, int destinationX, int destinationY)
     {
         return (currentPiece.getPositionX() == destinationX) || (currentPiece.getPositionY() == destinationY);
     }
 
     @Override
-    public boolean isPieceInBetween(Piece currentPiece,int destinationX, int destinationY)
+    public boolean isPieceInBetween(Piece currentPiece, int destinationX, int destinationY)
     {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();
@@ -93,4 +84,5 @@ public class Rook extends Piece implements IRookMoves{
         }
         return true;
     }
+
 }
