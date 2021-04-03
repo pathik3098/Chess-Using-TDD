@@ -1,17 +1,17 @@
 package com.tournament.persistence.interfaces;
 
-import com.tournament.model.Matches;
+import com.tournament.model.Match;
 
 import java.util.List;
 
 public interface IMatchPersistence {
-    void saveMatch(Matches matches);
+    void saveMatch(Match match);
 
-    List<Matches> getAllMatch();
+    List<Match> getAllMatch();
 
-    Matches getMatchById(int matchId);
+    Match getMatchById(int matchId);
 
-    void updateMatch(Matches matches, int matchId);
+    void updateMatch(Match match, int matchId);
 
     void deleteMatch(int matchId);
 }

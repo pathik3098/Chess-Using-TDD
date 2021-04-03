@@ -1,6 +1,5 @@
 package com.tournamenttest;
 
-import com.tournament.Match;
 import com.tournament.Player;
 import com.tournament.Tournament;
 import com.tournament.TournamentMock;

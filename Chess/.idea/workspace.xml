@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/IRook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/IRook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/ICaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/ICaptureMovePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Match.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/Tournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Matches.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
   <component name="ProjectId" id="1owcDPoM652weMOthY3mfvuWp8N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -33,6 +43,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -44,9 +55,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RunManager" selected="JUnit.BoardTest.movePieceTest">
     <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -156,6 +170,8 @@
       <workItem from="1615920837528" duration="9902000" />
       <workItem from="1617298482213" duration="11926000" />
       <workItem from="1617397081828" duration="718000" />
+      <workItem from="1617399845545" duration="124000" />
+      <workItem from="1617443099614" duration="310000" />
     </task>
     <servers />
   </component>

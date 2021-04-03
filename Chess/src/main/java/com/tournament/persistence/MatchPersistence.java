@@ -1,10 +1,9 @@
 package com.tournament.persistence;
 
-import com.tournament.model.Matches;
+import com.tournament.model.Match;
 import com.tournament.persistence.interfaces.IMatchPersistence;
 import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.persistenceconnection.PersistenceConnection;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -14,13 +13,8 @@ import java.util.List;
 @Component
 public class MatchPersistence implements IMatchPersistence {
 
-    JdbcTemplate db;
-
     IPersistenceConnection dbConnection = new PersistenceConnection();
-
-    public MatchPersistence(JdbcTemplate db) {
-        this.db = db;
-    }
+    Connection connection = null;
 
     private String Q_SAVE = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
     private String Q_GETALL = "SELECT * from matches";
@@ -30,10 +24,11 @@ public class MatchPersistence implements IMatchPersistence {
     private PreparedStatement stmt = null;
 
     @Override
-    public void saveMatch(Matches match) {
+    public void saveMatch(Match match) {
 
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_SAVE);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_SAVE);
             stmt.setString(1, match.getPlayer1id());
             stmt.setString(2, match.getPlayer2id());
             stmt.setString(3, match.getStartTime());
@@ -42,28 +37,29 @@ public class MatchPersistence implements IMatchPersistence {
 
             int noOfRowAffected = stmt.executeUpdate();
 
-            dbConnection.establishDBConnection().close();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
     @Override
-    public List<Matches> getAllMatch() {
-        List<Matches> matchesList = new ArrayList<>();
+    public List<Match> getAllMatch() {
+        List<Match> matchesList = new ArrayList<>();
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_GETALL);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_GETALL);
             ResultSet rs = stmt.executeQuery();
             System.out.println(rs.getFetchSize());
             if (rs != null) {
                 while (rs.next()) {
-                    Matches match = new Matches();
+                    Match match = new Match();
                     setFieldValues(match, rs);
 
                     matchesList.add(match);
                 }
             }
-            dbConnection.establishDBConnection().close();
+            connection.close();
 
 
         } catch (SQLException throwables) {
@@ -73,19 +69,19 @@ public class MatchPersistence implements IMatchPersistence {
     }
 
     @Override
-    public Matches getMatchById(int matchId) {
+    public Match getMatchById(int matchId) {
 
-        Matches match = new Matches();
+        Match match = new Match();
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_GET_BY_ID);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_GET_BY_ID);
             stmt.setInt(1, matchId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 setFieldValues(match, rs);
             }
-            dbConnection.establishDBConnection().close();
+            connection.close();
             return match;
-
 
 
         } catch (SQLException throwables) {
@@ -94,33 +90,34 @@ public class MatchPersistence implements IMatchPersistence {
         return match;
     }
 
-    private void setFieldValues(Matches match, ResultSet rs) throws SQLException {
+    private void setFieldValues(Match match, ResultSet rs) throws SQLException {
         match.setMatchId(rs.getInt("matchId"));
         match.setPlayer1id(rs.getString("player1id"));
         match.setPlayer2id(rs.getString("player2id"));
         match.setStartTime(rs.getString("startTime"));
         match.setEndTime(rs.getString("endTime"));
         match.setTournamentId(rs.getInt("tournamentId"));
-        match.setResult(rs.getString("result"));
+        match.setMatchWinner(rs.getString("result"));
     }
 
 
     @Override
-    public void updateMatch(Matches match, int matchId) {
+    public void updateMatch(Match match, int matchId) {
 
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_UPDATE);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_UPDATE);
             stmt.setString(1, match.getPlayer1id());
             stmt.setString(2, match.getPlayer2id());
             stmt.setString(3, match.getStartTime());
             stmt.setString(4, match.getEndTime());
             stmt.setInt(5, match.getTournamentId());
-            stmt.setString(6, match.getResult());
+            stmt.setString(6, match.getMatchWinner());
             stmt.setInt(7, match.getMatchId());
 
             int noOfRowAffected = stmt.executeUpdate();
 
-            dbConnection.establishDBConnection().close();
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -130,11 +127,12 @@ public class MatchPersistence implements IMatchPersistence {
     public void deleteMatch(int matchId) {
 
         try {
-            stmt = dbConnection.establishDBConnection().prepareStatement(Q_DELETE);
+            connection = dbConnection.establishDBConnection();
+            stmt = connection.prepareStatement(Q_DELETE);
             stmt.setInt(1, matchId);
             int noOfRowAffected = stmt.executeUpdate();
 
-            dbConnection.establishDBConnection().close();
+            connection.close();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();

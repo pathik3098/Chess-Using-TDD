@@ -1,6 +1,6 @@
 package com.tournamenttest;
 
-import com.tournament.Match;
+import com.tournament.model.Match;
 import com.tournament.Player;
 import com.tournament.persistence.PlayerPersistence;
 import org.junit.jupiter.api.Assertions;
