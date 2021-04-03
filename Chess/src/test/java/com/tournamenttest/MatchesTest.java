@@ -11,10 +11,10 @@ public class MatchesTest {
     @Test
     void matchPlayedTest() {
         PlayerPersistence db = new PlayerPersistence();
-//        Player player1 = new Player(1, db);
-//        Player player2 = new Player(2,db);
-//        Match match = new Match(player1,player2);
-//        Assertions.assertEquals(true, match.getResult());
+        Player player1 = new Player();
+        Player player2 = new Player();
+        Match match = new Match(player1,player2);
+        Assertions.assertEquals(true, match.getResult());
     }
 
 }

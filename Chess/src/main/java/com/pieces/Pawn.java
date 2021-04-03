@@ -121,6 +121,14 @@ public class Pawn extends Piece
                 return true;
             }
         }
+        else
+        {
+            if(isForwardMove && canMoveOneStepForward)
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 
@@ -145,6 +153,14 @@ public class Pawn extends Piece
                 return true;
             }
         }
+        else
+        {
+            if(isForwardMove && canMoveOneStepForward)
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 }
