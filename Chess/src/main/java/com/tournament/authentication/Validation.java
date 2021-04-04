@@ -39,9 +39,18 @@ public class Validation implements IValidation {
     }
 
     @Override
-    public boolean isRegisterFieldEmptyValidation(String inputEmail, String inputUserId, String inputUsername, String inputPassword, String inputConPassword) {
+    public boolean isRegisterFieldEmptyValidation(String inputEmail, String inputUserId, String inputUsername, String inputPassword, String inputConPassword, String playerLevel) {
 
-        if (null == inputEmail || null == inputUserId || null == inputUsername || null == inputPassword ||null == inputConPassword) {
+        if ("" == inputEmail || "" == inputUserId || "" == inputUsername || "" == inputPassword || "" == inputConPassword || "" == playerLevel) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isPasswordAndConfirmPasswordNotSame(String inputPassword, String inputConPassword) {
+
+        if (inputPassword != inputConPassword) {
             return false;
         }
         return true;
