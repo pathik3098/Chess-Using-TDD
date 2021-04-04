@@ -1,4 +1,5 @@
 package com.pieces;
+import com.pieces.interfaces.IEnPassantPawn;
 
 public class EnPassantPawn implements IEnPassantPawn
 {

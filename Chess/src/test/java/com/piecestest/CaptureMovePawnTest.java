@@ -2,7 +2,7 @@ package com.piecestest;
 
 import com.chessboard.*;
 import com.pieces.CaptureMovePawn;
-import com.pieces.ICaptureMovePawn;
+import com.pieces.interfaces.ICaptureMovePawn;
 import com.pieces.Pawn;
 import com.pieces.Piece;
 import org.junit.After;

@@ -1,7 +1,7 @@
 package com.piecestest;
 
 import com.chessboard.Board;
-import com.pieces.IEnPassantPawn;
+import com.pieces.interfaces.IEnPassantPawn;
 import com.pieces.EnPassantPawn;
 import com.pieces.Pawn;
 import com.pieces.Piece;
