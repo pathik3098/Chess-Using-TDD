@@ -21,8 +21,8 @@ public class Validation implements IValidation {
         conditionList.add(isContainsSymbols(password));
         Iterator<Boolean> iter = conditionList.iterator();
         while (iter.hasNext()) {
-            Boolean isCondition = iter.next();
-            if (!isCondition) {
+            Boolean isConditionSatisfied = iter.next();
+            if (!isConditionSatisfied) {
                 return false;
             }
         }
