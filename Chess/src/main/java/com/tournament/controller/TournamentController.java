@@ -21,19 +21,19 @@ public class TournamentController
         return "index";
     }
 
-    @RequestMapping("/loginPageMapping")
+    @RequestMapping("/loginPage")
     public String viewLoginPage()
     {
         return "Login";
     }
 
-    @RequestMapping("/registerPageMapping")
+    @RequestMapping("/registerPage")
     public String viewRegisterPage()
     {
         return "Register";
     }
 
-    @RequestMapping(value = "/processLoginForm",method = {RequestMethod.POST})
+    @RequestMapping(value = "/loginForm",method = {RequestMethod.POST})
     public String processLoginPage(HttpServletRequest request, Model model) throws SQLException {
 
         String UserId = request.getParameter("userId");
@@ -44,49 +44,46 @@ public class TournamentController
 
         if(message.equals("LoginSuccessful"))
         {
-            model.addAttribute("loginMessage","loginMessage"+message);
             return "WelcomePage";
         }
         else
         {
-            model.addAttribute("loginMessage","loginMessage"+message);
+            model.addAttribute("message", message);
             return "Login";
         }
     }
 
-    @RequestMapping(value = "/registerPageMapping",method = {RequestMethod.POST})
+    @RequestMapping(value = "/registerForm",method = {RequestMethod.POST})
     public String processRegisterPage(HttpServletRequest request, Model model) throws SQLException {
 
-        String Email = request.getParameter("email");
-        String UserName = request.getParameter("username");
+        String email = request.getParameter("email");
+        String userName = request.getParameter("username");
 
-        String UserId = request.getParameter("userId");
+        String userId = request.getParameter("userId");
 
-        String PlayerLevelValue = request.getParameter("level");
-        int PlayerLevel = Integer.parseInt(PlayerLevelValue);
+        String playerLevel = request.getParameter("level");
 
         String password = request.getParameter("password");
-        String conpassword = request.getParameter("conpassword");
+        String conPassword = request.getParameter("conpassword");
 
         Users userobj = new Users();
-        userobj.setEmail(Email);
-        userobj.setUserId(UserId);
-        userobj.setUsername(UserName);
-        userobj.setPlayerLevel(PlayerLevel);
+        userobj.setEmail(email);
+        userobj.setUserId(userId);
+        userobj.setUsername(userName);
         userobj.setPassword(password);
-        userobj.setConPassword(conpassword);
+        userobj.setConPassword(conPassword);
 
         IRegister registerObj= new Register();
-        String message = registerObj.userRegistration(userobj);
+        String message = registerObj.userRegistration(userobj,playerLevel);
 
         if(message.equals("RegisterSuccess"))
         {
-            model.addAttribute("Registeration Message", "Registeration Message"+message);
+            model.addAttribute("Registeration_Message", message);
             return "Login";
         }
         else
         {
-            model.addAttribute("Registeration Message","Registeration Message"+message);
+            model.addAttribute("Registeration_Message",message);
             return "Register";
         }
     }
@@ -97,9 +94,8 @@ public class TournamentController
         IAuthentication logoutObj= new Authentication();
         String message = logoutObj.userLogOut();
 
-        if(message.equals("RegisterSuccess"))
+        if(message.equals("LogOut Successful"))
         {
-            model.addAttribute("LogOut Message", "LogOut Message"+message);
             return "Login";
         }
         else

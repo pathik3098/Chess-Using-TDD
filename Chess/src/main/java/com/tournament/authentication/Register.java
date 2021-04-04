@@ -13,35 +13,40 @@ public class Register implements IRegister {
     IValidation iValidation = new Validation();
     IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
 
-    public String userRegistration(Users userobj) throws SQLException {
-        String inputEmail = userobj.getEmail();
-        String inputUserId = userobj.getUserId();
-        String inputUsername = userobj.getUsername();
-        String inputPassword = userobj.getPassword();
-        String inputConPassword = userobj.getConPassword();
+    public String userRegistration(Users userObj, String playerLevel) throws SQLException {
+        String inputEmail = userObj.getEmail();
+        String inputUserId = userObj.getUserId();
+        String inputUsername = userObj.getUsername();
+        String inputPassword = userObj.getPassword();
+        String inputConPassword = userObj.getConPassword();
 
 
         int userSessionFlag = 0;
-        userobj.setUserSessionFlag(userSessionFlag);
+        userObj.setUserSessionFlag(userSessionFlag);
 
         int activeInTournament = 0;
-        userobj.setActiveInTournament(activeInTournament);
+        userObj.setActiveInTournament(activeInTournament);
 
         String loginTime = null;
-        userobj.setLoginTime(loginTime);
+        userObj.setLoginTime(loginTime);
 
-        if (inputEmail == null || inputUserId == null || inputUsername == null || inputPassword == null || inputConPassword == null) {
-            return "Input strings can't be empty";
+        if (iValidation.isRegisterFieldEmptyValidation(inputEmail, inputUserId, inputUsername, inputPassword, inputConPassword, playerLevel)) {
+            return "Please Fill all Details";
+        }
+
+        if (iValidation.isPasswordAndConfirmPasswordNotSame( inputPassword, inputConPassword)) {
+            return "Password and Confirm Password doesn't match !";
         }
 
         if (!iValidation.isPasswordValid(inputPassword)) {
             return "Invalid Password Format";
         }
-
         else {
             passwordEncryption(userobj, inputPassword);
+            int playerLevelValue = Integer.parseInt(playerLevel);
+            userObj.setPlayerLevel(playerLevelValue);
             IRegisterPersistence daoObject = new RegisterPersistence();
-            message = daoObject.insertUserDetails(userobj);
+            message = daoObject.insertUserDetails(userObj);
         }
 
         return message;

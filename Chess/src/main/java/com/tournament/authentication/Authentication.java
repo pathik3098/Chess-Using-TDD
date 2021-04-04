@@ -14,6 +14,8 @@ public class Authentication implements IAuthentication
     String message = null;
     IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
 
+    IValidation iValidation = new Validation();
+
     public String userAuthentication(String inputUserName, String inputPassword) throws SQLException {
         IUsers userObject = new Users();
 
@@ -25,9 +27,8 @@ public class Authentication implements IAuthentication
         userObject.setPassword(inputPassword);
         userObject.setLoginTime(loginTime);
 
-        if(inputUserName == null || inputPassword == null)
-        {
-            return "Input strings can't be empty";
+        if (iValidation.isLoginFieldEmptyValidation(inputUserName, inputPassword)) {
+            return "Enter User Id or Password !";
         }
         else
         {
