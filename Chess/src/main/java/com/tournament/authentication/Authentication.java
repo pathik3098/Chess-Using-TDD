@@ -11,6 +11,8 @@ import java.util.Date;
 public class Authentication implements IAuthentication
 {
     String message = null;
+    IValidation iValidation = new Validation();
+
     public String userAuthentication(String inputUserName, String inputPassword) throws SQLException {
         IUsers userObject = new Users();
 
@@ -22,15 +24,13 @@ public class Authentication implements IAuthentication
         userObject.setPassword(inputPassword);
         userObject.setLoginTime(loginTime);
 
-        if(inputUserName == null || inputPassword == null)
-        {
-            return "Input strings can't be empty";
+        if (iValidation.isLoginFieldEmptyValidation(inputUserName, inputPassword)) {
+            return "Enter User Id or Password !";
         }
-        else
-        {
-            IAuthenticationPersistence loginObj = new AuthenticationPersistence();
-            message = loginObj.validate((Users) userObject);
-        }
+
+        IAuthenticationPersistence loginObj = new AuthenticationPersistence();
+        message = loginObj.validate((Users) userObject);
+
         return message;
     }
 

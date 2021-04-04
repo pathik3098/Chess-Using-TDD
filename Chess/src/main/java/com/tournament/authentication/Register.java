@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class Register implements IRegister {
     String message = null;
-    Validation validationPassword = new Validation();
+    IValidation iValidation = new Validation();
 
     public String userRegistration(Users userobj) throws SQLException {
         String inputEmail = userobj.getEmail();
@@ -26,15 +26,13 @@ public class Register implements IRegister {
         String loginTime = null;
         userobj.setLoginTime(loginTime);
 
-        if (inputEmail == null || inputUserId == null || inputUsername == null || inputPassword == null || inputConPassword == null) {
-            return "Input strings can't be empty";
+        if (!iValidation.isRegisterFieldEmptyValidation(inputEmail, inputUserId, inputUsername, inputPassword, inputConPassword)) {
+            return "Please Fill all Details";
         }
 
-        if (!validationPassword.isPasswordValid(inputPassword)) {
+        if (!iValidation.isPasswordValid(inputPassword)) {
             return "Invalid Password Format";
-        }
-
-        else {
+        } else {
             IRegisterPersistence daoObject = new RegisterPersistence();
             message = daoObject.insertUserDetails(userobj);
         }
