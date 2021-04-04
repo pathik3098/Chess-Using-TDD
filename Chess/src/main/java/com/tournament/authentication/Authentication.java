@@ -1,5 +1,6 @@
 package com.tournament.authentication;
 
+import com.tournament.authentication.interfaces.IAuthentication;
 import com.tournament.model.*;
 import com.tournament.persistence.*;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
@@ -11,6 +12,8 @@ import java.util.Date;
 public class Authentication implements IAuthentication
 {
     String message = null;
+    IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
+
     public String userAuthentication(String inputUserName, String inputPassword) throws SQLException {
         IUsers userObject = new Users();
 
@@ -28,10 +31,17 @@ public class Authentication implements IAuthentication
         }
         else
         {
+            passwordEncryption(userObject, inputPassword);
             IAuthenticationPersistence loginObj = new AuthenticationPersistence();
             message = loginObj.validate((Users) userObject);
         }
         return message;
+    }
+
+    private void passwordEncryption(IUsers userObj, String inputPassword) {
+        String hashPass;
+        hashPass = iPasswordEncryption.encryptPassword(inputPassword);
+        userObj.setPassword(hashPass);
     }
 
     public String userLogOut() throws SQLException {
