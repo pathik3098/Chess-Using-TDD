@@ -5,10 +5,7 @@ import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class AuthenticationPersistence implements IAuthenticationPersistence
 {
@@ -31,17 +28,21 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
         {
             connection = conObj.establishDBConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select * from User");
+            String select_Query = "select * from User where userId =" + "'" + inputUserId + "'";
+            System.out.println(select_Query);
+            resultSet = statement.executeQuery(select_Query);
+
 
             while (resultSet.next()) {
                 dbUserId = resultSet.getString(2);
-                dbPassword = resultSet.getString(3);
+                dbPassword = resultSet.getString(5);
             }
 
-            if (inputUserId.equals(dbUserId) && inputPassword.equals(dbPassword)) {
+            if (inputUserId.equals(dbUserId) && inputPassword.equals(dbPassword))
+            {
                 String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + dbUserId + "'";
                 statement.executeUpdate(update_query);
-                String update_query2 = "update User set LoginTime =" + loginTime + " " + "where userId =" + "'" + dbUserId + "'";
+                String update_query2 = "update User set LoginTime =" + "'" + loginTime + "'" + "where userId =" + "'" + dbUserId + "'";
                 statement.executeUpdate(update_query2);
                 return "LoginSuccessful";
             }
@@ -68,7 +69,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
 
             String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + activeUser + "'";
             statement.executeUpdate(update_query);
-            message = "LogOutSucessful";
+            message = "LogOut Successful";
             connection.close();
             return message;
         }

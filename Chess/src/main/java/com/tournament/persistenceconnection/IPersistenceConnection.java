@@ -4,9 +4,9 @@ import java.sql.Connection;
 
 public interface IPersistenceConnection
 {
-    String connectionUrl = "jdbc:mysql://" + System.getenv("URL_LOCAL") + ":" + System.getenv("PORT") + "/" + System.getenv("DB_LOCAL");
-    String username = System.getenv("USERNAME_LOCAL");
-    String password = System.getenv("PASSWORD_LOCAL");
+    String connectionUrl = "jdbc:mysql://" + System.getenv("URL") + ":" + System.getenv("PORT") + "/" + System.getenv("DB");
+    String username = System.getenv("USERNAME");
+    String password = System.getenv("PASSWORD");
 
     Connection establishDBConnection();
 }

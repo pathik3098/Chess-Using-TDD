@@ -13,6 +13,8 @@ public class Pawn extends Piece
     private boolean isDiffColourPawn;
     private boolean isForwardMove;
     private boolean enPassantAttack;
+    private boolean pawnPromotionMove;
+    private int targetX;
 
     boolean enPassantBlackPawn;
     private int enPassantBlackX;
@@ -33,6 +35,7 @@ public class Pawn extends Piece
         isDiffColourPawn = false;
         isForwardMove = false;
         enPassantAttack = false;
+        pawnPromotionMove = false;
 
         enPassantBlackPawn = false;
         enPassantBlackX = 0;
@@ -43,23 +46,25 @@ public class Pawn extends Piece
         enPassantWhiteY = 0;
     }
 
-    public void setIsFirstMove(boolean has_moved)
-    {
-        this.hasMoved = has_moved;
-    }
-
     public boolean getIsFirstMove()
     {
         return hasMoved;
     }
 
+    public void setIsFirstMove(boolean hasMoved)
+    {
+        this.hasMoved = hasMoved;
+    }
+
     @Override
     public boolean validMove(int destinationX, int destinationY)
     {
+        this.targetX = destinationX;
         Piece targetPiece = board.getPiece(destinationX,destinationY);
 
         isDiffColourPawn = differentColourPiece(this,targetPiece);
         isForwardMove  = (targetPiece == null && this.getPositionY() == destinationY);
+
 
         if (isDiffColourPawn)
         {
@@ -71,6 +76,7 @@ public class Pawn extends Piece
             if (this.isWhite()) //When CurrentPiece is WhitePawn
             {
                 canPawnMove = canMoveWhite(this, destinationX,destinationY);
+
                 if (enPassantBlackPawn)
                 {
                     enPassantAttack = enPassantObj.checkEnPassantCapturingWhite(this,enPassantWhiteX,enPassantWhiteY);
@@ -102,11 +108,11 @@ public class Pawn extends Piece
     }
 
 
-    public boolean canMoveWhite(Piece currentPiece, int destinationX, int destinationY)
+    private boolean canMoveWhite(Piece currentPiece, int destinationX, int destinationY)
     {
         boolean canMoveOneStepForward = (currentPiece.getPositionX()+1 == destinationX);
 
-        if(getIsFirstMove())
+        if(!getIsFirstMove())
         {
             //canMoveTwoStepForward can be true only when it is first move
             boolean canMoveTwoStepForward = (currentPiece.getPositionX()+2 == destinationX);
@@ -134,11 +140,11 @@ public class Pawn extends Piece
         return false;
     }
 
-    public boolean canMoveBlack(Piece currentPiece, int destinationX, int destinationY)
+    private boolean canMoveBlack(Piece currentPiece, int destinationX, int destinationY)
     {
         boolean canMoveOneStepForward = (currentPiece.getPositionX()-1 == destinationX);
 
-        if(getIsFirstMove())
+        if(!getIsFirstMove())
         {
             //canMoveTwoStepForward can be true only when it is first move
             boolean canMoveTwoStepForward = (currentPiece.getPositionX()-2 == destinationX);
@@ -164,5 +170,21 @@ public class Pawn extends Piece
         }
 
         return false;
+    }
+
+    public boolean isPawnPromotion()
+    {
+        if(targetX == 7)
+        {
+            pawnPromotionMove = true;
+            return pawnPromotionMove;
+        }
+
+        if(targetX == 0)
+        {
+            pawnPromotionMove = true;
+            return pawnPromotionMove;
+        }
+        return pawnPromotionMove;
     }
 }

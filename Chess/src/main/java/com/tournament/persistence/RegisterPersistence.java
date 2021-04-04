@@ -6,6 +6,7 @@ import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IRegisterPersistence;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -24,24 +25,40 @@ public class RegisterPersistence implements IRegisterPersistence {
 
         Connection connection = null;
         Statement statement = null;
+        ResultSet resultSet = null;
+        String dbUserId= "";
+        String dbPassword = "";
+
 
         try
         {
             connection = conObj.establishDBConnection();
             statement = connection.createStatement();
-            String insert_query = "insert into User values(" + "'" +inputEmail+ "'" + "," + "'" +inputUserId+ "'"+ ","
-                    + "'" +inputUsername+ "'"+ "," +inputPlayerLevel+ "," + "'" +inputPassword+ "'"+ "," +userSessionFlag+ "," +activeInTournament+ "'" +loginTime+ "'" + ")";
+            String select_Query = "SELECT * from User where userId =" + "'" +inputUserId+ "'";
+            System.out.println(select_Query);
+            resultSet = statement.executeQuery(select_Query);
+            System.out.println(resultSet.next());
+            if (resultSet.getFetchSize() < 1)
+            {
+                String insert_query = "insert into User values(" + "'" +inputEmail+ "'" + "," + "'" +inputUserId+ "'"+ ","
+                        + "'" +inputUsername+ "'"+ "," +inputPlayerLevel+ "," + "'" +inputPassword+ "'"+ "," +userSessionFlag+ "," +activeInTournament+ "," +loginTime+ ")";
 
-            statement.executeUpdate(insert_query);
+                statement.executeUpdate(insert_query);
 
-            connection.close();
-            return "RegisterSuccess";
+                connection.close();
+                return "RegisterSuccess";
+            }
+            else
+            {
+                return "UserId is already taken: Try Again!";
+            }
+
         }
         catch(Exception E)
         {
             System.out.println("Some Error !" +E);
             connection.close();
-            return "InsertionFailed";
+            return "Registration Failed";
         }
 
     }

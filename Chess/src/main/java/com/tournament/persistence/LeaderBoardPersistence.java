@@ -18,8 +18,7 @@ public class LeaderBoardPersistence implements ILeaderBoardPersistence{
     IPersistenceConnection dbConnection = new PersistenceConnection();
     Connection connection = null;
 
-    private String QUERY_SAVE_POINTS_OF_PLAYER = "INSERT into leaderboard (id,playerId,tournamentId,points) value (?,?,?,?)";
-    private String QUERY_GET_PLAYERS_POINTS_BY_TOUNAMENTID = "SELECT PlayerName, PlayerPoints FROM PLAYERS WHERE TounamentId=?";
+    private String QUERY_GET_PLAYERS_POINTS_BY_TOUNAMENTID = "SELECT PlayerName, PlayerPoints FROM PLAYERS WHERE TounamentId=? ORDER BY PlayerPoints";
     private PreparedStatement preparedStatement = null;
 
 

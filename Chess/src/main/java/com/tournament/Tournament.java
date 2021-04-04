@@ -1,10 +1,13 @@
 package com.tournament;
 import com.tournament.model.Match;
+import com.tournament.persistence.LeaderBoardPersistence;
 import com.tournament.persistence.TournamentPersistence;
+import com.tournament.persistence.interfaces.ILeaderBoardPersistence;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class Tournament {
@@ -119,4 +122,18 @@ public class Tournament {
         }
         return nextRoundPlayers;
     }
+
+    public List<Player> getLeaderboard(){
+
+        List<Player> playerList = null;
+        try {
+            ILeaderBoardPersistence iLeaderBoardPersistence = new LeaderBoardPersistence();
+            playerList = iLeaderBoardPersistence.getLeaderboard(4);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return playerList;
+    }
+
 }

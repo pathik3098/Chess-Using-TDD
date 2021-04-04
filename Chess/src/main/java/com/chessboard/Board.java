@@ -16,6 +16,15 @@ public class Board {
     private final int column = 8;
     private int[][] boardMatrix;
     boolean whiteTurn = true;
+
+    public ArrayList<Piece> getBlackPieces() {
+        return blackPieces;
+    }
+
+    public ArrayList<Piece> getWhitePieces() {
+        return whitePieces;
+    }
+
     Winner winner;
     public enum Winner{
         WHITEWINNER,
