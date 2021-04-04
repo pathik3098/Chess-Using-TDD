@@ -5,19 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/EnPassantPawnTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/ICaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/ICaptureMovePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/BoardMock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/EnPassantPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/EnPassantPawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Match.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/Tournament.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatches.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Matches.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IMatchPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/PawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/PawnTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/com/piecestest" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -62,81 +60,96 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest.movePieceTest">
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chesstest.boardtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\99.Chess_Refactoring_Latestttttttttt\group-12\Chess\src\test\java\com\piecestest" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.CaptureMovePawnTest.invalidCaptureLeftBlackPawnTest">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.getPieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CaptureMovePawnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.boardtest.*" />
+          <option name="PATTERN" value="com.piecestest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
-      <option name="METHOD_NAME" value="getPieceTest" />
+      <option name="PACKAGE_NAME" value="com.piecestest" />
+      <option name="MAIN_CLASS_NAME" value="com.piecestest.CaptureMovePawnTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CaptureMovePawnTest.invalidCaptureLeftBlackPawnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.piecestest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.piecestest" />
+      <option name="MAIN_CLASS_NAME" value="com.piecestest.CaptureMovePawnTest" />
+      <option name="METHOD_NAME" value="invalidCaptureLeftBlackPawnTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.inCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnPassantPawnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.boardtest.*" />
+          <option name="PATTERN" value="com.piecestest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
-      <option name="METHOD_NAME" value="inCheckTest" />
+      <option name="PACKAGE_NAME" value="com.piecestest" />
+      <option name="MAIN_CLASS_NAME" value="com.piecestest.EnPassantPawnTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EnPassantPawnTest.checkEnPassantCapturingBlackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.piecestest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.piecestest" />
+      <option name="MAIN_CLASS_NAME" value="com.piecestest.EnPassantPawnTest" />
+      <option name="METHOD_NAME" value="checkEnPassantCapturingBlackTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EnPassantPawnTest.checkEnPassantCapturingWhiteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.boardtest.*" />
+          <option name="PATTERN" value="com.piecestest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
-      <option name="METHOD_NAME" value="movePieceTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardTest.setActivePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chesstest.boardtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest.boardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.boardtest.BoardTest" />
-      <option name="METHOD_NAME" value="setActivePieceTest" />
+      <option name="PACKAGE_NAME" value="com.piecestest" />
+      <option name="MAIN_CLASS_NAME" value="com.piecestest.EnPassantPawnTest" />
+      <option name="METHOD_NAME" value="checkEnPassantCapturingWhiteTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BoardTest.movePieceTest" />
-        <item itemvalue="JUnit.BoardTest.setActivePieceTest" />
-        <item itemvalue="JUnit.BoardTest.getPieceTest" />
-        <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.BoardTest.inCheckTest" />
+        <item itemvalue="JUnit.CaptureMovePawnTest.invalidCaptureLeftBlackPawnTest" />
+        <item itemvalue="JUnit.CaptureMovePawnTest" />
+        <item itemvalue="JUnit.EnPassantPawnTest" />
+        <item itemvalue="JUnit.EnPassantPawnTest.checkEnPassantCapturingBlackTest" />
+        <item itemvalue="JUnit.EnPassantPawnTest.checkEnPassantCapturingWhiteTest" />
       </list>
     </recent_temporary>
   </component>
@@ -172,6 +185,7 @@
       <workItem from="1617397081828" duration="718000" />
       <workItem from="1617399845545" duration="124000" />
       <workItem from="1617443099614" duration="310000" />
+      <workItem from="1617446160440" duration="27161000" />
     </task>
     <servers />
   </component>
@@ -189,5 +203,109 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/EnPassantPawnTest.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/EnPassantPawn.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>137</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>147</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>110</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java</url>
+          <line>32</line>
+          <properties class="com.pieces.CaptureMovePawn" method="initialiseValues">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -31,14 +31,17 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
         {
             connection = conObj.establishDBConnection();
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select * from User");
+            String select_Query = "select * from User where UserId =" + "'" +inputUserId+ "')";
+            resultSet = statement.executeQuery(select_Query);
+
 
             while (resultSet.next()) {
                 dbUserId = resultSet.getString(2);
                 dbPassword = resultSet.getString(3);
             }
 
-            if (inputUserId.equals(dbUserId) && inputPassword.equals(dbPassword)) {
+            if (inputUserId.equals(dbUserId) && inputPassword.equals(dbPassword))
+            {
                 String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + dbUserId + "'";
                 statement.executeUpdate(update_query);
                 String update_query2 = "update User set LoginTime =" + loginTime + " " + "where userId =" + "'" + dbUserId + "'";

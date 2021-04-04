@@ -62,16 +62,17 @@ public class CaptureMovePawn implements ICaptureMovePawn
                 attackdiagonalXLeft = currentX + 1; //Valid position to be attacked
                 attackdiagonalYLeft = currentY + 1;
                 attackRight = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
-                return attackLeft;
+                return attackRight;
             }
 
             if (currentY == 7) {
                 attackdiagonalXRight = currentX + 1; //Valid position to be attacked
                 attackdiagonalYRight = currentY - 1;
                 attackLeft = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
-                return attackRight;
+                return attackLeft;
             }
         }
+
         return pawnCanAttack;
     }
 
@@ -107,8 +108,8 @@ public class CaptureMovePawn implements ICaptureMovePawn
 
     public boolean cornerBlackPawnAttack(Piece currentPiece)
     {
-        int currentX = currentPiece.getPositionX(); //6
-        int currentY = currentPiece.getPositionY(); //0
+        int currentX = currentPiece.getPositionX();
+        int currentY = currentPiece.getPositionY();
 
         boolean pawnCanAttack = false;
 
@@ -118,14 +119,14 @@ public class CaptureMovePawn implements ICaptureMovePawn
                 attackdiagonalXRight = currentX - 1;
                 attackdiagonalYRight = currentY + 1;
                 attackLeft = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
-                return attackRight;
+                return attackLeft;
             }
 
             if (currentY == 7) {
                 attackdiagonalXLeft = currentX - 1;
                 attackdiagonalYLeft = currentY - 1;
                 attackRight = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
-                return attackLeft;
+                return attackRight;
             }
         }
         return pawnCanAttack;
