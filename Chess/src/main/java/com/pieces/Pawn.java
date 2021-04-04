@@ -1,6 +1,8 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.pieces.interfaces.ICaptureMovePawn;
+import com.pieces.interfaces.IEnPassantPawn;
 
 public class Pawn extends Piece
 {

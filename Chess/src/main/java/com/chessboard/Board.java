@@ -1,6 +1,8 @@
 package com.chessboard;
 
 import com.pieces.*;
+import com.pieces.abstractfactory.NormalPiece;
+import com.pieces.abstractfactory.PieceFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;

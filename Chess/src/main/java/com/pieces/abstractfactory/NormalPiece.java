@@ -1,6 +1,7 @@
-package com.pieces;
+package com.pieces.abstractfactory;
 
 import com.chessboard.Board;
+import com.pieces.*;
 
 public class NormalPiece extends PieceFactory{
     @Override

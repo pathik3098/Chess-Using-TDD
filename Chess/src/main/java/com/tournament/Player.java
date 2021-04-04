@@ -5,11 +5,13 @@ import com.tournament.persistence.interfaces.IPlayerPersistence;
 import java.sql.Time;
 
 public class Player {
+
     private String playerName;
     private String playerId;
     private int playerLevel;
     private String logtime;
     private int playerPoints;
+    private int tournamentId;
     private Alliance alliance;
 
     public Player(){
@@ -69,4 +71,11 @@ public class Player {
         this.logtime = logtime;
     }
 
+    public int getTournamentId() {
+        return tournamentId;
+    }
+
+    public void setTournamentId(int tournamentId) {
+        this.tournamentId = tournamentId;
+    }
 }

@@ -1,6 +1,7 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.pieces.interfaces.ICaptureMovePawn;
 
 public class CaptureMovePawn implements ICaptureMovePawn
 {
