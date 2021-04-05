@@ -1,7 +1,7 @@
 package com.tournament.authentication;
 
-import com.tournament.authentication.interfaces.IRegister;
-import com.tournament.authentication.interfaces.IValidation;
+import com.tournament.authentication.IRegister;
+import com.tournament.authentication.IValidation;
 import com.tournament.persistence.*;
 import com.tournament.model.*;
 import com.tournament.persistence.interfaces.IRegisterPersistence;
@@ -42,7 +42,7 @@ public class Register implements IRegister {
             return "Invalid Password Format";
         }
         else {
-            passwordEncryption(userobj, inputPassword);
+            passwordEncryption(userObj, inputPassword);
             int playerLevelValue = Integer.parseInt(playerLevel);
             userObj.setPlayerLevel(playerLevelValue);
             IRegisterPersistence daoObject = new RegisterPersistence();
