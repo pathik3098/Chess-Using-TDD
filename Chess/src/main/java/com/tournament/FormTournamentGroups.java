@@ -66,6 +66,7 @@ public class FormTournamentGroups {
             }
             listOfAllBatches = tempList;
             Tournament invokeTournament = new Tournament(listOfAllBatches);
+            invokeTournament.Scheduling(listOfAllBatches);
             tournamentList.add(invokeTournament);
         }
         return tournamentList;

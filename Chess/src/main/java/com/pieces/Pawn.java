@@ -1,6 +1,6 @@
 package com.pieces;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.interfaces.ICaptureMovePawn;
 import com.pieces.interfaces.IEnPassantPawn;
 
@@ -24,7 +24,7 @@ public class Pawn extends Piece
     private int enPassantWhiteX;
     private int enPassantWhiteY;
 
-    public Pawn(int x, int y, boolean isWhite, String path, Board board)
+    public Pawn(int x, int y, boolean isWhite, String path, IBoard board)
     {
         super(x,y,isWhite,path,board);
         hasMoved = false;

@@ -1,11 +1,12 @@
 package com.tournament.persistence.interfaces;
 
+import com.tournament.model.IMatch;
 import com.tournament.model.Match;
 
 import java.util.List;
 
 public interface IMatchPersistence {
-    void saveMatch(Match match);
+    void saveMatch(IMatch match);
 
     List<Match> getAllMatch();
 

@@ -5,12 +5,14 @@ import com.pieces.abstractfactory.ConcretePieceFactory;
 import com.pieces.abstractfactory.AbstractPieceFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class Board implements IBoard {
-    private ArrayList<Piece> blackPieces;
-    private ArrayList<Piece> whitePieces;
-    private Piece activePiece;
+    public ArrayList<Piece> blackPieces;
+    public ArrayList<Piece> whitePieces;
+    public Piece activePiece;
     private int turn = 0;
     private final int row = 8;
     private final int column = 8;
@@ -26,13 +28,98 @@ public class Board implements IBoard {
     }
 
     Winner winner;
-    public enum Winner{
+
+    public enum Winner {
         WHITEWINNER,
         BLACKWINNER
     }
 
-    public Board()
-    {
+    public String checkNull(Piece piece) {
+        if (piece == null) {
+            return "";
+        } else {
+            return piece.getFilePath();
+        }
+    }
+
+    public Map<String, String> getPositions() {
+        Map<String, String> currentPositions = new HashMap<String, String>();
+        currentPositions.put("{0,0}", checkNull(this.getPiece(0, 0)));
+        currentPositions.put("{0,1}", checkNull(this.getPiece(0, 1)));
+        currentPositions.put("{0,2}", checkNull(this.getPiece(0, 2)));
+        currentPositions.put("{0,3}", checkNull(this.getPiece(0, 3)));
+        currentPositions.put("{0,4}", checkNull(this.getPiece(0, 4)));
+        currentPositions.put("{0,5}", checkNull(this.getPiece(0, 5)));
+        currentPositions.put("{0,6}", checkNull(this.getPiece(0, 6)));
+        currentPositions.put("{0,7}", checkNull(this.getPiece(0, 7)));
+
+        currentPositions.put("{1,0}", checkNull(this.getPiece(1, 0)));
+        currentPositions.put("{1,1}", checkNull(this.getPiece(1, 1)));
+        currentPositions.put("{1,2}", checkNull(this.getPiece(1, 2)));
+        currentPositions.put("{1,3}", checkNull(this.getPiece(1, 3)));
+        currentPositions.put("{1,4}", checkNull(this.getPiece(1, 4)));
+        currentPositions.put("{1,5}", checkNull(this.getPiece(1, 5)));
+        currentPositions.put("{1,6}", checkNull(this.getPiece(1, 6)));
+        currentPositions.put("{1,7}", checkNull(this.getPiece(1, 7)));
+
+        currentPositions.put("{2,0}", checkNull(this.getPiece(2, 0)));
+        currentPositions.put("{2,1}", checkNull(this.getPiece(2, 1)));
+        currentPositions.put("{2,2}", checkNull(this.getPiece(2, 2)));
+        currentPositions.put("{2,3}", checkNull(this.getPiece(2, 3)));
+        currentPositions.put("{2,4}", checkNull(this.getPiece(2, 4)));
+        currentPositions.put("{2,5}", checkNull(this.getPiece(2, 5)));
+        currentPositions.put("{2,6}", checkNull(this.getPiece(2, 6)));
+        currentPositions.put("{2,7}", checkNull(this.getPiece(2, 7)));
+
+        currentPositions.put("{3,0}", checkNull(this.getPiece(3, 0)));
+        currentPositions.put("{3,1}", checkNull(this.getPiece(3, 1)));
+        currentPositions.put("{3,2}", checkNull(this.getPiece(3, 2)));
+        currentPositions.put("{3,3}", checkNull(this.getPiece(3, 3)));
+        currentPositions.put("{3,4}", checkNull(this.getPiece(3, 4)));
+        currentPositions.put("{3,5}", checkNull(this.getPiece(3, 5)));
+        currentPositions.put("{3,6}", checkNull(this.getPiece(3, 6)));
+        currentPositions.put("{3,7}", checkNull(this.getPiece(3, 7)));
+
+        currentPositions.put("{4,0}", checkNull(this.getPiece(4, 0)));
+        currentPositions.put("{4,1}", checkNull(this.getPiece(4, 1)));
+        currentPositions.put("{4,2}", checkNull(this.getPiece(4, 2)));
+        currentPositions.put("{4,3}", checkNull(this.getPiece(4, 3)));
+        currentPositions.put("{4,4}", checkNull(this.getPiece(4, 4)));
+        currentPositions.put("{4,5}", checkNull(this.getPiece(4, 5)));
+        currentPositions.put("{4,6}", checkNull(this.getPiece(4, 6)));
+        currentPositions.put("{4,7}", checkNull(this.getPiece(4, 7)));
+
+        currentPositions.put("{5,0}", checkNull(this.getPiece(5, 0)));
+        currentPositions.put("{5,1}", checkNull(this.getPiece(5, 1)));
+        currentPositions.put("{5,2}", checkNull(this.getPiece(5, 2)));
+        currentPositions.put("{5,3}", checkNull(this.getPiece(5, 3)));
+        currentPositions.put("{5,4}", checkNull(this.getPiece(5, 4)));
+        currentPositions.put("{5,5}", checkNull(this.getPiece(5, 5)));
+        currentPositions.put("{5,6}", checkNull(this.getPiece(5, 6)));
+        currentPositions.put("{5,7}", checkNull(this.getPiece(5, 7)));
+
+        currentPositions.put("{6,0}", checkNull(this.getPiece(6, 0)));
+        currentPositions.put("{6,1}", checkNull(this.getPiece(6, 1)));
+        currentPositions.put("{6,2}", checkNull(this.getPiece(6, 2)));
+        currentPositions.put("{6,3}", checkNull(this.getPiece(6, 3)));
+        currentPositions.put("{6,4}", checkNull(this.getPiece(6, 4)));
+        currentPositions.put("{6,5}", checkNull(this.getPiece(6, 5)));
+        currentPositions.put("{6,6}", checkNull(this.getPiece(6, 6)));
+        currentPositions.put("{6,7}", checkNull(this.getPiece(6, 7)));
+
+        currentPositions.put("{7,0}", checkNull(this.getPiece(7, 0)));
+        currentPositions.put("{7,1}", checkNull(this.getPiece(7, 1)));
+        currentPositions.put("{7,2}", checkNull(this.getPiece(7, 2)));
+        currentPositions.put("{7,3}", checkNull(this.getPiece(7, 3)));
+        currentPositions.put("{7,4}", checkNull(this.getPiece(7, 4)));
+        currentPositions.put("{7,5}", checkNull(this.getPiece(7, 5)));
+        currentPositions.put("{7,6}", checkNull(this.getPiece(7, 6)));
+        currentPositions.put("{7,7}", checkNull(this.getPiece(7, 7)));
+
+        return currentPositions;
+    }
+
+    public Board() {
         //player1.alliance = Alliance.WHITE;
         //player2.alliance = Alliance.BLACK;
 
@@ -43,87 +130,48 @@ public class Board implements IBoard {
         AbstractPieceFactory.setFactory(new ConcretePieceFactory());
         AbstractPieceFactory factory = AbstractPieceFactory.instance();
 
-        whitePieces.add(factory.createKing(0,3,true,"",this));
-        whitePieces.add(factory.createQueen(0,4,true,"",this));
-        whitePieces.add(factory.createKnight(0,1,true,"",this));
-        whitePieces.add(factory.createKnight(0,6,true,"",this));
-        whitePieces.add(factory.createBishop(0,2,true,"",this));
-        whitePieces.add(factory.createBishop(0,5,true,"",this));
-        whitePieces.add(factory.createRook(0,0,true,"",this));
-        whitePieces.add(factory.createRook(0,7,true,"",this));
-        whitePieces.add(factory.createPawn(1,0,true,"",this));
-        whitePieces.add(factory.createPawn(1,1,true,"",this));
-        whitePieces.add(factory.createPawn(1,2,true,"",this));
-        whitePieces.add(factory.createPawn(1,3,true,"",this));
-        whitePieces.add(factory.createPawn(1,4,true,"",this));
-        whitePieces.add(factory.createPawn(1,5,true,"",this));
-        whitePieces.add(factory.createPawn(1,6,true,"",this));
-        whitePieces.add(factory.createPawn(1,7,true,"",this));
+        whitePieces.add(factory.createKing(0, 3, true, "WK", this));
+        whitePieces.add(factory.createQueen(0, 4, true, "WQ", this));
+        whitePieces.add(factory.createKnight(0, 1, true, "WK", this));
+        whitePieces.add(factory.createKnight(0, 6, true, "WK", this));
+        whitePieces.add(factory.createBishop(0, 2, true, "WB", this));
+        whitePieces.add(factory.createBishop(0, 5, true, "WB", this));
+        whitePieces.add(factory.createRook(0, 0, true, "WR", this));
+        whitePieces.add(factory.createRook(0, 7, true, "WR", this));
+        whitePieces.add(factory.createPawn(1, 0, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 1, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 2, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 3, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 4, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 5, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 6, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 7, true, "WP", this));
 
-        blackPieces.add(factory.createKing(7,3,false,"",this));
-        blackPieces.add(factory.createQueen(7,4,false,"",this));
-        blackPieces.add(factory.createKnight(7,1,false,"",this));
-        blackPieces.add(factory.createKnight(7,6,false,"",this));
-        blackPieces.add(factory.createBishop(7,2,false,"",this));
-        blackPieces.add(factory.createBishop(7,5,false,"",this));
-        blackPieces.add(factory.createRook(7,0,false,"",this));
-        blackPieces.add(factory.createRook(7,7,false,"",this));
-        blackPieces.add(factory.createPawn(6,0,false,"",this));
-        blackPieces.add(factory.createPawn(6,1,false,"",this));
-        blackPieces.add(factory.createPawn(6,2,false,"",this));
-        blackPieces.add(factory.createPawn(6,3,false,"",this));
-        blackPieces.add(factory.createPawn(6,4,false,"",this));
-        blackPieces.add(factory.createPawn(6,5,false,"",this));
-        blackPieces.add(factory.createPawn(6,6,false,"",this));
-        blackPieces.add(factory.createPawn(6,7,false,"",this));
-
-        /*
-        whitePieces.add(new King(0,3,true,"",this));
-        whitePieces.add(new Queen(0,4,true,"",this));
-        whitePieces.add(new Knight(0,1,true,"",this));
-        whitePieces.add(new Knight(0,6,true,"",this));
-        whitePieces.add(new Bishop(0,2,true,"",this));
-        whitePieces.add(new Bishop(0,5,true,"",this));
-        whitePieces.add(new Rook(0,0,true,"",this));
-        whitePieces.add(new Rook(0,7,true,"",this));
-        whitePieces.add(new Pawn(1,0,true,"",this));
-        whitePieces.add(new Pawn(1,1,true,"",this));
-        whitePieces.add(new Pawn(1,2,true,"",this));
-        whitePieces.add(new Pawn(1,3,true,"",this));
-        whitePieces.add(new Pawn(1,4,true,"",this));
-        whitePieces.add(new Pawn(1,5,true,"",this));
-        whitePieces.add(new Pawn(1,6,true,"",this));
-        whitePieces.add(new Pawn(1,7,true,"",this));
-
-        blackPieces.add(new King(7,3,true,"",this));
-        blackPieces.add(new Queen(7,4,true,"",this));
-        blackPieces.add(new Knight(7,1,true,"",this));
-        blackPieces.add(new Knight(7,6,true,"",this));
-        blackPieces.add(new Bishop(7,2,true,"",this));
-        blackPieces.add(new Bishop(7,5,true,"",this));
-        blackPieces.add(new Rook(7,0,true,"",this));
-        blackPieces.add(new Rook(7,7,true,"",this));
-        blackPieces.add(new Pawn(6,0,true,"",this));
-        blackPieces.add(new Pawn(6,1,true,"",this));
-        blackPieces.add(new Pawn(6,2,true,"",this));
-        blackPieces.add(new Pawn(6,3,true,"",this));
-        blackPieces.add(new Pawn(6,4,true,"",this));
-        blackPieces.add(new Pawn(6,5,true,"",this));
-        blackPieces.add(new Pawn(6,6,true,"",this));
-        blackPieces.add(new Pawn(6,7,true,"",this));
-        */
+        blackPieces.add(factory.createKing(7, 3, false, "BK", this));
+        blackPieces.add(factory.createQueen(7, 4, false, "BQ", this));
+        blackPieces.add(factory.createKnight(7, 1, false, "BK", this));
+        blackPieces.add(factory.createKnight(7, 6, false, "BK", this));
+        blackPieces.add(factory.createBishop(7, 2, false, "BB", this));
+        blackPieces.add(factory.createBishop(7, 5, false, "BB", this));
+        blackPieces.add(factory.createRook(7, 0, false, "BR", this));
+        blackPieces.add(factory.createRook(7, 7, false, "BR", this));
+        blackPieces.add(factory.createPawn(6, 0, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 1, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 2, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 3, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 4, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 5, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 6, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 7, false, "BP", this));
 
         this.gridInitialize();
 
         //drawboard();
     }
 
-    public void gridInitialize()
-    {
-        for(int i=0; i<row ;i++)
-        {
-            for(int j=0; j<column ;j++)
-            {
+    public void gridInitialize() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
                 boardMatrix[i][j] = 0;
             }
         }
@@ -190,8 +238,7 @@ public class Board implements IBoard {
         whiteTurn = true;
         Piece clickedPiece = getPiece(clickedX,clickedY);
 
-        if ((turn % 2)==1)
-        {
+        if ((turn % 2) == 1) {
             whiteTurn = false;
         }
 
@@ -264,7 +311,7 @@ public class Board implements IBoard {
             }
 
             activePiece = null;
-            turn += 1;
+            turn++;
         }
     }
 
@@ -279,6 +326,7 @@ public class Board implements IBoard {
                     if(isKing!=null && isKing.isWhite() && (isKing.getClass().equals(King.class)))
                     {
                         kingReference = isKing;
+                        System.out.println(kingReference);
                     }
                 }
             }
@@ -298,7 +346,7 @@ public class Board implements IBoard {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece isKing = getPiece(i,j);
-                    if(isKing!=null && isKing.isBlack() &&  (isKing.getClass().equals(King.class)) )
+                    if(isKing!=null && (isKing.getClass().equals(King.class)) && isKing.isBlack())
                     {
                         kingReference = isKing;
                     }
@@ -323,6 +371,6 @@ public class Board implements IBoard {
     }
 
     public void setResult(Winner w){
-        winner = w;
+        winner =w;
     }
 }

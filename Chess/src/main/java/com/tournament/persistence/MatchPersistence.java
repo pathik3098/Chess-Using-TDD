@@ -1,5 +1,6 @@
 package com.tournament.persistence;
 
+import com.tournament.model.IMatch;
 import com.tournament.model.Match;
 import com.tournament.persistence.interfaces.IMatchPersistence;
 import com.tournament.persistenceconnection.IPersistenceConnection;
@@ -15,25 +16,25 @@ public class MatchPersistence implements IMatchPersistence {
 
     IPersistenceConnection dbConnection = new PersistenceConnection();
     Connection connection = null;
+    private PreparedStatement stmt = null;
 
     private String Q_SAVE = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
     private String Q_GETALL = "SELECT * from matches";
     private String Q_GET_BY_ID = "SELECT * from matches where matchId=?";
     private String Q_UPDATE = "UPDATE matches SET player1id=?,player2id=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
     private String Q_DELETE = "DELETE From matches where matchId=?";
-    private PreparedStatement stmt = null;
 
     @Override
-    public void saveMatch(Match match) {
+    public void saveMatch(IMatch iMatch) {
 
         try {
             connection = dbConnection.establishDBConnection();
             stmt = connection.prepareStatement(Q_SAVE);
-            stmt.setString(1, match.getPlayer1id());
-            stmt.setString(2, match.getPlayer2id());
-            stmt.setString(3, match.getStartTime());
-            stmt.setString(4, match.getEndTime());
-            stmt.setInt(5, match.getTournamentId());
+            stmt.setString(1, iMatch.getPlayer1id());
+            stmt.setString(2, iMatch.getPlayer2id());
+            stmt.setString(3, iMatch.getStartTime());
+            stmt.setString(4, iMatch.getEndTime());
+            stmt.setInt(5, iMatch.getTournamentId());
 
             int noOfRowAffected = stmt.executeUpdate();
 

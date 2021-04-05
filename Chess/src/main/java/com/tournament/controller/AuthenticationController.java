@@ -1,7 +1,11 @@
 package com.tournament.controller;
 
 import com.tournament.authentication.*;
+import com.tournament.model.IUsers;
 import com.tournament.model.Users;
+import com.tournament.persistence.AuthenticationPersistence;
+import com.tournament.persistence.interfaces.IAuthenticationPersistence;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
-public class TournamentController
+public class AuthenticationController
 {
 
     @GetMapping("")
@@ -58,11 +64,8 @@ public class TournamentController
 
         String email = request.getParameter("email");
         String userName = request.getParameter("username");
-
         String userId = request.getParameter("userId");
-
         String playerLevel = request.getParameter("level");
-
         String password = request.getParameter("password");
         String conPassword = request.getParameter("conpassword");
 
