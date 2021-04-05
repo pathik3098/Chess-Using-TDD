@@ -1,6 +1,6 @@
 package com.pieces;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.interfaces.ICaptureMovePawn;
 
 public class CaptureMovePawn implements ICaptureMovePawn
@@ -15,7 +15,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
 
     private boolean attackLeft;
     private boolean attackRight;
-    private Board boardobj;
+    private IBoard boardobj;
 
     public CaptureMovePawn()
     {
@@ -30,8 +30,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
         attackLeft = false;
         attackRight = false;
     }
-
-    public void initialiseValues(Piece currentPiece,int destinationX,int destinationY, Board boardobj)
+    public void initialiseValues(Piece currentPiece,int destinationX,int destinationY,IBoard boardobj)
     {
         targetX = destinationX;
         targetY = destinationY;

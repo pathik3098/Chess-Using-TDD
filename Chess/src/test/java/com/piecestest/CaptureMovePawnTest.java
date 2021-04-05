@@ -1,6 +1,7 @@
 package com.piecestest;
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.CaptureMovePawn;
 import com.pieces.Pawn;
 import com.pieces.Piece;
@@ -19,26 +20,24 @@ public class CaptureMovePawnTest
     private int destinationRightX;
     private int destinationRightY;
 
-    Board board = new Board();
+    IBoard board = new Board();
     ICaptureMovePawn captureMovePawnObj = new CaptureMovePawn();
 
     @Test
     void invalidCaptureLeftBlackPawnTest()
     {
-        Board board = new Board();
         Piece currentPiecePosition = board.getPiece(6,1);
 
         destinationLeftX = 5;
         destinationLeftY = 0;
 
-        captureMovePawnObj.initialiseValues(currentPiecePosition,destinationLeftX,destinationLeftY,board);
+        captureMovePawnObj.initialiseValues(currentPiecePosition,destinationLeftX,destinationLeftY, board);
         Assertions.assertEquals(false,captureMovePawnObj.blackPawnAttack(currentPiecePosition));
     }
 
     @Test
     void invalidCaptureRightBlackPawnTest()
     {
-        Board board = new Board();
         Piece targetPiecePosition = board.getPiece(5,2);
         Piece currentPiecePosition = board.getPiece(6,1);
 
@@ -51,7 +50,6 @@ public class CaptureMovePawnTest
     @Test
     void invalidCaptureLeftWhitePawnTest()
     {
-        Board board = new Board();
         Piece currentPiecePosition = board.getPiece(1,5);
 
         destinationLeftX = 2;
@@ -64,7 +62,6 @@ public class CaptureMovePawnTest
     @Test
     void invalidCaptureRightWhitePawnTest()
     {
-        Board board = new Board();
         Piece currentPiecePosition = board.getPiece(1,5);
 
         destinationRightX = 2;

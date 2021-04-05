@@ -1,6 +1,6 @@
 package com.pieces;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
 
 public abstract class Piece {
 
@@ -8,9 +8,9 @@ public abstract class Piece {
     private int positionY;
     private boolean isWhite;
     private String filePath;
-    public Board board;
+    public IBoard board;
 
-    public Piece(int x, int y, boolean isWhite, String path, Board board)
+    public Piece(int x, int y, boolean isWhite, String path, IBoard board)
     {
         this.positionX=x;
         this.positionY=y;
