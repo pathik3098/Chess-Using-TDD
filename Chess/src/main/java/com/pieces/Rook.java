@@ -18,15 +18,11 @@ public class Rook extends Piece {
 
         boolean a = differentColourPiece(this, piece);
         boolean b = iRookMoves.straightMovement(this, destinationX, destinationY);
-        boolean c = iRookMoves.isPieceInBetween(this, destinationX, destinationY);
+        boolean c = iRookMoves.checkPieceInBetween(this, destinationX, destinationY);
 
         if (a && b && c) {
             return true;
         }
-
         return false;
-
     }
-
-
 }

@@ -27,7 +27,7 @@ public class Queen extends Piece {
 
         validationConditionList.add(differentColourPiece(this, piece));
         validationConditionList.add(iRookMoves.straightMovement(this, finalCordX, finalCordY) || iBishopMoves.diagonalMovement(finalCordX, finalCordY));
-        validationConditionList.add(iRookMoves.isPieceInBetween(this, finalCordX, finalCordY) || iBishopMoves.checkIfPieceInBetween(finalCordX, finalCordY));
+        validationConditionList.add(iRookMoves.checkPieceInBetween(this, finalCordX, finalCordY) || iBishopMoves.checkIfPieceInBetween(finalCordX, finalCordY));
 
         Iterator<Boolean> iter = validationConditionList.iterator();
         while (iter.hasNext()) {

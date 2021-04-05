@@ -148,24 +148,24 @@ public class Board {
     {
         int clickedX = x;
         int clickedY = y;
-
+        whiteTurn = true;
         Piece clickedPiece = getPiece(clickedX,clickedY);
 
-        if ((turn%2)==1)
+        if ((turn % 2)==1)
         {
             whiteTurn = false;
         }
 
         if(activePiece==null && clickedPiece != null)
         {
-            if(inCheck())
-            {
-
-            }
-            else
-            {
+//            if(inCheck())
+//            {
+//
+//            }
+//            else
+//            {
                 setActivePiece(clickedPiece);
-            }
+//            }
 
         }
 
@@ -225,7 +225,7 @@ public class Board {
             }
 
             activePiece = null;
-            turn++;
+            turn += 1;
         }
     }
 
@@ -240,7 +240,6 @@ public class Board {
                     if(isKing!=null && isKing.isWhite() && (isKing.getClass().equals(King.class)))
                     {
                         kingReference = isKing;
-                        System.out.println(kingReference);
                     }
                 }
             }
@@ -260,7 +259,7 @@ public class Board {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece isKing = getPiece(i,j);
-                    if(isKing!=null && (isKing.getClass().equals(King.class)) && isKing.isBlack())
+                    if(isKing!=null && isKing.isBlack() &&  (isKing.getClass().equals(King.class)) )
                     {
                         kingReference = isKing;
                     }
@@ -285,6 +284,6 @@ public class Board {
     }
 
     public void setResult(Winner w){
-        winner =w;
+        winner = w;
     }
 }
