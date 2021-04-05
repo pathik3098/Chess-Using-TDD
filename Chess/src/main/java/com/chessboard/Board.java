@@ -7,10 +7,10 @@ import com.pieces.abstractfactory.PieceFactory;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Board {
-    public ArrayList<Piece> blackPieces;
-    public ArrayList<Piece> whitePieces;
-    public Piece activePiece;
+public class Board implements IBoard {
+    private ArrayList<Piece> blackPieces;
+    private ArrayList<Piece> whitePieces;
+    private Piece activePiece;
     private int turn = 0;
     private final int row = 8;
     private final int column = 8;
@@ -129,6 +129,7 @@ public class Board {
         }
     }
 
+    @Override
     public Piece getPiece(int x, int y)
     {
         Iterator<Piece> whiteIter = whitePieces.iterator();
@@ -153,10 +154,39 @@ public class Board {
         return null;
     }
 
-    public void chessMovement(int x,int y)
+    @Override
+    public Piece getActivePiece()
     {
-        int clickedX = x;
-        int clickedY = y;
+        return activePiece;
+    }
+
+    @Override
+    public void removeBlackPieceFromBoard(Piece removePiece)
+    {
+        blackPieces.remove(removePiece);
+    }
+
+    @Override
+    public void addBlackPieceToBoard(Piece addPiece)
+    {
+        blackPieces.add(addPiece);
+    }
+
+    @Override
+    public void removeWhitePieceFromBoard(Piece removePiece)
+    {
+        whitePieces.remove(removePiece);
+    }
+
+    @Override
+    public void addWhitePieceToBoard(Piece addPiece)
+    {
+        blackPieces.add(addPiece);
+    }
+
+    @Override
+    public void chessMovement(int clickedX,int clickedY)
+    {
         whiteTurn = true;
         Piece clickedPiece = getPiece(clickedX,clickedY);
 

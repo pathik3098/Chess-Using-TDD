@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/BoardMock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/RookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/RookMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/interfaces/IRookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/interfaces/IRookMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/RookMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/RookMovesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chessboardtest/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chessboardtest/BoardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -182,7 +176,7 @@
       <workItem from="1617443099614" duration="310000" />
       <workItem from="1617447110586" duration="3307000" />
       <workItem from="1617530298218" duration="463000" />
-      <workItem from="1617626268990" duration="452000" />
+      <workItem from="1617626268990" duration="6596000" />
     </task>
     <servers />
   </component>

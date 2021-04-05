@@ -20,6 +20,20 @@ public class Match implements IMatch {
     private int tournamentId;
     private String matchWinner;
 
+    public Match(){
+
+    }
+
+    public Match(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.setPlayer1id(player1.getPlayerId());
+        this.setPlayer2id(player2.getPlayerId());
+        player1.setAlliance(Alliance.WHITE);
+        player1.setAlliance(Alliance.BLACK);
+        this.createBoard(player1, player2);
+    }
+
     @Override
     public String getPlayer1id() {
         return player1id;
@@ -83,22 +97,16 @@ public class Match implements IMatch {
     public String getMatchWinner() {
         return matchWinner;
     }
+    public int getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(int totalTime) {
+        this.totalTime = totalTime;
+    }
 
     public void setMatchWinner(String matchWinner) {
         this.matchWinner = matchWinner;
-    }
-
-    public Match() {
-    }
-
-    public Match(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.setPlayer1id(player1.getPlayerId());
-        this.setPlayer2id(player2.getPlayerId());
-        player1.setAlliance(Alliance.WHITE);
-        player1.setAlliance(Alliance.BLACK);
-        this.createBoard(player1, player2);
     }
 
     private void createBoard(Player player1, Player player2) {
@@ -112,14 +120,6 @@ public class Match implements IMatch {
         } else {
             return false;
         }
-    }
-
-    public int getTotalTime() {
-        return totalTime;
-    }
-
-    public void setTotalTime(int totalTime) {
-        this.totalTime = totalTime;
     }
 
     public Player getWinner() {
