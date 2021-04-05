@@ -1,6 +1,6 @@
 package com.tournament.authentication;
 
-import com.tournament.authentication.interfaces.IAuthentication;
+import com.tournament.authentication.IAuthentication;
 import com.tournament.model.*;
 import com.tournament.persistence.*;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
