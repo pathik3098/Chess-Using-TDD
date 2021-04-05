@@ -1,13 +1,14 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.interfaces.IKnightKingMoves;
 
 public class King extends Piece{
 
     IKnightKingMoves iKingMoves;
     int[][] possibleMovePositions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, -1}, {-1, 1}, {-1, -1}, {1, 1}};
-    public King(int initialX, int initialY, boolean isWhite, String path, Board board) {
+    public King(int initialX, int initialY, boolean isWhite, String path, IBoard board) {
         super(initialX, initialY, isWhite, path, board);
         iKingMoves = new KnightKingMoves(initialX, initialY, isWhite, path, board);
     }
