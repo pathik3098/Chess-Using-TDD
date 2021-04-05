@@ -11,25 +11,25 @@ public class KnightTest {
     @Test
     void ValidMoveTest() {
         Board board = new Board();
-        Knight kp = new Knight(5,4,true,"path",board);
-        Assertions.assertEquals(kp.validMove(3,3),true);
+        Knight knight = new Knight(5,4,true,"path",board);
+        Assertions.assertEquals(true,knight.validMove(3,3));
     }
     @Test
     void ValidMoveNegativeTest() {
         Board board = new Board();
-        Knight kp = new Knight(5,4,true,"path",board);
-        Assertions.assertNotEquals(kp.validMove(3,6),true);
+        Knight knight = new Knight(5,4,true,"path",board);
+        Assertions.assertNotEquals(true,knight.validMove(3,6));
     }
     @Test
     void ValidMoveExclusionsTest(){
         Board board = new Board();
-        Knight kp = new Knight(3,0,true,"path",board);
-        Assertions.assertEquals(kp.validMove(5,1),true);
+        Knight knight = new Knight(3,0,true,"path",board);
+        Assertions.assertEquals(true,knight.validMove(5,1));
     }
     @Test
     void ValidMoveExclusionsNegativeTest(){
         Board board = new Board();
-        Knight kp = new Knight(3,0,true,"path",board);
-        Assertions.assertNotEquals(kp.validMove(3,-1),true);
+        Knight knight = new Knight(3,0,true,"path",board);
+        Assertions.assertNotEquals(true,knight.validMove(3,-1));
     }
 }

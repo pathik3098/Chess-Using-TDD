@@ -26,7 +26,6 @@ public class Tournament {
     public Tournament(ArrayList<Player> Players)
     {
         this.Players= Players;
-        //Random random = new Random();
         Scheduling(Players);
 
     }
@@ -64,7 +63,6 @@ public class Tournament {
             Type = isOddEven(numPlayers);
             switch (Type) {
                 case ODD: {
-                    System.out.println("IN ODD");
                     Player name = Players.remove(Players.size() - 1);
                     match = new Match[numPairs];
                     schedule = new HashMap<Player, Player>();
@@ -77,7 +75,6 @@ public class Tournament {
                     break;
                 }
                 case EVEN: {
-                    System.out.println("IN EVEN");
                     match = new Match[numPairs];
                     schedule = new HashMap<Player, Player>();
                     pairing(Players);

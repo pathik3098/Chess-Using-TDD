@@ -1,44 +1,24 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.pieces.interfaces.IKnightKingMoves;
 
-public class King extends Piece {
-    boolean valid = false;
+public class King extends Piece{
+
+    IKnightKingMoves iKingMoves;
     int[][] possibleMovePositions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, -1}, {-1, 1}, {-1, -1}, {1, 1}};
-    public King(int x, int y, boolean isWhite, String path, Board board) {
-        super(x, y, isWhite, path, board);
+    public King(int initialX, int initialY, boolean isWhite, String path, Board board) {
+        super(initialX, initialY, isWhite, path, board);
+        iKingMoves = new KnightKingMoves(initialX, initialY, isWhite, path, board);
     }
-
     @Override
-    public boolean validMove(int destination_x, int destination_y) {
-        // if the destination position piece is of same colour then invalid move;
-        Piece targetPiece = board.getPiece(destination_x, destination_y);
-        boolean targetPieceColour = differentColourPiece(this, targetPiece);
-        if (targetPieceColour) {
-
-            int[][] possibleLegalMoves = new int[8][2];
-            int targetPosition[][] = {{destination_x, destination_y}};
-            int currentPosition[][] = {{this.getPositionX(), this.getPositionY()}};
-            int possibleValue =0;
-            int prevPossibleValue =0;
-            for (int row = 0; row < possibleMovePositions.length; row++) {
-                for (int col = 0; col < possibleMovePositions[row].length; col++) {
-                    prevPossibleValue = possibleValue;
-                    possibleValue = currentPosition[0][col] + possibleMovePositions[row][col];
-                }
-                if (prevPossibleValue > 0 && prevPossibleValue < 8 && possibleValue > 0 && possibleValue < 8) {
-                    possibleLegalMoves[row][0] = prevPossibleValue;
-                    possibleLegalMoves[row][1] = possibleValue;
-                    System.out.print("\n" + possibleLegalMoves[row][0] + " " + possibleLegalMoves[row][1]);
-                }
-            }
-            for (int row = 0; row < possibleMovePositions.length; row++) {
-                if (targetPosition[0][0] == possibleLegalMoves[row][0] && targetPosition[0][1] == possibleLegalMoves[row][1]) {
-                    valid = true;
-                    break;
-                }
-            }
+    public boolean validMove(int destinationX, int destinationY) {
+        Piece piece = board.getPiece(destinationX, destinationY);
+        boolean isDifferentColorPiece = differentColourPiece(this, piece);
+        boolean isOneStepMovement = iKingMoves.validMovement(this, destinationX, destinationY,possibleMovePositions);
+        if(isDifferentColorPiece && isOneStepMovement) {
+            return true;
         }
-        return valid;
+        return false;
     }
 }
