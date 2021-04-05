@@ -26,7 +26,7 @@ public class RookMoves implements IRookMoves {
     }
 
     @Override
-    public boolean isPieceInBetween(Piece currentPiece, int destinationX, int destinationY)
+    public boolean checkPieceInBetween(Piece currentPiece, int destinationX, int destinationY)
     {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();

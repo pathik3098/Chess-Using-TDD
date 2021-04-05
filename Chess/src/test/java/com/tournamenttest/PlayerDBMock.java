@@ -1,4 +1,4 @@
-package com.tournament.PlayerDB;
+package com.tournamenttest;
 
 import com.tournament.Player;
 import com.tournament.persistence.interfaces.IPlayerPersistence;

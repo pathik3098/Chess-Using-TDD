@@ -177,72 +177,124 @@ public class Board {
         }
     }
 
-    public Piece getPiece(int x, int y) {
+    @Override
+    public Piece getPiece(int x, int y)
+    {
         Iterator<Piece> whiteIter = whitePieces.iterator();
         Iterator<Piece> blackIter = blackPieces.iterator();
 
-        while (whiteIter.hasNext()) {
+        while(whiteIter.hasNext())
+        {
             Piece p = whiteIter.next();
-            if (p.getPositionX() == x && p.getPositionY() == y) {
+            if(p.getPositionX()==x && p.getPositionY()==y)
+            {
                 return p;
             }
         }
-        while (blackIter.hasNext()) {
+        while(blackIter.hasNext())
+        {
             Piece p = blackIter.next();
-            if (p.getPositionX() == x && p.getPositionY() == y) {
+            if(p.getPositionX()==x && p.getPositionY()==y)
+            {
                 return p;
             }
         }
         return null;
     }
 
-    public void chessMovement(int x, int y) {
-        int clickedX = x;
-        int clickedY = y;
+    @Override
+    public Piece getActivePiece()
+    {
+        return activePiece;
+    }
 
-        Piece clickedPiece = getPiece(clickedX, clickedY);
+    @Override
+    public void removeBlackPieceFromBoard(Piece removePiece)
+    {
+        blackPieces.remove(removePiece);
+    }
+
+    @Override
+    public void addBlackPieceToBoard(Piece addPiece)
+    {
+        blackPieces.add(addPiece);
+    }
+
+    @Override
+    public void removeWhitePieceFromBoard(Piece removePiece)
+    {
+        whitePieces.remove(removePiece);
+    }
+
+    @Override
+    public void addWhitePieceToBoard(Piece addPiece)
+    {
+        blackPieces.add(addPiece);
+    }
+
+    @Override
+    public void chessMovement(int clickedX,int clickedY)
+    {
+        whiteTurn = true;
+        Piece clickedPiece = getPiece(clickedX,clickedY);
 
         if ((turn % 2) == 1) {
             whiteTurn = false;
         }
 
-        if (activePiece == null && clickedPiece != null) {
-            if (inCheck()) {
-
-            } else {
+        if(activePiece==null && clickedPiece != null)
+        {
+//            if(inCheck())
+//            {
+//
+//            }
+//            else
+//            {
                 setActivePiece(clickedPiece);
-            }
+//            }
 
-        } else if (activePiece != null) {
-            movePiece(clickedX, clickedY);
+        }
+
+        else if(activePiece != null)
+        {
+            movePiece(clickedX,clickedY);
         }
 
     }
 
-    private void setActivePiece(Piece clickedPiece) {
+    private void setActivePiece(Piece clickedPiece)
+    {
         boolean isWhiteTurn = (whiteTurn && clickedPiece.isWhite());
         boolean isBlackTurn = (!whiteTurn && clickedPiece.isBlack());
 
-        if (isWhiteTurn || isBlackTurn) {
+        if(isWhiteTurn||isBlackTurn)
+        {
             activePiece = clickedPiece;
         }
     }
 
-    private void movePiece(int clickedX, int clickedY) {
-        Piece clickPiece = getPiece(clickedX, clickedY);
-        boolean validPieceMovePosition = activePiece.validMove(clickedX, clickedY);
+    private void movePiece(int clickedX, int clickedY)
+    {
+        Piece clickPiece = getPiece(clickedX,clickedY);
+        boolean validPieceMovePosition = activePiece.validMove(clickedX,clickedY);
         boolean isWhiteTurn = (whiteTurn && activePiece.isWhite());
         boolean isBlackTurn = (!whiteTurn && activePiece.isBlack());
 
-        if (validPieceMovePosition && (isWhiteTurn || isBlackTurn)) {
-            if (clickPiece != null) {
-                if (clickPiece.isWhite()) {
-                    if (clickPiece.getClass().equals(King.class)) {
+        if(validPieceMovePosition && (isWhiteTurn || isBlackTurn))
+        {
+            if(clickPiece != null)
+            {
+                if(clickPiece.isWhite())
+                {
+                    if(clickPiece.getClass().equals(King.class))
+                    {
                         setResult(Winner.BLACKWINNER);
                     }
                     whitePieces.remove(clickPiece);
-                } else {
-                    if (clickPiece.getClass().equals(King.class)) {
+                }
+                else{
+                    if(clickPiece.getClass().equals(King.class))
+                    {
                         setResult(Winner.WHITEWINNER);
                     }
                     blackPieces.remove(clickPiece);
@@ -252,7 +304,8 @@ public class Board {
             activePiece.setPositionX(clickedX);
             activePiece.setPositionY(clickedY);
 
-            if (activePiece.getClass().equals(Pawn.class)) {
+            if(activePiece.getClass().equals(Pawn.class))
+            {
                 Pawn pawn = (Pawn) activePiece;
                 pawn.setIsFirstMove(true);
             }
@@ -262,41 +315,49 @@ public class Board {
         }
     }
 
-    public boolean inCheck() {
+    public boolean inCheck()
+    {
         Piece kingReference = null;
-        if (whiteTurn) {
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < column; j++) {
-                    Piece isKing = getPiece(i, j);
-                    if (isKing != null && isKing.isWhite() && (isKing.getClass().equals(King.class))) {
+        if(whiteTurn)
+        {
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece isKing = getPiece(i,j);
+                    if(isKing!=null && isKing.isWhite() && (isKing.getClass().equals(King.class)))
+                    {
                         kingReference = isKing;
                         System.out.println(kingReference);
                     }
                 }
             }
 
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < column; j++) {
-                    Piece pieceReference = getPiece(i, j);
-                    if (pieceReference != null && pieceReference.isBlack() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY())) {
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece pieceReference = getPiece(i,j);
+                    if(pieceReference!=null && pieceReference.isBlack() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    {
                         return true;
                     }
                 }
             }
-        } else {
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < column; j++) {
-                    Piece isKing = getPiece(i, j);
-                    if (isKing != null && (isKing.getClass().equals(King.class)) && isKing.isBlack()) {
+        }
+        else
+        {
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece isKing = getPiece(i,j);
+                    if(isKing!=null && (isKing.getClass().equals(King.class)) && isKing.isBlack())
+                    {
                         kingReference = isKing;
                     }
                 }
             }
 
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < column; j++) {
-                    Piece pieceReference = getPiece(i, j);
-                    if (pieceReference != null && pieceReference.isWhite() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY())) {
+            for(int i = 0; i < row; i++){
+                for(int j = 0; j < column; j++){
+                    Piece pieceReference = getPiece(i,j);
+                    if(pieceReference!=null && pieceReference.isWhite() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    {
                         return true;
                     }
                 }
@@ -305,11 +366,11 @@ public class Board {
         return false;
     }
 
-    public Winner getResult() {
+    public Winner getResult(){
         return winner;
     }
 
-    public void setResult(Winner w) {
-        winner = w;
+    public void setResult(Winner w){
+        winner =w;
     }
 }
