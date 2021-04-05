@@ -3,19 +3,19 @@ package com.pieces.abstractfactory;
 import com.chessboard.Board;
 import com.pieces.Piece;
 
-public abstract class PieceFactory
+public abstract class AbstractPieceFactory
 {
-    private static PieceFactory uniqueInstance = null;
-    public static PieceFactory instance()
+    private static AbstractPieceFactory uniqueInstance = null;
+    public static AbstractPieceFactory instance()
     {
         if (null == uniqueInstance)
         {
-            uniqueInstance = new NormalPiece();
+            uniqueInstance = new ConcretePieceFactory();
         }
         return uniqueInstance;
     }
 
-    public static void setFactory(PieceFactory f)
+    public static void setFactory(AbstractPieceFactory f)
     {
         uniqueInstance = f;
     }

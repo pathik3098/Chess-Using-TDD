@@ -3,7 +3,7 @@ package com.pieces.abstractfactory;
 import com.chessboard.Board;
 import com.pieces.*;
 
-public class NormalPiece extends PieceFactory{
+public class ConcretePieceFactory extends AbstractPieceFactory {
     @Override
     public Piece createKing(int x, int y, boolean isWhite, String path, Board board) {
         return new King(x,y,isWhite,path,board);

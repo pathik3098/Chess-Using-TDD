@@ -1,8 +1,8 @@
 package com.chessboard;
 
 import com.pieces.*;
-import com.pieces.abstractfactory.NormalPiece;
-import com.pieces.abstractfactory.PieceFactory;
+import com.pieces.abstractfactory.ConcretePieceFactory;
+import com.pieces.abstractfactory.AbstractPieceFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,8 +40,8 @@ public class Board implements IBoard {
         whitePieces = new ArrayList<>();
         blackPieces = new ArrayList<>();
 
-        PieceFactory.setFactory(new NormalPiece());
-        PieceFactory factory = PieceFactory.instance();
+        AbstractPieceFactory.setFactory(new ConcretePieceFactory());
+        AbstractPieceFactory factory = AbstractPieceFactory.instance();
 
         whitePieces.add(factory.createKing(0,3,true,"",this));
         whitePieces.add(factory.createQueen(0,4,true,"",this));
