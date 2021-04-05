@@ -91,6 +91,10 @@ public class Match implements IMatch {
     public Match() {
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
     public Match(Player player1, Player player2) {
         this.player1 = player1;
         this.player2 = player2;
@@ -101,7 +105,7 @@ public class Match implements IMatch {
         this.createBoard(player1, player2);
     }
 
-    private void createBoard(Player player1, Player player2) {
+    public void createBoard(Player player1, Player player2) {
         this.board = new Board();
     }
 

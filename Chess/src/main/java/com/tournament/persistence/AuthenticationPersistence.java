@@ -29,7 +29,6 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             connection = conObj.establishDBConnection();
             statement = connection.createStatement();
             String select_Query = "select * from User where userId =" + "'" + inputUserId + "'";
-            System.out.println(select_Query);
             resultSet = statement.executeQuery(select_Query);
 
 
@@ -50,8 +49,8 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
         }
         catch (SQLException E)
         {
-            System.out.println("Some Error !" + E);
             connection.close();
+            return "Something Went Wrong !";
         }
         return "Invalid user credentials";
     }
