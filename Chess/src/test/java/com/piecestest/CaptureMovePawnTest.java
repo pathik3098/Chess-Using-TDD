@@ -1,16 +1,13 @@
 package com.piecestest;
 
-import com.chessboard.*;
+import com.chessboard.Board;
 import com.pieces.CaptureMovePawn;
-import com.pieces.interfaces.ICaptureMovePawn;
 import com.pieces.Pawn;
 import com.pieces.Piece;
+import com.pieces.interfaces.ICaptureMovePawn;
 import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class CaptureMovePawnTest
 {
@@ -29,11 +26,10 @@ public class CaptureMovePawnTest
     void invalidCaptureLeftBlackPawnTest()
     {
         Board board = new Board();
-        Piece targetPiecePosition = board.getPiece(5,0);
         Piece currentPiecePosition = board.getPiece(6,1);
 
-        destinationLeftX = targetPiecePosition.getPositionX();
-        destinationLeftY = targetPiecePosition.getPositionY();
+        destinationLeftX = 5;
+        destinationLeftY = 0;
 
         captureMovePawnObj.initialiseValues(currentPiecePosition,destinationLeftX,destinationLeftY,board);
         Assertions.assertEquals(false,captureMovePawnObj.blackPawnAttack(currentPiecePosition));
@@ -46,8 +42,8 @@ public class CaptureMovePawnTest
         Piece targetPiecePosition = board.getPiece(5,2);
         Piece currentPiecePosition = board.getPiece(6,1);
 
-        destinationRightX = targetPiecePosition.getPositionX();
-        destinationRightY = targetPiecePosition.getPositionY();
+        destinationRightX = 5;
+        destinationRightY = 2;
 
         captureMovePawnObj.initialiseValues(currentPiecePosition,destinationLeftX,destinationLeftY,board);
         Assertions.assertEquals(false,captureMovePawnObj.blackPawnAttack(currentPiecePosition));
@@ -56,11 +52,10 @@ public class CaptureMovePawnTest
     void invalidCaptureLeftWhitePawnTest()
     {
         Board board = new Board();
-        Piece targetPiecePosition = board.getPiece(2,6);
         Piece currentPiecePosition = board.getPiece(1,5);
 
-        destinationLeftX = targetPiecePosition.getPositionX();
-        destinationLeftY = targetPiecePosition.getPositionY();
+        destinationLeftX = 2;
+        destinationLeftY = 6;
 
         captureMovePawnObj.initialiseValues(currentPiecePosition,destinationLeftX,destinationLeftY,board);
         Assertions.assertEquals(false,captureMovePawnObj.whitePawnAttack(currentPiecePosition));
@@ -70,11 +65,10 @@ public class CaptureMovePawnTest
     void invalidCaptureRightWhitePawnTest()
     {
         Board board = new Board();
-        Piece targetPiecePosition = board.getPiece(2,4);
         Piece currentPiecePosition = board.getPiece(1,5);
 
-        destinationRightX = targetPiecePosition.getPositionX();
-        destinationRightY = targetPiecePosition.getPositionY();
+        destinationRightX = 2;
+        destinationRightY = 4;
 
         captureMovePawnObj.initialiseValues(currentPiecePosition,destinationRightX,destinationRightY,board);
         Assertions.assertEquals(false,captureMovePawnObj.whitePawnAttack(currentPiecePosition));
