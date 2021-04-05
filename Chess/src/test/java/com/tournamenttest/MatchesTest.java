@@ -14,7 +14,7 @@ public class MatchesTest {
         Player player1 = new Player();
         Player player2 = new Player();
         Match match = new Match(player1,player2);
-        Assertions.assertEquals(true, match.getResult());
+        Assertions.assertEquals(false, match.getResult());
     }
 
 }

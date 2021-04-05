@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Board {
+public class Board implements IBoard {
     public ArrayList<Piece> blackPieces;
     public ArrayList<Piece> whitePieces;
     public Piece activePiece;

@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class BaseController {
+public class MatchController {
 
     IMatch iMatch = new Match();
     Player player1 = new Player();
@@ -31,7 +31,6 @@ public class BaseController {
 
         Map<String, String> piecePositions = new HashMap<String, String>();
         piecePositions = iMatch.getBoard().getPositions();
-        System.out.println(piecePositions);
         model.addAttribute("positions", piecePositions);
 
         return "MatchChess";
@@ -47,14 +46,10 @@ public class BaseController {
         int clickY = Integer.parseInt(inputY);
 
         board.chessMovement(clickX, clickY);
-        System.out.println(board.activePiece);
 
         Map<String, String> piecePositions = new HashMap<String, String>();
         piecePositions = iMatch.getBoard().getPositions();
-        System.out.println(piecePositions);
         model.addAttribute("positions", piecePositions);
-
-        model.addAttribute("error", "Failed");
 
         return "MatchChess";
     }
