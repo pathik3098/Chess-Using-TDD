@@ -38,7 +38,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
         this.boardobj=boardobj;
     }
 
-    public boolean checkAttack(int attackX, int attackY)
+    private boolean checkAttack(int attackX, int attackY)
     {
         boolean attack = false;
         Piece attackPieceIsPresent = boardobj.getPiece(attackX, attackY);
