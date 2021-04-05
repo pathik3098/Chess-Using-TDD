@@ -15,8 +15,6 @@ public class TournamentMock {
         Players.add(new Player("Kethan"));
         Players.add(new Player("Rob"));
         //Players.add(new Player("Rashmika"));
-
-
         pairs.put(new Player("Sravani"),new Player("Aparna"));
         pairs.put(new Player("Darshil"),new Player("Pathik"));
         pairs.put(new Player("Kethan"),new Player("Rob"));

@@ -26,8 +26,7 @@ public class Tournament {
     public Tournament(ArrayList<Player> Players)
     {
         this.Players= Players;
-        Scheduling(Players);
-
+        //Scheduling(Players);
     }
 
     public int getPlayerSize(ArrayList<Player> Players)
@@ -135,5 +134,4 @@ public class Tournament {
         }
         return playerList;
     }
-
 }

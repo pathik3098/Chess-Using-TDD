@@ -64,4 +64,30 @@ public class TournamentTest {
         }
         Assertions.assertEquals(Pairs,mockPairs);
     }
+
+    @Test
+    void matchCreation(){
+        TournamentMock tournamentMock = new TournamentMock();
+        MatchMock[] matchmock;
+        ArrayList<Player> players = new ArrayList();
+        HashMap<Player, Player> mockPairPlayers = new HashMap<Player, Player>();
+        players = tournamentMock.getPlayers();
+        mockPairPlayers = tournamentMock.getPairs();
+
+        int i=0;
+        ArrayList<Player> nextRoundPlayers = new ArrayList<>();
+
+        matchmock = new MatchMock[3];
+        for(Player mockPlayerkeys:mockPairPlayers.keySet())
+        {
+            matchmock[i] = new MatchMock(mockPlayerkeys,mockPairPlayers.get(mockPlayerkeys));
+            i++;
+        }
+        for(int j=0; j<mockPairPlayers.size() ;j++)
+        {
+            nextRoundPlayers.add(matchmock[j].getWinner());
+        }
+        Assertions.assertEquals(3,nextRoundPlayers.size());
+
+    }
 }
