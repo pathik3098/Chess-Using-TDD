@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class PasswordEncryption implements IPasswordEncryption {
 
-	PasswordEncryption() {
+	public PasswordEncryption() {
 	}
 
 	@Override
