@@ -1,16 +1,27 @@
 package com.tournament.persistence;
 
+import com.tournament.model.IUsers;
+import com.tournament.model.Match;
 import com.tournament.persistenceconnection.PersistenceConnection;
 import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
+import org.apache.catalina.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AuthenticationPersistence implements IAuthenticationPersistence
 {
     String message = null;
     IPersistenceConnection conObj = new PersistenceConnection();
+    private String Q_GETALL = "SELECT * FROM User";
+    Connection connection = null;
+    private PreparedStatement stmt = null;
+
     public String validate(Users userObject) throws SQLException {
         Connection connection = null;
         Statement statement = null;
@@ -30,7 +41,6 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             statement = connection.createStatement();
             String select_Query = "select * from User where userId =" + "'" + inputUserId + "'";
             resultSet = statement.executeQuery(select_Query);
-
 
             while (resultSet.next()) {
                 dbUserId = resultSet.getString(2);
@@ -81,4 +91,24 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
 
     }
 
+    public Map<Integer, IUsers> getAllUsers(){
+        Map<Integer, IUsers> userMap = new HashMap<Integer,IUsers>();
+
+        try {
+            connection = conObj.establishDBConnection();
+            stmt = connection.prepareStatement(Q_GETALL);
+            ResultSet resultSet = stmt.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("ww");
+                IUsers user = new Users();
+                user.setUserId(resultSet.getString("userId"));
+                user.setUsername(resultSet.getString("username"));
+                userMap.put(resultSet.getRow(), user);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userMap;
+    }
 }

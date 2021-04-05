@@ -30,7 +30,6 @@ public class RegisterPersistence implements IRegisterPersistence {
         String dbPassword = "";
         int size =0;
 
-
         try
         {
             connection = conObj.establishDBConnection();

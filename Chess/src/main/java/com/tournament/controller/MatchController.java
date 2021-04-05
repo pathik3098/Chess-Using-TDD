@@ -5,6 +5,8 @@ import com.pieces.Piece;
 import com.tournament.Player;
 import com.tournament.model.IMatch;
 import com.tournament.model.Match;
+import com.tournament.persistence.MatchPersistence;
+import com.tournament.persistence.interfaces.IMatchPersistence;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +25,16 @@ public class MatchController {
     Player player2 = new Player();
     Board board = new Board();
     Piece activePiece;
+    IMatchPersistence iMatchPersistence;
 
     @RequestMapping("/matchChess")
     public String viewMatchChessPage(HttpServletRequest request, Model model) {
+        iMatchPersistence = new MatchPersistence();
+
+//        String playerId
+//        iMatch.setPlayer1id();
+        iMatchPersistence.saveMatch(iMatch);
+
         iMatch.createBoard(player1, player2);
         board = iMatch.getBoard();
 
