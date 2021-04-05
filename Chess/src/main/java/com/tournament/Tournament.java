@@ -1,10 +1,13 @@
 package com.tournament;
 import com.tournament.model.Match;
+import com.tournament.persistence.LeaderBoardPersistence;
 import com.tournament.persistence.TournamentPersistence;
+import com.tournament.persistence.interfaces.ILeaderBoardPersistence;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 public class Tournament {
@@ -23,9 +26,7 @@ public class Tournament {
     public Tournament(ArrayList<Player> Players)
     {
         this.Players= Players;
-        //Random random = new Random();
-        Scheduling(Players);
-
+        //Scheduling(Players);
     }
 
     public int getPlayerSize(ArrayList<Player> Players)
@@ -61,7 +62,6 @@ public class Tournament {
             Type = isOddEven(numPlayers);
             switch (Type) {
                 case ODD: {
-                    System.out.println("IN ODD");
                     Player name = Players.remove(Players.size() - 1);
                     match = new Match[numPairs];
                     schedule = new HashMap<Player, Player>();
@@ -74,7 +74,6 @@ public class Tournament {
                     break;
                 }
                 case EVEN: {
-                    System.out.println("IN EVEN");
                     match = new Match[numPairs];
                     schedule = new HashMap<Player, Player>();
                     pairing(Players);
@@ -121,5 +120,18 @@ public class Tournament {
             nextRoundPlayers.add(match[j].getWinner());
         }
         return nextRoundPlayers;
+    }
+
+    public List<Player> getLeaderboard(){
+
+        List<Player> playerList = null;
+        try {
+            ILeaderBoardPersistence iLeaderBoardPersistence = new LeaderBoardPersistence();
+            playerList = iLeaderBoardPersistence.getLeaderboard(4);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return playerList;
     }
 }

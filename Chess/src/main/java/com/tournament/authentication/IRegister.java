@@ -6,5 +6,5 @@ import java.sql.SQLException;
 
 public interface IRegister
 {
-    String userRegistration(Users userobj) throws SQLException;
+    String userRegistration(Users userobj,String playerLevel) throws SQLException;
 }

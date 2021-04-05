@@ -1,5 +1,6 @@
 package com.tournament.authentication;
 
+import com.tournament.authentication.IAuthentication;
 import com.tournament.model.*;
 import com.tournament.persistence.*;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
@@ -11,6 +12,10 @@ import java.util.Date;
 public class Authentication implements IAuthentication
 {
     String message = null;
+    IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
+
+    IValidation iValidation = new Validation();
+
     public String userAuthentication(String inputUserName, String inputPassword) throws SQLException {
         IUsers userObject = new Users();
 
@@ -22,16 +27,22 @@ public class Authentication implements IAuthentication
         userObject.setPassword(inputPassword);
         userObject.setLoginTime(loginTime);
 
-        if(inputUserName == null || inputPassword == null)
-        {
-            return "Input strings can't be empty";
+        if (iValidation.isLoginFieldEmptyValidation(inputUserName, inputPassword)) {
+            return "Enter User Id or Password !";
         }
         else
         {
+            passwordEncryption(userObject, inputPassword);
             IAuthenticationPersistence loginObj = new AuthenticationPersistence();
             message = loginObj.validate((Users) userObject);
         }
         return message;
+    }
+
+    private void passwordEncryption(IUsers userObj, String inputPassword) {
+        String hashPass;
+        hashPass = iPasswordEncryption.encryptPassword(inputPassword);
+        userObj.setPassword(hashPass);
     }
 
     public String userLogOut() throws SQLException {

@@ -1,9 +1,5 @@
 package com.tournamenttest;
 
-import com.tournament.Alliance;
-import com.tournament.Player;
-import com.tournament.PlayerDB.PlayerDBMock;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
