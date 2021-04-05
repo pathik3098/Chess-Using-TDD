@@ -58,11 +58,8 @@ public class TournamentController
 
         String email = request.getParameter("email");
         String userName = request.getParameter("username");
-
         String userId = request.getParameter("userId");
-
         String playerLevel = request.getParameter("level");
-
         String password = request.getParameter("password");
         String conPassword = request.getParameter("conpassword");
 

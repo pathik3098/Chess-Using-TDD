@@ -4,6 +4,7 @@ import com.chessboard.Board;
 import com.pieces.*;
 
 public class NormalPiece extends PieceFactory{
+
     @Override
     public Piece createKing(int x, int y, boolean isWhite, String path, Board board) {
         return new King(x,y,isWhite,path,board);

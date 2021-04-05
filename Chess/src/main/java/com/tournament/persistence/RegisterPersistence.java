@@ -28,6 +28,7 @@ public class RegisterPersistence implements IRegisterPersistence {
         ResultSet resultSet = null;
         String dbUserId= "";
         String dbPassword = "";
+        int size =0;
 
 
         try
@@ -38,7 +39,12 @@ public class RegisterPersistence implements IRegisterPersistence {
             System.out.println(select_Query);
             resultSet = statement.executeQuery(select_Query);
             System.out.println(resultSet.next());
-            if (resultSet.getFetchSize() < 1)
+            if (resultSet != null)
+            {
+                resultSet.last();    // moves cursor to the last row
+                size = resultSet.getRow(); // get row id
+            }
+            if (size < 1)
             {
                 String insert_query = "insert into User values(" + "'" +inputEmail+ "'" + "," + "'" +inputUserId+ "'"+ ","
                         + "'" +inputUsername+ "'"+ "," +inputPlayerLevel+ "," + "'" +inputPassword+ "'"+ "," +userSessionFlag+ "," +activeInTournament+ "," +loginTime+ ")";
@@ -56,7 +62,7 @@ public class RegisterPersistence implements IRegisterPersistence {
         }
         catch(Exception E)
         {
-            System.out.println("Some Error !" +E);
+            System.out.println("Something Went Wrong !" +E);
             connection.close();
             return "Registration Failed";
         }
