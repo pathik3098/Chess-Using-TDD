@@ -57,9 +57,9 @@ public class Register implements IRegister
         return message;
     }
 
-    private void passwordEncryption(Users userobj, String inputPassword) {
+    private void passwordEncryption(Users userObj, String inputPassword) {
         String hashPass;
         hashPass = iPasswordEncryption.encryptPassword(inputPassword);
-        userobj.setPassword(hashPass);
+        userObj.setPassword(hashPass);
     }
 }

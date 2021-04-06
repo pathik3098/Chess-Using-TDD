@@ -1,6 +1,7 @@
 package com.pieces;
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.interfaces.IRookMoves;
 
 public class RookMoves implements IRookMoves {
@@ -9,9 +10,9 @@ public class RookMoves implements IRookMoves {
     private int initialY;
     private boolean isWhite;
     private String filePath;
-    public Board board;
+    public IBoard board;
 
-    public RookMoves(int initialX, int initialY, boolean isWhite, String filePath, Board board) {
+    public RookMoves(int initialX, int initialY, boolean isWhite, String filePath, IBoard board) {
         this.initialX = initialX;
         this.initialY = initialY;
         this.isWhite = isWhite;

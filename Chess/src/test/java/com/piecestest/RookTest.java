@@ -2,6 +2,7 @@ package com.piecestest;
 
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.Piece;
 import com.pieces.Rook;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,7 @@ public class RookTest {
 
     @Test
     public void differentColourPieceTest(){
-        Board board = new Board();
+        IBoard board = new Board();
         Piece whiteRook = new Rook(0,0,true," ", board);
         board.chessMovement(0,0);
         board.chessMovement(1,0);
@@ -21,7 +22,7 @@ public class RookTest {
 
     @Test
     public void validMoveTest(){
-        Board board = new Board();
+        IBoard board = new Board();
         Piece whiteRook = new Rook(0,0,true,"",board);
         int targetX=3;
         int targetY=0;

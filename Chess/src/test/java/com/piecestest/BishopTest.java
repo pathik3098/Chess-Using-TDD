@@ -6,13 +6,14 @@ import static org.junit.Assert.*;
 
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.Bishop;
 import com.pieces.Piece;
 import org.junit.Test;
 
 public class BishopTest {
 
-    Board board = new Board();
+    IBoard board = new Board();
 
     @Test
     public void sameAllyTest() {

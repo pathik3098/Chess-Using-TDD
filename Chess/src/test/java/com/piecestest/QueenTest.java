@@ -2,6 +2,7 @@ package com.piecestest;
 
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.Queen;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class QueenTest {
 
-    Board board = new Board();
+    IBoard board = new Board();
 
     @Test
     public void sameAllyTest() {

@@ -1,6 +1,6 @@
 package com.pieces;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.interfaces.IBishopMoves;
 import com.pieces.interfaces.IRookMoves;
 
@@ -10,13 +10,13 @@ import java.util.List;
 
 public class Queen extends Piece {
 
-    IBishopMoves iBishopMoves;
-    IRookMoves iRookMoves;
+    IBishopMoves bishopMoves;
+    IRookMoves rookMoves;
 
-    public Queen(int initialX, int initialY, boolean isWhite, String filepath, Board board) {
+    public Queen(int initialX, int initialY, boolean isWhite, String filepath, IBoard board) {
         super(initialX, initialY, isWhite, filepath, board);
-        iBishopMoves = new BishopMoves(initialX, initialY, isWhite, filepath, board);
-        iRookMoves = new RookMoves(initialX, initialY, isWhite, filepath, board);
+        bishopMoves = new BishopMoves(initialX, initialY, isWhite, filepath, board);
+        rookMoves = new RookMoves(initialX, initialY, isWhite, filepath, board);
     }
 
     @Override
@@ -26,8 +26,8 @@ public class Queen extends Piece {
         Piece piece = board.getPiece(finalCordX, finalCordY);
 
         validationConditionList.add(differentColourPiece(this, piece));
-        validationConditionList.add(iRookMoves.straightMovement(this, finalCordX, finalCordY) || iBishopMoves.diagonalMovement(finalCordX, finalCordY));
-        validationConditionList.add(iRookMoves.checkPieceInBetween(this, finalCordX, finalCordY) || iBishopMoves.checkIfPieceInBetween(finalCordX, finalCordY));
+        validationConditionList.add(rookMoves.straightMovement(this, finalCordX, finalCordY) || bishopMoves.diagonalMovement(finalCordX, finalCordY));
+        validationConditionList.add(rookMoves.checkPieceInBetween(this, finalCordX, finalCordY) || bishopMoves.checkIfPieceInBetween(finalCordX, finalCordY));
 
         Iterator<Boolean> iter = validationConditionList.iterator();
         while (iter.hasNext()) {
