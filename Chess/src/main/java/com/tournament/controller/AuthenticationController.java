@@ -1,6 +1,8 @@
 package com.tournament.controller;
 
 import com.tournament.authentication.*;
+import com.tournament.authentication.interfaces.IAuthentication;
+import com.tournament.authentication.interfaces.IRegister;
 import com.tournament.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

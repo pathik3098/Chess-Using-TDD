@@ -1,4 +1,4 @@
-package com.tournament.authentication;
+package com.tournament.authentication.interfaces;
 
 import com.tournament.model.Users;
 

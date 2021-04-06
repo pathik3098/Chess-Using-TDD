@@ -1,6 +1,8 @@
 package com.tournament.authentication;
 
 
+import com.tournament.authentication.interfaces.IValidation;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

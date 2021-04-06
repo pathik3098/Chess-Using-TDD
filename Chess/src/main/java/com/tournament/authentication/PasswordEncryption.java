@@ -1,5 +1,7 @@
 package com.tournament.authentication;
 
+import com.tournament.authentication.interfaces.IPasswordEncryption;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

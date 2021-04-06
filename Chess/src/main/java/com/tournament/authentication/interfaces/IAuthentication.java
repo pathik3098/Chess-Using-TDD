@@ -1,4 +1,4 @@
-package com.tournament.authentication;
+package com.tournament.authentication.interfaces;
 import java.sql.SQLException;
 public interface IAuthentication
 {

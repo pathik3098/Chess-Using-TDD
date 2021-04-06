@@ -53,7 +53,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.All in Chess (1)">
+  <component name="RunManager" selected="JUnit.All in Chess (2)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -66,6 +66,14 @@
       </method>
     </configuration>
     <configuration name="All in Chess (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Chess (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -111,22 +119,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RookTest.validMoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.piecestest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.piecestest" />
-      <option name="MAIN_CLASS_NAME" value="com.piecestest.RookTest" />
-      <option name="METHOD_NAME" value="validMoveTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ChessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Chess" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tournament.ChessApplication" />
@@ -136,11 +128,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Chess (2)" />
         <item itemvalue="JUnit.All in Chess (1)" />
         <item itemvalue="JUnit.All in Chess" />
         <item itemvalue="JUnit.CaptureMovePawnTest" />
         <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.RookTest.validMoveTest" />
       </list>
     </recent_temporary>
   </component>

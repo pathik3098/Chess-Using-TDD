@@ -1,7 +1,8 @@
 package com.tournament.authentication;
 
-import com.tournament.authentication.IRegister;
-import com.tournament.authentication.IValidation;
+import com.tournament.authentication.interfaces.IPasswordEncryption;
+import com.tournament.authentication.interfaces.IRegister;
+import com.tournament.authentication.interfaces.IValidation;
 import com.tournament.persistence.*;
 import com.tournament.model.*;
 import com.tournament.persistence.interfaces.IRegisterPersistence;

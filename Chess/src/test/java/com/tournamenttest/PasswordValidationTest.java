@@ -1,6 +1,6 @@
 package com.tournamenttest;
 
-import com.tournament.authentication.IValidation;
+import com.tournament.authentication.interfaces.IValidation;
 import com.tournament.authentication.Validation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
