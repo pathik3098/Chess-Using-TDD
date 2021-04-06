@@ -1,4 +1,5 @@
 package com.tournament.authentication;
+
 import com.tournament.authentication.interfaces.IAuthentication;
 import com.tournament.authentication.interfaces.IPasswordEncryption;
 import com.tournament.authentication.interfaces.IValidation;
@@ -10,8 +11,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Authentication implements IAuthentication
-{
+public class Authentication implements IAuthentication {
     String message = null;
     IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
     IAuthenticationPersistence authenticatePersistenceObj = new AuthenticationPersistence();
@@ -26,33 +26,30 @@ public class Authentication implements IAuthentication
         userObj.setPassword(hashPass);
     }
 
-    private String validateCredentials(String inputUserId,String inputPassword) throws SQLException {
+    private String validateCredentials(String inputUserId, String inputPassword) throws SQLException {
         Date currentDate = new Date();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
         String loginTime = timeFormat.format(currentDate);
-//        if(message == "User Loaded")
-//        {
-        System.out.println(fetchedUser.getPassword());
-            if(inputUserId.equals(fetchedUser.getUserId()) && userObject.getPassword().equals(fetchedUser.getPassword()))
-            {
-                String messageUpdate = authenticatePersistenceObj.updateUser(inputUserId,inputPassword,loginTime);
+        Boolean isUserExist = (null != fetchedUser.getUserId());
+
+        if (isUserExist) {
+            Boolean isCredentialsCorrect = inputUserId.equals(fetchedUser.getUserId()) && userObject.getPassword().equals(fetchedUser.getPassword());
+            if (isCredentialsCorrect) {
+                String messageUpdate = authenticatePersistenceObj.updateUser(inputUserId, inputPassword, loginTime);
                 return messageUpdate;
             }
-//        }
-        return "Invalid Credentials";
+        }
+
+        return "Invalid Credentials OR User not Found";
     }
 
-    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException
-    {
-        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword))
-        {
+    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException {
+        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword)) {
             return "Enter User Id or Password !";
-        }
-        else
-        {
+        } else {
             passwordEncryption(userObject, inputPassword);
             fetchedUser = authenticatePersistenceObj.loadUser(inputUserId);
-            message = validateCredentials(inputUserId,inputPassword);
+            message = validateCredentials(inputUserId, inputPassword);
         }
         return message;
     }
@@ -63,8 +60,7 @@ public class Authentication implements IAuthentication
         return message;
     }
 
-    public void destroyObjects()
-    {
+    public void destroyObjects() {
         iPasswordEncryption = null;
         authenticatePersistenceObj = null;
         userObject = null;

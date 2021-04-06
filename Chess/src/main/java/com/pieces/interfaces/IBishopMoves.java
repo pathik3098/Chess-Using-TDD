@@ -1,9 +1,11 @@
 package com.pieces.interfaces;
 
+import com.pieces.Piece;
+
 public interface IBishopMoves {
 
-    Boolean diagonalMovement(int finalCordX, int finalCordY);
+    Boolean diagonalMovement(Piece currentPiece, int finalCordX, int finalCordY);
 
-    Boolean checkIfPieceInBetween(int finalCordX, int finalCordY);
+    Boolean checkIfPieceInBetween(Piece currentPiece,int finalCordX, int finalCordY);
 
 }
