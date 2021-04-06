@@ -28,7 +28,6 @@ public class Pawn extends Piece
     {
         super(x,y,isWhite,path,board);
         hasMoved = false;
-
         canPawnMove = false;
         canPawnAttack = false;
         canCornerPawnAttack = false;
@@ -40,7 +39,7 @@ public class Pawn extends Piece
         enPassantBlackPawn = false;
         enPassantBlackX = 0;
         enPassantBlackY = 0;
-
+        
         enPassantWhitePawn = false;
         enPassantWhiteX = 0;
         enPassantWhiteY = 0;
@@ -64,7 +63,6 @@ public class Pawn extends Piece
 
         isDiffColourPawn = differentColourPiece(this,targetPiece);
         isForwardMove  = (targetPiece == null && this.getPositionY() == destinationY);
-
 
         if (isDiffColourPawn)
         {
@@ -107,7 +105,6 @@ public class Pawn extends Piece
         return false;
     }
 
-
     private boolean canMoveWhite(Piece currentPiece, int destinationX, int destinationY)
     {
         boolean canMoveOneStepForward = (currentPiece.getPositionX()+1 == destinationX);
@@ -136,10 +133,8 @@ public class Pawn extends Piece
                 return true;
             }
         }
-
         return false;
     }
-
     private boolean canMoveBlack(Piece currentPiece, int destinationX, int destinationY)
     {
         boolean canMoveOneStepForward = (currentPiece.getPositionX()-1 == destinationX);
@@ -171,7 +166,6 @@ public class Pawn extends Piece
 
         return false;
     }
-
     public boolean isPawnPromotion()
     {
         if(targetX == 7)
