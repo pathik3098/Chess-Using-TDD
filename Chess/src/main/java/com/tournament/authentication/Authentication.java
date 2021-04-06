@@ -1,6 +1,4 @@
 package com.tournament.authentication;
-
-import com.tournament.authentication.IAuthentication;
 import com.tournament.model.*;
 import com.tournament.persistence.*;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
@@ -13,31 +11,10 @@ public class Authentication implements IAuthentication
 {
     String message = null;
     IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
+    IAuthenticationPersistence authenticatePersistenceObj = new AuthenticationPersistence();
+    IUsers userObject = new Users();
 
     IValidation iValidation = new Validation();
-
-    public String userAuthentication(String inputUserName, String inputPassword) throws SQLException {
-        IUsers userObject = new Users();
-
-        Date currentDate = new Date();
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
-        String loginTime = timeFormat.format(currentDate);
-
-        userObject.setUserId(inputUserName);
-        userObject.setPassword(inputPassword);
-        userObject.setLoginTime(loginTime);
-
-        if (iValidation.isLoginFieldEmptyValidation(inputUserName, inputPassword)) {
-            return "Enter User Id or Password !";
-        }
-        else
-        {
-            passwordEncryption(userObject, inputPassword);
-            IAuthenticationPersistence loginObj = new AuthenticationPersistence();
-            message = loginObj.validate((Users) userObject);
-        }
-        return message;
-    }
 
     private void passwordEncryption(IUsers userObj, String inputPassword) {
         String hashPass;
@@ -45,13 +22,48 @@ public class Authentication implements IAuthentication
         userObj.setPassword(hashPass);
     }
 
-    public String userLogOut() throws SQLException {
-        Users obj = new Users();
-        String currentActiveUser = obj.getUserId();
+    private String validateCredentials(String message,String inputUserId,String inputPassword) throws SQLException {
+        Date currentDate = new Date();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        String loginTime = timeFormat.format(currentDate);
+        if(message == "User Loaded")
+        {
+            String dbUserId = userObject.getUserId();
+            String dbUserPassword = userObject.getPassword();
+            if(inputUserId == dbUserId && inputPassword == dbUserPassword)
+            {
+                String messageUpdate = authenticatePersistenceObj.updateUser(inputUserId,inputPassword,loginTime);
+                return messageUpdate;
+            }
+        }
+        return "Invalid Credentials";
+    }
 
-        IAuthenticationPersistence daoObject = new AuthenticationPersistence();
-        message = daoObject.logOut(currentActiveUser);
-
+    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException
+    {
+        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword))
+        {
+            return "Enter User Id or Password !";
+        }
+        else
+        {
+            passwordEncryption(userObject, inputPassword);
+            String loadUserMessage = authenticatePersistenceObj.loadUser(inputUserId);
+            validateCredentials(loadUserMessage,inputUserId,inputPassword);
+        }
         return message;
+    }
+
+    public String userLogOut() throws SQLException {
+        String currentActiveUser = userObject.getUserId();
+        message = authenticatePersistenceObj.logOut(currentActiveUser);
+        return message;
+    }
+
+    public void destroyObjects()
+    {
+        iPasswordEncryption = null;
+        authenticatePersistenceObj = null;
+        userObject = null;
     }
 }
