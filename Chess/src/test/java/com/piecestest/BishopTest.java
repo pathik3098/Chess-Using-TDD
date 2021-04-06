@@ -9,6 +9,7 @@ import com.chessboard.Board;
 import com.chessboard.IBoard;
 import com.pieces.Bishop;
 import com.pieces.interfaces.IBishop;
+import org.junit.After;
 import org.junit.Test;
 
 public class BishopTest {
@@ -31,5 +32,16 @@ public class BishopTest {
     public void simpleTest() {
         IBishop bishop = new Bishop(1, 1, true, "WB", board);
         assertEquals(true, bishop.validMove(2, 2));
+    }
+
+    @Test
+    public void straightTest() {
+        IBishop bishop = new Bishop(1, 1, true, "WB", board);
+        assertEquals(false, bishop.validMove(2, 1));
+    }
+
+    @After
+    public void destroy() {
+        board = null;
     }
 }
