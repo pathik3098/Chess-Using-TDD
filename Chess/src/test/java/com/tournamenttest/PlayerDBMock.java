@@ -4,6 +4,7 @@ import com.tournament.Player;
 import com.tournament.persistence.interfaces.IPlayerPersistence;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerDBMock implements IPlayerPersistence {
     private String playerName;
@@ -28,5 +29,10 @@ public class PlayerDBMock implements IPlayerPersistence {
     @Override
     public void saveAllPlayers(ArrayList<Player> playerList) {
 
+    }
+
+    @Override
+    public List<Player> getLeaderboard(int tournamentId) {
+        return null;
     }
 }
