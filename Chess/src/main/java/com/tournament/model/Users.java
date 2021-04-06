@@ -1,7 +1,5 @@
 package com.tournament.model;
 
-import java.sql.Time;
-
 public class Users implements IUsers
 {
     private String email;

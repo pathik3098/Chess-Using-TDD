@@ -1,84 +1,93 @@
 package com.tournament.persistence;
 
 import com.tournament.model.IUsers;
-import com.tournament.model.Match;
 import com.tournament.persistenceconnection.PersistenceConnection;
 import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
-import org.apache.catalina.User;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class AuthenticationPersistence implements IAuthenticationPersistence
 {
-    String message = null;
     IPersistenceConnection conObj = new PersistenceConnection();
-    private String Q_GETALL = "SELECT * FROM User";
+    IUsers userObject = new Users();
     Connection connection = null;
-    private PreparedStatement stmt = null;
 
-    public String validate(Users userObject) throws SQLException {
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet resultSet = null;
+    private String message;
+    ResultSet resultSet;
+    private PreparedStatement statement;
+    private int updateUserSessionFlag;
 
-        String inputUserId = userObject.getUserId();
-        String inputPassword = userObject.getPassword();
-        String loginTime = userObject.getLoginTime();
+    private String getUserIdQuery = "SELECT * from User WHERE userId=?";
+    private String updateSessionLoginTimeQuery= "UPDATE User SET sessionFlag=?,LoginTime=? WHERE userId=?";
+    private String updateSessionLogoutQuery= "UPDATE User SET sessionFlag=? WHERE userId=?";
 
-        String dbUserId = "";
-        String dbPassword = "";
-        int updateUserSessionFlag = 1;
+    public AuthenticationPersistence()
+    {
+        updateUserSessionFlag = 0;
+        message = null;
+        resultSet = null;
+        statement = null;
+    }
 
+    public IUsers loadUser(String inputUserId) throws SQLException
+    {
         try
         {
             connection = conObj.establishDBConnection();
-            statement = connection.createStatement();
-            String select_Query = "select * from User where userId =" + "'" + inputUserId + "'";
-            resultSet = statement.executeQuery(select_Query);
-
-            while (resultSet.next()) {
-                dbUserId = resultSet.getString(2);
-                dbPassword = resultSet.getString(5);
-            }
-
-            if (inputUserId.equals(dbUserId) && inputPassword.equals(dbPassword))
+            statement = connection.prepareStatement(getUserIdQuery);
+            statement.setString(1,inputUserId);
+            resultSet = statement.executeQuery();
+            while (resultSet.next())
             {
-                String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + dbUserId + "'";
-                statement.executeUpdate(update_query);
-                String update_query2 = "update User set LoginTime =" + "'" + loginTime + "'" + "where userId =" + "'" + dbUserId + "'";
-                statement.executeUpdate(update_query2);
-                return "LoginSuccessful";
+                userObject.setUserId(resultSet.getString(2));
+                userObject.setPassword(resultSet.getString(5));
             }
             connection.close();
         }
         catch (SQLException E)
         {
+            System.out.println("Some Error !" + E);
             connection.close();
-            return "Something Went Wrong !";
         }
-        return "Invalid user credentials";
+        return userObject;
     }
 
-    public String logOut(String currentActiveUser) throws SQLException {
-        Connection connection = null;
-        Statement statement = null;
+    public String updateUser(String inputUserId,String inputPassword,String loginTime) throws SQLException
+    {
+        try
+        {
+            connection = conObj.establishDBConnection();
+            statement = connection.prepareStatement(updateSessionLoginTimeQuery);
+            statement.setInt(1, updateUserSessionFlag);
+            statement.setString(2, loginTime);
+            statement.setString(3, inputUserId);
+            statement.executeUpdate();
+            connection.close();
+            return "Login Successful";
+        }
+        catch (SQLException E)
+        {
+            System.out.println("Some Error !" + E);
+            connection.close();
+            return "Update Error";
+        }
+    }
+
+    public String logOut(String currentActiveUser) throws SQLException
+    {
         String activeUser = currentActiveUser;
 
         int updateUserSessionFlag = 0;
 
         try {
             connection = conObj.establishDBConnection();
-            statement = connection.createStatement();
-
-            String update_query = "update User set sessionFlag =" + updateUserSessionFlag + " " + "where userId =" + "'" + activeUser + "'";
-            statement.executeUpdate(update_query);
-            message = "LogOut Successful";
+            statement = connection.prepareStatement(updateSessionLogoutQuery);
+            statement.setInt(1, updateUserSessionFlag);
+            statement.setString(2, activeUser);
+            statement.executeUpdate();
+            message = "LogoutSuccessful";
             connection.close();
             return message;
         }
@@ -88,27 +97,5 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             connection.close();
             return message;
         }
-
-    }
-
-    public Map<Integer, IUsers> getAllUsers(){
-        Map<Integer, IUsers> userMap = new HashMap<Integer,IUsers>();
-
-        try {
-            connection = conObj.establishDBConnection();
-            stmt = connection.prepareStatement(Q_GETALL);
-            ResultSet resultSet = stmt.executeQuery();
-            while (resultSet.next()) {
-                System.out.println("ww");
-                IUsers user = new Users();
-                user.setUserId(resultSet.getString("userId"));
-                user.setUsername(resultSet.getString("username"));
-                userMap.put(resultSet.getRow(), user);
-            }
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return userMap;
     }
 }

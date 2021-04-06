@@ -1,60 +1,65 @@
 package com.tournament.authentication;
 
-import com.tournament.authentication.IRegister;
-import com.tournament.authentication.IValidation;
+import com.tournament.authentication.interfaces.IPasswordEncryption;
+import com.tournament.authentication.interfaces.IRegister;
+import com.tournament.authentication.interfaces.IValidation;
 import com.tournament.persistence.*;
 import com.tournament.model.*;
 import com.tournament.persistence.interfaces.IRegisterPersistence;
 
 import java.sql.SQLException;
 
-public class Register implements IRegister {
-    String message = null;
+public class Register implements IRegister
+{
     IValidation iValidation = new Validation();
     IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
+    private String message;
+    private String inputPassword;
+    private int userSessionFlag;
+    private int activeInTournament;
+    private String loginTime;
 
-    public String userRegistration(Users userObj, String playerLevel) throws SQLException {
-        String inputEmail = userObj.getEmail();
-        String inputUserId = userObj.getUserId();
-        String inputUsername = userObj.getUsername();
-        String inputPassword = userObj.getPassword();
-        String inputConPassword = userObj.getConPassword();
+    public Register()
+    {
+        message = null;
+        inputPassword = null;
+        userSessionFlag = 0;
+        activeInTournament = 0;
+        loginTime = null;
+    }
 
+    public String userRegistration(Users userObj) throws SQLException {
 
-        int userSessionFlag = 0;
+        inputPassword = userObj.getPassword();
         userObj.setUserSessionFlag(userSessionFlag);
-
-        int activeInTournament = 0;
         userObj.setActiveInTournament(activeInTournament);
-
-        String loginTime = null;
         userObj.setLoginTime(loginTime);
 
-        if (iValidation.isRegisterFieldEmptyValidation(inputEmail, inputUserId, inputUsername, inputPassword, inputConPassword, playerLevel)) {
+        if (iValidation.isRegisterFieldEmptyValidation(userObj)) {
             return "Please Fill all Details";
         }
 
-        if (iValidation.isPasswordAndConfirmPasswordNotSame( inputPassword, inputConPassword)) {
+        if (iValidation.isPasswordAndConfirmPasswordNotSame(userObj)) {
             return "Password and Confirm Password doesn't match !";
         }
 
-        if (!iValidation.isPasswordValid(inputPassword)) {
+        if (!iValidation.isPasswordValid(inputPassword))
+        {
             return "Invalid Password Format";
         }
-        else {
+        else
+        {
             passwordEncryption(userObj, inputPassword);
-            int playerLevelValue = Integer.parseInt(playerLevel);
-            userObj.setPlayerLevel(playerLevelValue);
-            IRegisterPersistence daoObject = new RegisterPersistence();
-            message = daoObject.insertUserDetails(userObj);
+            IRegisterPersistence registerPersistenceObject = new RegisterPersistence();
+            message = registerPersistenceObject.saveUserDetails(userObj);
         }
 
         return message;
     }
 
-    private void passwordEncryption(Users userobj, String inputPassword) {
+    private void passwordEncryption(Users userObj, String inputPassword) {
         String hashPass;
         hashPass = iPasswordEncryption.encryptPassword(inputPassword);
-        userobj.setPassword(hashPass);
+        userObj.setPassword(hashPass);
     }
 }

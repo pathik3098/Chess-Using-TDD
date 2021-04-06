@@ -1,8 +1,8 @@
 package com.tournament;
 import com.tournament.model.Match;
-import com.tournament.persistence.LeaderBoardPersistence;
+import com.tournament.persistence.PlayerPersistence;
 import com.tournament.persistence.TournamentPersistence;
-import com.tournament.persistence.interfaces.ILeaderBoardPersistence;
+import com.tournament.persistence.interfaces.IPlayerPersistence;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
 
 import java.util.ArrayList;
@@ -22,11 +22,20 @@ public class Tournament {
     public static HashMap<Player, Player> schedule;
     public Match[] match;
     Random random = new Random();
+    private int id;
 
     public Tournament(ArrayList<Player> Players)
     {
         this.Players= Players;
         //Scheduling(Players);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPlayerSize(ArrayList<Player> Players)
@@ -126,8 +135,8 @@ public class Tournament {
 
         List<Player> playerList = null;
         try {
-            ILeaderBoardPersistence iLeaderBoardPersistence = new LeaderBoardPersistence();
-            playerList = iLeaderBoardPersistence.getLeaderboard(4);
+            IPlayerPersistence playerPersistence = new PlayerPersistence();
+            playerList = playerPersistence.getLeaderboard(this.id);
 
         } catch (Exception e) {
             e.printStackTrace();

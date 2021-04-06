@@ -1,6 +1,6 @@
 package com.pieces;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.interfaces.IKnightKingMoves;
 
 public class KnightKingMoves implements IKnightKingMoves {
@@ -8,9 +8,9 @@ public class KnightKingMoves implements IKnightKingMoves {
     private int initialY;
     private boolean isWhite;
     private String filePath;
-    public Board board;
+    public IBoard board;
 
-    public KnightKingMoves(int initialX, int initialY, boolean isWhite, String filePath, Board board) {
+    public KnightKingMoves(int initialX, int initialY, boolean isWhite, String filePath, IBoard board) {
         this.initialX = initialX;
         this.initialY = initialY;
         this.isWhite = isWhite;

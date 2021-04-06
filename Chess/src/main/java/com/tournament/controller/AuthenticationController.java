@@ -1,26 +1,20 @@
 package com.tournament.controller;
 
 import com.tournament.authentication.*;
-import com.tournament.model.IUsers;
+import com.tournament.authentication.interfaces.IAuthentication;
+import com.tournament.authentication.interfaces.IRegister;
 import com.tournament.model.Users;
-import com.tournament.persistence.AuthenticationPersistence;
-import com.tournament.persistence.interfaces.IAuthenticationPersistence;
-import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class AuthenticationController
 {
-
     @GetMapping("")
     public String viewFirstPage()
     {
@@ -41,14 +35,13 @@ public class AuthenticationController
 
     @RequestMapping(value = "/loginForm",method = {RequestMethod.POST})
     public String processLoginPage(HttpServletRequest request, Model model) throws SQLException {
-
         String UserId = request.getParameter("userId");
         String password = request.getParameter("password");
 
         IAuthentication loginObj= new Authentication();
         String message = loginObj.userAuthentication(UserId,password);
 
-        if(message.equals("LoginSuccessful"))
+        if(message.equals("Login Successful"))
         {
             return "WelcomePage";
         }
@@ -63,21 +56,22 @@ public class AuthenticationController
     public String processRegisterPage(HttpServletRequest request, Model model) throws SQLException {
 
         String email = request.getParameter("email");
-        String userName = request.getParameter("username");
         String userId = request.getParameter("userId");
-        String playerLevel = request.getParameter("level");
+        String userName = request.getParameter("username");
+        String inputPlayerLevel = request.getParameter("level");
+        int playerLevel = Integer.parseInt(inputPlayerLevel);
         String password = request.getParameter("password");
         String conPassword = request.getParameter("conpassword");
-
-        Users userobj = new Users();
-        userobj.setEmail(email);
-        userobj.setUserId(userId);
-        userobj.setUsername(userName);
-        userobj.setPassword(password);
-        userobj.setConPassword(conPassword);
+        Users userobject = new Users();
+        userobject.setEmail(email);
+        userobject.setUserId(userId);
+        userobject.setUsername(userName);
+        userobject.setPassword(password);
+        userobject.setConPassword(conPassword);
+        userobject.setPlayerLevel(playerLevel);
 
         IRegister registerObj= new Register();
-        String message = registerObj.userRegistration(userobj,playerLevel);
+        String message = registerObj.userRegistration(userobject);
 
         if(message.equals("RegisterSuccess"))
         {
@@ -91,20 +85,19 @@ public class AuthenticationController
         }
     }
 
-    @RequestMapping(value = "/logOutPageMapping",method = {RequestMethod.POST})
+    @RequestMapping(value = "/logOut")
     public String processLogOutPage(HttpServletRequest request, Model model) throws SQLException {
 
         IAuthentication logoutObj= new Authentication();
         String message = logoutObj.userLogOut();
-
-        if(message.equals("LogOut Successful"))
+        if(message.equals("LogoutSuccessful"))
         {
             return "Login";
         }
         else
         {
             model.addAttribute("LogOut Message","LogOut Message"+message);
-            return "Register";
+            return "Error";
         }
     }
 }

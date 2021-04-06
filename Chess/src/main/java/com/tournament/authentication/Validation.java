@@ -1,5 +1,6 @@
 package com.tournament.authentication;
-
+import com.tournament.authentication.interfaces.IValidation;
+import com.tournament.model.Users;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,7 +8,27 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Validation implements IValidation {
+
+public class Validation implements IValidation
+{
+    private String inputEmail;
+    private String inputUserId;
+    private String inputUsername;
+    private String inputPassword;
+    private String inputConPassword;
+    private int playerLevelValue;
+    private String playerLevel;
+
+    public Validation()
+    {
+        inputEmail = null;
+        inputUserId = null;
+        inputUsername = null;
+        inputPassword = null;
+        inputConPassword = null;
+        playerLevel = null;
+        playerLevelValue = 0;
+    }
 
     private final int MAX_LENGTH = 6;
     Pattern p = Pattern.compile("[^A-Za-z0-9]");
@@ -39,8 +60,15 @@ public class Validation implements IValidation {
     }
 
     @Override
-    public boolean isRegisterFieldEmptyValidation(String inputEmail, String inputUserId, String inputUsername, String inputPassword, String inputConPassword, String playerLevel) {
-
+    public boolean isRegisterFieldEmptyValidation(Users userObj)
+    {
+        inputEmail = userObj.getEmail();
+        inputUserId = userObj.getUserId();
+        inputUsername = userObj.getUsername();
+        inputPassword = userObj.getPassword();
+        playerLevelValue = userObj.getPlayerLevel();
+        playerLevel = Integer.toString(playerLevelValue);
+        inputConPassword = userObj.getConPassword();
         if ("" == inputEmail || "" == inputUserId || "" == inputUsername || "" == inputPassword || "" == inputConPassword || "" == playerLevel) {
             return true;
         }
@@ -48,8 +76,9 @@ public class Validation implements IValidation {
     }
 
     @Override
-    public boolean isPasswordAndConfirmPasswordNotSame(String inputPassword, String inputConPassword) {
-
+    public boolean isPasswordAndConfirmPasswordNotSame(Users userObj) {
+        inputPassword = userObj.getPassword();
+        inputConPassword = userObj.getConPassword();
         if (inputPassword != inputConPassword) {
             return false;
         }

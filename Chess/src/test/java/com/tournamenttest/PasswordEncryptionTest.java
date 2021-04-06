@@ -1,6 +1,6 @@
 package com.tournamenttest;
 
-import com.tournament.authentication.IPasswordEncryption;
+import com.tournament.authentication.interfaces.IPasswordEncryption;
 import com.tournament.authentication.PasswordEncryption;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,15 +1,16 @@
 package com.pieces;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
+import com.pieces.interfaces.IBishop;
 import com.pieces.interfaces.IBishopMoves;
 
-public class Bishop extends Piece {
+public class Bishop extends Piece implements IBishop {
 
-    IBishopMoves iBishopMoves;
+    IBishopMoves bishopMoves;
 
-    public Bishop(int initialX, int initialY, boolean isWhite, String path, Board board) {
+    public Bishop(int initialX, int initialY, boolean isWhite, String path, IBoard board) {
         super(initialX, initialY, isWhite, path, board);
-        iBishopMoves = new BishopMoves(initialX, initialY, isWhite, path, board);
+        bishopMoves = new BishopMoves(initialX, initialY, isWhite, path, board);
     }
 
     @Override
@@ -17,8 +18,8 @@ public class Bishop extends Piece {
         Piece piece = board.getPiece(finalCordX, finalCordY);
 
         Boolean isDifferentColorPiece = differentColourPiece(this, piece);
-        Boolean isInDiagonalMovement = iBishopMoves.diagonalMovement(finalCordX, finalCordY);
-        Boolean isPieceNotInBetween = iBishopMoves.checkIfPieceInBetween(finalCordX, finalCordY);
+        Boolean isInDiagonalMovement = bishopMoves.diagonalMovement(finalCordX, finalCordY);
+        Boolean isPieceNotInBetween = bishopMoves.checkIfPieceInBetween(finalCordX, finalCordY);
 
         if (isDifferentColorPiece && isInDiagonalMovement && isPieceNotInBetween) {
             return true;
