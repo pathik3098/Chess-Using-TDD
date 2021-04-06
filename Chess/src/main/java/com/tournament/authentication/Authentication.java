@@ -31,15 +31,13 @@ public class Authentication implements IAuthentication
         String loginTime = timeFormat.format(currentDate);
         if(message == "User Loaded")
         {
-            String dbUserId = userObject.getUserId();
-            String dbUserPassword = userObject.getPassword();
-            if(inputUserId == dbUserId && inputPassword == dbUserPassword)
-            {
-                String messageUpdate = authenticatePersistenceObj.updateUser(inputUserId,inputPassword,loginTime);
-                return messageUpdate;
-            }
+            String messageUpdate = authenticatePersistenceObj.updateUser(inputUserId,inputPassword,loginTime);
+            return messageUpdate;
         }
-        return "Invalid Credentials";
+        else
+        {
+            return "Invalid Credentials";
+        }
     }
 
     public String userAuthentication(String inputUserId, String inputPassword) throws SQLException

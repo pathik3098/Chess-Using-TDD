@@ -18,14 +18,16 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     ResultSet resultSet;
     private PreparedStatement statement;
     private int updateUserSessionFlag;
+    private int activeTournament;
 
     private String getUserIdQuery = "SELECT * from User WHERE userId=?";
-    private String updateSessionLoginTimeQuery= "UPDATE User SET sessionFlag=?,LoginTime=? WHERE userId=?";
-    private String updateSessionLogoutQuery= "UPDATE User SET sessionFlag=? WHERE userId=?";
+    private String updateSessionLoginTimeQuery= "UPDATE User SET sessionFlag = ?,LoginTime = ? WHERE userId = ?";
+    private String updateSessionLogoutQuery= "UPDATE User SET sessionFlag = ? WHERE userId = ?";
 
     public AuthenticationPersistence()
     {
         updateUserSessionFlag = 0;
+        activeTournament = 0;
         message = null;
         resultSet = null;
         statement = null;
@@ -38,13 +40,21 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             statement = connection.prepareStatement(getUserIdQuery);
             statement.setString(1,inputUserId);
             resultSet = statement.executeQuery();
-            while (resultSet.next())
+            int size = 0;
+            if (resultSet != null)
             {
-                userObject.setUserId(resultSet.getString(2));
-                userObject.setPassword(resultSet.getString(5));
+                resultSet.last();
+                size = resultSet.getRow();
             }
-            connection.close();
-            return "User Loaded";
+            if(size >= 1)
+            {
+                return "User Loaded";
+            }
+            else
+            {
+                connection.close();
+                return "User Not Loaded";
+            }
         }
         catch (SQLException E)
         {
@@ -58,11 +68,12 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     {
         try
         {
+            updateUserSessionFlag = 1;
             statement = connection.prepareStatement(updateSessionLoginTimeQuery);
             statement.setInt(1, updateUserSessionFlag);
             statement.setString(2, loginTime);
             statement.setString(3, inputUserId);
-            statement.executeUpdate(updateSessionLoginTimeQuery);
+            statement.executeUpdate();
             connection.close();
             return "LoginSuccessful";
         }

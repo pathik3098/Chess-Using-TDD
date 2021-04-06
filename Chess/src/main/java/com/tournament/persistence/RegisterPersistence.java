@@ -20,7 +20,7 @@ public class RegisterPersistence implements IRegisterPersistence
         connection = null;
     }
 
-    private String saveUserQuery = "INSERT INTO User(inputEmail,inputUserId,inputUsername,inputPlayerLevel,inputPassword,userSessionFlag,activeInTournament,loginTime) VALUE (?,?,?,?,?,?,?,?)";
+    private String saveUserQuery = "INSERT INTO User(email,userId,username,playerLevel,password,sessionFlag,activeTournament,LoginTime) VALUES (?,?,?,?,?,?,?,?)";
 
     public String saveUserDetails(Users userObj) throws SQLException
     {
