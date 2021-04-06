@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Queen extends Piece {
+public class Queen extends Piece implements IQueen {
 
     IBishopMoves bishopMoves;
     IRookMoves rookMoves;

@@ -1,9 +1,10 @@
 package com.pieces;
 
 import com.chessboard.IBoard;
+import com.pieces.interfaces.IBishop;
 import com.pieces.interfaces.IBishopMoves;
 
-public class Bishop extends Piece {
+public class Bishop extends Piece implements IBishop {
 
     IBishopMoves bishopMoves;
 
