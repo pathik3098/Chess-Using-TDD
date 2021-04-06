@@ -37,6 +37,7 @@ public class AuthenticationController
     public String processLoginPage(HttpServletRequest request, Model model) throws SQLException {
         String UserId = request.getParameter("userId");
         String password = request.getParameter("password");
+
         IAuthentication loginObj= new Authentication();
         String message = loginObj.userAuthentication(UserId,password);
 
@@ -55,19 +56,22 @@ public class AuthenticationController
     public String processRegisterPage(HttpServletRequest request, Model model) throws SQLException {
 
         String email = request.getParameter("email");
-        String userName = request.getParameter("username");
         String userId = request.getParameter("userId");
-        String playerLevel = request.getParameter("level");
+        String userName = request.getParameter("username");
+        String inputPlayerLevel = request.getParameter("level");
+        int playerLevel = Integer.parseInt(inputPlayerLevel);
         String password = request.getParameter("password");
         String conPassword = request.getParameter("conpassword");
-        Users userobj = new Users();
-        userobj.setEmail(email);
-        userobj.setUserId(userId);
-        userobj.setUsername(userName);
-        userobj.setPassword(password);
-        userobj.setConPassword(conPassword);
+        Users userobject = new Users();
+        userobject.setEmail(email);
+        userobject.setUserId(userId);
+        userobject.setUsername(userName);
+        userobject.setPassword(password);
+        userobject.setConPassword(conPassword);
+        userobject.setPlayerLevel(playerLevel);
+
         IRegister registerObj= new Register();
-        String message = registerObj.userRegistration(userobj,playerLevel);
+        String message = registerObj.userRegistration(userobject);
 
         if(message.equals("RegisterSuccess"))
         {

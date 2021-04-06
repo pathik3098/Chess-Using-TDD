@@ -6,5 +6,5 @@ import java.sql.SQLException;
 
 public interface IRegisterPersistence
 {
-    String insertUserDetails(Users userObj) throws SQLException;
+    String saveUserDetails(Users userObj) throws SQLException;
 }

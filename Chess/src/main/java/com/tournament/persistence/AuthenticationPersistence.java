@@ -19,9 +19,9 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     private PreparedStatement statement;
     private int updateUserSessionFlag;
 
-    private String Q_GET_USER_BY_ID = "SELECT * from User WHERE userId=?";
-    private String Q_UPDATE_SESSION_LOGINTIME= "UPDATE User SET sessionFlag=?,LoginTime=? WHERE userId=?";
-    private String Q_UPDATE_SESSION_LOGOUT= "UPDATE User SET sessionFlag=? WHERE userId=?";
+    private String getUserIdQuery = "SELECT * from User WHERE userId=?";
+    private String updateSessionLoginTimeQuery= "UPDATE User SET sessionFlag=?,LoginTime=? WHERE userId=?";
+    private String updateSessionLogoutQuery= "UPDATE User SET sessionFlag=? WHERE userId=?";
 
     public AuthenticationPersistence()
     {
@@ -35,7 +35,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     {
         try
         {
-            statement = connection.prepareStatement(Q_GET_USER_BY_ID);
+            statement = connection.prepareStatement(getUserIdQuery);
             statement.setString(1,inputUserId);
             resultSet = statement.executeQuery();
             while (resultSet.next())
@@ -58,11 +58,11 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     {
         try
         {
-            statement = connection.prepareStatement(Q_UPDATE_SESSION_LOGINTIME);
+            statement = connection.prepareStatement(updateSessionLoginTimeQuery);
             statement.setInt(1, updateUserSessionFlag);
             statement.setString(2, loginTime);
             statement.setString(3, inputUserId);
-            statement.executeUpdate(Q_UPDATE_SESSION_LOGINTIME);
+            statement.executeUpdate(updateSessionLoginTimeQuery);
             connection.close();
             return "LoginSuccessful";
         }
@@ -82,10 +82,10 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
 
         try {
             connection = conObj.establishDBConnection();
-            statement = connection.prepareStatement(Q_UPDATE_SESSION_LOGOUT);
+            statement = connection.prepareStatement(updateSessionLogoutQuery);
             statement.setInt(1, updateUserSessionFlag);
             statement.setString(2, activeUser);
-            statement.executeUpdate(Q_UPDATE_SESSION_LOGOUT);
+            statement.executeUpdate(updateSessionLogoutQuery);
             message = "LogoutSuccessful";
             connection.close();
             return message;

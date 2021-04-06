@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/IAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/IAuthentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IRegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IRegisterPersistence.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,14 +24,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1owcDPoM652weMOthY3mfvuWp8N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -153,7 +168,7 @@
       <workItem from="1617530298218" duration="463000" />
       <workItem from="1617626268990" duration="6596000" />
       <workItem from="1617638131840" duration="2178000" />
-      <workItem from="1617676969113" duration="635000" />
+      <workItem from="1617676969113" duration="8315000" />
     </task>
     <servers />
   </component>
