@@ -96,7 +96,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             statement = connection.prepareStatement(updateSessionLogoutQuery);
             statement.setInt(1, updateUserSessionFlag);
             statement.setString(2, activeUser);
-            statement.executeUpdate(updateSessionLogoutQuery);
+            statement.executeUpdate();
             message = "LogoutSuccessful";
             connection.close();
             return message;

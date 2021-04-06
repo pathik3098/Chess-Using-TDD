@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +175,7 @@
       <workItem from="1617626268990" duration="6596000" />
       <workItem from="1617638131840" duration="2178000" />
       <workItem from="1617676969113" duration="10643000" />
-      <workItem from="1617697691239" duration="6139000" />
+      <workItem from="1617697691239" duration="6408000" />
     </task>
     <servers />
   </component>
