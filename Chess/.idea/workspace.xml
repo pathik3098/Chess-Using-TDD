@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="" />
+    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +50,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../99.Chess_Refactoring_Monday/group-12/Chess" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,18 +59,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.All in Chess (3)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.ChessApplication">
     <configuration name="All in Chess (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
@@ -119,10 +110,30 @@
     <configuration name="ChessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Chess" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.tournament.ChessApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <envs>
+        <env name="PORT" value="3306" />
+        <env name="DB" value="CSCI5308_12_DEVINT?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />
+        <env name="URL" value="db-5308.cs.dal.ca" />
+        <env name="PASSWORD" value="z87wH6WGXqQTS42x" />
+        <env name="DB_LOCAL" value="authentication" />
+        <env name="URL_LOCAL" value="localhost" />
+        <env name="PASSWORD_LOCAL" value="Darshil@12345" />
+        <env name="USERNAME_LOCAL" value="root" />
+        <env name="USERNAME" value="CSCI5308_12_DEVINT_USER" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.All in Chess" />
+      <item itemvalue="JUnit.All in Chess (1)" />
+      <item itemvalue="JUnit.All in Chess (2)" />
+      <item itemvalue="JUnit.All in Chess (3)" />
+      <item itemvalue="JUnit.CaptureMovePawnTest" />
+      <item itemvalue="Spring Boot.ChessApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in Chess (3)" />
@@ -150,7 +161,8 @@
       <workItem from="1617530298218" duration="463000" />
       <workItem from="1617626268990" duration="6596000" />
       <workItem from="1617638131840" duration="2178000" />
-      <workItem from="1617676969113" duration="9475000" />
+      <workItem from="1617676969113" duration="10643000" />
+      <workItem from="1617697691239" duration="7280000" />
     </task>
     <servers />
   </component>
@@ -168,5 +180,97 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java</url>
+          <line>14</line>
+          <properties field="message" class="com.tournament.authentication.Authentication" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java</url>
+          <line>22</line>
+          <properties field="saveUserQuery" class="com.tournament.persistence.RegisterPersistence" />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java</url>
+          <line>22</line>
+          <properties class="com.tournament.model.Users" method="getUserId">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java</url>
+          <line>42</line>
+          <properties class="com.tournament.model.Users" method="setPassword">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java</url>
+          <line>26</line>
+          <properties class="com.tournament.model.Users" method="setUserId">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
