@@ -12,7 +12,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
 {
     IPersistenceConnection conObj = new PersistenceConnection();
     IUsers userObject = new Users();
-    Connection connection = conObj.establishDBConnection();
+    Connection connection = null;
 
     private String message;
     ResultSet resultSet;
@@ -31,10 +31,11 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
         statement = null;
     }
 
-    public String loadUser(String inputUserId) throws SQLException
+    public IUsers loadUser(String inputUserId) throws SQLException
     {
         try
         {
+            connection = conObj.establishDBConnection();
             statement = connection.prepareStatement(getUserIdQuery);
             statement.setString(1,inputUserId);
             resultSet = statement.executeQuery();
@@ -44,27 +45,27 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
                 userObject.setPassword(resultSet.getString(5));
             }
             connection.close();
-            return "User Loaded";
         }
         catch (SQLException E)
         {
             System.out.println("Some Error !" + E);
             connection.close();
-            return "Loading Error";
         }
+        return userObject;
     }
 
     public String updateUser(String inputUserId,String inputPassword,String loginTime) throws SQLException
     {
         try
         {
+            connection = conObj.establishDBConnection();
             statement = connection.prepareStatement(updateSessionLoginTimeQuery);
             statement.setInt(1, updateUserSessionFlag);
             statement.setString(2, loginTime);
             statement.setString(3, inputUserId);
-            statement.executeUpdate(updateSessionLoginTimeQuery);
+            statement.executeUpdate();
             connection.close();
-            return "LoginSuccessful";
+            return "Login Successful";
         }
         catch (SQLException E)
         {
@@ -85,7 +86,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             statement = connection.prepareStatement(updateSessionLogoutQuery);
             statement.setInt(1, updateUserSessionFlag);
             statement.setString(2, activeUser);
-            statement.executeUpdate(updateSessionLogoutQuery);
+            statement.executeUpdate();
             message = "LogoutSuccessful";
             connection.close();
             return message;

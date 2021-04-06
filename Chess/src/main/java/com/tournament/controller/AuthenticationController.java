@@ -41,7 +41,7 @@ public class AuthenticationController
         IAuthentication loginObj= new Authentication();
         String message = loginObj.userAuthentication(UserId,password);
 
-        if(message.equals("LoginSuccessful"))
+        if(message.equals("Login Successful"))
         {
             return "WelcomePage";
         }
@@ -85,8 +85,9 @@ public class AuthenticationController
         }
     }
 
-    @RequestMapping(value = "/logOutPageMapping",method = {RequestMethod.POST})
+    @RequestMapping(value = "/logOut")
     public String processLogOutPage(HttpServletRequest request, Model model) throws SQLException {
+
         IAuthentication logoutObj= new Authentication();
         String message = logoutObj.userLogOut();
         if(message.equals("LogoutSuccessful"))

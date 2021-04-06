@@ -16,6 +16,7 @@ public class Authentication implements IAuthentication
     IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
     IAuthenticationPersistence authenticatePersistenceObj = new AuthenticationPersistence();
     IUsers userObject = new Users();
+    IUsers fetchedUser;
 
     IValidation iValidation = new Validation();
 
@@ -25,20 +26,19 @@ public class Authentication implements IAuthentication
         userObj.setPassword(hashPass);
     }
 
-    private String validateCredentials(String message,String inputUserId,String inputPassword) throws SQLException {
+    private String validateCredentials(String inputUserId,String inputPassword) throws SQLException {
         Date currentDate = new Date();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
         String loginTime = timeFormat.format(currentDate);
-        if(message == "User Loaded")
-        {
-            String dbUserId = userObject.getUserId();
-            String dbUserPassword = userObject.getPassword();
-            if(inputUserId == dbUserId && inputPassword == dbUserPassword)
+//        if(message == "User Loaded")
+//        {
+        System.out.println(fetchedUser.getPassword());
+            if(inputUserId.equals(fetchedUser.getUserId()) && userObject.getPassword().equals(fetchedUser.getPassword()))
             {
                 String messageUpdate = authenticatePersistenceObj.updateUser(inputUserId,inputPassword,loginTime);
                 return messageUpdate;
             }
-        }
+//        }
         return "Invalid Credentials";
     }
 
@@ -51,8 +51,8 @@ public class Authentication implements IAuthentication
         else
         {
             passwordEncryption(userObject, inputPassword);
-            String loadUserMessage = authenticatePersistenceObj.loadUser(inputUserId);
-            validateCredentials(loadUserMessage,inputUserId,inputPassword);
+            fetchedUser = authenticatePersistenceObj.loadUser(inputUserId);
+            message = validateCredentials(inputUserId,inputPassword);
         }
         return message;
     }
