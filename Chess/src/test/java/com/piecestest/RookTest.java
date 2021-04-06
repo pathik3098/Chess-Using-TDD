@@ -1,50 +1,39 @@
 package com.piecestest;
 
-
 import com.chessboard.Board;
 import com.chessboard.IBoard;
 import com.pieces.Piece;
 import com.pieces.Rook;
+import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RookTest {
 
+    IBoard board = new Board();
+
     @Test
-    public void differentColourPieceTest(){
-        IBoard board = new Board();
+    public void differentColourPieceTest()
+    {
         Piece whiteRook = new Rook(0,0,true," ", board);
-        board.chessMovement(0,0);
-        board.chessMovement(1,0);
-        Piece whiteTargetPiece = board.getPiece(1,0);
-        Assertions.assertEquals(false,whiteRook.differentColourPiece(whiteRook,whiteTargetPiece));
+        Piece whitePawn = board.getPiece(1,0);
+        Assertions.assertEquals(false,whiteRook.differentColourPiece(whiteRook,whitePawn));
+        Piece blackPawn = board.getPiece(6,0);
+        Assertions.assertEquals(true,whiteRook.differentColourPiece(whiteRook,blackPawn));
     }
 
     @Test
-    public void validMoveTest(){
-        IBoard board = new Board();
+    public void validMoveTest()
+    {
         Piece whiteRook = new Rook(0,0,true,"",board);
         int targetX=3;
         int targetY=0;
         Assertions.assertEquals(false,whiteRook.validMove(targetX,targetY));
-        targetX = 0;
-        targetY = 1;
-        Assertions.assertEquals(false,whiteRook.validMove(targetX,targetY));
-        targetX = 3;
-        targetY = 3;
-        Assertions.assertEquals(false,whiteRook.validMove(targetX,targetY));
-//        board.chessMovement(0,1);
-//        board.chessMovement(2,2);
-//        board.chessMovement(7,1);
-//        board.chessMovement(5,2);
-//        board.chessMovement(2,2);
-//        board.chessMovement(4,3);
-//        Piece p = board.getPiece(4,3);
-//        System.out.println(p);
-        board.chessMovement(0,0);
-        board.chessMovement(2,0);
-        Assertions.assertEquals(false,whiteRook.validMove(2,0));
+    }
 
-
+    @After
+    public void destroy()
+    {
+        board = null;
     }
 }

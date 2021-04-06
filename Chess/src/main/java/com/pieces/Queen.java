@@ -17,7 +17,7 @@ public class Queen extends Piece implements IQueen {
     public Queen(int initialX, int initialY, boolean isWhite, String filepath, IBoard board) {
         super(initialX, initialY, isWhite, filepath, board);
         bishopMoves = new BishopMoves(initialX, initialY, isWhite, board);
-        rookMoves = new RookMoves(initialX, initialY, isWhite, filepath, board);
+        rookMoves = new RookMoves(board);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Queen extends Piece implements IQueen {
 
         validationConditionList.add(differentColourPiece(this, piece));
         validationConditionList.add(rookMoves.straightMovement(this, finalCordX, finalCordY) || bishopMoves.diagonalMovement(this,finalCordX, finalCordY));
-        validationConditionList.add(rookMoves.checkPieceInBetween(this, finalCordX, finalCordY) || bishopMoves.checkIfPieceInBetween(this,finalCordX, finalCordY));
+        validationConditionList.add(rookMoves.checkPieceNotInBetween(this, finalCordX, finalCordY) || bishopMoves.checkIfPieceInBetween(this,finalCordX, finalCordY));
 
         Iterator<Boolean> iter = validationConditionList.iterator();
         while (iter.hasNext()) {
@@ -39,5 +39,4 @@ public class Queen extends Piece implements IQueen {
         }
         return true;
     }
-
 }

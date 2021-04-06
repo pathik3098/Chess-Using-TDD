@@ -1,22 +1,14 @@
 package com.pieces;
 
-import com.chessboard.Board;
 import com.chessboard.IBoard;
 import com.pieces.interfaces.IRookMoves;
 
 public class RookMoves implements IRookMoves {
 
-    private int initialX;
-    private int initialY;
-    private boolean isWhite;
-    private String filePath;
     public IBoard board;
 
-    public RookMoves(int initialX, int initialY, boolean isWhite, String filePath, IBoard board) {
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.isWhite = isWhite;
-        this.filePath = filePath;
+    public RookMoves(IBoard board)
+    {
         this.board = board;
     }
 
@@ -27,59 +19,61 @@ public class RookMoves implements IRookMoves {
     }
 
     @Override
-    public boolean checkPieceInBetween(Piece currentPiece, int destinationX, int destinationY)
+    public boolean checkPieceNotInBetween(Piece currentPiece, int destinationX, int destinationY)
     {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();
-        int targetX = destinationX;
-        int targetY = destinationY;
 
-        int directionSignX = Integer.signum(targetX - currentX);
-        int directionSignY = Integer.signum(targetY - currentY);
+        int directionSignX = Integer.signum(destinationX - currentX);
+        int directionSignY = Integer.signum(destinationY - currentY);
 
-        if (directionSignX > 0) {
-            int spaceToMove = Math.abs(targetX - currentX);
-
-            for (int i = 1; i < spaceToMove; i++) {
+        if (directionSignX > 0)
+        {
+            int spaceToMove = Math.abs(destinationX - currentX);
+            for (int i = 1; i < spaceToMove; i++)
+            {
                 Piece p = board.getPiece(currentX + i, currentY);
-
-                if (p != null) {
+                if (p != null)
+                {
                     return false;
                 }
             }
         }
 
-        if (directionSignX < 0) {
-            int spaceToMove = Math.abs(targetX - currentX);
-
-            for (int i = 1; i < spaceToMove; i++) {
+        if (directionSignX < 0)
+        {
+            int spaceToMove = Math.abs(destinationX - currentX);
+            for (int i = 1; i < spaceToMove; i++)
+            {
                 Piece p = board.getPiece(currentX - i, currentY);
-
-                if (p != null) {
+                if (p != null)
+                {
                     return false;
                 }
             }
         }
 
-        if (directionSignY > 0) {
-            int spaceToMove = Math.abs(targetY - currentY);
-
-            for (int i = 1; i < spaceToMove; i++) {
+        if (directionSignY > 0)
+        {
+            int spaceToMove = Math.abs(destinationY - currentY);
+            for (int i = 1; i < spaceToMove; i++)
+            {
                 Piece p = board.getPiece(currentX, currentY + i);
-
-                if (p != null) {
+                if (p != null)
+                {
                     return false;
                 }
             }
         }
 
-        if (directionSignY < 0) {
-            int spaceToMove = Math.abs(targetY - currentY);
-
-            for (int i = 1; i < spaceToMove; i++) {
+        if (directionSignY < 0)
+        {
+            int spaceToMove = Math.abs(destinationY - currentY);
+            for (int i = 1; i < spaceToMove; i++)
+            {
                 Piece p = board.getPiece(currentX, currentY - i);
-
-                if (p != null) {
+                if (p != null)
+                {
                     return false;
                 }
             }
