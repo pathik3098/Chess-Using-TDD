@@ -50,7 +50,7 @@ public class Authentication implements IAuthentication
         {
             passwordEncryption(userObject, inputPassword);
             String loadUserMessage = authenticatePersistenceObj.loadUser(inputUserId);
-            validateCredentials(loadUserMessage,inputUserId,inputPassword);
+            message = validateCredentials(loadUserMessage,inputUserId,inputPassword);
         }
         return message;
     }
