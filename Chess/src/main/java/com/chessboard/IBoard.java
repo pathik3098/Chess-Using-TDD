@@ -15,5 +15,6 @@ public interface IBoard {
     public void addBlackPieceToBoard(Piece addPiece);
     public void removeWhitePieceFromBoard(Piece removePiece);
     public void addWhitePieceToBoard(Piece addPiece);
+    public boolean inCheck();
 
 }

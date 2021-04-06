@@ -6,8 +6,8 @@ public abstract class Piece {
 
     private int positionX;
     private int positionY;
-    private boolean isWhite;
-    private String filePath;
+    private final boolean isWhite;
+    private final String filePath;
     public IBoard board;
 
     public Piece(int x, int y, boolean isWhite, String path, IBoard board)
@@ -35,10 +35,6 @@ public abstract class Piece {
     {
         return positionY;
     }
-    public void setFilePath(String path)
-    {
-        this.filePath = path;
-    }
     public String getFilePath()
     {
         return filePath;
@@ -60,16 +56,18 @@ public abstract class Piece {
             return true;
         }
         else {
-            if(targetPiece.isWhite() && currentPiece.isWhite()){
+            if(targetPiece.isWhite() && currentPiece.isWhite())
+            {
                 return false;
             }
-            if(targetPiece.isBlack() && currentPiece.isBlack()){
+            if(targetPiece.isBlack() && currentPiece.isBlack())
+            {
                 return false;
             }
-            else{
+            else
+            {
                 return true;
             }
         }
     }
-
 }

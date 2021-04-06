@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class Board implements IBoard {
+
     public ArrayList<Piece> blackPieces;
     public ArrayList<Piece> whitePieces;
     public Piece activePiece;
@@ -23,7 +24,6 @@ public class Board implements IBoard {
     public ArrayList<Piece> getWhitePieces() {
         return whitePieces;
     }
-
     Winner winner;
 
     public enum Winner {
@@ -31,15 +31,63 @@ public class Board implements IBoard {
         BLACKWINNER
     }
 
-    public String checkNull(Piece piece) {
-        if (piece == null) {
+    public Board()
+    {
+        whitePieces = new ArrayList<>();
+        blackPieces = new ArrayList<>();
+
+        AbstractPieceFactory.setFactory(new ConcretePieceFactory());
+        AbstractPieceFactory factory = AbstractPieceFactory.instance();
+
+        whitePieces.add(factory.createKing(0, 3, true, "WK", this));
+        whitePieces.add(factory.createQueen(0, 4, true, "WQ", this));
+        whitePieces.add(factory.createKnight(0, 1, true, "WK", this));
+        whitePieces.add(factory.createKnight(0, 6, true, "WK", this));
+        whitePieces.add(factory.createBishop(0, 2, true, "WB", this));
+        whitePieces.add(factory.createBishop(0, 5, true, "WB", this));
+        whitePieces.add(factory.createRook(0, 0, true, "WR", this));
+        whitePieces.add(factory.createRook(0, 7, true, "WR", this));
+        whitePieces.add(factory.createPawn(1, 0, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 1, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 2, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 3, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 4, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 5, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 6, true, "WP", this));
+        whitePieces.add(factory.createPawn(1, 7, true, "WP", this));
+
+        blackPieces.add(factory.createKing(7, 3, false, "BK", this));
+        blackPieces.add(factory.createQueen(7, 4, false, "BQ", this));
+        blackPieces.add(factory.createKnight(7, 1, false, "BK", this));
+        blackPieces.add(factory.createKnight(7, 6, false, "BK", this));
+        blackPieces.add(factory.createBishop(7, 2, false, "BB", this));
+        blackPieces.add(factory.createBishop(7, 5, false, "BB", this));
+        blackPieces.add(factory.createRook(7, 0, false, "BR", this));
+        blackPieces.add(factory.createRook(7, 7, false, "BR", this));
+        blackPieces.add(factory.createPawn(6, 0, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 1, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 2, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 3, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 4, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 5, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 6, false, "BP", this));
+        blackPieces.add(factory.createPawn(6, 7, false, "BP", this));
+    }
+
+    public String checkNull(Piece piece)
+    {
+        if (piece == null)
+        {
             return "";
-        } else {
+        }
+        else
+        {
             return piece.getFilePath();
         }
     }
 
-    public Map<String, String> getPositions() {
+    public Map<String, String> getPositions()
+    {
         Map<String, String> currentPositions = new HashMap<>();
         currentPositions.put("{0,0}", checkNull(this.getPiece(0, 0)));
         currentPositions.put("{0,1}", checkNull(this.getPiece(0, 1)));
@@ -116,51 +164,6 @@ public class Board implements IBoard {
         return currentPositions;
     }
 
-    public Board() {
-        //player1.alliance = Alliance.WHITE;
-        //player2.alliance = Alliance.BLACK;
-
-        whitePieces = new ArrayList<>();
-        blackPieces = new ArrayList<>();
-
-        AbstractPieceFactory.setFactory(new ConcretePieceFactory());
-        AbstractPieceFactory factory = AbstractPieceFactory.instance();
-
-        whitePieces.add(factory.createKing(0, 3, true, "WK", this));
-        whitePieces.add(factory.createQueen(0, 4, true, "WQ", this));
-        whitePieces.add(factory.createKnight(0, 1, true, "WK", this));
-        whitePieces.add(factory.createKnight(0, 6, true, "WK", this));
-        whitePieces.add(factory.createBishop(0, 2, true, "WB", this));
-        whitePieces.add(factory.createBishop(0, 5, true, "WB", this));
-        whitePieces.add(factory.createRook(0, 0, true, "WR", this));
-        whitePieces.add(factory.createRook(0, 7, true, "WR", this));
-        whitePieces.add(factory.createPawn(1, 0, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 1, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 2, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 3, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 4, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 5, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 6, true, "WP", this));
-        whitePieces.add(factory.createPawn(1, 7, true, "WP", this));
-
-        blackPieces.add(factory.createKing(7, 3, false, "BK", this));
-        blackPieces.add(factory.createQueen(7, 4, false, "BQ", this));
-        blackPieces.add(factory.createKnight(7, 1, false, "BK", this));
-        blackPieces.add(factory.createKnight(7, 6, false, "BK", this));
-        blackPieces.add(factory.createBishop(7, 2, false, "BB", this));
-        blackPieces.add(factory.createBishop(7, 5, false, "BB", this));
-        blackPieces.add(factory.createRook(7, 0, false, "BR", this));
-        blackPieces.add(factory.createRook(7, 7, false, "BR", this));
-        blackPieces.add(factory.createPawn(6, 0, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 1, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 2, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 3, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 4, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 5, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 6, false, "BP", this));
-        blackPieces.add(factory.createPawn(6, 7, false, "BP", this));
-    }
-
     @Override
     public Piece getPiece(int x, int y)
     {
@@ -228,15 +231,11 @@ public class Board implements IBoard {
 
         if(activePiece==null && clickedPiece != null)
         {
-//            if(inCheck())
-//            {
-//
-//            }
-//            else
-//            {
-                setActivePiece(clickedPiece);
-//            }
-
+            if(inCheck())
+            {
+                System.out.println("King is under check");
+            }
+            setActivePiece(clickedPiece);
         }
 
         else if(activePiece != null)
@@ -292,19 +291,19 @@ public class Board implements IBoard {
             {
                 Pawn pawn = (Pawn) activePiece;
                 pawn.setIsFirstMove(true);
-//                if(pawn.isPawnPromotion())
-//                {
-//                    if(pawn.isWhite())
-//                    {
-//                        whitePieces.remove(pawn);
-//                        whitePieces.add(new Queen(clickedX,clickedY,true,"WQ",this));
-//                    }
-//                    if(pawn.isBlack())
-//                    {
-//                        blackPieces.remove(pawn);
-//                        blackPieces.add(new Queen(clickedX,clickedY,true,"WQ",this));
-//                    }
-//                }
+                if(pawn.isPawnPromotion())
+                {
+                    if(pawn.isWhite())
+                    {
+                        whitePieces.remove(pawn);
+                        whitePieces.add(new Queen(clickedX,clickedY,true,"WQ",this));
+                    }
+                    if(pawn.isBlack())
+                    {
+                        blackPieces.remove(pawn);
+                        blackPieces.add(new Queen(clickedX,clickedY,true,"BQ",this));
+                    }
+                }
 
             }
 
@@ -313,6 +312,7 @@ public class Board implements IBoard {
         }
     }
 
+    @Override
     public boolean inCheck()
     {
         Piece kingReference = null;
@@ -323,20 +323,26 @@ public class Board implements IBoard {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece isKing = getPiece(i,j);
-                    if(isKing!=null && isKing.isWhite() && (isKing.getClass().equals(King.class)))
+                    if(isKing != null)
                     {
-                        kingReference = isKing;
-                        System.out.println(kingReference);
+                        if(isKing.isWhite() && (isKing.getClass().equals(King.class)))
+                        {
+                            kingReference = isKing;
+                        }
                     }
+
                 }
             }
 
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece pieceReference = getPiece(i,j);
-                    if(pieceReference!=null && pieceReference.isBlack() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    if(pieceReference!=null)
                     {
-                        return true;
+                        if(pieceReference.isBlack() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                        {
+                            return true;
+                        }
                     }
                 }
             }
@@ -346,9 +352,12 @@ public class Board implements IBoard {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece isKing = getPiece(i,j);
-                    if(isKing!=null && (isKing.getClass().equals(King.class)) && isKing.isBlack())
+                    if(isKing != null)
                     {
-                        kingReference = isKing;
+                        if((isKing.getClass().equals(King.class)) && isKing.isBlack())
+                        {
+                            kingReference = isKing;
+                        }
                     }
                 }
             }
@@ -356,9 +365,12 @@ public class Board implements IBoard {
             for(int i = 0; i < row; i++){
                 for(int j = 0; j < column; j++){
                     Piece pieceReference = getPiece(i,j);
-                    if(pieceReference!=null && pieceReference.isWhite() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                    if(pieceReference != null)
                     {
-                        return true;
+                        if(pieceReference.isWhite() && pieceReference.validMove(kingReference.getPositionX(), kingReference.getPositionY()))
+                        {
+                            return true;
+                        }
                     }
                 }
             }
