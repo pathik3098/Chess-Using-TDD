@@ -16,7 +16,8 @@ public class Validation implements IValidation
     private String inputUsername;
     private String inputPassword;
     private String inputConPassword;
-    private int playerLevel;
+    private int playerLevelValue;
+    private String playerLevel;
 
     public Validation()
     {
@@ -25,7 +26,8 @@ public class Validation implements IValidation
         inputUsername = null;
         inputPassword = null;
         inputConPassword = null;
-        playerLevel = 0;
+        playerLevel = null;
+        playerLevelValue = 0;
     }
 
     private final int MAX_LENGTH = 6;
@@ -64,10 +66,10 @@ public class Validation implements IValidation
         inputUserId = userObj.getUserId();
         inputUsername = userObj.getUsername();
         inputPassword = userObj.getPassword();
-        playerLevel = userObj.getPlayerLevel();
+        playerLevelValue = userObj.getPlayerLevel();
+        playerLevel = Integer.toString(playerLevelValue);
         inputConPassword = userObj.getConPassword();
-        //("" == inputEmail || "" == inputUserId || "" == inputUsername || "" == inputPassword || "" == inputConPassword || "" == playerLevel)
-        if ("" == inputEmail || "" == inputUserId || "" == inputUsername || "" == inputPassword || "" == inputConPassword) {
+        if ("" == inputEmail || "" == inputUserId || "" == inputUsername || "" == inputPassword || "" == inputConPassword || "" == playerLevel) {
             return true;
         }
         return false;

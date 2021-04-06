@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/BishopMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/BishopMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/KnightKingMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/KnightKingMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/RookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/RookMoves.java" afterDir="false" />
-    </list>
+    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,7 +150,7 @@
       <workItem from="1617530298218" duration="463000" />
       <workItem from="1617626268990" duration="6596000" />
       <workItem from="1617638131840" duration="2178000" />
-      <workItem from="1617676969113" duration="9066000" />
+      <workItem from="1617676969113" duration="9475000" />
     </task>
     <servers />
   </component>
