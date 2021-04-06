@@ -1,6 +1,5 @@
 package com.pieces;
 
-
 import com.chessboard.IBoard;
 import com.pieces.interfaces.IKnightKingMoves;
 

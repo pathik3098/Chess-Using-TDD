@@ -85,5 +85,4 @@ public class RookMoves implements IRookMoves {
         }
         return true;
     }
-
 }

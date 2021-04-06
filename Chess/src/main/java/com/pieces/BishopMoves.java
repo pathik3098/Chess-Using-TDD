@@ -28,7 +28,6 @@ public class BishopMoves implements IBishopMoves {
             return true;
         }
         return false;
-
     }
 
     @Override
