@@ -39,7 +39,7 @@ public class Pawn extends Piece
         enPassantBlackPawn = false;
         enPassantBlackX = 0;
         enPassantBlackY = 0;
-        
+
         enPassantWhitePawn = false;
         enPassantWhiteX = 0;
         enPassantWhiteY = 0;

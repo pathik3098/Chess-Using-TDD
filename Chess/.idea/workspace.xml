@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/IBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/CaptureMovePawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/interfaces/ICaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/interfaces/ICaptureMovePawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +159,7 @@
       <workItem from="1617530298218" duration="463000" />
       <workItem from="1617626268990" duration="6596000" />
       <workItem from="1617638131840" duration="2178000" />
+      <workItem from="1617676969113" duration="322000" />
     </task>
     <servers />
   </component>
