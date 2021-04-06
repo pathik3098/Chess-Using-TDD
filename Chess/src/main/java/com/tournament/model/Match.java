@@ -113,7 +113,9 @@ public class Match implements IMatch {
         result = board.getResult();
         if (result == Board.Winner.WHITEWINNER) {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
     }
@@ -127,10 +129,14 @@ public class Match implements IMatch {
     }
 
     public Player getWinner() {
-        if (getResult()) {
+        result = board.getResult();
+        if (result == Board.Winner.WHITEWINNER)
+        {
             setMatchWinner(player1.getPlayerId());
             return player1;
-        } else {
+        }
+        else
+        {
             setMatchWinner(player2.getPlayerId());
             return player2;
         }

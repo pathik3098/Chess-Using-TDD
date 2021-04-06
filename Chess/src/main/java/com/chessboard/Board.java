@@ -14,9 +14,6 @@ public class Board implements IBoard {
     public ArrayList<Piece> whitePieces;
     public Piece activePiece;
     private int turn = 0;
-    private final int row = 8;
-    private final int column = 8;
-    private int[][] boardMatrix;
     boolean whiteTurn = true;
 
     public ArrayList<Piece> getBlackPieces() {
@@ -43,7 +40,7 @@ public class Board implements IBoard {
     }
 
     public Map<String, String> getPositions() {
-        Map<String, String> currentPositions = new HashMap<String, String>();
+        Map<String, String> currentPositions = new HashMap<>();
         currentPositions.put("{0,0}", checkNull(this.getPiece(0, 0)));
         currentPositions.put("{0,1}", checkNull(this.getPiece(0, 1)));
         currentPositions.put("{0,2}", checkNull(this.getPiece(0, 2)));
@@ -123,7 +120,6 @@ public class Board implements IBoard {
         //player1.alliance = Alliance.WHITE;
         //player2.alliance = Alliance.BLACK;
 
-        boardMatrix = new int[row][column];
         whitePieces = new ArrayList<>();
         blackPieces = new ArrayList<>();
 
@@ -163,18 +159,6 @@ public class Board implements IBoard {
         blackPieces.add(factory.createPawn(6, 5, false, "BP", this));
         blackPieces.add(factory.createPawn(6, 6, false, "BP", this));
         blackPieces.add(factory.createPawn(6, 7, false, "BP", this));
-
-        this.gridInitialize();
-
-        //drawboard();
-    }
-
-    public void gridInitialize() {
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < column; j++) {
-                boardMatrix[i][j] = 0;
-            }
-        }
     }
 
     @Override
@@ -308,6 +292,20 @@ public class Board implements IBoard {
             {
                 Pawn pawn = (Pawn) activePiece;
                 pawn.setIsFirstMove(true);
+//                if(pawn.isPawnPromotion())
+//                {
+//                    if(pawn.isWhite())
+//                    {
+//                        whitePieces.remove(pawn);
+//                        whitePieces.add(new Queen(clickedX,clickedY,true,"WQ",this));
+//                    }
+//                    if(pawn.isBlack())
+//                    {
+//                        blackPieces.remove(pawn);
+//                        blackPieces.add(new Queen(clickedX,clickedY,true,"WQ",this));
+//                    }
+//                }
+
             }
 
             activePiece = null;
@@ -318,6 +316,8 @@ public class Board implements IBoard {
     public boolean inCheck()
     {
         Piece kingReference = null;
+        int column = 8;
+        int row = 8;
         if(whiteTurn)
         {
             for(int i = 0; i < row; i++){
@@ -366,11 +366,13 @@ public class Board implements IBoard {
         return false;
     }
 
-    public Winner getResult(){
+    public Winner getResult()
+    {
         return winner;
     }
 
-    public void setResult(Winner w){
-        winner =w;
+    public void setResult(Winner w)
+    {
+        winner = w;
     }
 }
