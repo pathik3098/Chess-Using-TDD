@@ -9,10 +9,8 @@ public class CaptureMovePawn implements ICaptureMovePawn
     private int attackdiagonalYLeft;
     private int attackdiagonalXRight;
     private int attackdiagonalYRight;
-
     private int targetX;
     private int targetY;
-
     private boolean attackLeft;
     private boolean attackRight;
     private IBoard boardobj;
@@ -23,10 +21,8 @@ public class CaptureMovePawn implements ICaptureMovePawn
         attackdiagonalYLeft = 0;
         attackdiagonalXRight = 0;
         attackdiagonalYRight = 0;
-
         targetX = 0;
         targetY = 0;
-
         attackLeft = false;
         attackRight = false;
     }
@@ -53,7 +49,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
     {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();
-
         boolean pawnCanAttack = false;
 
         if(currentX < 7) // Yet, Pawn hasn't moved to the opposite extreme
@@ -90,7 +85,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
                 attackdiagonalYRight = currentY - 1;
                 attackLeft = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
 
-
                 attackdiagonalXLeft = currentX + 1;
                 attackdiagonalYLeft = currentY + 1;
                 attackRight = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
@@ -110,7 +104,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
     {
         int currentX = currentPiece.getPositionX();
         int currentY = currentPiece.getPositionY();
-
         boolean pawnCanAttack = false;
 
         if(currentX >0 ) // Yet, Pawn hasn't moved to the opposite extreme

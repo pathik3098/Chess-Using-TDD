@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IRegister.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IRegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/interfaces/IRegisterPersistence.java" afterDir="false" />
-    </list>
+    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +57,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.All in Chess (2)">
+  <component name="RunManager" selected="JUnit.All in Chess (3)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -96,7 +85,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in Chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Chess (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -104,17 +93,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chessboardtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chessboardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chessboardtest.BoardTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Chess (3)" />
         <item itemvalue="JUnit.All in Chess (2)" />
         <item itemvalue="JUnit.All in Chess (1)" />
         <item itemvalue="JUnit.All in Chess" />
         <item itemvalue="JUnit.CaptureMovePawnTest" />
-        <item itemvalue="JUnit.BoardTest" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +150,7 @@
       <workItem from="1617530298218" duration="463000" />
       <workItem from="1617626268990" duration="6596000" />
       <workItem from="1617638131840" duration="2178000" />
-      <workItem from="1617676969113" duration="8315000" />
+      <workItem from="1617676969113" duration="8627000" />
     </task>
     <servers />
   </component>
