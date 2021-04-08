@@ -28,8 +28,8 @@ test:
       junit:
         - ./Chess/target/surefire-reports/TEST-*.xml
         
-deploy:
-  stage: deploy
+test_deploy:
+  stage: test_deploy
   tags:
     - dalfcs_gitlab_docker_ci
   image: ruby:2.6
@@ -41,3 +41,17 @@ deploy:
     - dpl --provider=heroku --app=$HEROKU_APP_NAME --api-key=$HEROKU_API_KEY
   only:
     - develop
+
+master_deploy:
+  stage: master_deploy
+  tags:
+    - dalfcs_gitlab_docker_ci
+  image: ruby:2.6
+  script:
+    - cd ./Chess
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=$HEROKU_PRODUCTION_APP_NAME --api-key=$HEROKU_PRODUCTION_API_KEY
+  only:
+    - master
