@@ -1,8 +1,5 @@
 package com.tournament.model;
 
-import com.tournament.persistence.PlayerPersistence;
-import com.tournament.persistence.interfaces.IPlayerPersistence;
-
 public class Player {
 
     private String playerName;
@@ -23,16 +20,10 @@ public class Player {
         this.playerPoints=0;
     }
 
-    public Player(String playerName) {
-        this.playerName=playerName;
-    }
-
     public void updatePlayerPoints()
     {
         int winPoints = 2;
         playerPoints = playerPoints + winPoints;
-        IPlayerPersistence persistence = new PlayerPersistence();
-        persistence.savePlayer(this);
     }
 
     public void setAlliance(Alliance alliance) {

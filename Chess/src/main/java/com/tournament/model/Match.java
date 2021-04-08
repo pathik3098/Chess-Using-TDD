@@ -36,13 +36,13 @@ public class Match implements IMatch {
         if (result == Board.Winner.WHITEWINNER)
         {
             setMatchWinner(player1.getPlayerId());
-            //player1.updatePlayerPoints();
+            player1.updatePlayerPoints();
             return player1;
         }
         else
         {
             setMatchWinner(player2.getPlayerId());
-            //player2.updatePlayerPoints();
+            player2.updatePlayerPoints();
             return player2;
         }
     }
