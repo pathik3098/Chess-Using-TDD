@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Component
 public class MatchPersistence implements IMatchPersistence {
@@ -18,63 +19,59 @@ public class MatchPersistence implements IMatchPersistence {
     Connection connection = null;
     private PreparedStatement stmt = null;
 
-    private String Q_SAVE = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
-    private String Q_GETALL = "SELECT * from matches";
-    private String Q_GET_BY_ID = "SELECT * from matches where matchId=?";
-    private String Q_UPDATE = "UPDATE matches SET player1id=?,player2id=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
-    private String Q_DELETE = "DELETE From matches where matchId=?";
-
     @Override
     public void saveMatch(IMatch iMatch) {
-
         try {
-            connection = dbConnection.establishDBConnection();
-            stmt = connection.prepareStatement(Q_SAVE);
-            stmt.setString(1, iMatch.getPlayer1id());
-            stmt.setString(2, iMatch.getPlayer2id());
-            stmt.setString(3, iMatch.getStartTime());
-            stmt.setString(4, iMatch.getEndTime());
-            stmt.setInt(5, iMatch.getTournamentId());
-
-            int noOfRowAffected = stmt.executeUpdate();
+            String saveQuery = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
+            setFieldValues(iMatch, saveQuery);
+            stmt.executeUpdate();
 
             connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
+    }
+
+    private void setFieldValues(IMatch iMatch, String save_query) throws SQLException {
+        connection = dbConnection.establishDBConnection();
+        stmt = connection.prepareStatement(save_query);
+        stmt.setString(1, iMatch.getPlayer1id());
+        stmt.setString(2, iMatch.getPlayer2id());
+        stmt.setString(3, iMatch.getStartTime());
+        stmt.setString(4, iMatch.getEndTime());
+        stmt.setInt(5, iMatch.getTournamentId());
     }
 
     @Override
     public List<Match> getAllMatch() {
         List<Match> matchesList = new ArrayList<>();
         try {
-
             connection = dbConnection.establishDBConnection();
-            stmt = connection.prepareStatement(Q_GETALL);
-            ResultSet rs = stmt.executeQuery();
-            System.out.println(rs.getFetchSize());
-            if (rs != null) {
+            AtomicReference<String> getAllMatchesQuery = new AtomicReference<>("SELECT * from matches");
+            stmt = connection.prepareStatement(getAllMatchesQuery.get());
+            try (ResultSet rs = stmt.executeQuery()) {
+                System.out.println(rs.getFetchSize());
                 while (rs.next()) {
                     Match match = new Match();
                     setFieldValues(match, rs);
-
                     matchesList.add(match);
                 }
             }
+
             connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return matchesList;
     }
 
     @Override
     public Match getMatchById(int matchId) {
-
         Match match = new Match();
         try {
             connection = dbConnection.establishDBConnection();
-            stmt = connection.prepareStatement(Q_GET_BY_ID);
+            String getMatchByIdQuery = "SELECT * from matches where matchId=?";
+            stmt = connection.prepareStatement(getMatchByIdQuery);
             stmt.setInt(1, matchId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -83,9 +80,8 @@ public class MatchPersistence implements IMatchPersistence {
             connection.close();
             return match;
 
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return match;
     }
@@ -103,39 +99,31 @@ public class MatchPersistence implements IMatchPersistence {
 
     @Override
     public void updateMatch(Match match, int matchId) {
-
         try {
-            connection = dbConnection.establishDBConnection();
-            stmt = connection.prepareStatement(Q_UPDATE);
-            stmt.setString(1, match.getPlayer1id());
-            stmt.setString(2, match.getPlayer2id());
-            stmt.setString(3, match.getStartTime());
-            stmt.setString(4, match.getEndTime());
-            stmt.setInt(5, match.getTournamentId());
+            String updateMatchByIdQuery = "UPDATE matches SET player1id=?,player2id=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
+            setFieldValues(match, updateMatchByIdQuery);
             stmt.setString(6, match.getMatchWinner());
             stmt.setInt(7, match.getMatchId());
-
-            int noOfRowAffected = stmt.executeUpdate();
+            stmt.executeUpdate();
 
             connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
     }
 
     @Override
     public void deleteMatch(int matchId) {
-
         try {
             connection = dbConnection.establishDBConnection();
-            stmt = connection.prepareStatement(Q_DELETE);
+            String deleteMatchByIdQuery = "DELETE From matches where matchId=?";
+            stmt = connection.prepareStatement(deleteMatchByIdQuery);
             stmt.setInt(1, matchId);
-            int noOfRowAffected = stmt.executeUpdate();
+            stmt.executeUpdate();
 
             connection.close();
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
     }
 

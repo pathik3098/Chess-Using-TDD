@@ -1,10 +1,10 @@
 package com.tournament.authentication;
-
 import com.tournament.authentication.interfaces.IAuthentication;
 import com.tournament.authentication.interfaces.IPasswordEncryption;
 import com.tournament.authentication.interfaces.IValidation;
-import com.tournament.model.*;
-import com.tournament.persistence.*;
+import com.tournament.model.IUsers;
+import com.tournament.model.Users;
+import com.tournament.persistence.AuthenticationPersistence;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
 
 import java.sql.SQLException;
@@ -63,7 +63,7 @@ public class Authentication implements IAuthentication {
         message = authenticatePersistenceObj.logOut(currentActiveUser);
         return message;
     }
-    
+
     public void setAuthenticatePersistenceObj(IAuthenticationPersistence authenticatePersistenceObj) {
         this.authenticatePersistenceObj = authenticatePersistenceObj;
     }

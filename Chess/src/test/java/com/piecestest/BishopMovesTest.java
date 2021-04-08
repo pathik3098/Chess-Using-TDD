@@ -16,16 +16,16 @@ public class BishopMovesTest {
 
     @Test
     public void diagonalMovementTest() {
-        IBishopMoves bishopMoves = new BishopMoves(0, 1, true, board);
+        IBishopMoves bishopMoves = new BishopMoves(board);
         Bishop bishop = new Bishop(0, 1, true, "WB", board);
         assertEquals(false, bishopMoves.diagonalMovement(bishop, 1, 1));
     }
 
     @Test
     public void sameColorPieceAttackTest() {
-        IBishopMoves bishopMoves = new BishopMoves(0, 1, true, board);
+        IBishopMoves bishopMoves = new BishopMoves(board);
         Bishop bishop = new Bishop(0, 1, true, "WB", board);
-        assertEquals(true, bishopMoves.checkIfPieceInBetween(bishop, 0, 2));
+        assertEquals(true, bishopMoves.checkIfPieceNotInBetween(bishop, 0, 2));
     }
 
     @After

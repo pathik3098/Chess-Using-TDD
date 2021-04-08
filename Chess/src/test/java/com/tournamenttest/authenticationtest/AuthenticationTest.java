@@ -1,9 +1,9 @@
 package com.tournamenttest.authenticationtest;
-
 import com.tournament.authentication.Authentication;
 import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
 import com.tournament.model.IUsers;
+import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.mockito.Mock;
 import org.junit.Test;
@@ -16,16 +16,21 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class AuthenticationTest
 {
+    Authentication authenticationObj;
+    IUsers userObject;
+    public AuthenticationTest()
+    {
+        authenticationObj = new Authentication();
+        userObject = new Users();
+    }
+
     @Mock
     IAuthenticationPersistence authenticatePersistenceObj;
 
     @Test
     public void userAuthenticationTest() throws SQLException
     {
-        Authentication authenticationObj = new Authentication();
         authenticationObj.setAuthenticatePersistenceObj(authenticatePersistenceObj);
-
-        IUsers userObject = new Users();
         userObject.setUserId("aparna99");
         userObject.setPassword("67b9fb104dd2baa240b253da25dc4d39");
 
@@ -35,6 +40,14 @@ public class AuthenticationTest
         String password = "xyz@";
         Assertions.assertEquals("Login Successful",authenticationObj.userAuthentication(userId,password));
     }
+
+    @After
+    public void destroy()
+    {
+        authenticationObj = null;
+        userObject = null;
+    }
+
 
 }
 

@@ -86,6 +86,7 @@ public class Board implements IBoard {
         }
     }
 
+    @Override
     public Map<String, String> getPositions()
     {
         Map<String, String> currentPositions = new HashMap<>();
@@ -378,6 +379,7 @@ public class Board implements IBoard {
         return false;
     }
 
+    @Override
     public Winner getResult()
     {
         return winner;

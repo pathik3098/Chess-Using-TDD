@@ -4,8 +4,8 @@ import com.pieces.Piece;
 
 public interface IBishopMoves {
 
-    Boolean diagonalMovement(Piece currentPiece, int finalCordX, int finalCordY);
+    Boolean diagonalMovement(Piece currentPiece, int destinationX, int destinationY);
 
-    Boolean checkIfPieceInBetween(Piece currentPiece,int finalCordX, int finalCordY);
+    Boolean checkIfPieceNotInBetween(Piece currentPiece,int destinationX, int destinationY);
 
 }
