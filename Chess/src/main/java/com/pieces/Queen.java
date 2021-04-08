@@ -27,7 +27,7 @@ public class Queen extends Piece implements IQueen {
 
         validationConditionList.add(differentColourPiece(this, piece));
         validationConditionList.add(rookMoves.straightMovement(this, finalCordX, finalCordY) || bishopMoves.diagonalMovement(this, finalCordX, finalCordY));
-        validationConditionList.add(rookMoves.checkPieceNotInBetween(this, finalCordX, finalCordY) || bishopMoves.checkIfPieceInBetween(this, finalCordX, finalCordY));
+        validationConditionList.add(rookMoves.checkPieceNotInBetween(this, finalCordX, finalCordY) || bishopMoves.checkIfPieceNotInBetween(this, finalCordX, finalCordY));
 
         for (Boolean isConditionSatisfied : validationConditionList) {
             if (!isConditionSatisfied) {
