@@ -3,6 +3,7 @@ package com.chessboard;
 import com.pieces.Piece;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface IBoard {
 
@@ -17,4 +18,6 @@ public interface IBoard {
     public void addWhitePieceToBoard(Piece addPiece);
     public boolean inCheck();
 
+    Board.Winner getResult();
+    Map<String, String> getPositions();
 }

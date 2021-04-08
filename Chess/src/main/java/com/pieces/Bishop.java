@@ -14,12 +14,12 @@ public class Bishop extends Piece implements IBishop {
     }
 
     @Override
-    public boolean validMove(int finalCordX, int finalCordY) {
-        Piece piece = board.getPiece(finalCordX, finalCordY);
+    public boolean validMove(int destinationX, int destinationY) {
+        Piece piece = board.getPiece(destinationX, destinationY);
 
         Boolean isDifferentColorPiece = differentColourPiece(this, piece);
-        Boolean isInDiagonalMovement = bishopMoves.diagonalMovement(this, finalCordX, finalCordY);
-        Boolean isPieceNotInBetween = bishopMoves.checkIfPieceInBetween(this, finalCordX, finalCordY);
+        Boolean isInDiagonalMovement = bishopMoves.diagonalMovement(this, destinationX, destinationY);
+        Boolean isPieceNotInBetween = bishopMoves.checkIfPieceNotInBetween(this, destinationX, destinationY);
 
         return isDifferentColorPiece && isInDiagonalMovement && isPieceNotInBetween;
     }
