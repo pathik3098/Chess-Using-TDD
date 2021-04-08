@@ -1,8 +1,7 @@
 package com.tournamenttest;
-
 import com.tournament.FormTournamentGroups;
 import com.tournament.Player;
-import com.tournament.Tournament;
+import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,74 +9,45 @@ import java.util.ArrayList;
 
 public class FormTournamentGroupsTest
 {
-    private FormTournamentGroups formTournamentGroup;
     int numOfUsersActive = 0;
-    int PlayerLevel = 0;
-    String Players = null;
-    int totalBatches = 0;
-    int defaultBatchSize = 6;
+    FormTournamentGroups formTournamentGroupsObj = new FormTournamentGroups();
+
+    private Player createPlayer(String playerName)
+    {
+        Player p = new Player();
+        p.setPlayerName(playerName);
+        return p;
+    }
 
     @Test
-    public void groupLevelsTest()
-    {
-        formTournamentGroup = new FormTournamentGroups();
-        Player player = new Player();
+    public void formSubTournamentGroupsTest() throws Exception {
+
         ArrayList<Player> Playerlist = new ArrayList<>();
-        Playerlist.add(new Player("Sravani"));
-        Playerlist.add(new Player("Aparna"));
-        Playerlist.add(new Player("Darshil"));
-        Playerlist.add(new Player("Pathik"));
-        Playerlist.add(new Player("Kethan"));
-        Playerlist.add(new Player("Rob"));
-        Playerlist.add(new Player("hendry"));
+        Playerlist.add(createPlayer("Sravanni"));
+        Playerlist.add(createPlayer("Aparna"));
+        Playerlist.add(createPlayer("Darshil"));
+        Playerlist.add(createPlayer("Pathik"));
+        Playerlist.add(createPlayer("Kethan"));
+        Playerlist.add(createPlayer("Rob"));
+        Playerlist.add(createPlayer("hendry"));
         int i = 5;
-        for (Player p : Playerlist) {
+        for (Player p : Playerlist)
+        {
             numOfUsersActive = numOfUsersActive + 1;
-            p.setPlayerLevel(i%3 + 1);
+            p.setPlayerLevel(i % 3 + 1);
             Integer temp = 10 + i;
             p.setPlayerId(temp.toString());
             i = i + 1;
         }
-        FormTournamentGroups formTournamentGroups = new FormTournamentGroups();
-        formTournamentGroups.groupLevels(Playerlist);
-        Assertions.assertEquals(2,formTournamentGroups.getExpert().size());
+
+        ArrayList<ArrayList> tournamentList = formTournamentGroupsObj.formSubTournamentGroups(Playerlist);
+        Assertions.assertEquals(1,tournamentList.size());
+
     }
 
-    @Test
-    public void formSubTournamentGroupsTest()
+    @After
+    public void destroy()
     {
-        FormTournamentGroups formTournamentGroups = new FormTournamentGroups();
-
-        ArrayList<Player> expertPlayerlist = new ArrayList<>();
-        expertPlayerlist.add(new Player("Kethan"));
-        expertPlayerlist.add(new Player("Rob"));
-        expertPlayerlist.add(new Player("Pathik"));
-
-        ArrayList<Player> intermediatePlayerlist = new ArrayList<>();
-        intermediatePlayerlist.add(new Player("Sravani"));
-        intermediatePlayerlist.add(new Player("Aparna"));
-        intermediatePlayerlist.add(new Player("Sergiton"));
-
-        ArrayList<Player> beginnerPlayerList = new ArrayList<>();
-        beginnerPlayerList.add(new Player("Darshil"));
-        beginnerPlayerList.add(new Player("Hendry"));
-        beginnerPlayerList.add(new Player("William"));
-
-        formTournamentGroups.getExpert().size();
-        formTournamentGroups.getIntermediate().size();
-        formTournamentGroups.getBeginner().size();
-
-        totalBatches = numOfUsersActive / defaultBatchSize;
-
-        ArrayList<Player> batchList = new ArrayList<>();
-        batchList.add(new Player("Sravani"));
-        batchList.add(new Player("Sravani"));
-        batchList.add(new Player("Sravani"));
-        batchList.add(new Player("Sravani"));
-        batchList.add(new Player("Sravani"));
-        batchList.add(new Player("Sravani"));
-
-        Tournament obj = new Tournament(new ArrayList<>());
-        //Assertions.assertEquals();
+        formTournamentGroupsObj = null;
     }
 }

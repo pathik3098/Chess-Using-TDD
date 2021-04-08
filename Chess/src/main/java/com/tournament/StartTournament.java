@@ -14,9 +14,16 @@ public class StartTournament
         ArrayList<Player> playerList = PlayerPersistenceobj.loadAllPlayers();
         PlayerPersistenceobj.saveAllPlayers(playerList);
         PlayerPersistenceobj.saveAllPlayers(playerList);
+
         FormTournamentGroups groupobj = new FormTournamentGroups();
-        groupobj.groupLevels(playerList);
-        List<Tournament> tournamentList = groupobj.formSubTournamentGroups();
+        ArrayList<ArrayList> tournamentList = groupobj.formSubTournamentGroups(playerList);
+
+        //Invoking Multiple Tournaments
+        for(int i=0 ;i<tournamentList.size();i++)
+        {
+            Tournament invokeTournament = new Tournament(tournamentList.get(i));
+            invokeTournament.organizingTournament(tournamentList.get(i));
+        }
     }
 }
 

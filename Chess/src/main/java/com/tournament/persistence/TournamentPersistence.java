@@ -14,6 +14,7 @@ public class TournamentPersistence implements ITournamentPersistence{
     public Integer loadPlayer(Player player, int tournamentid)
     {
         IPersistenceConnection conPersistence = new PersistenceConnection();
+        conPersistence.establishDBConnection();
         Connection connection = null;
         Statement statement = null;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
