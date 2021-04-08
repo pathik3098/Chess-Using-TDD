@@ -66,15 +66,13 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RunManager" selected="Spring Boot.ChessApplication">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -180,9 +178,9 @@
       <item itemvalue="JUnit.BoardTest.inCheckTest1" />
       <item itemvalue="JUnit.BoardTest.pawnPromotionTest" />
       <item itemvalue="JUnit.BoardTest" />
-      <item itemvalue="Spring Boot.ChessApplication" />
       <item itemvalue="JUnit.AuthenticationTest" />
       <item itemvalue="JUnit.AuthenticationTest.userAuthenticationTest" />
+      <item itemvalue="Spring Boot.ChessApplication" />
     </list>
     <recent_temporary>
       <list>
