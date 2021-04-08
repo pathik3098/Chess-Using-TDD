@@ -1,5 +1,4 @@
 package com.tournamenttest;
-
 import com.tournament.model.Users;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
