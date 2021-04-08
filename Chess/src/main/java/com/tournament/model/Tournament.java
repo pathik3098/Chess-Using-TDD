@@ -16,7 +16,6 @@ public class Tournament {
     private static HashMap<Player, Player> schedule;
     private Match[] match;
     Random random = new Random();
-    private int id;
     private int tournamentID;
 
     public Tournament(ArrayList<Player> Players)
@@ -115,16 +114,4 @@ public class Tournament {
         return nextRoundPlayers;
     }
 
-    public List<Player> getLeaderboard(){
-
-        List<Player> playerList = null;
-        try {
-            IPlayerPersistence playerPersistence = new PlayerPersistence();
-            playerList = playerPersistence.getLeaderboard(this.id);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return playerList;
-    }
 }

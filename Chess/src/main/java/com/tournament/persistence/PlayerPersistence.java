@@ -1,4 +1,5 @@
 package com.tournament.persistence;
+
 import com.tournament.model.Player;
 import com.tournament.persistence.interfaces.IPlayerPersistence;
 import com.persistenceconnection.IPersistenceConnection;
@@ -17,30 +18,21 @@ public class PlayerPersistence implements IPlayerPersistence {
     Connection connection = null;
 
     @Override
-    public void savePlayer(Player player)
-    {
+    public void savePlayer(Player player) {
         conn = conPersistence.establishDBConnection();
         String query = "Update Player SET PlayerPoints = ? WHERE PlayerID = ?;";
-        try
-        {
+        try {
             preparedStatement = conn.prepareStatement(query);
-            preparedStatement.setInt(1,player.getPlayerPoints());
-            preparedStatement.setString(2,player.getPlayerId());
+            preparedStatement.setInt(1, player.getPlayerPoints());
+            preparedStatement.setString(2, player.getPlayerId());
             preparedStatement.executeUpdate(query);
-        }
-        catch (SQLException throwables)
-        {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }
-        finally
-        {
-            if(preparedStatement != null){
-                try
-                {
+        } finally {
+            if (preparedStatement != null) {
+                try {
                     preparedStatement.close();
-                }
-                catch (SQLException throwables)
-                {
+                } catch (SQLException throwables) {
                     throwables.printStackTrace();
                 }
             }
@@ -48,17 +40,14 @@ public class PlayerPersistence implements IPlayerPersistence {
     }
 
     @Override
-    public ArrayList<Player> loadAllPlayers()
-    {
+    public ArrayList<Player> loadAllPlayers() {
         String query = "select userId,username,playerLevel,LoginTime from user where sessionFlag = 1 order by LoginTime;";
         ArrayList<Player> playerList = new ArrayList<>();
 
-        try
-        {
+        try {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
-            while (rs.next())
-            {
+            while (rs.next()) {
                 String UserId = rs.getString("userId");
                 String playerName = rs.getString("username");
                 int PlayerLevel = rs.getInt("playerLevel");
@@ -71,19 +60,15 @@ public class PlayerPersistence implements IPlayerPersistence {
 
                 playerList.add(p);
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
         return playerList;
     }
 
     @Override
-    public void saveAllPlayers(ArrayList<Player> playerList)
-    {
-        try
-        {
+    public void saveAllPlayers(ArrayList<Player> playerList) {
+        try {
             PreparedStatement st;
             String insertQuery = "INSERT INTO Player ( PlayerID, PlayerName, PlayerLevel, PlayerPoints) VALUES (?,?,?,?);";
             st = conn.prepareStatement(insertQuery);
@@ -91,18 +76,15 @@ public class PlayerPersistence implements IPlayerPersistence {
 
             Iterator<Player> iter = playerList.iterator();
 
-            while (iter.hasNext())
-            {
+            while (iter.hasNext()) {
                 Player p = iter.next();
                 st.executeUpdate(insertQuery);
-                st.setString(1,p.getPlayerId());
-                st.setString(2,p.getPlayerName());
-                st.setInt(3,p.getPlayerLevel());
-                st.setInt(4,0);
+                st.setString(1, p.getPlayerId());
+                st.setString(2, p.getPlayerName());
+                st.setInt(3, p.getPlayerLevel());
+                st.setInt(4, 0);
             }
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
     }
@@ -112,29 +94,26 @@ public class PlayerPersistence implements IPlayerPersistence {
         List<Player> leaderBoardList = new ArrayList<>();
         try {
             connection = conPersistence.establishDBConnection();
-            String queryGetPlayersPointsByTournamentId = "SELECT PlayerName, PlayerPoints FROM Players WHERE TounamentId=? ORDER BY PlayerPoints";
+            String queryGetPlayersPointsByTournamentId = "SELECT Player_Name, Player_Points FROM Player WHERE TounamentId=? ORDER BY Player_Points DESC";
             preparedStatement = connection.prepareStatement(queryGetPlayersPointsByTournamentId);
             preparedStatement.setInt(1, tournamentId);
             ResultSet rs = preparedStatement.executeQuery();
 
-            System.out.println(rs.getFetchSize());
-            if (rs != null) {
-                while (rs.next()) {
-                    Player newPlayer = new Player();
-                    newPlayer = setFieldValues(newPlayer, rs);
-                    leaderBoardList.add(newPlayer);
-                }
+            while (rs.next()) {
+                Player newPlayer = new Player();
+                newPlayer = setFieldValues(newPlayer, rs);
+                leaderBoardList.add(newPlayer);
             }
             connection.close();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
         }
         return leaderBoardList;
     }
 
     public Player setFieldValues(Player player, ResultSet rs) throws SQLException {
-        player.setPlayerName(rs.getString("PlayerName"));
-        player.setPlayerPoints(rs.getInt("PlayerPoints"));
+        player.setPlayerName(rs.getString("Player_Name"));
+        player.setPlayerPoints(rs.getInt("Player_Points"));
         return player;
     }
 }
