@@ -5,7 +5,8 @@ variables:
 stages: 
   - build
   - test
-  - deploy
+  - test_deploy
+  - master_deploy
   
 build: 
   stage: build
