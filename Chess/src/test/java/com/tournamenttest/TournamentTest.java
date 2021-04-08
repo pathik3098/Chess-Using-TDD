@@ -16,28 +16,32 @@ public class TournamentTest {
 
     TournamentMock tournamentMock = new TournamentMock();
     Tournament tournament;
+
     @Test
     void getpossiblePairsOddTest() {
         ArrayList<Player> players = new ArrayList();
+        tournamentMock.oddTournamentMock();
         players=tournamentMock.getPlayers();
         tournament = new Tournament(players);
-        Assertions.assertEquals(tournament.getPossiblePairs(players),3);
+        Assertions.assertEquals(3,tournament.getPossiblePairs(players));
     }
 
     @Test
     void getpossiblePairsEvenTest() {
         ArrayList<Player> players = new ArrayList();
+        tournamentMock.evenTournamentMock();
         players=tournamentMock.getPlayers();
         tournament = new Tournament(players);
-        Assertions.assertEquals(tournament.getPossiblePairs(players),3);
+        Assertions.assertEquals(3,tournament.getPossiblePairs(players));
     }
 
     @Test
     void getPlayerSize() {
         ArrayList<Player> players = new ArrayList();
+        tournamentMock.evenTournamentMock();
         players=tournamentMock.getPlayers();
         tournament = new Tournament(players);
-        Assertions.assertEquals(tournament.getPlayerSize(players),6);
+        Assertions.assertEquals(6,tournament.getPlayerSize(players));
     }
 
     @Test
@@ -47,14 +51,17 @@ public class TournamentTest {
         HashMap<Player, Player> pairPlayers = new HashMap<Player, Player>();
         HashMap<String, String> Pairs = new HashMap<String, String>();
         HashMap<String, String> mockPairs = new HashMap<String, String>();
+        tournamentMock.evenTournamentMock();
         players = tournamentMock.getPlayers();
         tournament = new Tournament(players);
         mockPairPlayers = tournamentMock.getPairs();
         pairPlayers=tournament.pairing(players);
+
        for(Player mockPlayerkeys:mockPairPlayers.keySet())
         {
             mockPairs.put(mockPlayerkeys.getPlayerName(),mockPairPlayers.get(mockPlayerkeys).getPlayerName());
         }
+
         for(Player playerkeys:pairPlayers.keySet())
         {
             Pairs.put(playerkeys.getPlayerName(),pairPlayers.get(playerkeys).getPlayerName());
@@ -67,6 +74,7 @@ public class TournamentTest {
         MatchMock[] matchmock;
         ArrayList<Player> players = new ArrayList();
         HashMap<Player, Player> mockPairPlayers = new HashMap<Player, Player>();
+        tournamentMock.evenTournamentMock();
         players = tournamentMock.getPlayers();
         mockPairPlayers = tournamentMock.getPairs();
         int i=0;
@@ -84,6 +92,32 @@ public class TournamentTest {
         Assertions.assertEquals(3,nextRoundPlayers.size());
     }
 
+    @Test
+    void evenSchedulingTest()
+    {
+        ArrayList<Player> players = new ArrayList();
+        ArrayList<Player> nextRoundPlayers;
+        tournamentMock.evenTournamentMock();
+        players = tournamentMock.getPlayers();
+        tournament = new Tournament(players);
+        int numPairs=tournament.getPossiblePairs(players);
+        nextRoundPlayers=tournament.evenScheduling(numPairs,players);
+        Assertions.assertEquals(3,nextRoundPlayers.size());
+    }
+
+
+    @Test
+    void oddSchedulingTest()
+    {
+        ArrayList<Player> players = new ArrayList();
+        ArrayList<Player> nextRoundPlayers;
+        tournamentMock.oddTournamentMock();
+        players = tournamentMock.getPlayers();
+        tournament = new Tournament(players);
+        int numPairs=tournament.getPossiblePairs(players);
+        nextRoundPlayers=tournament.oddScheduling(numPairs,players);
+        Assertions.assertEquals(4,nextRoundPlayers.size());
+    }
     @After
     public void destroy()
     {

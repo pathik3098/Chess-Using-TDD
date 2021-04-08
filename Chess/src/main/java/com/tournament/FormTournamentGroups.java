@@ -1,5 +1,7 @@
 package com.tournament;
 
+import com.tournament.persistence.TournamentPersistence;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class FormTournamentGroups {
 
         totalBatches = numOfUsersActive / defaultBatchSize;
         ArrayList<Player> listOfAllBatches = new ArrayList();
+        Player winner;
 
         List<Tournament> tournamentList = new ArrayList<>();
         for (int i = 0; i < totalBatches; i++) {
@@ -66,7 +69,7 @@ public class FormTournamentGroups {
             }
             listOfAllBatches = tempList;
             Tournament invokeTournament = new Tournament(listOfAllBatches);
-            invokeTournament.Scheduling(listOfAllBatches);
+            invokeTournament.organizingTournament(listOfAllBatches);
             tournamentList.add(invokeTournament);
         }
         return tournamentList;
