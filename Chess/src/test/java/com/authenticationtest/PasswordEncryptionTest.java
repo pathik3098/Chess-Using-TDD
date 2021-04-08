@@ -22,7 +22,7 @@ public class PasswordEncryptionTest {
         IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
         String encryptedPassword = iPasswordEncryption.encryptPassword(samplePassword);
 
-        if (samplePassword != encryptedPassword) {
+        if (!samplePassword.equals(encryptedPassword)) {
             isTrue = true;
         }
         Assertions.assertEquals(true, isTrue);
@@ -33,7 +33,7 @@ public class PasswordEncryptionTest {
         IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
         String encryptedPassword = iPasswordEncryption.encryptPassword(samplePassword);
 
-        if (samplePassword == encryptedPassword) {
+        if (samplePassword.equals(encryptedPassword)) {
             isTrue = true;
         }
         Assertions.assertEquals(false, isTrue);

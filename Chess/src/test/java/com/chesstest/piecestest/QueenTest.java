@@ -52,7 +52,7 @@ public class QueenTest {
     @Test
     public void diagonalNorthEastMovementTest() {
         IQueen queen = new Queen(3, 2, true, "BQ", board);
-        assertEquals(true, queen.validMove(2, 3));
+        assertTrue(queen.validMove(2, 3));
     }
 
     @Test

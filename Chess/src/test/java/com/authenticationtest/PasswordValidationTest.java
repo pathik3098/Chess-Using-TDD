@@ -11,7 +11,7 @@ public class PasswordValidationTest {
     public void SimplePasswordTest() {
         IValidation iValidation = new Validation();
         boolean a = iValidation.isPasswordValid("Aaa@");
-        Assertions.assertEquals(true, a);
+        Assertions.assertTrue(a);
 
     }
 
@@ -19,7 +19,7 @@ public class PasswordValidationTest {
     public void SimplePasswordTestMaxLength() {
         IValidation iValidation = new Validation();
         boolean a = iValidation.isPasswordValid("Aaa@aaa");
-        Assertions.assertEquals(false, a);
+        Assertions.assertFalse(a);
 
     }
 
@@ -27,15 +27,15 @@ public class PasswordValidationTest {
     public void SimplePasswordTestContainSymbol() {
         IValidation iValidation = new Validation();
         boolean a = iValidation.isPasswordValid("Aaa@aa");
-        Assertions.assertEquals(true, a);
+        Assertions.assertTrue(a);
 
     }
 
     @Test
     public void SimplePasswordTestWithoutContainSymbol() {
         IValidation iValidation = new Validation();
-        boolean a = iValidation.isPasswordValid("Aaaaa");
-        Assertions.assertEquals(false, a);
+        boolean a = iValidation.isPasswordValid("Append");
+        Assertions.assertFalse(a);
 
     }
 
@@ -43,7 +43,7 @@ public class PasswordValidationTest {
     public void MaxLengthTest() {
         IValidation iValidation = new Validation();
         boolean b = iValidation.isMaxLength("aaa@");
-        Assertions.assertEquals(true, b);
+        Assertions.assertTrue(b);
 
     }
 
@@ -51,7 +51,7 @@ public class PasswordValidationTest {
     public void ContainsSymbolTest() {
         IValidation iValidation = new Validation();
         boolean c = iValidation.isContainsSymbols("aaa@");
-        Assertions.assertEquals(true, c);
+        Assertions.assertTrue(c);
 
     }
 
@@ -59,7 +59,7 @@ public class PasswordValidationTest {
     public void ContainsSymbolFalseTest() {
         IValidation iValidation = new Validation();
         boolean c = iValidation.isContainsSymbols("aaa");
-        Assertions.assertEquals(false, c);
+        Assertions.assertFalse(c);
 
     }
 
@@ -67,7 +67,7 @@ public class PasswordValidationTest {
     public void ContainsUppercaseTest() {
         IValidation iValidation = new Validation();
         boolean c = iValidation.isContainsUppercaseLetter("aAaa");
-        Assertions.assertEquals(true, c);
+        Assertions.assertTrue(c);
 
     }
 

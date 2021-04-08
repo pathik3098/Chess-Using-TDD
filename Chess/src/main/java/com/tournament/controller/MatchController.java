@@ -1,5 +1,4 @@
 package com.tournament.controller;
-
 import com.chesstest.chessboard.Board;
 import com.chesstest.chessboard.IBoard;
 import com.tournament.model.Player;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
@@ -22,8 +20,6 @@ public class MatchController {
     Player player2 = new Player();
     IMatch iMatch = new Match(player1, player2);
     IBoard board = new Board();
-
-
 
     @RequestMapping(value = "/matchChess", method = {RequestMethod.POST})
     public String viewMatchChessPage(HttpServletRequest request, Model model) {
