@@ -1,7 +1,4 @@
 package com.tournament;
-
-import com.tournament.persistence.TournamentPersistence;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +6,7 @@ public class FormTournamentGroups {
     private ArrayList<Player> expert;
     private ArrayList<Player> intermediate;
     private ArrayList<Player> beginner;
+    private ArrayList<ArrayList> tournamentList;
 
     private int numOfUsersActive;
     private int PlayerLevel;
@@ -20,6 +18,7 @@ public class FormTournamentGroups {
         this.expert = new ArrayList<>();
         this.intermediate = new ArrayList<>();
         this.beginner = new ArrayList<>();
+        tournamentList = new ArrayList<>();
         numOfUsersActive = 0;
         PlayerLevel = 0;
         Players = null;
@@ -27,7 +26,7 @@ public class FormTournamentGroups {
         defaultBatchSize = 6;
     }
 
-    public void groupLevels(ArrayList<Player> playerList) {
+    private void groupLevels(ArrayList<Player> playerList) {
         for (Player p : playerList) {
             numOfUsersActive = numOfUsersActive + 1;
             PlayerLevel = p.getPlayerLevel();
@@ -42,16 +41,15 @@ public class FormTournamentGroups {
         }
     }
 
-    public List<Tournament> formSubTournamentGroups() {
-
+    public ArrayList<ArrayList> formSubTournamentGroups(ArrayList<Player> playerList)
+    {
+        groupLevels(playerList);
         totalBatches = numOfUsersActive / defaultBatchSize;
         ArrayList<Player> listOfAllBatches = new ArrayList();
-        Player winner;
-
-        List<Tournament> tournamentList = new ArrayList<>();
         for (int i = 0; i < totalBatches; i++) {
             ArrayList<Player> tempList = new ArrayList();
-            while (tempList.size() < defaultBatchSize) {
+             while (tempList.size() < defaultBatchSize)
+             {
                 if (expert.size() > 0 && tempList.size() <= 6) {
                     tempList.add(expert.get(0));
                     expert.remove(0);
@@ -68,35 +66,8 @@ public class FormTournamentGroups {
                 }
             }
             listOfAllBatches = tempList;
-            Tournament invokeTournament = new Tournament(listOfAllBatches);
-            invokeTournament.organizingTournament(listOfAllBatches);
-            tournamentList.add(invokeTournament);
+            tournamentList.add(listOfAllBatches);
         }
         return tournamentList;
     }
-
-    public void setExpert(ArrayList<Player> expert)
-    {
-        this.expert = expert;
-    }
-
-    public void setIntermediate(ArrayList<Player> intermediate)
-    {
-        this.intermediate = intermediate;
-    }
-
-    public void setBeginner(ArrayList<Player> beginner)
-    {
-        this.beginner = beginner;
-    }
-    public ArrayList<Player> getExpert() {
-        return expert;
-    }
-    public ArrayList<Player> getIntermediate() {
-        return intermediate;
-    }
-    public ArrayList<Player> getBeginner() {
-        return beginner;
-    }
-
 }

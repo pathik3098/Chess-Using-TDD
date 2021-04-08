@@ -11,7 +11,7 @@ public class Knight extends Piece {
     public Knight(int initialX, int initialY, boolean isWhite, String path, IBoard board)
     {
         super(initialX, initialY, isWhite, path, board);
-        iKnightMoves = new KnightKingMoves(initialX, initialY, isWhite, path, board);
+        iKnightMoves = new KnightKingMoves(board);
     }
 
     @Override

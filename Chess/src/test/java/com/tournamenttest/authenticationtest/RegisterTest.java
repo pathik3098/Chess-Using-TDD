@@ -33,6 +33,7 @@ public class RegisterTest
         userObject.setUsername("AparnaVivekanandan");
         userObject.setUserId("aparna99");
         userObject.setPassword("Daz@");
+        userObject.setConPassword("Daz@");
         registerObject.setRegisterPersistenceObj(registerPersistenceObject);
         when(registerPersistenceObject.saveUserDetails(userObject)).thenReturn("RegisterSuccess");
         Assertions.assertEquals("RegisterSuccess",registerObject.userRegistration(userObject));

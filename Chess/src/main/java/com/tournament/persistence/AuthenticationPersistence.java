@@ -5,8 +5,11 @@ import com.tournament.persistenceconnection.PersistenceConnection;
 import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AuthenticationPersistence implements IAuthenticationPersistence
 {
@@ -97,5 +100,34 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
             connection.close();
             return message;
         }
+    }
+
+    @Override
+    public List<Users> getAllUsers() {
+        List<Users> nameList = new ArrayList<>();
+        try {
+            connection = conObj.establishDBConnection();
+            String getAllUsersQuery= "SELECT * from User";
+            statement = connection.prepareStatement(getAllUsersQuery);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Users user = new Users();
+                user.setUserId(rs.getString("userId"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setPlayerLevel(rs.getInt("playerLevel"));
+                user.setPassword(rs.getString("password"));
+                user.setUserSessionFlag(rs.getInt("sessionFlag"));
+                user.setActiveInTournament(rs.getInt("activeTournament"));
+                user.setLoginTime(rs.getString("LoginTime"));
+
+                nameList.add(user);
+            }
+            return nameList;
+
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+        return null;
     }
 }

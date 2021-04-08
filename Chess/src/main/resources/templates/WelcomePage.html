@@ -9,13 +9,44 @@
     <h1>Welcome to Chess </h1>
 
     <div style="margin: 20px 20px">
-        <a href="/" th:href="@{/matchChess}"> Two Player Chess </a>
-    </div>
-
-    <div style="margin: 20px 20px">
         <a href="/" th:href="@{/logOut}"> Log Out </a>
     </div>
 
+    <div style="margin: 20px 20px">
+        All Users
+    </div>
+
+    <form th:action="@{/matchChess}" method=post>
+    <div style="justify-content: center">
+
+        <div style="display: flex;justify-content: center">
+            <p>Enter Your id:</p>
+            <input type="text" name="firstPlayer"/>
+        </div>
+
+        <div style="display: flex;justify-content: center">
+            <p>Enter Second player id:</p>
+            <input type="text" name="secondPlayer"/>
+        </div>
+
+        <input type="submit" value="Play two player Chess">
+    </div>
+    </form>
+
+    <div style="margin: 20px 20px">
+        <table>
+
+            <tr>
+                <td>User ID</td>
+                <td>User Name</td>
+            </tr>
+
+            <tr th:each="element : ${allUsers}">
+                <td th:text="${element.userId}">[[${element.userId}]]</td>
+                <td th:text="${element.username}">[[${element.username}]]</td>
+            </tr>
+        </table>
+    </div>
     <!--    <a href = "/Tournament.html">Tournament</a>-->
 </center>
 </body>

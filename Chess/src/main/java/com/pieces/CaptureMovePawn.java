@@ -1,5 +1,4 @@
 package com.pieces;
-
 import com.chessboard.IBoard;
 import com.pieces.interfaces.ICaptureMovePawn;
 
@@ -51,7 +50,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
         int currentY = currentPiece.getPositionY();
         boolean pawnCanAttack = false;
 
-        if(currentX < 7) // Yet, Pawn hasn't moved to the opposite extreme
+        if(currentX < 7)
         {
             if (currentY == 0) {
                 attackdiagonalXLeft = currentX + 1; //Valid position to be attacked
@@ -67,7 +66,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
                 return attackLeft;
             }
         }
-
         return pawnCanAttack;
     }
 
@@ -77,7 +75,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
         int currentY = currentPiece.getPositionY();
         boolean pawnCanAttack = false;
 
-        if(currentX < 7) // Yet, Pawn hasn't moved to the opposite extreme
+        if(currentX < 7)
         {
             if (currentY > 0 && currentY < 7)
             {
@@ -95,7 +93,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
                     return pawnCanAttack;
                 }
             }
-
         }
         return pawnCanAttack;
     }
@@ -140,7 +137,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
                 attackdiagonalYLeft = currentY - 1;
                 attackLeft = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
 
-
                 attackdiagonalXRight = currentX - 1;
                 attackdiagonalYRight = currentY + 1;
                 attackRight = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
@@ -151,7 +147,6 @@ public class CaptureMovePawn implements ICaptureMovePawn
                     return pawnCanAttack;
                 }
             }
-
         }
         return pawnCanAttack;
     }
