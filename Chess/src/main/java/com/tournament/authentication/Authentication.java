@@ -18,8 +18,7 @@ public class Authentication implements IAuthentication {
     IUsers userObject;
     IValidation iValidation;
 
-    public Authentication()
-    {
+    public Authentication() {
         iPasswordEncryption = new PasswordEncryption();
         authenticatePersistenceObj = new AuthenticationPersistence();
         userObject = new Users();
@@ -32,7 +31,7 @@ public class Authentication implements IAuthentication {
         userObj.setPassword(hashPass);
     }
 
-    private String validateCredentials(String inputUserId, String inputPassword,IUsers fetchedUser) throws SQLException {
+    private String validateCredentials(String inputUserId, String inputPassword, IUsers fetchedUser) throws SQLException {
         Date currentDate = new Date();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
         String loginTime = timeFormat.format(currentDate);
@@ -48,17 +47,13 @@ public class Authentication implements IAuthentication {
         return "Invalid Credentials OR User not Found";
     }
 
-    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException
-    {
-        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword))
-        {
+    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException {
+        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword)) {
             return "Enter User Id or Password !";
-        }
-        else
-        {
+        } else {
             passwordEncryption(userObject, inputPassword);
             IUsers fetchedUser = authenticatePersistenceObj.loadUser(inputUserId);
-            message = validateCredentials(inputUserId,inputPassword,fetchedUser);
+            message = validateCredentials(inputUserId, inputPassword, fetchedUser);
         }
         return message;
     }
@@ -68,16 +63,8 @@ public class Authentication implements IAuthentication {
         message = authenticatePersistenceObj.logOut(currentActiveUser);
         return message;
     }
-
-
+    
     public void setAuthenticatePersistenceObj(IAuthenticationPersistence authenticatePersistenceObj) {
         this.authenticatePersistenceObj = authenticatePersistenceObj;
     }
-
-
-//    public void destroyObjects() {
-//        iPasswordEncryption = null;
-//        authenticatePersistenceObj = null;
-//        userObject = null;
-//    }
 }

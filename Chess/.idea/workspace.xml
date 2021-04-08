@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="added heroku plugin in pom">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/CaptureMovePawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.EnPassantPawnTest">
+  <component name="RunManager" selected="JUnit.All in Chess">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -71,17 +71,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthenticationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in Chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tournamenttest.authenticationtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tournamenttest.authenticationtest" />
-      <option name="MAIN_CLASS_NAME" value="com.tournamenttest.authenticationtest.AuthenticationTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,20 +161,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AuthenticationTest" />
       <item itemvalue="JUnit.AuthenticationTest.userAuthenticationTest" />
       <item itemvalue="Spring Boot.ChessApplication" />
       <item itemvalue="JUnit.CaptureMovePawnTest.cornerBlackPawnAttackTest1" />
       <item itemvalue="JUnit.CaptureMovePawnTest" />
       <item itemvalue="JUnit.EnPassantPawnTest" />
+      <item itemvalue="JUnit.All in Chess" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Chess" />
         <item itemvalue="JUnit.EnPassantPawnTest" />
         <item itemvalue="JUnit.CaptureMovePawnTest" />
         <item itemvalue="JUnit.CaptureMovePawnTest.cornerBlackPawnAttackTest1" />
         <item itemvalue="JUnit.AuthenticationTest.userAuthenticationTest" />
-        <item itemvalue="JUnit.AuthenticationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +198,7 @@
       <workItem from="1617676969113" duration="10643000" />
       <workItem from="1617697691239" duration="7280000" />
       <workItem from="1617864969571" duration="5042000" />
-      <workItem from="1617871877994" duration="1448000" />
+      <workItem from="1617871877994" duration="2293000" />
     </task>
     <servers />
   </component>
