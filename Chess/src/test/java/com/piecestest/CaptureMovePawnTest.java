@@ -12,11 +12,8 @@ import org.junit.jupiter.api.Test;
 
 public class CaptureMovePawnTest
 {
-
-    private boolean HasMoved;
     private int destinationLeftX;
     private int destinationLeftY;
-
     private int destinationRightX;
     private int destinationRightY;
 
