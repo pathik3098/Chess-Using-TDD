@@ -109,6 +109,14 @@ public class PawnTest {
         Assertions.assertEquals(false,blackActivePawn.validMove(targetX,targetY));
     }
 
+    @Test
+    void whitePawnPromotionTest()
+    {
+        Pawn whiteActivePawn = new Pawn(7,7,true,"", board);
+        boolean setHasMoved = true;
+        Assertions.assertEquals(true,whiteActivePawn.isPawnPromotion());
+    }
+
     @After
     public void destroy()
     {

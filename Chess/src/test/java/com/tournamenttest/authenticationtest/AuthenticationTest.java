@@ -48,6 +48,5 @@ public class AuthenticationTest
         userObject = null;
     }
 
-
 }
 
