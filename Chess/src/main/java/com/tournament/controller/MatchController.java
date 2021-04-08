@@ -23,6 +23,8 @@ public class MatchController {
     IMatch iMatch = new Match(player1, player2);
     IBoard board = new Board();
 
+
+
     @RequestMapping(value = "/matchChess", method = {RequestMethod.POST})
     public String viewMatchChessPage(HttpServletRequest request, Model model) {
 
