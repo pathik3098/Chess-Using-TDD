@@ -4,35 +4,31 @@ import com.tournament.Player;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
 import com.tournament.persistenceconnection.IPersistenceConnection;
 import com.tournament.persistenceconnection.PersistenceConnection;
-import org.springframework.data.relational.core.sql.In;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 
-public class TournamentPersistence implements ITournamentPersistence {
-
-    IPersistenceConnection conPersistence = new PersistenceConnection();
-    Connection connection = null;
-    Statement statement = null;
-    Player winner;
+public class TournamentPersistence implements ITournamentPersistence{
 
     @Override
-    public Integer loadPlayer(Player player, int tournamentid) {
-        connection=conPersistence.establishDBConnection();
-        String name = player.getPlayerName();
+    public Integer loadPlayer(Player player, int tournamentid)
+    {
+        IPersistenceConnection conPersistence = new PersistenceConnection();
+        Connection connection = null;
+        Statement statement = null;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         int result=0;
+
         try {
             statement=connection.createStatement();
-            String query = "insert into Tournament "+"values("+"'"+tournamentid+"'"+","+"'"+player.getPlayerName()+"'"+","+"'"+player.getPlayerName()+"'"+")";
-             result=statement.executeUpdate(query);
+            String query = "insert into Tournament "+"values("+"'"+tournamentid+"'"+","+"'"+dateFormat.format(timestamp)+"'"+","+"'"+player.getPlayerName()+"'"+")";
+            result=statement.executeUpdate(query);
             connection.close();
-        }
-        catch (SQLException throwables) {
+        }catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return result;
 
+        return result;
     }
 }

@@ -1,10 +1,10 @@
 package com.tournament.authentication;
-
 import com.tournament.authentication.interfaces.IAuthentication;
 import com.tournament.authentication.interfaces.IPasswordEncryption;
 import com.tournament.authentication.interfaces.IValidation;
-import com.tournament.model.*;
-import com.tournament.persistence.*;
+import com.tournament.model.IUsers;
+import com.tournament.model.Users;
+import com.tournament.persistence.AuthenticationPersistence;
 import com.tournament.persistence.interfaces.IAuthenticationPersistence;
 
 import java.sql.SQLException;
@@ -18,8 +18,7 @@ public class Authentication implements IAuthentication {
     IUsers userObject;
     IValidation iValidation;
 
-    public Authentication()
-    {
+    public Authentication() {
         iPasswordEncryption = new PasswordEncryption();
         authenticatePersistenceObj = new AuthenticationPersistence();
         userObject = new Users();
@@ -32,7 +31,7 @@ public class Authentication implements IAuthentication {
         userObj.setPassword(hashPass);
     }
 
-    private String validateCredentials(String inputUserId, String inputPassword,IUsers fetchedUser) throws SQLException {
+    private String validateCredentials(String inputUserId, String inputPassword, IUsers fetchedUser) throws SQLException {
         Date currentDate = new Date();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
         String loginTime = timeFormat.format(currentDate);
@@ -48,17 +47,13 @@ public class Authentication implements IAuthentication {
         return "Invalid Credentials OR User not Found";
     }
 
-    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException
-    {
-        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword))
-        {
+    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException {
+        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword)) {
             return "Enter User Id or Password !";
-        }
-        else
-        {
+        } else {
             passwordEncryption(userObject, inputPassword);
             IUsers fetchedUser = authenticatePersistenceObj.loadUser(inputUserId);
-            message = validateCredentials(inputUserId,inputPassword,fetchedUser);
+            message = validateCredentials(inputUserId, inputPassword, fetchedUser);
         }
         return message;
     }
@@ -69,15 +64,7 @@ public class Authentication implements IAuthentication {
         return message;
     }
 
-
     public void setAuthenticatePersistenceObj(IAuthenticationPersistence authenticatePersistenceObj) {
         this.authenticatePersistenceObj = authenticatePersistenceObj;
     }
-
-
-//    public void destroyObjects() {
-//        iPasswordEncryption = null;
-//        authenticatePersistenceObj = null;
-//        userObject = null;
-//    }
 }

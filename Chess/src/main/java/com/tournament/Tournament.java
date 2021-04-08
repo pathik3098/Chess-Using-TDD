@@ -12,22 +12,18 @@ import java.util.Random;
 
 public class Tournament {
 
-    private enum NumberType
-    {
-        ODD,
-        EVEN
-    }
     private static final int timelimit =100;
-    public static ArrayList<Player> Players;
-    public static HashMap<Player, Player> schedule;
-    public Match[] match;
+    private static ArrayList<Player> Players;
+    private static HashMap<Player, Player> schedule;
+    private Match[] match;
     Random random = new Random();
     private int id;
+    private int tournamentID;
 
     public Tournament(ArrayList<Player> Players)
     {
         this.Players= Players;
-        //Scheduling(Players);
+        tournamentID=random.nextInt();
     }
 
     public int getId() {
@@ -36,6 +32,9 @@ public class Tournament {
 
     public void setId(int id) {
         this.id = id;
+    }
+    public int getTournamentID() {
+        return tournamentID;
     }
 
     public int getPlayerSize(ArrayList<Player> Players)
@@ -49,85 +48,82 @@ public class Tournament {
         return  pairsPossible;
     }
 
-    public NumberType isOddEven(int numPlayers)
+    public void organizingTournament(ArrayList<Player> Players)
     {
-        int remainder = numPlayers%2;
-        if (remainder == 0)
-        {
-            return NumberType.EVEN;
-        }
-        else
-        {
-            return NumberType.ODD;
-        }
-    }
-
-    public void Scheduling(ArrayList<Player> Players) {
-        NumberType Type;
         int numPlayers=getPlayerSize(Players);
         int numPairs=getPossiblePairs(Players);
-        ArrayList<Player> nextRoundPlayers = new ArrayList<>();
-        while(numPlayers >1) {
-            Type = isOddEven(numPlayers);
-            switch (Type) {
-                case ODD: {
-                    Player name = Players.remove(Players.size() - 1);
-                    match = new Match[numPairs];
-                    schedule = new HashMap<Player, Player>();
-                    pairing(Players);
-                    nextRoundPlayers = pairMatchCreation(schedule);
-                    nextRoundPlayers.add(name);
-                    numPairs = getPossiblePairs(nextRoundPlayers);
-                    Players = nextRoundPlayers;
-                    numPlayers = nextRoundPlayers.size();
-                    break;
-                }
-                case EVEN: {
-                    match = new Match[numPairs];
-                    schedule = new HashMap<Player, Player>();
-                    pairing(Players);
-                    nextRoundPlayers = pairMatchCreation(schedule);
-                    numPairs = getPossiblePairs(nextRoundPlayers);
-                    Players = nextRoundPlayers;
-                    numPlayers = nextRoundPlayers.size();
-                    break;
-                }
-                default: {
-                    System.out.println("NA");
-                    break;
-                }
+
+        while(numPlayers >1)
+        {
+            if (numPlayers % 2 == 1)
+            {
+                Players=oddScheduling(numPairs,Players);
             }
+            else
+            {
+                Players=evenScheduling(numPairs,Players);
+            }
+            numPairs = getPossiblePairs(Players);
+            numPlayers = Players.size();
         }
+
         ITournamentPersistence tournamentPersistence = new TournamentPersistence();
-        tournamentPersistence.loadPlayer(nextRoundPlayers.get(0), random.nextInt());
-     }
+        tournamentPersistence.loadPlayer(Players.get(0), tournamentID);
+    }
+
+    public ArrayList<Player> oddScheduling(int numPairs,ArrayList<Player> Players)
+    {
+        ArrayList<Player> nextRoundPlayers = new ArrayList<>();
+        Player name = Players.remove(Players.size() - 1);
+        match = new Match[numPairs];
+        schedule = new HashMap<Player, Player>();
+        schedule=pairing(Players);
+        nextRoundPlayers=pairMatchCreation(schedule);
+        nextRoundPlayers.add(name);
+        return nextRoundPlayers;
+    }
+
+    public ArrayList<Player> evenScheduling(int numPairs,ArrayList<Player> Players)
+    {
+        ArrayList<Player> nextRoundPlayers = new ArrayList<>();
+        match = new Match[numPairs];
+        schedule = new HashMap<Player, Player>();
+        schedule=pairing(Players);
+        nextRoundPlayers=pairMatchCreation(schedule);
+        return nextRoundPlayers;
+    }
 
     public HashMap<Player,Player> pairing(ArrayList<Player> Players) {
-        schedule = new HashMap<Player, Player>();
-        for (int i = 0; i < getPlayerSize(Players); i = i + 2) {
-            schedule.put(Players.get(i), Players.get(i + 1));
+        HashMap<Player, Player> pairs = new HashMap<Player, Player>();
+
+        for (int i = 0; i < getPlayerSize(Players); i = i + 2)
+        {
+            pairs.put(Players.get(i), Players.get(i + 1));
         }
-        return schedule;
+        return pairs;
     }
 
     public ArrayList<Player> pairMatchCreation(HashMap<Player,Player> schedule) {
         int i=0;
         ArrayList<Player> nextRoundPlayers = new ArrayList<>();
+
         for(Player p:schedule.keySet())
         {
             match[i] = new Match(p,schedule.get(p));
             i++;
         }
+
         try {
             Thread.sleep(timelimit);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         for(int j=0; j<schedule.size() ;j++)
         {
-            match[j].getResult();
             nextRoundPlayers.add(match[j].getWinner());
         }
+
         return nextRoundPlayers;
     }
 

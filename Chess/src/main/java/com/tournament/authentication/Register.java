@@ -1,10 +1,9 @@
 package com.tournament.authentication;
-
 import com.tournament.authentication.interfaces.IPasswordEncryption;
 import com.tournament.authentication.interfaces.IRegister;
 import com.tournament.authentication.interfaces.IValidation;
-import com.tournament.persistence.*;
-import com.tournament.model.*;
+import com.tournament.persistence.RegisterPersistence;
+import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.IRegisterPersistence;
 
 import java.sql.SQLException;
@@ -18,6 +17,7 @@ public class Register implements IRegister
     private int userSessionFlag;
     private int activeInTournament;
     private String loginTime;
+    IRegisterPersistence registerPersistenceObject;
 
     public Register()
     {
@@ -26,6 +26,7 @@ public class Register implements IRegister
         userSessionFlag = 0;
         activeInTournament = 0;
         loginTime = null;
+        registerPersistenceObject = new RegisterPersistence();
     }
 
     public String userRegistration(Users userObj) throws SQLException {
@@ -50,7 +51,6 @@ public class Register implements IRegister
         else
         {
             passwordEncryption(userObj, inputPassword);
-            IRegisterPersistence registerPersistenceObject = new RegisterPersistence();
             message = registerPersistenceObject.saveUserDetails(userObj);
         }
 
@@ -61,5 +61,9 @@ public class Register implements IRegister
         String hashPass;
         hashPass = iPasswordEncryption.encryptPassword(inputPassword);
         userObj.setPassword(hashPass);
+    }
+
+    public void setRegisterPersistenceObj(IRegisterPersistence registerPersistenceObject) {
+        this.registerPersistenceObject = registerPersistenceObject;
     }
 }
