@@ -13,6 +13,7 @@ public class StartTournament
         IPlayerPersistence PlayerPersistenceobj = new PlayerPersistence();
         ArrayList<Player> playerList = PlayerPersistenceobj.loadAllPlayers();
         PlayerPersistenceobj.saveAllPlayers(playerList);
+        PlayerPersistenceobj.saveAllPlayers(playerList);
         FormTournamentGroups groupobj = new FormTournamentGroups();
         groupobj.groupLevels(playerList);
         List<Tournament> tournamentList = groupobj.formSubTournamentGroups();

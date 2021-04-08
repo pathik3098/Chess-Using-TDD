@@ -6,7 +6,7 @@ import com.tournament.persistence.PlayerPersistence;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class MatchesTest {
+public class MatchTest {
 
     @Test
     void matchPlayedTest() {

@@ -7,16 +7,14 @@ import java.util.Map;
 
 public interface IBoard {
 
-    public Piece getActivePiece();
-    public Piece getPiece(int x,int y);
-    public ArrayList<Piece> getBlackPieces();
-    public ArrayList<Piece> getWhitePieces();
-    public void chessMovement(int x,int y);
-    public void removeBlackPieceFromBoard(Piece removePiece);
-    public void addBlackPieceToBoard(Piece addPiece);
-    public void removeWhitePieceFromBoard(Piece removePiece);
-    public void addWhitePieceToBoard(Piece addPiece);
-    public boolean inCheck();
+    Piece getActivePiece();
+    Piece getPiece(int x,int y);
+    void chessMovement(int x,int y);
+    void removeBlackPieceFromBoard(Piece removePiece);
+    void addBlackPieceToBoard(Piece addPiece);
+    void removeWhitePieceFromBoard(Piece removePiece);
+    void addWhitePieceToBoard(Piece addPiece);
+    boolean inCheck();
 
     Board.Winner getResult();
     Map<String, String> getPositions();

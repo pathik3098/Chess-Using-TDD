@@ -17,13 +17,6 @@ public class Board implements IBoard {
     private int turn = 0;
     boolean whiteTurn = true;
 
-    public ArrayList<Piece> getBlackPieces() {
-        return blackPieces;
-    }
-
-    public ArrayList<Piece> getWhitePieces() {
-        return whitePieces;
-    }
     Winner winner;
 
     public enum Winner {

@@ -2,8 +2,6 @@ package com.tournament;
 
 import com.tournament.persistence.interfaces.IPlayerPersistence;
 
-import java.sql.Time;
-
 public class Player {
 
     private String playerName;
@@ -53,13 +51,11 @@ public class Player {
         this.playerPoints = playerPoints;
     }
 
-    public int getPlayerLevel()
-    {
+    public int getPlayerLevel() {
         return playerLevel;
     }
 
-    public void setPlayerLevel(int playerLevel)
-    {
+    public void setPlayerLevel(int playerLevel) {
         this.playerLevel = playerLevel;
     }
 
