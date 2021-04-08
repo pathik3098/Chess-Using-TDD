@@ -1,20 +1,13 @@
 package com.pieces;
 
-import com.chessboard.Board;
 import com.chessboard.IBoard;
 import com.pieces.interfaces.IBishopMoves;
 
 public class BishopMoves implements IBishopMoves {
 
-    private int initialX;
-    private int initialY;
-    private boolean isWhite;
     public IBoard board;
 
-    public BishopMoves(int initialX, int initialY, boolean isWhite, IBoard board) {
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.isWhite = isWhite;
+    public BishopMoves(IBoard board) {
         this.board = board;
     }
 
@@ -23,10 +16,7 @@ public class BishopMoves implements IBishopMoves {
         int diffX = Math.abs(finalCordX - currentPiece.getPositionX());
         int diffY = Math.abs(finalCordY - currentPiece.getPositionY());
 
-        if (diffX == diffY) {
-            return true;
-        }
-        return false;
+        return diffX == diffY;
     }
 
     @Override
