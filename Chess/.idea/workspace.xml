@@ -60,17 +60,6 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RunManager" selected="JUnit.All in Chess">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in Chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
@@ -162,11 +151,11 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.AuthenticationTest.userAuthenticationTest" />
-      <item itemvalue="Spring Boot.ChessApplication" />
       <item itemvalue="JUnit.CaptureMovePawnTest.cornerBlackPawnAttackTest1" />
       <item itemvalue="JUnit.CaptureMovePawnTest" />
       <item itemvalue="JUnit.EnPassantPawnTest" />
       <item itemvalue="JUnit.All in Chess" />
+      <item itemvalue="Spring Boot.ChessApplication" />
     </list>
     <recent_temporary>
       <list>
