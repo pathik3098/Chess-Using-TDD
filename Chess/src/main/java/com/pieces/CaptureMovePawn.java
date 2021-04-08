@@ -136,7 +136,7 @@ public class CaptureMovePawn implements ICaptureMovePawn
                 attackdiagonalXLeft = currentX - 1;
                 attackdiagonalYLeft = currentY - 1;
                 attackLeft = checkAttack(attackdiagonalXLeft,attackdiagonalYLeft);
-                
+
                 attackdiagonalXRight = currentX - 1;
                 attackdiagonalYRight = currentY + 1;
                 attackRight = checkAttack(attackdiagonalXRight,attackdiagonalYRight);
