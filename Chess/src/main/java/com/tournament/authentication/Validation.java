@@ -70,7 +70,7 @@ public class Validation implements IValidation
         inputPassword = userObj.getPassword();
         inputConPassword = userObj.getConPassword();
 
-        return inputPassword.equals(inputConPassword);
+        return !inputPassword.equals(inputConPassword);
     }
 
     @Override

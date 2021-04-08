@@ -9,18 +9,22 @@
         .text-center {
             text-align: -webkit-center;
         }
-        .font10{
+
+        .font10 {
             font-size: 10px;
         }
+
         .chessboard {
             width: 720px;
             height: 720px;
             margin: 20px;
             border: 25px solid #333;
         }
+
         .text-red {
             color: #f64e60;
         }
+
         .black {
             float: left;
             width: 90px;
@@ -32,6 +36,7 @@
             vertical-align: middle;
             text-align-last: justify;
         }
+
         .white {
             float: left;
             width: 90px;
@@ -69,6 +74,20 @@
             </div>
 
             <input type="submit">
+        </div>
+
+        <div style="justify-content: center">
+            Active Piece :
+            <div style="color:chartreuse;font-size: 20px;display: flex;justify-content: center">
+                [[${activePiece}]]
+            </div>
+        </div>
+
+        <div style="justify-content: center">
+
+            <div style="color:chartreuse;font-size: 20px;display: flex;justify-content: center">
+                [[${kingCheck}]]
+            </div>
         </div>
 
         <div class="chessboard">

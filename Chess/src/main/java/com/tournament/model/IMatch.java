@@ -1,9 +1,7 @@
 package com.tournament.model;
 
-import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.tournament.Player;
-
-import java.time.LocalDateTime;
 
 public interface IMatch {
 
@@ -35,7 +33,7 @@ public interface IMatch {
 
     void setMatchWinner(String matchWinner);
 
-    void createBoard(Player player1, Player player2);
+    void createBoard();
 
-    Board getBoard();
+    IBoard getBoard();
 }

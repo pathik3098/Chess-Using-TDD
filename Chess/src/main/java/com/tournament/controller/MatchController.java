@@ -1,6 +1,7 @@
 package com.tournament.controller;
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.pieces.Piece;
 import com.tournament.Player;
 import com.tournament.model.IMatch;
@@ -20,22 +21,22 @@ import java.util.Map;
 @Controller
 public class MatchController {
 
-    IMatch iMatch = new Match();
     Player player1 = new Player();
     Player player2 = new Player();
-    Board board = new Board();
-    Piece activePiece;
+    IMatch iMatch = new Match(player1,player2);
+    IBoard board = new Board();
     IMatchPersistence iMatchPersistence;
 
     @RequestMapping("/matchChess")
     public String viewMatchChessPage(HttpServletRequest request, Model model) {
         iMatchPersistence = new MatchPersistence();
 
+
 //        String playerId
 //        iMatch.setPlayer1id();
         iMatchPersistence.saveMatch(iMatch);
 
-        iMatch.createBoard(player1, player2);
+        iMatch.createBoard();
         board = iMatch.getBoard();
 
         Map<String, String> piecePositions = new HashMap<String, String>();
@@ -59,6 +60,12 @@ public class MatchController {
         Map<String, String> piecePositions = new HashMap<String, String>();
         piecePositions = iMatch.getBoard().getPositions();
         model.addAttribute("positions", piecePositions);
+        if (board.getActivePiece() != null) {
+            model.addAttribute("activePiece", board.getActivePiece().getFilePath());
+        }
+        if (board.inCheck()){
+            model.addAttribute("kingCheck", "King is Under Check" );
+        }
 
         return "MatchChess";
     }
