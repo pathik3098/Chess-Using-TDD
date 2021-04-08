@@ -13,8 +13,7 @@ public class PlayerPersistence implements IPlayerPersistence {
 
     IPersistenceConnection conPersistence = new PersistenceConnection();
     Connection conn = null;
-    private String QUERY_GET_PLAYERS_POINTS_BY_TOUNAMENTID = "SELECT PlayerName, PlayerPoints FROM PLAYERS WHERE TounamentId=? ORDER BY PlayerPoints";
-    private PreparedStatement preparedStatement = null;
+    PreparedStatement preparedStatement = null;
     Connection connection = null;
 
     @Override
@@ -27,7 +26,7 @@ public class PlayerPersistence implements IPlayerPersistence {
             preparedStatement = conn.prepareStatement(query);
             preparedStatement.setInt(1,player.getPlayerPoints());
             preparedStatement.setString(2,player.getPlayerId());
-            int result = preparedStatement.executeUpdate(query);
+            preparedStatement.executeUpdate(query);
         }
         catch (SQLException throwables)
         {
@@ -82,13 +81,12 @@ public class PlayerPersistence implements IPlayerPersistence {
     @Override
     public void saveAllPlayers(ArrayList<Player> playerList)
     {
-        String createQuery = "create table";
         try
         {
-            PreparedStatement st = null;
+            PreparedStatement st;
             String insertQuery = "INSERT INTO Player ( Player_ID, Player_Name, Player_Level, Player_Points) VALUES (?,?,?,?);";
             st = conn.prepareStatement(insertQuery);
-            st.executeUpdate(createQuery);
+            st.executeUpdate(insertQuery);
 
             Iterator<Player> iter = playerList.iterator();
 
@@ -113,7 +111,8 @@ public class PlayerPersistence implements IPlayerPersistence {
         List<Player> leaderBoardList = new ArrayList<>();
         try {
             connection = conPersistence.establishDBConnection();
-            preparedStatement = connection.prepareStatement(QUERY_GET_PLAYERS_POINTS_BY_TOUNAMENTID);
+            String queryGetPlayersPointsByTournamentId = "SELECT PlayerName, PlayerPoints FROM PLAYERS WHERE TounamentId=? ORDER BY PlayerPoints";
+            preparedStatement = connection.prepareStatement(queryGetPlayersPointsByTournamentId);
             preparedStatement.setInt(1, tournamentId);
             ResultSet rs = preparedStatement.executeQuery();
 

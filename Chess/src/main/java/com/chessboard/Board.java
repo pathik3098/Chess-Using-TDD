@@ -17,13 +17,6 @@ public class Board implements IBoard {
     private int turn = 0;
     boolean whiteTurn = true;
 
-    public ArrayList<Piece> getBlackPieces() {
-        return blackPieces;
-    }
-
-    public ArrayList<Piece> getWhitePieces() {
-        return whitePieces;
-    }
     Winner winner;
 
     public enum Winner {
@@ -86,6 +79,7 @@ public class Board implements IBoard {
         }
     }
 
+    @Override
     public Map<String, String> getPositions()
     {
         Map<String, String> currentPositions = new HashMap<>();
@@ -313,6 +307,24 @@ public class Board implements IBoard {
     }
 
     @Override
+    public String isKingInCheck(){
+        if (inCheck()){
+            return "King is in Check";
+        } else {
+            return "";
+        }
+    }
+
+    @Override
+    public String getActivePieceFilePath(){
+        if(this.getActivePiece()!=null){
+            return this.getActivePiece().getFilePath();
+        }else {
+            return "";
+        }
+    }
+
+    @Override
     public boolean inCheck()
     {
         Piece kingReference = null;
@@ -378,6 +390,7 @@ public class Board implements IBoard {
         return false;
     }
 
+    @Override
     public Winner getResult()
     {
         return winner;

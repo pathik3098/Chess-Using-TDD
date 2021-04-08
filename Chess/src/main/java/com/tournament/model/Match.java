@@ -1,6 +1,7 @@
 package com.tournament.model;
 
 import com.chessboard.Board;
+import com.chessboard.IBoard;
 import com.tournament.Alliance;
 import com.tournament.Player;
 
@@ -8,8 +9,7 @@ public class Match implements IMatch {
 
     Player player1;
     Player player2;
-    int totalTime;
-    Board board;
+    IBoard board;
     Board.Winner result;
 
     private int matchId;
@@ -19,6 +19,19 @@ public class Match implements IMatch {
     private String endTime;
     private int tournamentId;
     private String matchWinner;
+
+    public Match() {
+    }
+
+    public Match(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.setPlayer1id(player1.getPlayerId());
+        this.setPlayer2id(player2.getPlayerId());
+        player1.setAlliance(Alliance.WHITE);
+        player1.setAlliance(Alliance.BLACK);
+        this.createBoard();
+    }
 
     @Override
     public String getPlayer1id() {
@@ -88,24 +101,11 @@ public class Match implements IMatch {
         this.matchWinner = matchWinner;
     }
 
-    public Match() {
-    }
-
-    public Board getBoard() {
+    public IBoard getBoard() {
         return board;
     }
 
-    public Match(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.setPlayer1id(player1.getPlayerId());
-        this.setPlayer2id(player2.getPlayerId());
-        player1.setAlliance(Alliance.WHITE);
-        player1.setAlliance(Alliance.BLACK);
-        this.createBoard(player1, player2);
-    }
-
-    public void createBoard(Player player1, Player player2) {
+    public void createBoard() {
         this.board = new Board();
     }
 
@@ -118,14 +118,6 @@ public class Match implements IMatch {
         {
             return false;
         }
-    }
-
-    public int getTotalTime() {
-        return totalTime;
-    }
-
-    public void setTotalTime(int totalTime) {
-        this.totalTime = totalTime;
     }
 
     public Player getWinner() {

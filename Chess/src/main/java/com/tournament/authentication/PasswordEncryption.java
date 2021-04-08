@@ -7,9 +7,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class PasswordEncryption implements IPasswordEncryption {
 
-	public PasswordEncryption() {
-	}
-
 	@Override
 	public String encryptPassword(String passwordToHash) {
 		String generatedPassword = null;
@@ -18,8 +15,9 @@ public class PasswordEncryption implements IPasswordEncryption {
 			md.update(passwordToHash.getBytes());
 			byte[] bytes = md.digest();
 			StringBuilder sb = new StringBuilder();
-			for (int i = 0; i < bytes.length; i++) {
-				sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+
+			for (byte aByte : bytes) {
+				sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
 			}
 			generatedPassword = sb.toString();
 		} catch (NoSuchAlgorithmException e) {
