@@ -3,6 +3,7 @@ package com.tournament.controller;
 import com.tournament.authentication.*;
 import com.tournament.authentication.interfaces.IAuthentication;
 import com.tournament.authentication.interfaces.IRegister;
+import com.tournament.model.IUsers;
 import com.tournament.model.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -89,7 +90,9 @@ public class AuthenticationController
     public String processLogOutPage(HttpServletRequest request, Model model) throws SQLException {
 
         IAuthentication logoutObj= new Authentication();
-        String message = logoutObj.userLogOut();
+        IUsers  userObj = new Users();
+        String userId = userObj.getUserId();
+        String message = logoutObj.userLogOut(userId);
         if(message.equals("LogoutSuccessful"))
         {
             return "Login";

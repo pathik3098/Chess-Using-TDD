@@ -58,6 +58,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     {
         try
         {
+            updateUserSessionFlag = 1;
             connection = conObj.establishDBConnection();
             statement = connection.prepareStatement(updateSessionLoginTimeQuery);
             statement.setInt(1, updateUserSessionFlag);
@@ -78,7 +79,6 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     public String logOut(String currentActiveUser) throws SQLException
     {
         String activeUser = currentActiveUser;
-
         int updateUserSessionFlag = 0;
 
         try {
