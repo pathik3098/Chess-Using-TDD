@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 @Component
 public class MatchPersistence implements IMatchPersistence {
@@ -47,10 +46,9 @@ public class MatchPersistence implements IMatchPersistence {
         List<Match> matchesList = new ArrayList<>();
         try {
             connection = dbConnection.establishDBConnection();
-            AtomicReference<String> getAllMatchesQuery = new AtomicReference<>("SELECT * from matches");
-            stmt = connection.prepareStatement(getAllMatchesQuery.get());
+            String getAllMatchesQuery = "SELECT * from matches";
+            stmt = connection.prepareStatement(getAllMatchesQuery);
             try (ResultSet rs = stmt.executeQuery()) {
-                System.out.println(rs.getFetchSize());
                 while (rs.next()) {
                     Match match = new Match();
                     setFieldValues(match, rs);

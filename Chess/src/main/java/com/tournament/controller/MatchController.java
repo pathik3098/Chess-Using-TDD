@@ -23,7 +23,7 @@ public class MatchController {
 
     Player player1 = new Player();
     Player player2 = new Player();
-    IMatch iMatch = new Match(player1,player2);
+    IMatch iMatch = new Match(player1, player2);
     IBoard board = new Board();
     IMatchPersistence iMatchPersistence;
 
@@ -60,12 +60,8 @@ public class MatchController {
         Map<String, String> piecePositions = new HashMap<String, String>();
         piecePositions = iMatch.getBoard().getPositions();
         model.addAttribute("positions", piecePositions);
-        if (board.getActivePiece() != null) {
-            model.addAttribute("activePiece", board.getActivePiece().getFilePath());
-        }
-        if (board.inCheck()){
-            model.addAttribute("kingCheck", "King is Under Check" );
-        }
+        model.addAttribute("activePiece", board.getActivePieceFilePath());
+        model.addAttribute("kingCheck", board.isKingInCheck());
 
         return "MatchChess";
     }

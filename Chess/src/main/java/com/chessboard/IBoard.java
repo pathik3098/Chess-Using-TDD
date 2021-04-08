@@ -20,4 +20,8 @@ public interface IBoard {
 
     Board.Winner getResult();
     Map<String, String> getPositions();
+
+    String isKingInCheck();
+
+    String getActivePieceFilePath();
 }

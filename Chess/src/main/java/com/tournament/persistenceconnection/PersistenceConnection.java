@@ -11,7 +11,6 @@ public class PersistenceConnection implements IPersistenceConnection
         try
         {
             connection = DriverManager.getConnection(connectionUrl, username, password);
-            System.out.println("Establishing the connection "+ connection);
         }
         catch(Exception E)
         {
