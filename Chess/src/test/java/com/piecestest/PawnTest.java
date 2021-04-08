@@ -110,11 +110,11 @@ public class PawnTest {
     }
 
     @Test
-    void whitePawnPromotionTest()
+    void blackPawnPromotionTest()
     {
-        Pawn whiteActivePawn = new Pawn(7,7,true,"", board);
+        Pawn blackActivePawn = new Pawn(0,0,false,"", board);
         boolean setHasMoved = true;
-        Assertions.assertEquals(true,whiteActivePawn.isPawnPromotion());
+        Assertions.assertEquals(true,blackActivePawn.isPawnPromotion());
     }
 
     @After
