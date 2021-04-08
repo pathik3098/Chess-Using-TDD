@@ -13,12 +13,18 @@ import java.util.Date;
 
 public class Authentication implements IAuthentication {
     String message = null;
-    IPasswordEncryption iPasswordEncryption = new PasswordEncryption();
-    IAuthenticationPersistence authenticatePersistenceObj = new AuthenticationPersistence();
-    IUsers userObject = new Users();
-    IUsers fetchedUser;
+    IPasswordEncryption iPasswordEncryption;
+    IAuthenticationPersistence authenticatePersistenceObj;
+    IUsers userObject;
+    IValidation iValidation;
 
-    IValidation iValidation = new Validation();
+    public Authentication()
+    {
+        iPasswordEncryption = new PasswordEncryption();
+        authenticatePersistenceObj = new AuthenticationPersistence();
+        userObject = new Users();
+        iValidation = new Validation();
+    }
 
     private void passwordEncryption(IUsers userObj, String inputPassword) {
         String hashPass;
@@ -26,7 +32,7 @@ public class Authentication implements IAuthentication {
         userObj.setPassword(hashPass);
     }
 
-    private String validateCredentials(String inputUserId, String inputPassword) throws SQLException {
+    private String validateCredentials(String inputUserId, String inputPassword,IUsers fetchedUser) throws SQLException {
         Date currentDate = new Date();
         SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
         String loginTime = timeFormat.format(currentDate);
@@ -39,30 +45,39 @@ public class Authentication implements IAuthentication {
                 return messageUpdate;
             }
         }
-
         return "Invalid Credentials OR User not Found";
     }
 
-    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException {
-        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword)) {
+    public String userAuthentication(String inputUserId, String inputPassword) throws SQLException
+    {
+        if (iValidation.isLoginFieldEmptyValidation(inputUserId, inputPassword))
+        {
             return "Enter User Id or Password !";
-        } else {
+        }
+        else
+        {
             passwordEncryption(userObject, inputPassword);
-            fetchedUser = authenticatePersistenceObj.loadUser(inputUserId);
-            message = validateCredentials(inputUserId, inputPassword);
+            IUsers fetchedUser = authenticatePersistenceObj.loadUser(inputUserId);
+            message = validateCredentials(inputUserId,inputPassword,fetchedUser);
         }
         return message;
     }
 
-    public String userLogOut() throws SQLException {
-        String currentActiveUser = userObject.getUserId();
+    public String userLogOut(String userId) throws SQLException {
+        String currentActiveUser = userId;
         message = authenticatePersistenceObj.logOut(currentActiveUser);
         return message;
     }
 
-    public void destroyObjects() {
-        iPasswordEncryption = null;
-        authenticatePersistenceObj = null;
-        userObject = null;
+
+    public void setAuthenticatePersistenceObj(IAuthenticationPersistence authenticatePersistenceObj) {
+        this.authenticatePersistenceObj = authenticatePersistenceObj;
     }
+
+
+//    public void destroyObjects() {
+//        iPasswordEncryption = null;
+//        authenticatePersistenceObj = null;
+//        userObject = null;
+//    }
 }

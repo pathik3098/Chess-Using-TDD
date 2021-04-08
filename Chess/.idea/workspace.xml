@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="added heroku plugin in pom">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/authenticationtest/AuthenticationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/IBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/RookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/RookMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pieces/interfaces/IRookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pieces/interfaces/IRookMoves.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/chessboardtest/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chessboardtest/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/RookMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/RookMovesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/piecestest/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/authentication/interfaces/IAuthentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +56,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/99.Chess_Refactoring_Monday/group-12/Chess" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../99.CHESS_FACTORY/group-12/Chess" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -69,14 +65,47 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.ChessApplication">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tournamenttest.authenticationtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tournamenttest.authenticationtest" />
+      <option name="MAIN_CLASS_NAME" value="com.tournamenttest.authenticationtest.AuthenticationTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthenticationTest.userAuthenticationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tournamenttest.authenticationtest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tournamenttest.authenticationtest" />
+      <option name="MAIN_CLASS_NAME" value="com.tournamenttest.authenticationtest.AuthenticationTest" />
+      <option name="METHOD_NAME" value="userAuthenticationTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -96,22 +125,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest.inCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chessboardtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chessboardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chessboardtest.BoardTest" />
-      <option name="METHOD_NAME" value="inCheckTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BoardTest.inCheckTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
@@ -123,22 +136,6 @@
       <option name="PACKAGE_NAME" value="com.chessboardtest" />
       <option name="MAIN_CLASS_NAME" value="com.chessboardtest.BoardTest" />
       <option name="METHOD_NAME" value="inCheckTest1" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardTest.movePieceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.chessboardtest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.chessboardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chessboardtest.BoardTest" />
-      <option name="METHOD_NAME" value="movePieceTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,20 +177,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.ChessApplication" />
-      <item itemvalue="JUnit.BoardTest.movePieceTest" />
-      <item itemvalue="JUnit.BoardTest.inCheckTest" />
       <item itemvalue="JUnit.BoardTest.inCheckTest1" />
       <item itemvalue="JUnit.BoardTest.pawnPromotionTest" />
       <item itemvalue="JUnit.BoardTest" />
+      <item itemvalue="Spring Boot.ChessApplication" />
+      <item itemvalue="JUnit.AuthenticationTest" />
+      <item itemvalue="JUnit.AuthenticationTest.userAuthenticationTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AuthenticationTest.userAuthenticationTest" />
+        <item itemvalue="JUnit.AuthenticationTest" />
         <item itemvalue="JUnit.BoardTest" />
         <item itemvalue="JUnit.BoardTest.pawnPromotionTest" />
         <item itemvalue="JUnit.BoardTest.inCheckTest1" />
-        <item itemvalue="JUnit.BoardTest.inCheckTest" />
-        <item itemvalue="JUnit.BoardTest.movePieceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -216,6 +213,7 @@
       <workItem from="1617638131840" duration="2178000" />
       <workItem from="1617676969113" duration="10643000" />
       <workItem from="1617697691239" duration="7280000" />
+      <workItem from="1617864969571" duration="5042000" />
     </task>
     <servers />
   </component>
@@ -238,26 +236,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java</url>
-          <line>14</line>
-          <properties field="message" class="com.tournament.authentication.Authentication" />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java</url>
           <line>22</line>
           <properties field="saveUserQuery" class="com.tournament.persistence.RegisterPersistence" />
           <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/RegisterPersistence.java</url>
@@ -281,47 +263,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
-          <line>75</line>
+          <line>76</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
-          <line>77</line>
+          <line>78</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java</url>
-          <line>22</line>
-          <properties class="com.tournament.model.Users" method="getUserId">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="18" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/persistence/AuthenticationPersistence.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java</url>
-          <line>42</line>
-          <properties class="com.tournament.model.Users" method="setPassword">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="19" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/authentication/Authentication.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="45" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/model/Users.java</url>
-          <line>26</line>
-          <properties class="com.tournament.model.Users" method="setUserId">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="24" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tournament/controller/AuthenticationController.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

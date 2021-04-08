@@ -79,7 +79,6 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     public String logOut(String currentActiveUser) throws SQLException
     {
         String activeUser = currentActiveUser;
-
         int updateUserSessionFlag = 0;
 
         try {
