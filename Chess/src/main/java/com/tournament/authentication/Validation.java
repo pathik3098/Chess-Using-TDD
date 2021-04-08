@@ -3,7 +3,6 @@ import com.tournament.authentication.interfaces.IValidation;
 import com.tournament.model.Users;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,19 +29,16 @@ public class Validation implements IValidation
         playerLevelValue = 0;
     }
 
-    private final int MAX_LENGTH = 6;
-    Pattern p = Pattern.compile("[^A-Za-z0-9]");
 
     @Override
     public boolean isPasswordValid(String password) {
-        List<Boolean> conditionList = new ArrayList();
+        List<Boolean> conditionList = new ArrayList<>();
 
         conditionList.add(isMaxLength(password));
         conditionList.add(isContainsUppercaseLetter(password));
         conditionList.add(isContainsSymbols(password));
-        Iterator<Boolean> iter = conditionList.iterator();
-        while (iter.hasNext()) {
-            Boolean isConditionSatisfied = iter.next();
+
+        for (Boolean isConditionSatisfied : conditionList) {
             if (!isConditionSatisfied) {
                 return false;
             }
@@ -52,11 +48,7 @@ public class Validation implements IValidation
 
     @Override
     public boolean isLoginFieldEmptyValidation(String userId, String password) {
-
-        if ("" == password || "" == userId) {
-            return true;
-        }
-        return false;
+        return "".equals(password) || "".equals(userId);
     }
 
     @Override
@@ -69,24 +61,21 @@ public class Validation implements IValidation
         playerLevelValue = userObj.getPlayerLevel();
         playerLevel = Integer.toString(playerLevelValue);
         inputConPassword = userObj.getConPassword();
-        if ("" == inputEmail || "" == inputUserId || "" == inputUsername || "" == inputPassword || "" == inputConPassword || "" == playerLevel) {
-            return true;
-        }
-        return false;
+
+        return "".equals(inputEmail) || "".equals(inputUserId) || "".equals(inputUsername) || "".equals(inputPassword) || "".equals(inputConPassword) || "".equals(playerLevel);
     }
 
     @Override
     public boolean isPasswordAndConfirmPasswordNotSame(Users userObj) {
         inputPassword = userObj.getPassword();
         inputConPassword = userObj.getConPassword();
-        if (inputPassword != inputConPassword) {
-            return false;
-        }
-        return true;
+
+        return inputPassword.equals(inputConPassword);
     }
 
     @Override
     public boolean isMaxLength(String password) {
+        int MAX_LENGTH = 6;
         if (null == password) {
             return false;
         }
@@ -108,13 +97,13 @@ public class Validation implements IValidation
 
     @Override
     public boolean isContainsSymbols(String password) {
+        Pattern validSymbolPattern = Pattern.compile("[^A-Za-z0-9]");
 
         if (null == password || password.trim().isEmpty()) {
             return false;
         }
-        Matcher m = p.matcher(password);
-        boolean result = m.find();
-        return result;
+        Matcher m = validSymbolPattern.matcher(password);
+        return m.find();
     }
 
 }
