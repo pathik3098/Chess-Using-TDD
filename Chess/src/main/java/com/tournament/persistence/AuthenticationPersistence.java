@@ -58,6 +58,7 @@ public class AuthenticationPersistence implements IAuthenticationPersistence
     {
         try
         {
+            updateUserSessionFlag = 1;
             connection = conObj.establishDBConnection();
             statement = connection.prepareStatement(updateSessionLoginTimeQuery);
             statement.setInt(1, updateUserSessionFlag);
