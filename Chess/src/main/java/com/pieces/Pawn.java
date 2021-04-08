@@ -1,5 +1,4 @@
 package com.pieces;
-
 import com.chessboard.IBoard;
 import com.pieces.interfaces.ICaptureMovePawn;
 import com.pieces.interfaces.IEnPassantPawn;
@@ -71,7 +70,7 @@ public class Pawn extends Piece
 
             IEnPassantPawn enPassantObj = new EnPassantPawn();
 
-            if (this.isWhite()) //When CurrentPiece is WhitePawn
+            if (this.isWhite())
             {
                 canPawnMove = canMoveWhite(this, destinationX,destinationY);
 
@@ -85,7 +84,7 @@ public class Pawn extends Piece
                 canPawnAttack = captureObj.whitePawnAttack(this);
 
             }
-            else              //When CurrentPiece is BlackPawn
+            else
             {
                 canPawnMove = canMoveBlack(this, destinationX,destinationY);
                 if(enPassantWhitePawn)
@@ -111,12 +110,10 @@ public class Pawn extends Piece
 
         if(!getIsFirstMove())
         {
-            //canMoveTwoStepForward can be true only when it is first move
             boolean canMoveTwoStepForward = (currentPiece.getPositionX()+2 == destinationX);
 
             if( isForwardMove && (canMoveOneStepForward || canMoveTwoStepForward))
             {
-                // Set flag 1 to black, to check eligibility for enPassant attack.
                 if(canMoveTwoStepForward)
                 {
                     enPassantWhitePawn = true;
@@ -141,12 +138,10 @@ public class Pawn extends Piece
 
         if(!getIsFirstMove())
         {
-            //canMoveTwoStepForward can be true only when it is first move
             boolean canMoveTwoStepForward = (currentPiece.getPositionX()-2 == destinationX);
 
             if( isForwardMove && (canMoveOneStepForward || canMoveTwoStepForward))
             {
-                // Set flag 1 to black, to check eligibility for enPassant attack.
                 if(canMoveTwoStepForward)
                 {
                     enPassantBlackPawn = true;

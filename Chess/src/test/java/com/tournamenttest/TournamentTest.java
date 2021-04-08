@@ -2,11 +2,8 @@ package com.tournamenttest;
 
 import com.tournament.Player;
 import com.tournament.Tournament;
-import com.tournament.TournamentMock;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

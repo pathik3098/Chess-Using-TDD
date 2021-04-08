@@ -1,35 +1,50 @@
 package com.tournament.persistence;
 
 import com.tournament.Player;
+import com.tournament.model.Users;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
-import com.tournament.persistenceconnection.IPersistenceConnection;
-import com.tournament.persistenceconnection.PersistenceConnection;
+import com.tournament.persistenceconnection.*;
+import jdk.dynalink.beans.StaticClass;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
 public class TournamentPersistence implements ITournamentPersistence{
 
+    IPersistenceConnection conPersistence = new PersistenceConnection();
+    Connection connection = null;
+    private PreparedStatement preparedStatement = null;
+    Player winner;
+
     @Override
-    public Integer loadPlayer(Player player, int tournamentid)
+    public void loadPlayer(Player player, int tournamentid)
     {
-        IPersistenceConnection conPersistence = new PersistenceConnection();
-        conPersistence.establishDBConnection();
-        Connection connection = null;
-        Statement statement = null;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        int result=0;
+        String query = "INSERT INTO Tournament(tournament,dateOfTournament,winner) VALUES (?,?,?)";
 
-        try {
-            statement=connection.createStatement();
-            String query = "insert into Tournament "+"values("+"'"+tournamentid+"'"+","+"'"+dateFormat.format(timestamp)+"'"+","+"'"+player.getPlayerName()+"'"+")";
-            result=statement.executeUpdate(query);
+        try
+        {
+            connection = conPersistence.establishDBConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,tournamentid);
+            preparedStatement.setString(2,player.getPlayerName());
+            preparedStatement.setString(3, dateFormat.format(timestamp));
+            preparedStatement.executeUpdate();
             connection.close();
-        }catch (SQLException throwables) {
-            throwables.printStackTrace();
         }
 
-        return result;
+        catch(Exception E)
+        {
+            System.out.println("Something Went Wrong !" +E);
+        }
+
+        finally {
+            try {
+                connection.close();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
     }
 }
