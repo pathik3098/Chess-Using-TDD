@@ -47,9 +47,8 @@ public class AuthenticationController
         IAuthentication loginObj= new Authentication();
         String message = loginObj.userAuthentication(UserId,password);
 
-        IAuthenticationPersistence authenticationPersistence =new AuthenticationPersistence();
-        List<Users> allUsers = new ArrayList<>();
-        allUsers = authenticationPersistence.getAllUsers();
+        List<Users> allUsers;
+        allUsers = loginObj.getAllUsers();
         model.addAttribute("allUsers", allUsers);
 
         if(message.equals("Login Successful"))

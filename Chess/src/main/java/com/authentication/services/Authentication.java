@@ -9,7 +9,9 @@ import com.authentication.persistence.interfaces.IAuthenticationPersistence;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Authentication implements IAuthentication {
     String message = null;
@@ -66,5 +68,12 @@ public class Authentication implements IAuthentication {
 
     public void setAuthenticatePersistenceObj(IAuthenticationPersistence authenticatePersistenceObj) {
         this.authenticatePersistenceObj = authenticatePersistenceObj;
+    }
+
+    @Override
+    public List<Users> getAllUsers() throws SQLException {
+        List<Users> allUsers;
+        allUsers = authenticatePersistenceObj.getAllUsers();
+        return allUsers;
     }
 }
