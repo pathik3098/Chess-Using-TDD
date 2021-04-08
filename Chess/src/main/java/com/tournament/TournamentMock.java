@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class TournamentMock {
     private final ArrayList<Player> Players = new ArrayList<>();;
     private final HashMap<Player, Player> pairs = new HashMap<Player,Player>();
+
     public void evenTournamentMock()
     {
         Players.add(new Player("Sravani"));
@@ -31,10 +32,6 @@ public class TournamentMock {
         pairs.put(new Player("Darshil"),new Player("Pathik"));
         pairs.put(new Player("Kethan"),new Player("Rob"));
     }
-
-    /*public ArrayList<Player> getPlayers() {
-        return Players;
-    }*/
 
     public ArrayList<Player> getPlayers() {
         return Players;

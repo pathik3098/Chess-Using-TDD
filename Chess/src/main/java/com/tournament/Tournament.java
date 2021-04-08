@@ -37,7 +37,6 @@ public class Tournament {
         return tournamentID;
     }
 
-
     public int getPlayerSize(ArrayList<Player> Players)
     {
         return Players.size();

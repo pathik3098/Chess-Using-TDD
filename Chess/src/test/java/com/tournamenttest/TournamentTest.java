@@ -118,6 +118,7 @@ public class TournamentTest {
         nextRoundPlayers=tournament.oddScheduling(numPairs,players);
         Assertions.assertEquals(4,nextRoundPlayers.size());
     }
+
     @After
     public void destroy()
     {
