@@ -1,8 +1,7 @@
 package com.tournament.model;
 
-import com.chessboard.Board;
-import com.chessboard.IBoard;
-import com.tournament.Player;
+import com.chesstest.chessboard.Board;
+import com.chesstest.chessboard.IBoard;
 
 public class Match implements IMatch {
 

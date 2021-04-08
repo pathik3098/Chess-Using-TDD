@@ -1,10 +1,10 @@
 package com.tournament.controller;
 
-import com.chessboard.Board;
-import com.chessboard.IBoard;
-import com.tournament.Player;
-import com.tournament.services.matchservice.IMatchService;
-import com.tournament.services.matchservice.MatchService;
+import com.chesstest.chessboard.Board;
+import com.chesstest.chessboard.IBoard;
+import com.tournament.model.Player;
+import com.tournament.services.IMatchService;
+import com.tournament.services.MatchService;
 import com.tournament.model.IMatch;
 import com.tournament.model.Match;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
 package com.tournamenttest;
-import com.tournament.FormTournamentGroups;
-import com.tournament.Player;
+import com.tournament.model.FormTournamentGroups;
+import com.tournament.model.Player;
 import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

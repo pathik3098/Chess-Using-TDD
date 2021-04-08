@@ -1,10 +1,8 @@
 package com.tournament.persistence;
 
-import com.tournament.Player;
-import com.tournament.model.Users;
+import com.tournament.model.Player;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
-import com.tournament.persistenceconnection.*;
-import jdk.dynalink.beans.StaticClass;
+import com.persistenceconnection.*;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;

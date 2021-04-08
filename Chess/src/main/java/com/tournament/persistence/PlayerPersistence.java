@@ -1,8 +1,8 @@
 package com.tournament.persistence;
-import com.tournament.Player;
+import com.tournament.model.Player;
 import com.tournament.persistence.interfaces.IPlayerPersistence;
-import com.tournament.persistenceconnection.IPersistenceConnection;
-import com.tournament.persistenceconnection.PersistenceConnection;
+import com.persistenceconnection.IPersistenceConnection;
+import com.persistenceconnection.PersistenceConnection;
 
 import java.sql.*;
 import java.util.ArrayList;

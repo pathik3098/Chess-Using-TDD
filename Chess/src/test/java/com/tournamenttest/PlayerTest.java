@@ -1,11 +1,6 @@
 package com.tournamenttest;
 
-import com.tournament.Player;
-import com.tournament.persistence.interfaces.IPlayerPersistence;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 public class PlayerTest {
 

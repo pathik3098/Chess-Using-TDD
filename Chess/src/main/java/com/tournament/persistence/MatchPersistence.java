@@ -3,8 +3,8 @@ package com.tournament.persistence;
 import com.tournament.model.IMatch;
 import com.tournament.model.Match;
 import com.tournament.persistence.interfaces.IMatchPersistence;
-import com.tournament.persistenceconnection.IPersistenceConnection;
-import com.tournament.persistenceconnection.PersistenceConnection;
+import com.persistenceconnection.IPersistenceConnection;
+import com.persistenceconnection.PersistenceConnection;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;

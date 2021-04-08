@@ -1,7 +1,7 @@
 package com.tournamenttest;
 
-import com.tournament.Player;
-import com.tournament.Tournament;
+import com.tournament.model.Player;
+import com.tournament.model.Tournament;
 import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

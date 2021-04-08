@@ -1,6 +1,6 @@
 package com.tournament.persistence.interfaces;
 
-import com.tournament.Player;
+import com.tournament.model.Player;
 
 import java.util.ArrayList;
 import java.util.List;
