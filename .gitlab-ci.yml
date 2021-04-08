@@ -2,7 +2,7 @@ variables:
   GIT_STRATEGY: clone
   MAVEN_CLI_OPTS: "clean"
   HEROKU_APP_NAME: "chess5308"
-  HEROKU_API_KEY: "fb93c56f-e5e2-46af-9910-d2635f1359de"
+  HEROKU_API_KEY: "332b2525-b489-43ea-abf6-40638ba501d4"
   
 stages: 
   - build
