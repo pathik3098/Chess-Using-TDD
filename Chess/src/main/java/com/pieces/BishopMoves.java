@@ -24,6 +24,16 @@ public class BishopMoves implements IBishopMoves {
         int directionSignX = Integer.signum(destinationX - currentPiece.getPositionX());
         int directionSignY = Integer.signum(destinationY - currentPiece.getPositionY());
 
+        if (directionSignX > 0 && directionSignY > 0) {
+            int spaces_in_between = Math.abs(currentPiece.getPositionY() - destinationY) - 1;
+            for (int i = 1; i <= spaces_in_between; i++) {
+                Piece p = board.getPiece(currentPiece.getPositionX() + i, currentPiece.getPositionY() + i);
+                if (p != null) {
+                    return false;
+                }
+            }
+        }
+
         if (directionSignX > 0 && directionSignY < 0) {
             int spaces_in_between = Math.abs(destinationX - currentPiece.getPositionX()) - 1;
             for (int i = 1; i <= spaces_in_between; i++) {
@@ -55,15 +65,6 @@ public class BishopMoves implements IBishopMoves {
             }
         }
 
-        if (directionSignX > 0 && directionSignY > 0) {
-            int spaces_in_between = Math.abs(currentPiece.getPositionY() - destinationY) - 1;
-            for (int i = 1; i <= spaces_in_between; i++) {
-                Piece p = board.getPiece(currentPiece.getPositionX() + i, currentPiece.getPositionY() + i);
-                if (p != null) {
-                    return false;
-                }
-            }
-        }
         return true;
     }
 

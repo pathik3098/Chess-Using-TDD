@@ -1,10 +1,5 @@
 package com.piecestest;
-
-
-
 import static org.junit.Assert.*;
-
-
 import com.chessboard.Board;
 import com.chessboard.IBoard;
 import com.pieces.Bishop;
@@ -19,25 +14,31 @@ public class BishopTest {
     @Test
     public void sameAllyTest() {
         IBishop bishop = new Bishop(0, 1, true, "WB", board);
-        assertEquals(false, bishop.validMove(0, 2));
+        assertFalse(bishop.validMove(0, 2));
     }
 
     @Test
     public void diagonalMovementTest() {
         IBishop bishop = new Bishop(0, 0, true, "WB", board);
-        assertEquals(false, bishop.validMove(1, 1));
+        assertFalse(bishop.validMove(1, 1));
     }
 
     @Test
     public void simpleTest() {
         IBishop bishop = new Bishop(1, 1, true, "WB", board);
-        assertEquals(true, bishop.validMove(2, 2));
+        assertTrue(bishop.validMove(3, 3));
+    }
+
+    @Test
+    public void invalidMoveTest() {
+        IBishop bishop = new Bishop(1, 1, true, "WB", board);
+        assertFalse(bishop.validMove(2, 3));
     }
 
     @Test
     public void straightTest() {
         IBishop bishop = new Bishop(1, 1, true, "WB", board);
-        assertEquals(false, bishop.validMove(2, 1));
+        assertFalse(bishop.validMove(2, 1));
     }
 
     @After
