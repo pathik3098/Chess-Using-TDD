@@ -1,4 +1,6 @@
-package com.tournament;
+package com.tournamenttest;
+
+import com.tournament.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
