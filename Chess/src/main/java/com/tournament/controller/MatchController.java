@@ -57,7 +57,7 @@ public class MatchController {
 
         board.chessMovement(clickX, clickY);
 
-        Map<String, String> piecePositions = new HashMap<String, String>();
+        Map<String, String> piecePositions;
         piecePositions = iMatch.getBoard().getPositions();
         model.addAttribute("positions", piecePositions);
         model.addAttribute("activePiece", board.getActivePieceFilePath());

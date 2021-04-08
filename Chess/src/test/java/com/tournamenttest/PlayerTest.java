@@ -1,18 +1,20 @@
 package com.tournamenttest;
 
+import com.tournament.Player;
+import com.tournament.persistence.interfaces.IPlayerPersistence;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 public class PlayerTest {
 
     @Test
-    public void setAlliance()
+    public void updatePlayerPointsTest()
     {
-        PlayerDBMock db = new PlayerDBMock();
-//        Player p = new Player(1,db);
-//        p.setAlliance(Alliance.WHITE);
-//        Assertions.assertEquals(Alliance.WHITE,p.getAlliance());
-//        Assertions.assertEquals("pathik",p.getPlayerName());
-//        Assertions.assertEquals(2,p.getPlayerPoints());
-
+//        IPlayerPersistence persistence = new PlayerDBMock();
+//        ArrayList<Player> players = persistence.loadAllPlayers();
+//        //players.get(0).updatePlayerPoints();
+//        //Assertions.assertEquals(2,players.get(0).getPlayerPoints());
     }
 }

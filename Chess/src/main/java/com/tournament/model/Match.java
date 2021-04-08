@@ -2,7 +2,6 @@ package com.tournament.model;
 
 import com.chessboard.Board;
 import com.chessboard.IBoard;
-import com.tournament.Alliance;
 import com.tournament.Player;
 
 public class Match implements IMatch {
@@ -28,9 +27,25 @@ public class Match implements IMatch {
         this.player2 = player2;
         this.setPlayer1id(player1.getPlayerId());
         this.setPlayer2id(player2.getPlayerId());
-        player1.setAlliance(Alliance.WHITE);
-        player1.setAlliance(Alliance.BLACK);
+        player1.setAlliance(Player.Alliance.WHITE);
+        player1.setAlliance(Player.Alliance.BLACK);
         this.createBoard();
+    }
+
+    public Player getWinner() {
+        result = board.getResult();
+        if (result == Board.Winner.WHITEWINNER)
+        {
+            setMatchWinner(player1.getPlayerId());
+            //player1.updatePlayerPoints();
+            return player1;
+        }
+        else
+        {
+            setMatchWinner(player2.getPlayerId());
+            //player2.updatePlayerPoints();
+            return player2;
+        }
     }
 
     @Override
@@ -107,31 +122,6 @@ public class Match implements IMatch {
 
     public void createBoard() {
         this.board = new Board();
-    }
-
-    public boolean getResult() {
-        result = board.getResult();
-        if (result == Board.Winner.WHITEWINNER) {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public Player getWinner() {
-        result = board.getResult();
-        if (result == Board.Winner.WHITEWINNER)
-        {
-            setMatchWinner(player1.getPlayerId());
-            return player1;
-        }
-        else
-        {
-            setMatchWinner(player2.getPlayerId());
-            return player2;
-        }
     }
 
 }

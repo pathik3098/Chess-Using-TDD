@@ -9,21 +9,24 @@ import java.util.List;
 public class PlayerDBMock implements IPlayerPersistence {
     private String playerName;
     private int playerId;
-    private int playerPoints;
+
+
     @Override
     public void savePlayer(Player player) {
 
     }
 
-    public void loadPlayer(int playerId, Player player)
-    {
-        player.setPlayerName("pathik");
-        player.setPlayerPoints(2);
-    }
-
     @Override
-    public ArrayList<Player> loadAllPlayers() {
-        return null;
+    public ArrayList<Player> loadAllPlayers()
+    {
+        ArrayList<Player> playerList = new ArrayList<>();
+        Player player1 = new Player();
+        Player player2 = new Player();
+        player1.setPlayerName("pathik");
+        player2.setPlayerName("darshil");
+        playerList.add(player1);
+        playerList.add(player2);
+        return playerList;
     }
 
     @Override

@@ -16,7 +16,6 @@ public class Board implements IBoard {
     public Piece activePiece;
     private int turn = 0;
     boolean whiteTurn = true;
-
     Winner winner;
 
     public enum Winner {

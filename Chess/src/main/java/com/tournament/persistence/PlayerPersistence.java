@@ -20,7 +20,7 @@ public class PlayerPersistence implements IPlayerPersistence {
     public void savePlayer(Player player)
     {
         conn = conPersistence.establishDBConnection();
-        String query = "Update Player SET Player_Points = ? WHERE Player_ID = ?;";
+        String query = "Update Player SET PlayerPoints = ? WHERE PlayerID = ?;";
         try
         {
             preparedStatement = conn.prepareStatement(query);
@@ -67,6 +67,7 @@ public class PlayerPersistence implements IPlayerPersistence {
                 p.setPlayerId(UserId);
                 p.setPlayerName(playerName);
                 p.setLogtime(time);
+                p.setPlayerLevel(PlayerLevel);
 
                 playerList.add(p);
             }
@@ -84,7 +85,7 @@ public class PlayerPersistence implements IPlayerPersistence {
         try
         {
             PreparedStatement st;
-            String insertQuery = "INSERT INTO Player ( Player_ID, Player_Name, Player_Level, Player_Points) VALUES (?,?,?,?);";
+            String insertQuery = "INSERT INTO Player ( PlayerID, PlayerName, PlayerLevel, PlayerPoints) VALUES (?,?,?,?);";
             st = conn.prepareStatement(insertQuery);
             st.executeUpdate(insertQuery);
 
@@ -111,7 +112,7 @@ public class PlayerPersistence implements IPlayerPersistence {
         List<Player> leaderBoardList = new ArrayList<>();
         try {
             connection = conPersistence.establishDBConnection();
-            String queryGetPlayersPointsByTournamentId = "SELECT PlayerName, PlayerPoints FROM PLAYERS WHERE TounamentId=? ORDER BY PlayerPoints";
+            String queryGetPlayersPointsByTournamentId = "SELECT PlayerName, PlayerPoints FROM Players WHERE TounamentId=? ORDER BY PlayerPoints";
             preparedStatement = connection.prepareStatement(queryGetPlayersPointsByTournamentId);
             preparedStatement.setInt(1, tournamentId);
             ResultSet rs = preparedStatement.executeQuery();

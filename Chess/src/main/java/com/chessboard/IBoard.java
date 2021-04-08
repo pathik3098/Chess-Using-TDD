@@ -15,11 +15,8 @@ public interface IBoard {
     void removeWhitePieceFromBoard(Piece removePiece);
     void addWhitePieceToBoard(Piece addPiece);
     boolean inCheck();
-
     Board.Winner getResult();
     Map<String, String> getPositions();
-
     String isKingInCheck();
-
     String getActivePieceFilePath();
 }

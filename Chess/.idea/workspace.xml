@@ -8,11 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chessboard/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chessboard/IBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Alliance.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/StartTournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/StartTournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/MatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/PlayerPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/PlayerPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchesServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerDBMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerDBMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +70,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.userRegistrationTest">
+  <component name="RunManager" selected="JUnit.All in Chess">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -88,31 +92,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CaptureMovePawnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MatchTest.getWinnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.piecestest.*" />
+          <option name="PATTERN" value="com.tournamenttest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.piecestest" />
-      <option name="MAIN_CLASS_NAME" value="com.piecestest.CaptureMovePawnTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.tournamenttest" />
+      <option name="MAIN_CLASS_NAME" value="com.tournamenttest.MatchTest" />
+      <option name="METHOD_NAME" value="getWinnerTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EnPassantPawnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.piecestest.*" />
+          <option name="PATTERN" value="com.tournamenttest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.piecestest" />
-      <option name="MAIN_CLASS_NAME" value="com.piecestest.EnPassantPawnTest" />
+      <option name="PACKAGE_NAME" value="com.tournamenttest" />
+      <option name="MAIN_CLASS_NAME" value="com.tournamenttest.PlayerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,20 +174,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CaptureMovePawnTest" />
-      <item itemvalue="JUnit.EnPassantPawnTest" />
       <item itemvalue="JUnit.All in Chess" />
       <item itemvalue="JUnit.RegisterTest" />
       <item itemvalue="JUnit.RegisterTest.userRegistrationTest" />
       <item itemvalue="Spring Boot.ChessApplication" />
+      <item itemvalue="JUnit.PlayerTest" />
+      <item itemvalue="JUnit.MatchTest.getWinnerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in Chess" />
+        <item itemvalue="JUnit.MatchTest.getWinnerTest" />
+        <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="JUnit.RegisterTest.userRegistrationTest" />
         <item itemvalue="JUnit.RegisterTest" />
-        <item itemvalue="JUnit.All in Chess" />
-        <item itemvalue="JUnit.EnPassantPawnTest" />
-        <item itemvalue="JUnit.CaptureMovePawnTest" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +213,14 @@
       <workItem from="1617864969571" duration="5042000" />
       <workItem from="1617871877994" duration="6091000" />
     </task>
+    <task id="LOCAL-00001" summary="refactored board">
+      <created>1617894076609</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617894076610</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +237,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactored board" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored board" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
