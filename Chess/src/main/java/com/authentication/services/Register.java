@@ -5,7 +5,6 @@ import com.authentication.services.interfaces.IValidation;
 import com.authentication.persistence.RegisterPersistence;
 import com.authentication.model.Users;
 import com.authentication.persistence.interfaces.IRegisterPersistence;
-
 import java.sql.SQLException;
 
 public class Register implements IRegister

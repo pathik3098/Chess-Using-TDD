@@ -6,10 +6,8 @@ import com.authentication.model.IUsers;
 import com.authentication.model.Users;
 import com.authentication.persistence.AuthenticationPersistence;
 import com.authentication.persistence.interfaces.IAuthenticationPersistence;
-
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 

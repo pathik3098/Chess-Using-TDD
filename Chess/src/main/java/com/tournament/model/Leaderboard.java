@@ -2,7 +2,6 @@ package com.tournament.model;
 
 import com.tournament.persistence.PlayerPersistence;
 import com.tournament.persistence.interfaces.IPlayerPersistence;
-
 import java.util.List;
 
 public class Leaderboard implements ILeaderboard {

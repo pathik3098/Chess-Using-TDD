@@ -6,8 +6,10 @@ import com.tournament.persistence.interfaces.IMatchPersistence;
 import com.persistenceconnection.IPersistenceConnection;
 import com.persistenceconnection.PersistenceConnection;
 import org.springframework.stereotype.Component;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,6 @@ public class MatchPersistence implements IMatchPersistence {
             String saveQuery = "INSERT into Matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
             setFieldValues(iMatch, saveQuery);
             stmt.executeUpdate();
-
             connection.close();
         } catch (SQLException throwable) {
             throwable.printStackTrace();
@@ -55,7 +56,6 @@ public class MatchPersistence implements IMatchPersistence {
                     matchesList.add(match);
                 }
             }
-
             connection.close();
         } catch (SQLException throwable) {
             throwable.printStackTrace();
@@ -94,7 +94,6 @@ public class MatchPersistence implements IMatchPersistence {
         match.setMatchWinner(rs.getString("result"));
     }
 
-
     @Override
     public void updateMatch(Match match, int matchId) {
         try {
@@ -103,7 +102,6 @@ public class MatchPersistence implements IMatchPersistence {
             stmt.setString(6, match.getMatchWinner());
             stmt.setInt(7, match.getMatchId());
             stmt.executeUpdate();
-
             connection.close();
         } catch (SQLException throwable) {
             throwable.printStackTrace();
@@ -118,7 +116,6 @@ public class MatchPersistence implements IMatchPersistence {
             stmt = connection.prepareStatement(deleteMatchByIdQuery);
             stmt.setInt(1, matchId);
             stmt.executeUpdate();
-
             connection.close();
         } catch (SQLException throwable) {
             throwable.printStackTrace();

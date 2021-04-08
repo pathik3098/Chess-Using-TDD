@@ -1,6 +1,6 @@
 package com.tournament.controller;
-import com.chesstest.chessboard.Board;
-import com.chesstest.chessboard.IBoard;
+import com.chess.chessboard.Board;
+import com.chess.chessboard.IBoard;
 import com.tournament.model.Player;
 import com.tournament.services.IMatchService;
 import com.tournament.services.MatchService;

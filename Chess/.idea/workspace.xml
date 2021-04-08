@@ -4,13 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="">
+    <list default="true" id="2f83d5f7-a50a-40b7-95ae-d9d935bc1717" name="Default Changelist" comment="added heroku plugin in pom">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/factory/TournamentAbstractPersistenceFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/factory/TournamentConcretePersistenceFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chesstest/chessboard/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/AuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/AuthenticationPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/RegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/RegisterPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/interfaces/IAuthenticationPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/interfaces/IAuthenticationPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/interfaces/IRegisterPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/persistence/interfaces/IRegisterPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/PasswordEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/PasswordEncryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/Validation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/interfaces/IAuthentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/interfaces/IAuthentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/interfaces/IRegister.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/interfaces/IRegister.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/authentication/services/interfaces/IValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/authentication/services/interfaces/IValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/chessboard/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/chessboard/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/chessboard/IBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/chessboard/IBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/Bishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/BishopMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/BishopMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/CaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/CaptureMovePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/EnPassantPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/EnPassantPawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/King.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/Knight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/KnightKingMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/KnightKingMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/Pawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/Queen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/RookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/RookMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/abstractfactory/AbstractPieceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/abstractfactory/AbstractPieceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/abstractfactory/ConcretePieceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/abstractfactory/ConcretePieceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/IBishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/IBishop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/IBishopMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/IBishopMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/ICaptureMovePawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/ICaptureMovePawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/IEnPassantPawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/IEnPassantPawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/IKnightKingMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/IKnightKingMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/IQueen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/IQueen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chesstest/pieces/interfaces/IRookMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chess/pieces/interfaces/IRookMoves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/persistenceconnection/IPersistenceConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/persistenceconnection/IPersistenceConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/MatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/MatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/controller/TournamentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/controller/TournamentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/IMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Leaderboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Match.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerDBMock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/PlayerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/StartTournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/StartTournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/model/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/model/Tournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/persistence/MatchPersistence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tournament/services/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tournament/services/MatchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/chessboardtest/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/chessboardtest/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/BishopMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/BishopMovesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/BishopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/BishopTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/CaptureMovePawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/CaptureMovePawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/EnPassantPawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/EnPassantPawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/KingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/KingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/KnightMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/KnightMovesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/KnightTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/KnightTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/PawnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/PawnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/QueenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/QueenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/RookMovesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/RookMovesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/chesstest/piecestest/RookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/chess/piecestest/RookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/FormTournamentGroupsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/FormTournamentGroupsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/MatchMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +123,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
-  <component name="RunManager" selected="JUnit.BoardTest">
+  <component name="RunManager" selected="Spring Boot.ChessApplication (1)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -84,6 +143,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in Chess (3)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in Chess (4)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Chess" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in Chess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <option name="PACKAGE_NAME" value="" />
@@ -92,49 +167,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TournamentTest.oddSchedulingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Chess" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.chesstest.chessboardtest.*" />
+          <option name="PATTERN" value="com.tournamenttest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.chesstest.chessboardtest" />
-      <option name="MAIN_CLASS_NAME" value="com.chesstest.chessboardtest.BoardTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PawnTest.blackPawnPromotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.piecestest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.piecestest" />
-      <option name="MAIN_CLASS_NAME" value="com.piecestest.PawnTest" />
-      <option name="METHOD_NAME" value="blackPawnPromotionTest" />
+      <option name="PACKAGE_NAME" value="com.tournamenttest" />
+      <option name="MAIN_CLASS_NAME" value="com.tournamenttest.TournamentTest" />
+      <option name="METHOD_NAME" value="oddSchedulingTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PawnTest.whitePawnPromotionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ChessApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Chess" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.piecestest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.piecestest" />
-      <option name="MAIN_CLASS_NAME" value="com.piecestest.PawnTest" />
-      <option name="METHOD_NAME" value="whitePawnPromotionTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ChessApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,18 +211,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in Chess (2)" />
-      <item itemvalue="JUnit.PawnTest.whitePawnPromotionTest" />
-      <item itemvalue="JUnit.All in Chess" />
-      <item itemvalue="JUnit.PawnTest.blackPawnPromotionTest" />
+      <item itemvalue="JUnit.All in Chess (3)" />
       <item itemvalue="Spring Boot.ChessApplication" />
-      <item itemvalue="JUnit.BoardTest" />
+      <item itemvalue="Spring Boot.ChessApplication (1)" />
+      <item itemvalue="JUnit.All in Chess" />
+      <item itemvalue="JUnit.TournamentTest.oddSchedulingTest" />
+      <item itemvalue="JUnit.All in Chess (4)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BoardTest" />
-        <item itemvalue="JUnit.PawnTest.blackPawnPromotionTest" />
+        <item itemvalue="JUnit.All in Chess (4)" />
+        <item itemvalue="JUnit.TournamentTest.oddSchedulingTest" />
         <item itemvalue="JUnit.All in Chess" />
-        <item itemvalue="JUnit.PawnTest.whitePawnPromotionTest" />
+        <item itemvalue="JUnit.All in Chess (3)" />
         <item itemvalue="JUnit.All in Chess (2)" />
       </list>
     </recent_temporary>
@@ -197,6 +249,8 @@
       <workItem from="1617697691239" duration="7280000" />
       <workItem from="1617864969571" duration="5042000" />
       <workItem from="1617871877994" duration="6091000" />
+      <workItem from="1617911759007" duration="5828000" />
+      <workItem from="1617917798551" duration="2186000" />
     </task>
     <servers />
   </component>
@@ -294,7 +348,22 @@
           <line>165</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tournamenttest/TournamentTest.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Chess$AuthenticationTest.ic" NAME="AuthenticationTest Coverage Results" MODIFIED="1617915932935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.authenticationtest.*</FILTER>
+    </SUITE>
   </component>
 </project>

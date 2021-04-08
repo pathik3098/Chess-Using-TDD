@@ -3,7 +3,6 @@ import com.authentication.persistence.interfaces.IRegisterPersistence;
 import com.persistenceconnection.PersistenceConnection;
 import com.persistenceconnection.IPersistenceConnection;
 import com.authentication.model.Users;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -46,6 +45,5 @@ public class RegisterPersistence implements IRegisterPersistence
             connection.close();
             return "Registration Failed";
         }
-
     }
 }

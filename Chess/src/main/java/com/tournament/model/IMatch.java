@@ -1,6 +1,6 @@
 package com.tournament.model;
 
-import com.chesstest.chessboard.IBoard;
+import com.chess.chessboard.IBoard;
 
 public interface IMatch {
 

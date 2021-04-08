@@ -1,12 +1,10 @@
 package com.authentication.services;
 import com.authentication.services.interfaces.IValidation;
 import com.authentication.model.Users;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 public class Validation implements IValidation
 {
@@ -28,7 +26,6 @@ public class Validation implements IValidation
         playerLevel = null;
         playerLevelValue = 0;
     }
-
 
     @Override
     public boolean isPasswordValid(String password) {
@@ -105,5 +102,4 @@ public class Validation implements IValidation
         Matcher m = validSymbolPattern.matcher(password);
         return m.find();
     }
-
 }

@@ -1,12 +1,9 @@
 package com.tournament.model;
-import com.tournament.persistence.PlayerPersistence;
-import com.tournament.persistence.TournamentPersistence;
-import com.tournament.persistence.interfaces.IPlayerPersistence;
+import com.tournament.persistence.factory.TournamentAbstractPersistenceFactory;
+import com.tournament.persistence.factory.TournamentConcretePersistenceFactory;
 import com.tournament.persistence.interfaces.ITournamentPersistence;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 
 public class Tournament {
@@ -53,9 +50,9 @@ public class Tournament {
             numPairs = getPossiblePairs(Players);
             numPlayers = Players.size();
         }
-
-        ITournamentPersistence tournamentPersistence = new TournamentPersistence();
-        tournamentPersistence.loadPlayer(Players.get(0), tournamentID);
+        TournamentAbstractPersistenceFactory tournamentAbstractPersistenceFactoryObj = new TournamentConcretePersistenceFactory();
+        ITournamentPersistence tournamentPersistenceObj = tournamentAbstractPersistenceFactoryObj.getTournamentPersistence();
+        tournamentPersistenceObj.loadPlayer(Players.get(0), tournamentID);
     }
 
     public ArrayList<Player> oddScheduling(int numPairs,ArrayList<Player> Players)

@@ -1,6 +1,5 @@
 package com.authentication.services.interfaces;
 import com.authentication.model.Users;
-
 import java.sql.SQLException;
 import java.util.List;
 

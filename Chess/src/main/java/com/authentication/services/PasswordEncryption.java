@@ -1,7 +1,6 @@
 package com.authentication.services;
 
 import com.authentication.services.interfaces.IPasswordEncryption;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

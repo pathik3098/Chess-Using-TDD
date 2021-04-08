@@ -1,13 +1,10 @@
 package com.authentication.controller;
-
 import com.authentication.services.Authentication;
 import com.authentication.services.Register;
 import com.authentication.services.interfaces.IAuthentication;
 import com.authentication.services.interfaces.IRegister;
 import com.authentication.model.IUsers;
 import com.authentication.model.Users;
-import com.authentication.persistence.AuthenticationPersistence;
-import com.authentication.persistence.interfaces.IAuthenticationPersistence;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

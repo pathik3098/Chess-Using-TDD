@@ -1,7 +1,6 @@
 package com.authentication.persistence.interfaces;
 import com.authentication.model.IUsers;
 import com.authentication.model.Users;
-
 import java.sql.SQLException;
 import java.util.List;
 

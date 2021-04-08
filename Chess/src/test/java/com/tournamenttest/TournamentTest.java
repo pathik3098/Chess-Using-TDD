@@ -5,7 +5,6 @@ import com.tournament.model.Tournament;
 import org.junit.After;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -101,7 +100,6 @@ public class TournamentTest {
         nextRoundPlayers=tournament.evenScheduling(numPairs,players);
         Assertions.assertEquals(3,nextRoundPlayers.size());
     }
-
 
     @Test
     void oddSchedulingTest()

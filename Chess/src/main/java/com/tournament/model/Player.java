@@ -1,5 +1,9 @@
 package com.tournament.model;
 
+import com.tournament.persistence.factory.TournamentAbstractPersistenceFactory;
+import com.tournament.persistence.factory.TournamentConcretePersistenceFactory;
+import com.tournament.persistence.interfaces.IPlayerPersistence;
+
 public class Player {
 
     private String playerName;
@@ -24,6 +28,11 @@ public class Player {
     {
         int winPoints = 2;
         playerPoints = playerPoints + winPoints;
+
+        TournamentAbstractPersistenceFactory tournamentAbstractPersistenceFactoryObj = new TournamentConcretePersistenceFactory();
+        IPlayerPersistence playerPersistenceObj = tournamentAbstractPersistenceFactoryObj.getPlayerPersistence();
+        playerPersistenceObj.savePlayer(this);
+
     }
 
     public void setAlliance(Alliance alliance) {
