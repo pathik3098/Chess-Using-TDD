@@ -5,6 +5,10 @@ import com.tournament.authentication.interfaces.IAuthentication;
 import com.tournament.authentication.interfaces.IRegister;
 import com.tournament.model.IUsers;
 import com.tournament.model.Users;
+import com.tournament.persistence.AuthenticationPersistence;
+import com.tournament.persistence.MatchPersistence;
+import com.tournament.persistence.interfaces.IAuthenticationPersistence;
+import com.tournament.persistence.interfaces.IMatchPersistence;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AuthenticationController
@@ -41,6 +49,11 @@ public class AuthenticationController
 
         IAuthentication loginObj= new Authentication();
         String message = loginObj.userAuthentication(UserId,password);
+
+        IAuthenticationPersistence authenticationPersistence =new AuthenticationPersistence();
+        List<Users> allUsers = new ArrayList<>();
+        allUsers = authenticationPersistence.getAllUsers();
+        model.addAttribute("allUsers", allUsers);
 
         if(message.equals("Login Successful"))
         {
