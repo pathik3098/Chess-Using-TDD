@@ -17,8 +17,6 @@ public class TournamentController {
     @RequestMapping("/tournament")
     public String viewTournamentPage()
     {
-        StartTournament startTournament = new StartTournament();
-        startTournament.initialise();
         return "Tournament";
     }
 
@@ -31,6 +29,15 @@ public class TournamentController {
         List<Player> players = leaderboard.getLeaderboard(Integer.parseInt(tournamentId));
 
         model.addAttribute("players", players);
+
+        return "Tournament";
+    }
+
+    @RequestMapping("/startTournament")
+    public String startTournamentPage()
+    {
+        StartTournament startTournament = new StartTournament();
+        startTournament.initialise();
 
         return "Tournament";
     }
