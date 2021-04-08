@@ -21,7 +21,7 @@ public class MatchPersistence implements IMatchPersistence {
     @Override
     public void saveMatch(IMatch iMatch) {
         try {
-            String saveQuery = "INSERT into matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
+            String saveQuery = "INSERT into Matches (player1id,player2id,startTime,endTime,tournamentId) value (?,?,?,?,?)";
             setFieldValues(iMatch, saveQuery);
             stmt.executeUpdate();
 
@@ -46,7 +46,7 @@ public class MatchPersistence implements IMatchPersistence {
         List<Match> matchesList = new ArrayList<>();
         try {
             connection = dbConnection.establishDBConnection();
-            String getAllMatchesQuery = "SELECT * from matches";
+            String getAllMatchesQuery = "SELECT * from Matches";
             stmt = connection.prepareStatement(getAllMatchesQuery);
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
@@ -68,7 +68,7 @@ public class MatchPersistence implements IMatchPersistence {
         Match match = new Match();
         try {
             connection = dbConnection.establishDBConnection();
-            String getMatchByIdQuery = "SELECT * from matches where matchId=?";
+            String getMatchByIdQuery = "SELECT * from Matches where matchId=?";
             stmt = connection.prepareStatement(getMatchByIdQuery);
             stmt.setInt(1, matchId);
             ResultSet rs = stmt.executeQuery();
@@ -98,7 +98,7 @@ public class MatchPersistence implements IMatchPersistence {
     @Override
     public void updateMatch(Match match, int matchId) {
         try {
-            String updateMatchByIdQuery = "UPDATE matches SET player1id=?,player2id=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
+            String updateMatchByIdQuery = "UPDATE Matches SET player1id=?,player2id=?,startTime=?,endTime=?,tournamentId=?,result=? where matchId=?";
             setFieldValues(match, updateMatchByIdQuery);
             stmt.setString(6, match.getMatchWinner());
             stmt.setInt(7, match.getMatchId());
@@ -114,7 +114,7 @@ public class MatchPersistence implements IMatchPersistence {
     public void deleteMatch(int matchId) {
         try {
             connection = dbConnection.establishDBConnection();
-            String deleteMatchByIdQuery = "DELETE From matches where matchId=?";
+            String deleteMatchByIdQuery = "DELETE From Matches where matchId=?";
             stmt = connection.prepareStatement(deleteMatchByIdQuery);
             stmt.setInt(1, matchId);
             stmt.executeUpdate();

@@ -2,20 +2,17 @@ package com.tournament.controller;
 
 import com.chessboard.Board;
 import com.chessboard.IBoard;
-import com.pieces.Piece;
 import com.tournament.Player;
+import com.tournament.services.matchservice.IMatchService;
+import com.tournament.services.matchservice.MatchService;
 import com.tournament.model.IMatch;
 import com.tournament.model.Match;
-import com.tournament.persistence.MatchPersistence;
-import com.tournament.persistence.interfaces.IMatchPersistence;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -25,21 +22,22 @@ public class MatchController {
     Player player2 = new Player();
     IMatch iMatch = new Match(player1, player2);
     IBoard board = new Board();
-    IMatchPersistence iMatchPersistence;
 
-    @RequestMapping("/matchChess")
+    @RequestMapping(value = "/matchChess", method = {RequestMethod.POST})
     public String viewMatchChessPage(HttpServletRequest request, Model model) {
-        iMatchPersistence = new MatchPersistence();
 
+        String firstPlayerId = request.getParameter("firstPlayer");
+        String secondPlayerId = request.getParameter("secondPlayer");
+        iMatch.setPlayer1id(firstPlayerId);
+        iMatch.setPlayer2id(secondPlayerId);
 
-//        String playerId
-//        iMatch.setPlayer1id();
-        iMatchPersistence.saveMatch(iMatch);
+        IMatchService iMatchService= new MatchService();
+        iMatchService.saveMatch(iMatch);
 
         iMatch.createBoard();
         board = iMatch.getBoard();
 
-        Map<String, String> piecePositions = new HashMap<String, String>();
+        Map<String, String> piecePositions;
         piecePositions = iMatch.getBoard().getPositions();
         model.addAttribute("positions", piecePositions);
 
@@ -57,7 +55,7 @@ public class MatchController {
 
         board.chessMovement(clickX, clickY);
 
-        Map<String, String> piecePositions = new HashMap<String, String>();
+        Map<String, String> piecePositions;
         piecePositions = iMatch.getBoard().getPositions();
         model.addAttribute("positions", piecePositions);
         model.addAttribute("activePiece", board.getActivePieceFilePath());
