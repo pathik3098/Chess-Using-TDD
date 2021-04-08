@@ -5,18 +5,11 @@ import com.pieces.interfaces.IKnightKingMoves;
 
 public class KnightKingMoves implements IKnightKingMoves
 {
-    private int initialX;
-    private int initialY;
-    private boolean isWhite;
-    private String filePath;
+
     public IBoard board;
 
-    public KnightKingMoves(int initialX, int initialY, boolean isWhite, String filePath, IBoard board)
+    public KnightKingMoves(IBoard board)
     {
-        this.initialX = initialX;
-        this.initialY = initialY;
-        this.isWhite = isWhite;
-        this.filePath = filePath;
         this.board = board;
     }
 
