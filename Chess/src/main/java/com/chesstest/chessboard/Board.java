@@ -224,10 +224,6 @@ public class Board implements IBoard {
 
         if(activePiece==null && clickedPiece != null)
         {
-            if(inCheck())
-            {
-                System.out.println("King is under check");
-            }
             setActivePiece(clickedPiece);
         }
 
