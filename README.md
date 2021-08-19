@@ -1,2 +1,2 @@
-# Group 12
+# Chess using Test Driven Development (TDD)
 
